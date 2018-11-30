@@ -1,0 +1,25 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": ["scripthost", "es2015"],
+    "declaration": true,
+    "resolveJsonModule": true,
+    "declarationMap": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "strictFunctionTypes": true,
+    "pretty": true,
+    "stripInternal": true,
+    "strictNullChecks": true,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "inlineSourceMap": true,
+    "strict": true,
+    "composite": true
+  },
+  "exclude": ["**/node_modules/**/*"]
+}

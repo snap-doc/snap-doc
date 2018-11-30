@@ -1,0 +1,34 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+pool:
+  vmImage: 'vs2017-win2016'
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '8.x'
+    displayName: 'Install Node.js'
+
+  - script: |
+      echo "Installing global dependencies"
+      npm install -g ts-node yarn lerna
+    displayName: 'Setup global deps'
+  - script: |
+      echo "Installing project dependencies"
+      npm install
+      echo "Setting up environment"
+    displayName: 'Setup project'
+  - script: |
+      echo "Setting up environment"
+      bash ./scripts/ci/setup_env.sh
+    displayName: 'Setup environment'
+  - script: |
+      export TEMP="$AGENT_TEMPDIRECTORY"
+      export NODE_TEMP="$(node -e "console.log(require('os').tmpdir())")"
+      node -e "console.log('TMP ' + require('os').tmpdir())"
+      node -e "console.log(JSON.stringify(process.env, null, '  '))"
+      lerna run test
+    displayName: 'Run tests'
