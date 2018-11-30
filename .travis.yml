@@ -29,7 +29,6 @@ jobs:
       name: 'Basic Test'
       script: lerna run test
     - &ui-kit-test-one
-      name: 'Ember Version: ${$EMBER_TRY_SCENARIO}'
       env: EMBER_TRY_SCENARIO=ember-lts-3.4
       script:
         - cd packages/ui-kit
