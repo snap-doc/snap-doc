@@ -37,8 +37,8 @@ jobs:
     - name: 'UI Kit (smoke)'
       script: lerna run test
     - stage: compatibility
-      env: EMBER_TRY_SCENARIO=ember-lts-3.4
       &ui-kit-test-one
+      env: EMBER_TRY_SCENARIO=ember-lts-3.4
       script:
         - cd packages/ui-kit
         - ember try:one $EMBER_TRY_SCENARIO
