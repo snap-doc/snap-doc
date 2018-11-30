@@ -23,18 +23,17 @@ stages:
   - name: deploy
     if: branch = master AND type = push
 
-&ui-kit-test-one
-  script:
-    - cd packages/ui-kit
-    - ember try:one $EMBER_TRY_SCENARIO
-
 jobs:
   include:
     - stage: basic
       name: 'Basic Test'
       script: lerna run test
-    - <<: *ui-kit-test-one
+    - &ui-kit-test-one
+      name: 'Ember Version: ${$EMBER_TRY_SCENARIO}'
       env: EMBER_TRY_SCENARIO=ember-lts-3.4
+      script:
+        - cd packages/ui-kit
+        - ember try:one $EMBER_TRY_SCENARIO
     - <<: *ui-kit-test-one
       env: EMBER_TRY_SCENARIO=ember-release
     - <<: *ui-kit-test-one
@@ -42,7 +41,7 @@ jobs:
     - <<: *ui-kit-test-one
       env: EMBER_TRY_SCENARIO=ember-canary
     - <<: *ui-kit-test-one
-      env: EMBER_TRY_SCENARIO=ember-default-with-jquery 
+      env: EMBER_TRY_SCENARIO=ember-default-with-jquery
     - stage: deploy
       name: 'Publish to npm'
       script: .travis/_publish.sh
