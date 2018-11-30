@@ -1,17 +1,18 @@
 #!/bin/bash
+
 echo "=== Code-To-JSON [Setup Env] ==="
-source ./scripts/ci/setup_tools.sh
+bash ./scripts/ci/setup_tools.sh
 if [ "$TRAVIS" == "true" ]
 then 
   echo "Travis-CI Detected!"
-  source ./scripts/ci/setup_env/travis.sh
+  bash ./scripts/ci/setup_env/travis.sh
 elif [ "$SYSTEM_COLLECTIONID" != "" ]
 then
   echo "Azure Pipelines Detected!"
-  source ./scripts/ci/setup_env/azure.sh
+  bash ./scripts/ci/setup_env/azure.sh
 else
   echo "Default Env Detected!"
-  source ./scripts/ci/setup_env/default.sh
+  bash ./scripts/ci/setup_env/default.sh
 fi
 
 if [ "$CI_BRANCH" == "master" ]
