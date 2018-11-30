@@ -14,7 +14,7 @@ after_install: npm run ci:setup_env
 
 stages:
   - basic
-  - deploy
+  - name: deploy
     if: branch = master AND type = push
 
 jobs:
