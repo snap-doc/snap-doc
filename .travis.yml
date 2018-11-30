@@ -18,4 +18,4 @@ jobs:
       script: lerna run test
     - stage: 'Publish'
       script: .travis/_publish.sh
-      if: branch = master AND env(TRAVIS_PULL_REQUEST) = false
+      if: branch = master AND env(TRAVIS_PULL_REQUEST) = "false"
