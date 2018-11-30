@@ -10,7 +10,7 @@ node_js:
 git:
   depth: 1
 after_install: npm run ci:setup_env
-after_success: npm run ci:after_success
+# after_success: npm run ci:after_success
 
 jobs:
   include:
@@ -18,4 +18,4 @@ jobs:
       script: lerna run test
     - stage: 'Publish'
       script: .travis/_publish.sh
-      if: branch = master
+      if: branch = master AND env(TRAVIS_PULL_REQUEST) = false
