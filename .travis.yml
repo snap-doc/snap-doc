@@ -9,6 +9,6 @@ node_js:
   - '10'
 git:
   depth: 1
-before_install: npm run ci:setup_env
+after_install: npm run ci:setup_env
 script: npm run ci:run_tests
 after_success: npm run ci:after_success
