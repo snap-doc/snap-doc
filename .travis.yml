@@ -28,6 +28,8 @@ before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - export PATH=$HOME/.yarn/bin:$PATH
 
+install:
+  - yarn install --non-interactive --no-lockfile
 jobs:
   include:
     - stage: basic
@@ -38,21 +40,22 @@ jobs:
         - lerna run lint:js
         - lerna run lint:ts
         - lerna run lint:hbs
-    - name: 'UI Kit (smoke)'
+    - name: 'Fixed Dependencies'
+      install:
+        - yarn install --non-interactive
       script: lerna run test
     - stage: compatibility
-      name: 'ember-release'
-      script:
-        - cd packages/ui-kit
-        - ember try:one ember-release
+      name: 'Floating Dependencies'
+      script: lerna run test
     - &ui-kit-test-one
-      name: $EMBER_TRY_SCENARIO
       env: EMBER_TRY_SCENARIO=ember-lts-3.4
       script:
         - cd packages/ui-kit
         - ember try:one $EMBER_TRY_SCENARIO
     - <<: *ui-kit-test-one
       env: EMBER_TRY_SCENARIO=ember-beta
+    - <<: *ui-kit-test-one
+      env: EMBER_TRY_SCENARIO=ember-release
     - <<: *ui-kit-test-one
       env: EMBER_TRY_SCENARIO=ember-canary
     - <<: *ui-kit-test-one
