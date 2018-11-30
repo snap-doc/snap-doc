@@ -15,4 +15,7 @@ after_success: npm run ci:after_success
 jobs:
   include:
     - stage: 'Basic Tests'
-      script: lerna run test && ./node_modules/.bin/travis-deploy-once .travis/_publish.sh
+      script: lerna run test
+    - stage: 'Publish'
+      script: .travis/_publish.sh
+      if: branch = master
