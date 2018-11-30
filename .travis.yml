@@ -35,38 +35,38 @@ jobs:
   allow_failures:
     - env: EMBER_TRY_SCENARIO=ember-canary
   include:
-    # - stage: basic
-    #   name: 'Conventional Commits'
-    #   script: commitlint-travis
-    # - name: 'Lint'
-    #   script:
-    #     - lerna run lint:js
-    #     - lerna run lint:ts
-    #     - lerna run lint:hbs
-    # - name: 'Fixed Dependencies'
-    #   install:
-    #     - yarn install --non-interactive
-    #   script: lerna run test
+    - stage: basic
+      name: 'Conventional Commits'
+      script: commitlint-travis
+    - name: 'Lint'
+      script:
+        - lerna run lint:js
+        - lerna run lint:ts
+        - lerna run lint:hbs
+    - name: 'Fixed Dependencies'
+      install:
+        - yarn install --non-interactive
+      script: lerna run test
 
-    # - stage: compatibility
-    #   name: 'Floating Dependencies'
-    #   script: lerna run test
-    # - &ui-kit-test-one
-    #   env: EMBER_TRY_SCENARIO=ember-lts-3.4
-    #   script:
-    #     - cd packages/ui-kit
-    #     - ember try:one $EMBER_TRY_SCENARIO
-    # - <<: *ui-kit-test-one
-    #   node_js: 8
-    #   env: EMBER_TRY_SCENARIO=ember-lts-3.4
-    # - <<: *ui-kit-test-one
-    #   env: EMBER_TRY_SCENARIO=ember-beta
-    # - <<: *ui-kit-test-one
-    #   env: EMBER_TRY_SCENARIO=ember-release
-    # - <<: *ui-kit-test-one
-    #   env: EMBER_TRY_SCENARIO=ember-canary
-    # - <<: *ui-kit-test-one
-    #   env: EMBER_TRY_SCENARIO=ember-default-with-jquery
+    - stage: compatibility
+      name: 'Floating Dependencies'
+      script: lerna run test
+    - &ui-kit-test-one
+      env: EMBER_TRY_SCENARIO=ember-lts-3.4
+      script:
+        - cd packages/ui-kit
+        - ember try:one $EMBER_TRY_SCENARIO
+    - <<: *ui-kit-test-one
+      node_js: 8
+      env: EMBER_TRY_SCENARIO=ember-lts-3.4
+    - <<: *ui-kit-test-one
+      env: EMBER_TRY_SCENARIO=ember-beta
+    - <<: *ui-kit-test-one
+      env: EMBER_TRY_SCENARIO=ember-release
+    - <<: *ui-kit-test-one
+      env: EMBER_TRY_SCENARIO=ember-canary
+    - <<: *ui-kit-test-one
+      env: EMBER_TRY_SCENARIO=ember-default-with-jquery
     - stage: deploy
       name: 'Publish to npm'
       script: .travis/_publish.sh
