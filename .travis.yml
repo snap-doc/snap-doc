@@ -20,6 +20,7 @@ after_install: npm run ci:setup_env
 
 stages:
   - basic
+  - compatibility
   - name: deploy
     if: branch = master AND type = push
 
@@ -33,9 +34,10 @@ jobs:
         - lerna run lint:js
         - lerna run lint:ts
         - lerna run lint:hbs
-    - name: 'Basic Test'
+    - name: 'UI Kit (smoke)'
       script: lerna run test
-    - &ui-kit-test-one
+    - stage: compatibility
+      &ui-kit-test-one
       env: EMBER_TRY_SCENARIO=ember-lts-3.4
       script:
         - cd packages/ui-kit
