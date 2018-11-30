@@ -1,11 +1,4 @@
 {
   "files": [],
-  "references": [
-    { "path": "test-helpers" },
-    { "path": "cli" },
-    { "path": "core" },
-    { "path": "utils" },
-    { "path": "schema" },
-    { "path": "formatter" }
-  ]
+  "references": [{ "path": "snap-doc" }]
 }
