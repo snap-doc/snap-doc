@@ -27,6 +27,20 @@ jobs:
   include:
     - stage: basic
       script: lerna run test
+    - &ui-kit-test-one
+      script:
+        - cd packages/ui-kit
+        - ember try:one $EMBER_TRY_SCENARIO
+    - <<: *ui-kit-test-one
+      env: EMBER_TRY_SCENARIO=ember-lts-3.4
+    - <<: *ui-kit-test-one
+      env: EMBER_TRY_SCENARIO=ember-release
+    - <<: *ui-kit-test-one
+      env: EMBER_TRY_SCENARIO=ember-beta
+    - <<: *ui-kit-test-one
+      env: EMBER_TRY_SCENARIO=ember-canary
+    - <<: *ui-kit-test-one
+      env: EMBER_TRY_SCENARIO=ember-default-with-jquery 
     - stage: deploy
       name: 'Publish to npm'
       script: .travis/_publish.sh
