@@ -26,7 +26,14 @@ stages:
 jobs:
   include:
     - stage: basic
-      name: 'Basic Test'
+      name: 'Conventional Commits'
+      script: commitlint-travis
+    - name: 'Lint'
+      script:
+        - lerna run lint:js
+        - lerna run lint:ts
+        - lerna run lint:hbs
+    - name: 'Basic Test'
       script: lerna run test
     - &ui-kit-test-one
       env: EMBER_TRY_SCENARIO=ember-lts-3.4
