@@ -1,14 +1,20 @@
 sudo: false
 language: node_js
-# cache:
-#   directories:
-#     - node_modules
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
 notifications:
   email: false
+
 node_js:
   - '10'
+
 git:
   depth: 1
+
 after_install: npm run ci:setup_env
 # after_success: npm run ci:after_success
 
