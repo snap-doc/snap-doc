@@ -31,6 +31,9 @@ before_install:
 install:
   - yarn install --non-interactive --no-lockfile
 jobs:
+  fail_fast: true
+  allow_failures:
+    - env: EMBER_TRY_SCENARIO=ember-canary
   include:
     - stage: basic
       name: 'Conventional Commits'
