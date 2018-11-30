@@ -12,10 +12,15 @@ git:
 after_install: npm run ci:setup_env
 # after_success: npm run ci:after_success
 
+stages:
+  - basic
+  - deploy
+    if: branch = master AND type = push
+
 jobs:
   include:
-    - stage: 'Basic Tests'
+    - stage: basic
       script: lerna run test
-    - stage: 'Publish'
+    - stage: deploy
+      name: 'Publish to npm'
       script: .travis/_publish.sh
-      if: branch = master AND type = push
