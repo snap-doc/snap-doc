@@ -25,5 +25,8 @@
   },
   "bugs": {
     "url": "https://github.com/snap-doc/snap-doc/issues"
+  },
+  "devDependencies": {
+    "scripty": "^1.8.0"
   }
 }
