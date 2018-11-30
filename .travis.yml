@@ -23,14 +23,16 @@ stages:
   - name: deploy
     if: branch = master AND type = push
 
+&ui-kit-test-one
+  script:
+    - cd packages/ui-kit
+    - ember try:one $EMBER_TRY_SCENARIO
+
 jobs:
   include:
     - stage: basic
+      name: 'Basic Test'
       script: lerna run test
-    - &ui-kit-test-one
-      script:
-        - cd packages/ui-kit
-        - ember try:one $EMBER_TRY_SCENARIO
     - <<: *ui-kit-test-one
       env: EMBER_TRY_SCENARIO=ember-lts-3.4
     - <<: *ui-kit-test-one
