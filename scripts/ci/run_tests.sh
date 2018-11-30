@@ -8,19 +8,19 @@ echo "TRAVIS_PULL_REQUEST=$TRAVIS_PULL_REQUEST"
 if [ "$TRAVIS" != "" -a "$TRAVIS_PULL_REQUEST" == "false"  -a "$TRAVIS_BRANCH" == "master" ]
 then
     echo "TRAVIS: We are on master. Attempting publish after successful tests"
-    yarn test:ci && ./node_modules/.bin/travis-deploy-once .travis/_publish.sh
+    lerna run test && ./node_modules/.bin/travis-deploy-once .travis/_publish.sh
 elif [ "$TRAVIS" != "" -a "$TRAVIS_PULL_REQUEST" != "false" -a "$TRAVIS_BRANCH" == "master" ]
 then
     echo "TRAVIS: PR build (master)"
-    yarn test:ci
+    lerna run test
 elif [ "$TRAVIS" != "" -a "$TRAVIS_BRANCH" != "master" ]
 then
     echo "TRAVIS: PR build (branch)"
-    yarn test:ci
+    lerna run test
 elif [ "$TRAVIS" != "" ]
 then
     echo "TRAVIS: (other build)"
-    yarn test:ci
+    lerna run test
 else
     echo "NON-TRAVIS: Non master, non-pr build"
   bash ./scripts/test/ci.sh
