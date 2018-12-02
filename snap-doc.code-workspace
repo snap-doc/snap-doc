@@ -1,0 +1,17 @@
+{
+  "folders": [
+    {
+      "name": "UI Kit",
+      "path": "packages/ui-kit"
+    },
+    {
+      "name": "Main",
+      "path": "packages/snap-doc"
+    },
+    {
+      "name": "root",
+      "path": "."
+    }
+  ],
+  "settings": {}
+}
