@@ -1,4 +1,6 @@
-# snap-doc
+# SnapDoc
+
+Easy versioned documentation for TypeScript and JavaScript apps and libraries
 
 [![Build Status](https://travis-ci.org/snap-doc/snap-doc.svg?branch=master)](https://travis-ci.org/snap-doc/snap-doc)
 [![Build Status](https://dev.azure.com/snap-doc/snap-doc/_apis/build/status/snap-doc.snap-doc)](https://dev.azure.com/snap-doc/snap-doc/_build/latest?definitionId=1)
