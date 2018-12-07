@@ -26,5 +26,5 @@ steps:
       export NODE_TEMP="$(node -e "console.log(require('os').tmpdir())")"
       node -e "console.log('TMP ' + require('os').tmpdir())"
       node -e "console.log(JSON.stringify(process.env, null, '  '))"
-      lerna run test
+      lerna run test --scope=@snap-doc/ui-kit
     displayName: 'Run tests'
