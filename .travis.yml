@@ -15,9 +15,6 @@ node_js:
 git:
   depth: 1
 
-after_install: npm run ci:setup_env
-# after_success: npm run ci:after_success
-
 stages:
   - basic
   - compatibility
@@ -30,6 +27,8 @@ stages:
 
 install:
   - yarn install --non-interactive --no-lockfile
+  - yarn global add lerna
+
 jobs:
   fail_fast: true
   allow_failures:
@@ -44,9 +43,9 @@ jobs:
         - lerna run lint:ts
         - lerna run lint:hbs
     - name: 'Fixed Dependencies'
-      install:
-        - yarn install --non-interactive
-      script: lerna run test
+      install: yarn install --non-interactive
+      script: lerna run test:coverage
+      after_success: codecov
 
     - stage: compatibility
       name: 'Floating Dependencies'
@@ -55,7 +54,7 @@ jobs:
       env: EMBER_TRY_SCENARIO=ember-lts-3.4
       script:
         - cd packages/ui-kit
-        - ember try:one $EMBER_TRY_SCENARIO
+        - lerna run try:one
     - <<: *ui-kit-test-one
       node_js: 8
       env: EMBER_TRY_SCENARIO=ember-lts-3.4

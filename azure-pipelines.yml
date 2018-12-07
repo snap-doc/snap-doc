@@ -14,21 +14,17 @@ steps:
 
   - script: |
       echo "Installing global dependencies"
-      npm install -g ts-node yarn lerna
+      npm install -g ts-node yarn lerna ember-cli
     displayName: 'Setup global deps'
   - script: |
       echo "Installing project dependencies"
-      npm install
+      yarn install --non-interactive
       echo "Setting up environment"
     displayName: 'Setup project'
-  - script: |
-      echo "Setting up environment"
-      bash ./scripts/ci/setup_env.sh
-    displayName: 'Setup environment'
   - script: |
       export TEMP="$AGENT_TEMPDIRECTORY"
       export NODE_TEMP="$(node -e "console.log(require('os').tmpdir())")"
       node -e "console.log('TMP ' + require('os').tmpdir())"
       node -e "console.log(JSON.stringify(process.env, null, '  '))"
-      lerna run test
+      lerna run test --scope=@snap-doc/ui-kit
     displayName: 'Run tests'

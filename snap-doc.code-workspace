@@ -5,6 +5,10 @@
       "path": "packages/ui-kit"
     },
     {
+      "name": "App",
+      "path": "packages/app"
+    },
+    {
       "name": "Main",
       "path": "packages/snap-doc"
     },
