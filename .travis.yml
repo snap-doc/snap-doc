@@ -55,7 +55,7 @@ jobs:
       env: EMBER_TRY_SCENARIO=ember-lts-3.4
       script:
         - cd packages/ui-kit
-        - ember try:one $EMBER_TRY_SCENARIO
+        - lerna run try:one
     - <<: *ui-kit-test-one
       node_js: 8
       env: EMBER_TRY_SCENARIO=ember-lts-3.4

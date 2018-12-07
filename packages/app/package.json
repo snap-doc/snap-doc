@@ -25,7 +25,8 @@
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
     "start": "ember serve",
-    "test": "ember test"
+    "test": "ember test",
+    "try:one": "ember try:one $EMBER_TRY_SCENARIO"
   },
   "bugs": {
     "url": "https://github.com/snap-doc/snap-doc/issues"

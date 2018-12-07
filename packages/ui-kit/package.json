@@ -20,7 +20,8 @@
     "lint": "yarn lint:js && yarn lint:hbs",
     "start": "ember serve",
     "test": "ember test",
-    "test:all": "ember try:each"
+    "test:all": "ember try:each",
+    "try:one": "ember try:one $EMBER_TRY_SCENARIO"
   },
   "dependencies": {
     "ember-cli-babel": "^7.0.0"
