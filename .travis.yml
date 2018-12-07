@@ -15,9 +15,6 @@ node_js:
 git:
   depth: 1
 
-after_install: npm run ci:setup_env
-# after_success: npm run ci:after_success
-
 stages:
   - basic
   - compatibility
@@ -30,6 +27,8 @@ stages:
 
 install:
   - yarn install --non-interactive --no-lockfile
+  - yarn global add lerna
+
 jobs:
   fail_fast: true
   allow_failures:
