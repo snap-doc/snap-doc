@@ -1671,6 +1671,13 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
   integrity sha512-ONhaKPIufzzrlNbqtWFFd+jlnemX6lJAgq9ZeiZtS7I1PIf/la7CW4m83rTXRnVnsMbW2k56pGYu7AUFJD9Pow==
 
+"@snap-doc/ui-kit@^0.0.25":
+  version "0.0.25"
+  resolved "https://registry.yarnpkg.com/@snap-doc/ui-kit/-/ui-kit-0.0.25.tgz#f57d7d8e633b5296cb43cc20d73360056df7dc38"
+  integrity sha512-Huur7hj5CXw3US0EnnO11xfWdBNzz52bK3ksjNF/izQlOmQl+8M+umUHIZ62bBPRoVzghsH2lRq1FdXmjNfbnA==
+  dependencies:
+    ember-cli-babel "^7.0.0"
+
 "@types/acorn@^4.0.3":
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/@types/acorn/-/acorn-4.0.3.tgz#d1f3e738dde52536f9aad3d3380d14e448820afd"
@@ -5373,7 +5380,27 @@ ember-source-channel-url@1.1.0, ember-source-channel-url@^1.0.1:
   dependencies:
     got "^8.0.1"
 
-ember-source@3.5.1, ember-source@~3.5.1:
+ember-source@3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/ember-source/-/ember-source-3.6.0.tgz#0229b4fe6802dcfadb81e27ebcf50fff166889ec"
+  integrity sha512-Es6BE/lYxwiLPHZpFOcl2tQaOppvabIffQfcOJR9OzdM8ZgM06UR+tqdxrhO05UmD8MqHGc1FT/RmQlKuGZg0Q==
+  dependencies:
+    broccoli-funnel "^2.0.1"
+    broccoli-merge-trees "^2.0.0"
+    chalk "^2.3.0"
+    ember-cli-babel "^7.1.3"
+    ember-cli-get-component-path-option "^1.0.0"
+    ember-cli-is-package-missing "^1.0.0"
+    ember-cli-normalize-entity-name "^1.0.0"
+    ember-cli-path-utils "^1.0.0"
+    ember-cli-string-utils "^1.1.0"
+    ember-cli-version-checker "^2.1.0"
+    ember-router-generator "^1.2.3"
+    inflection "^1.12.0"
+    jquery "^3.3.1"
+    resolve "^1.6.0"
+
+ember-source@~3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/ember-source/-/ember-source-3.5.1.tgz#fed88dc675f031b499642dd19819f7f4d558d3fd"
   integrity sha512-V+HEMiUu74DFWYBuqw1S1ZLBJcSnDDR48iLbN7SuUCYAW4UtTC091xUFzhNYVuZtPOfsmIZXhLaHyqrzQb9YeA==
