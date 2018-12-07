@@ -14,11 +14,11 @@ steps:
 
   - script: |
       echo "Installing global dependencies"
-      npm install -g ts-node yarn lerna
+      npm install -g ts-node yarn lerna ember-cli
     displayName: 'Setup global deps'
   - script: |
       echo "Installing project dependencies"
-      npm install
+      yarn install --non-interactive
       echo "Setting up environment"
     displayName: 'Setup project'
   - script: |
