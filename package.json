@@ -8,9 +8,7 @@
     "packages": [
       "packages/*"
     ],
-    "nohoist": [
-      "babel*"
-    ]
+    "nohoist": []
   },
   "private": true,
   "devDependencies": {
