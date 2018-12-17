@@ -36,15 +36,13 @@ jobs:
   include:
     - stage: basic
       name: 'Conventional Commits'
-      script: commitlint-travis
-    - name: 'Lint'
+      install: yarn install --non-interactive
       script:
+        - commitlint-travis
         - lerna run lint:js
         - lerna run lint:ts
         - lerna run lint:hbs
-    - name: 'Fixed Dependencies'
-      install: yarn install --non-interactive
-      script: lerna run test:coverage
+        - lerna run test:coverage
       after_success: codecov
 
     - stage: compatibility
