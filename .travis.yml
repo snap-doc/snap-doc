@@ -35,7 +35,7 @@ jobs:
     - env: EMBER_TRY_SCENARIO=ember-canary
   include:
     - stage: basic
-      name: 'Conventional Commits'
+      name: 'Conventional Commits, Lint and Fixed Dependencies'
       install: yarn install --non-interactive
       script:
         - commitlint-travis
