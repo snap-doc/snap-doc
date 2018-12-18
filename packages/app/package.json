@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/app",
-  "version": "0.0.0-development",
+  "version": "0.0.3",
   "description": "> TODO: description",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://snap-doc.com",
@@ -14,7 +14,8 @@
     "lib"
   ],
   "publishConfig": {
-    "registry": "https://registry.npmjs.com/"
+    "registry": "https://registry.npmjs.com/",
+    "access": "public"
   },
   "repository": {
     "type": "git",
@@ -73,9 +74,9 @@
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^2.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
-    "ember-qunit": "^3.4.1",
+    "ember-qunit": "4.2.0",
     "ember-resolver": "^5.0.1",
-    "ember-source": "^3.6.0",
+    "ember-source": "~3.6.0",
     "ember-try": "^1.1.0",
     "ember-welcome-page": "^3.2.0",
     "eslint-plugin-ember": "^6.0.1",

@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/ui-kit",
-  "version": "0.0.28",
+  "version": "0.0.32",
   "description": "UI-kit for Snap-Doc",
   "keywords": [
     "ember-addon"
@@ -62,9 +62,9 @@
     "ember-export-application-global": "2.0.0",
     "ember-load-initializers": "2.0.0",
     "ember-maybe-import-regenerator": "0.1.6",
-    "ember-qunit": "3.5.3",
+    "ember-qunit": "4.2.0",
     "ember-resolver": "5.0.1",
-    "ember-source": "^3.6.0",
+    "ember-source": "~3.6.0",
     "ember-source-channel-url": "1.1.0",
     "ember-try": "1.1.0",
     "eslint-plugin-ember": "6.0.1",
@@ -80,7 +80,8 @@
     "typescript": "^3.2.2"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.com/"
+    "registry": "https://registry.npmjs.com/",
+    "access": "public"
   },
   "bugs": {
     "url": "https://github.com/snap-doc/snap-doc/issues"

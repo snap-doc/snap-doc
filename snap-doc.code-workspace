@@ -1,21 +1,10 @@
 {
+  "settings": {
+    "typescript.tsdk": "node_modules/typescript/lib"
+  },
   "folders": [
     {
-      "name": "UI Kit",
-      "path": "packages/ui-kit"
-    },
-    {
-      "name": "App",
-      "path": "packages/app"
-    },
-    {
-      "name": "Main",
-      "path": "packages/snap-doc"
-    },
-    {
-      "name": "root",
       "path": "."
     }
-  ],
-  "settings": {}
+  ]
 }
