@@ -70,7 +70,7 @@
     "eslint-plugin-node": "^8.0.0",
     "loader.js": "4.7.0",
     "nyc": "^13.1.0",
-    "qunit-dom": "0.8.2",
+    "qunit-dom": "0.8.3",
     "scripty": "1.8.0",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.17.0",
