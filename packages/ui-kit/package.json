@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/ui-kit",
-  "version": "0.0.30",
+  "version": "0.0.32",
   "description": "UI-kit for Snap-Doc",
   "keywords": [
     "ember-addon"
@@ -79,7 +79,8 @@
     "typescript": "^3.2.2"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.com/"
+    "registry": "https://registry.npmjs.com/",
+    "access": "public"
   },
   "bugs": {
     "url": "https://github.com/snap-doc/snap-doc/issues"
