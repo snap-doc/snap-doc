@@ -13,7 +13,7 @@
     "@commitlint/config-conventional": "7.1.2",
     "@commitlint/travis-cli": "7.2.1",
     "husky": "^1.2.1",
-    "lerna": "3.5.1",
+    "lerna": "3.6.0",
     "nyc": "13.1.0",
     "scripty": "1.8.0",
     "typescript": "3.2.2"
