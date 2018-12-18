@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.24 (2018-12-18)
+
+
+### Bug Fixes
+
+* ensure scoped packages are published properly ([e5a799f](https://github.com/snap-doc/snap-doc/commit/e5a799f))
+
+
+
+
+
 ## 0.0.23 (2018-12-17)
 
 
