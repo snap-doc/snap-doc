@@ -45,7 +45,7 @@
     "@types/ember__test-helpers": "0.7.6",
     "@types/qunit": "2.5.3",
     "@types/rsvp": "4.0.2",
-    "babel-eslint": "8.2.6",
+    "babel-eslint": "10.0.1",
     "broccoli-asset-rev": "2.7.0",
     "codecov": "3.1.0",
     "cross-env": "5.2.0",
