@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/ui-kit",
-  "version": "0.0.38",
+  "version": "0.0.39",
   "description": "UI-kit for Snap-Doc",
   "keywords": [
     "ember-addon"
