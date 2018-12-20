@@ -79,7 +79,7 @@
     "eslint-plugin-node": "8.0.0",
     "loader.js": "4.7.0",
     "nyc": "13.1.0",
-    "prember": "1.0.0",
+    "prember": "1.0.1",
     "qunit-dom": "0.8.3",
     "sass": "1.15.2",
     "sparkles-component": "1.2.0",
