@@ -57,5 +57,46 @@
     "tslint-config-prettier": "1.17.0",
     "tslint-sonarts": "1.8.0",
     "typescript-eslint-parser": "21.0.2"
+  },
+  "nyc": {
+    "watermarks": {
+      "lines": [
+        80,
+        95
+      ],
+      "functions": [
+        80,
+        95
+      ],
+      "branches": [
+        80,
+        95
+      ],
+      "statements": [
+        80,
+        95
+      ]
+    },
+    "require": [
+      "ts-node/register",
+      "source-map-support/register"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "include": [
+      "src"
+    ],
+    "reporter": [
+      "lcov",
+      "json",
+      "text-summary"
+    ]
+  },
+  "remarkConfig": {
+    "plugins": [
+      "remark-preset-lint-recommended",
+      "remark-preset-lint-markdown-style-guide"
+    ]
   }
 }

@@ -21,7 +21,7 @@
     "lint": "yarn lint:js && yarn lint:hbs && yarn lint:md",
     "start": "ember serve",
     "test": "ember test",
-    "test:coverage": "cross-env COVERAGE=true ember test && codecov",
+    "test:coverage": "rm -rf coverage && cross-env COVERAGE=true ember test",
     "test:all": "ember try:each",
     "try:one": "ember try:one $EMBER_TRY_SCENARIO",
     "prepublishOnly": "ember ts:precompile",
@@ -30,6 +30,7 @@
   "dependencies": {
     "@ember-decorators/babel-transforms": "^3.1.0",
     "ember-cli-babel": "^7.0.0",
+    "ember-cli-htmlbars": "3.0.1",
     "ember-cli-typescript": "^2.0.0-rc.1"
   },
   "devDependencies": {
@@ -50,7 +51,6 @@
     "ember-cli-code-coverage": "1.0.0-beta.7",
     "ember-cli-dependency-checker": "3.1.0",
     "ember-cli-eslint": "5.0.0",
-    "ember-cli-htmlbars": "3.0.1",
     "ember-cli-htmlbars-inline-precompile": "2.1.0",
     "ember-cli-inject-live-reload": "2.0.1",
     "ember-cli-sri": "2.1.1",
@@ -97,5 +97,46 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
+  },
+  "nyc": {
+    "watermarks": {
+      "lines": [
+        80,
+        95
+      ],
+      "functions": [
+        80,
+        95
+      ],
+      "branches": [
+        80,
+        95
+      ],
+      "statements": [
+        80,
+        95
+      ]
+    },
+    "require": [
+      "ts-node/register",
+      "source-map-support/register"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "include": [
+      "src"
+    ],
+    "reporter": [
+      "lcov",
+      "json",
+      "text-summary"
+    ]
+  },
+  "remarkConfig": {
+    "plugins": [
+      "remark-preset-lint-recommended",
+      "remark-preset-lint-markdown-style-guide"
+    ]
   }
 }
