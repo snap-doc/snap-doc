@@ -13,6 +13,7 @@
   "files": [
     "lib"
   ],
+  "bin": "bin/snap-doc",
   "publishConfig": {
     "registry": "https://registry.npmjs.com/"
   },
@@ -21,7 +22,17 @@
     "url": "git+https://github.com/snap-doc/snap-doc.git"
   },
   "scripts": {
-    "test": "echo \"tests!\" && exit 0"
+    "lint": "yarn lint:ts && yarn lint:js && yarn lint:md",
+    "lint:ts": "tslint --project .",
+    "lint:js": "eslint . --ext js,ts",
+    "lint:md": "remark .",
+    "test": "mocha",
+    "test:coverage": "nyc npm test",
+    "codacy:transmit-coverage": "cat coverage/lcov.info | codacy-coverage",
+    "clean": "rm -rf ./lib",
+    "build": "tsc -b .",
+    "rebuild": "npm run clean & npm run build",
+    "prepublishOnly": "tsc -b ."
   },
   "bugs": {
     "url": "https://github.com/snap-doc/snap-doc/issues"
@@ -39,7 +50,5 @@
     "tslint-sonarts": "1.8.0",
     "typescript-eslint-parser": "^21.0.2"
   },
-  "dependencies": {
-    "code-to-json": "^0.2.38"
-  }
+  "dependencies": {}
 }

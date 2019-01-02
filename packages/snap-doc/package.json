@@ -21,7 +21,8 @@
     "url": "git+https://github.com/snap-doc/snap-doc.git"
   },
   "scripts": {
-    "test": "echo \"tests!\" && exit 0"
+    "build": "cp ../../README.md README.md",
+    "test": "echo \"Error: run tests from root\" && exit 0"
   },
   "bugs": {
     "url": "https://github.com/snap-doc/snap-doc/issues"

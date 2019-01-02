@@ -14,6 +14,17 @@
         "node": true,
         "mocha": true
       }
+    },
+    {
+      "files": ["bin/snap-doc"],
+      "env": {
+        "node": true
+      },
+      "rules": {
+        "global-require": "off",
+        "no-var": "off",
+        "no-console": "off"
+      }
     }
   ]
 }

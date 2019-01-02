@@ -6,6 +6,23 @@
   },
   "folders": [
     {
+      "name": "doc app",
+      "path": "packages/app"
+    },
+    {
+      "name": "doc ui-kit",
+      "path": "packages/ui-kit"
+    },
+    {
+      "name": "cli",
+      "path": "packages/cli"
+    },
+    {
+      "name": "main",
+      "path": "packages/snap-doc"
+    },
+    {
+      "name": "(root)",
       "path": "."
     }
   ]

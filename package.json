@@ -33,6 +33,7 @@
   "scripts": {
     "publish": "scripty",
     "clean": "scripty",
+    "build": "scripty",
     "rebuild": "scripty",
     "ci:setup_env": "scripty",
     "ci:before_install": "scripty",
