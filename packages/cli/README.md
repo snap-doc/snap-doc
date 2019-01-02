@@ -1,11 +1,11 @@
-# `app`
+# `@snap-doc/cli`
 
 > TODO: description
 
 ## Usage
 
 ```ts
-const app = require('app');
+const snapDoc = require('snap-doc');
 
 // TODO: DEMONSTRATE API
 ```

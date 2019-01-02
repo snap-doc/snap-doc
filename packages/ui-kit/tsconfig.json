@@ -20,30 +20,16 @@
     "baseUrl": ".",
     "module": "es6",
     "paths": {
-      "dummy/tests/*": [
-        "tests/*"
-      ],
-      "dummy/*": [
-        "tests/dummy/app/*",
-        "app/*"
-      ],
-      "@snap-doc/ui-kit": [
-        "addon"
-      ],
-      "@snap-doc/ui-kit/*": [
-        "addon/*"
-      ],
-      "@snap-doc/ui-kit/test-support": [
-        "addon-test-support"
-      ],
-      "@snap-doc/ui-kit/test-support/*": [
-        "addon-test-support/*"
-      ],
-      "*": [
-        "types/*"
-      ]
+      "dummy/tests/*": ["tests/*"],
+      "dummy/*": ["tests/dummy/app/*", "app/*"],
+      "@snap-doc/ui-kit": ["addon"],
+      "@snap-doc/ui-kit/*": ["addon/*"],
+      "@snap-doc/ui-kit/test-support": ["addon-test-support"],
+      "@snap-doc/ui-kit/test-support/*": ["addon-test-support/*"],
+      "*": ["types/*"]
     },
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "types": []
   },
   "include": [
     "app/**/*",

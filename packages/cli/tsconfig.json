@@ -4,8 +4,8 @@
     "lib": ["es2017", "scripthost"],
     "rootDir": ".",
     "outDir": "lib",
-    "types": []
+    "types": ["node"]
   },
-  "include": ["src", "__tests__"],
+  "include": ["src"],
   "exclude": ["node_modules/**/*", "lib"]
 }

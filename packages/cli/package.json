@@ -1,18 +1,19 @@
 {
-  "name": "snap-doc",
-  "version": "0.0.41",
-  "description": "> TODO: description",
+  "name": "@snap-doc/cli",
+  "version": "0.0.0-development",
+  "description": "CLI for snap-doc",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
   "license": "BSD-2-Clause",
   "main": "index.js",
   "directories": {
     "lib": "lib",
-    "test": "__tests__"
+    "test": "test"
   },
   "files": [
     "lib"
   ],
+  "bin": "bin/snap-doc",
   "publishConfig": {
     "registry": "https://registry.npmjs.com/"
   },
@@ -21,12 +22,17 @@
     "url": "git+https://github.com/snap-doc/snap-doc.git"
   },
   "scripts": {
-    "build": "cp ../../README.md README.md",
-    "test": "mocha",
+    "lint": "yarn lint:ts && yarn lint:js && yarn lint:md",
     "lint:ts": "tslint --project .",
-    "lint:js": "eslint . --ext js",
+    "lint:js": "eslint .",
     "lint:md": "remark .",
-    "lint": "yarn lint:js && yarn lint:ts && yarn lint:md"
+    "test": "mocha",
+    "test:coverage": "nyc npm test",
+    "codacy:transmit-coverage": "cat coverage/lcov.info | codacy-coverage",
+    "clean": "rm -rf ./lib",
+    "build": "tsc -b .",
+    "rebuild": "npm run clean & npm run build",
+    "prepublishOnly": "tsc -b ."
   },
   "bugs": {
     "url": "https://github.com/snap-doc/snap-doc/issues"
@@ -51,8 +57,5 @@
     "tslint-config-prettier": "1.17.0",
     "tslint-sonarts": "1.8.0",
     "typescript-eslint-parser": "^21.0.2"
-  },
-  "dependencies": {
-    "@snap-doc/cli": "^0.0.0-development"
   }
 }

@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+// tslint:disable
+
+(function runSnapDoc() {
+  'use strict';
+
+  var importLocal = require('import-local');
+
+  if (!importLocal(__filename)) {
+    try {
+      require('../lib/src/index.js').runCli({
+        args: process.argv
+      });
+    } catch (err) {
+      console.error(`Deliberately exiting due to ${err}`);
+      process.exit(1);
+    }
+  }
+})();
