@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/app",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "> TODO: description",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://snap-doc.com",
@@ -100,8 +100,8 @@
     "node": "6.* || 8.* || >= 10.*"
   },
   "dependencies": {
-    "ember-cli-typescript": "2.0.0-rc.1",
     "@ember-decorators/babel-transforms": "^3.1.0",
-    "ember-cli-babel": "^7.0.0"
+    "ember-cli-babel": "^7.0.0",
+    "ember-cli-typescript": "2.0.0-rc.1"
   }
 }
