@@ -1,7 +1,7 @@
 {
-  "name": "snap-doc",
-  "version": "0.0.40",
-  "description": "> TODO: description",
+  "name": "@snap-doc/cli",
+  "version": "0.0.0-development",
+  "description": "CLI for snap-doc",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
   "license": "BSD-2-Clause",
@@ -35,6 +35,6 @@
     "tslint-sonarts": "1.8.0"
   },
   "dependencies": {
-    "@snap-doc/cli": "^0.0.0-development"
+    "code-to-json": "^0.2.38"
   }
 }
