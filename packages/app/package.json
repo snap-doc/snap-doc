@@ -6,14 +6,6 @@
   "homepage": "https://snap-doc.com",
   "license": "BSD-2-Clause",
   "main": "index.js",
-  "directories": {
-    "doc": "doc",
-    "test": "tests",
-    "lib": "dist"
-  },
-  "files": [
-    "dist"
-  ],
   "publishConfig": {
     "registry": "https://registry.npmjs.com/",
     "access": "public"
