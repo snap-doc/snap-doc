@@ -1725,7 +1725,7 @@
   dependencies:
     "@types/estree" "*"
 
-"@types/chai@^4.1.7":
+"@types/chai@4.1.7":
   version "4.1.7"
   resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.1.7.tgz#1b8e33b61a8c09cbe1f85133071baa0dbf9fa71a"
   integrity sha512-2Y8uPt0/jwjhQ6EiluT0XCri1Dbplr0ZxfFXUz+ye13gaqE8u5gL5ppao1JrUYr9cIip5S6MvQzBS7Kke7U9VA==
@@ -1907,7 +1907,7 @@
   dependencies:
     "@types/sizzle" "*"
 
-"@types/mocha@^5.2.0", "@types/mocha@^5.2.5":
+"@types/mocha@5.2.5", "@types/mocha@^5.2.0":
   version "5.2.5"
   resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-5.2.5.tgz#8a4accfc403c124a0bafe8a9fc61a05ec1032073"
   integrity sha512-lAVp+Kj54ui/vLUFxsJTMtWvZraZxum3w3Nwkble2dNuV5VnPA+Mi2oGX9XYJAaIvZi3tn3cbjS/qcJXRb6Bww==
@@ -4016,7 +4016,7 @@ ccount@^1.0.0:
   resolved "https://registry.yarnpkg.com/ccount/-/ccount-1.0.3.tgz#f1cec43f332e2ea5a569fd46f9f5bde4e6102aff"
   integrity sha512-Jt9tIBkRc9POUof7QA/VwWd+58fKkEEfI+/t1/eOlxKM7ZhrczNzMFefge7Ai+39y1pR/pP6cI19guHy3FSLmw==
 
-chai@^4.2.0:
+chai@4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/chai/-/chai-4.2.0.tgz#760aa72cf20e3795e84b12877ce0e83737aa29e5"
   integrity sha512-XQU3bhBukrOsQCuwZndwGcCVQHyZi53fQ6Ys1Fym7E4olpIqqZZhhoFJoaKVvV17lWQoXYwgWN2nF5crA8J2jw==
@@ -5397,7 +5397,7 @@ ember-cli-typescript-blueprints@2.0.0-beta.1:
     inflection "^1.12.0"
     silent-error "^1.1.0"
 
-ember-cli-typescript@2.0.0-rc.1, ember-cli-typescript@^2.0.0-beta.3:
+ember-cli-typescript@2.0.0-rc.1, ember-cli-typescript@^2.0.0-rc.1:
   version "2.0.0-rc.1"
   resolved "https://registry.yarnpkg.com/ember-cli-typescript/-/ember-cli-typescript-2.0.0-rc.1.tgz#f7493a0c32eae20e02c8665310c96a6231b4eee7"
   integrity sha512-5aOtNionv367YwlYTHQel4B+bvv1AyvILOkVYUvS+mLXnqLWJ6vlDtjLzvJfTjX1L0SFJs4w84FZLr57VN3/UA==
@@ -9684,7 +9684,7 @@ mktemp@~0.4.0:
   resolved "https://registry.yarnpkg.com/mktemp/-/mktemp-0.4.0.tgz#6d0515611c8a8c84e484aa2000129b98e981ff0b"
   integrity sha1-bQUVYRyKjITkhKogABKbmOmB/ws=
 
-mocha-typescript@^1.1.17:
+mocha-typescript@1.1.17:
   version "1.1.17"
   resolved "https://registry.yarnpkg.com/mocha-typescript/-/mocha-typescript-1.1.17.tgz#f78b29ad4f87fce8c25f657883e3eca39fb026c9"
   integrity sha512-Ge6pCQkZumkkhxVNdAf3JxunskShgaynCb30HYD7TT1Yhog/7NW2+6w5RcRHI+nuQrCMTX6z1+qf2pD8qwCoQA==
@@ -9694,7 +9694,7 @@ mocha-typescript@^1.1.17:
     cross-spawn "^6.0.5"
     yargs "^11.0.0"
 
-mocha@^5.2.0:
+mocha@5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/mocha/-/mocha-5.2.0.tgz#6d8ae508f59167f940f2b5b3c4a612ae50c90ae6"
   integrity sha512-2IUgKDhc3J7Uug+FxMXuqIyYzH7gJjXECKe/w43IGgQHTSj3InJi+yAA7T24L9bQMRKiUEHxEX37G5JpVUGLcQ==
@@ -11284,7 +11284,7 @@ release-zalgo@^1.0.0:
   dependencies:
     es6-error "^4.0.1"
 
-remark-cli@^6.0.1:
+remark-cli@6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/remark-cli/-/remark-cli-6.0.1.tgz#ace67b94c05df0516b6be8dd70f326b6fa9c3770"
   integrity sha512-h7Hwnfdcm5J03t2mxhl9BAav+Goqauqfz3LhpE7TP+RIiPnK6njU7qRDD7qlUd/hLyMSB+WBjYc7gVDQT3pv0A==
@@ -11525,7 +11525,7 @@ remark-lint-no-consecutive-blank-lines@^1.0.0:
     unist-util-position "^3.0.0"
     unist-util-visit "^1.1.1"
 
-remark-lint-no-dead-urls@^0.4.1:
+remark-lint-no-dead-urls@0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/remark-lint-no-dead-urls/-/remark-lint-no-dead-urls-0.4.1.tgz#aa6f28ef751ed3b4daa1198cb607c4f20f7aae5a"
   integrity sha512-R97MwHDqU84DVZ/8gAz4NCCR1Hij6BwkqmajL1rqVWTH7Tpj/nOwq2NvUpdC0holT1ysBnjpH/01lD/nqVvsZg==
@@ -11791,7 +11791,7 @@ remark-lint-unordered-list-marker-style@^1.0.0:
     unist-util-position "^3.0.0"
     unist-util-visit "^1.1.1"
 
-remark-lint@^6.0.0, remark-lint@^6.0.4:
+remark-lint@6.0.4, remark-lint@^6.0.0:
   version "6.0.4"
   resolved "https://registry.yarnpkg.com/remark-lint/-/remark-lint-6.0.4.tgz#13def899efd7d7d105188c274663a60e0fe8fa59"
   integrity sha512-miD6SKhjEkLgdJXgAmNhGsdY1yIGAzwpoGIn/59MR6nZhshdxSm9/pLPiw9fK3loNASA3j7k//kea6x5vHb+jQ==
@@ -11828,7 +11828,7 @@ remark-parse@^6.0.0:
     vfile-location "^2.0.0"
     xtend "^4.0.1"
 
-remark-preset-lint-markdown-style-guide@^2.1.2:
+remark-preset-lint-markdown-style-guide@2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/remark-preset-lint-markdown-style-guide/-/remark-preset-lint-markdown-style-guide-2.1.2.tgz#a945814f4b014d3e6c0888fc034418bdfd77f44c"
   integrity sha512-0mYeeO084o3ZuDSQCvj5vpMZEGQ/HxPcO5vdNpicu+wKpuGNKV2hYZeHbXa/uZV0gjiQeuRmCHIDgNaDsMj5fg==
@@ -11879,7 +11879,7 @@ remark-preset-lint-markdown-style-guide@^2.1.2:
     remark-lint-table-pipes "^1.0.0"
     remark-lint-unordered-list-marker-style "^1.0.0"
 
-remark-preset-lint-recommended@^3.0.2:
+remark-preset-lint-recommended@3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/remark-preset-lint-recommended/-/remark-preset-lint-recommended-3.0.2.tgz#5ce675678895ce7131326c12b6df9105a5d0632c"
   integrity sha512-os4YNWLbkorjvDHVB4o+zCCufZLzGoD4Iwdk7SV7bSIZurUTrMp/ZrpNytyetN9ugIMXuHbWJUE+dF0ND+WorQ==
@@ -11921,7 +11921,7 @@ remark-stringify@^6.0.0:
     unherit "^1.0.4"
     xtend "^4.0.1"
 
-remark-validate-links@^7.1.2:
+remark-validate-links@7.1.2:
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/remark-validate-links/-/remark-validate-links-7.1.2.tgz#be6ec6b45f360717ecb0ba9c4b03a3c84fc358df"
   integrity sha512-FrnRGfy6iuFooGPGLwQTqytKWZhe87YHb319PkzVjJizETkxatw2RFwMPf4Q1FY4kR1ajh27HaEG/Hu1MtVxeg==
@@ -13341,7 +13341,7 @@ trough@^1.0.0:
   resolved "https://registry.yarnpkg.com/trough/-/trough-1.0.3.tgz#e29bd1614c6458d44869fc28b255ab7857ef7c24"
   integrity sha512-fwkLWH+DimvA4YCy+/nvJd61nWQQ2liO/nF/RjkTpiOGi+zxZzVkhb1mvbHIIW4b/8nDsYI8uTmAlc0nNkRMOw==
 
-ts-node@^7.0.1:
+ts-node@7.0.1:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-7.0.1.tgz#9562dc2d1e6d248d24bc55f773e3f614337d9baf"
   integrity sha512-BVwVbPJRspzNh2yfslyT1PSbl5uIk03EZlb493RKHN4qej/D06n1cEhjlOJG69oFsE7OT8XjpTUcYf6pKTLMhw==
@@ -13434,7 +13434,7 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript-eslint-parser@^21.0.2:
+typescript-eslint-parser@21.0.2:
   version "21.0.2"
   resolved "https://registry.yarnpkg.com/typescript-eslint-parser/-/typescript-eslint-parser-21.0.2.tgz#270af10e4724528677fbcf34ea495284bec3a894"
   integrity sha512-u+pj4RVJBr4eTzj0n5npoXD/oRthvfUCjSKndhNI714MG0mQq2DJw5WP7qmonRNIFgmZuvdDOH3BHm9iOjIAfg==
