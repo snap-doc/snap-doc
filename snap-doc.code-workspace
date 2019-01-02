@@ -2,27 +2,21 @@
   "settings": {
     "typescript.tsdk": "node_modules/typescript/lib",
     "tslint.autoFixOnSave": true,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "packages/**/node_modules": true,
+      "packages/*/dist": true,
+      "packages/*/lib": true,
+      "packages/*/tmp": true
+    }
   },
   "folders": [
     {
-      "name": "doc app",
-      "path": "packages/app"
-    },
-    {
-      "name": "doc ui-kit",
-      "path": "packages/ui-kit"
-    },
-    {
-      "name": "cli",
-      "path": "packages/cli"
-    },
-    {
-      "name": "main",
-      "path": "packages/snap-doc"
-    },
-    {
-      "name": "(root)",
       "path": "."
     }
   ]

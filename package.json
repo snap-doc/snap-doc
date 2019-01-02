@@ -33,12 +33,10 @@
   "scripts": {
     "publish": "scripty",
     "clean": "scripty",
-    "build": "scripty",
-    "rebuild": "scripty",
-    "ci:setup_env": "scripty",
-    "ci:before_install": "scripty",
-    "ci:run_tests": "scripty",
-    "ci:after_success": "scripty"
+    "build": "lerna run link && lerna run build",
+    "lint": "lerna run lint",
+    "test": "lerna run test --concurrency 1",
+    "rebuild": "scripty"
   },
   "repository": {
     "type": "git",
