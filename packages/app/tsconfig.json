@@ -19,22 +19,14 @@
     "inlineSources": true,
     "baseUrl": ".",
     "module": "es6",
+    "lib": ["scripthost", "esnext"],
     "paths": {
-      "@snap-doc/app/tests/*": [
-        "tests/*"
-      ],
-      "@snap-doc/app/*": [
-        "app/*"
-      ],
-      "*": [
-        "types/*"
-      ]
+      "@snap-doc/app/tests/*": ["tests/*"],
+      "@snap-doc/app/*": ["app/*"],
+      "*": ["types/*"]
     },
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "types": []
   },
-  "include": [
-    "app/**/*",
-    "tests/**/*",
-    "types/**/*"
-  ]
+  "include": ["app/**/*", "tests/**/*", "types/**/*"]
 }

@@ -3,7 +3,8 @@
   "compilerOptions": {
     "lib": ["es2017", "scripthost"],
     "rootDir": ".",
-    "outDir": "lib"
+    "outDir": "lib",
+    "types": ["node"]
   },
   "include": ["src"],
   "exclude": ["node_modules/**/*", "lib"]
