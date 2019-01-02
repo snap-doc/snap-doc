@@ -8,10 +8,11 @@
   "main": "index.js",
   "directories": {
     "doc": "doc",
-    "test": "tests"
+    "test": "tests",
+    "lib": "dist"
   },
   "files": [
-    "lib"
+    "dist"
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.com/",
@@ -30,7 +31,8 @@
     "start": "ember serve",
     "test": "ember test",
     "test:coverage": "cross-env COVERAGE=true ember test && codecov",
-    "try:one": "ember try:one $EMBER_TRY_SCENARIO"
+    "try:one": "ember try:one $EMBER_TRY_SCENARIO",
+    "prepublish": "ember build --prod"
   },
   "bugs": {
     "url": "https://github.com/snap-doc/snap-doc/issues"
