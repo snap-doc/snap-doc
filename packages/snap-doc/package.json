@@ -1,6 +1,6 @@
 {
   "name": "snap-doc",
-  "version": "0.0.43",
+  "version": "0.0.44",
   "description": "> TODO: description",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
@@ -53,7 +53,7 @@
     "typescript-eslint-parser": "21.0.2"
   },
   "dependencies": {
-    "@snap-doc/cli": "^0.0.1"
+    "@snap-doc/cli": "^0.0.2"
   },
   "nyc": {
     "watermarks": {
