@@ -27,7 +27,7 @@
     "lint:js": "eslint .",
     "lint:md": "remark .",
     "test": "mocha",
-    "test:coverage": "nyc npm test",
+    "test:coverage": "rm -rf coverage && nyc npm test",
     "codacy:transmit-coverage": "cat coverage/lcov.info | codacy-coverage",
     "clean": "rm -rf ./lib",
     "build": "tsc -b .",
