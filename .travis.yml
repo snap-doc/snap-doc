@@ -42,7 +42,7 @@ jobs:
       script:
         - commitlint-travis && echo "✅ Commitlint passed"
         - lerna run lint --concurrency 4
-        - lerna run test:coverage --concurency 1
+        - lerna run test:coverage --concurrency 1
       after_success:
         - test "$TRAVIS_BRANCH" = "master" && ./node_modules/.bin/codecov
         - test "$TRAVIS_BRANCH" = "master" && npm install -g codacy-coverage
