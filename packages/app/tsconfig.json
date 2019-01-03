@@ -19,7 +19,7 @@
     "inlineSources": true,
     "baseUrl": ".",
     "module": "es6",
-    "lib": ["scripthost", "esnext"],
+    "lib": ["scripthost", "esnext", "dom"],
     "paths": {
       "@snap-doc/app/tests/*": ["tests/*"],
       "@snap-doc/app/*": ["app/*"],
