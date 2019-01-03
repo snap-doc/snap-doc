@@ -8,7 +8,7 @@
 
   if (!importLocal(__filename)) {
     try {
-      require('../lib/src/index.js').runCli({
+      require('../lib/src/cli/index.js').runCli({
         args: process.argv
       });
     } catch (err) {
