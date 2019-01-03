@@ -21,7 +21,7 @@
     "lint": "yarn lint:js && yarn lint:hbs && yarn lint:md",
     "start": "ember serve",
     "test": "ember test",
-    "test:coverage": "rm -rf coverage && cross-env COVERAGE=true ember test && yarn fix-lcov",
+    "test:coverage": "rm -rf coverage && cross-env COVERAGE=true ember test",
     "fix-lcov": "sed -i '' \"s#SF:#SF:$(pwd)/#\" coverage/lcov.info",
     "test:all": "ember try:each",
     "try:one": "ember try:one $EMBER_TRY_SCENARIO",
