@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "CLI for snap-doc",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
