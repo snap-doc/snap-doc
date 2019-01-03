@@ -4,7 +4,7 @@
     "target": "es2018",
     "module": "commonjs",
     "moduleResolution": "node",
-    "lib": ["scripthost", "es2015"],
+    "lib": ["scripthost", "esnext"],
     "declaration": true,
     "resolveJsonModule": true,
     "declarationMap": true,
@@ -20,6 +20,5 @@
     "inlineSourceMap": true,
     "strict": true,
     "composite": true
-  },
-  "exclude": ["**/node_modules/**/*"]
+  }
 }
