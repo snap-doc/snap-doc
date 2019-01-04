@@ -1,4 +1,10 @@
 {
   "files": [],
-  "references": [{ "path": "snap-doc" }, { "path": "ui-kit" }]
+  "references": [
+    { "path": "core" },
+    { "path": "cli" },
+    { "path": "ui-kit" },
+    { "path": "app" },
+    { "path": "snap-doc" }
+  ]
 }

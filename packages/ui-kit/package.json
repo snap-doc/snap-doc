@@ -36,7 +36,6 @@
   },
   "devDependencies": {
     "@ember/optional-features": "0.7.0",
-    "@types/commander": "2.12.2",
     "@types/ember": "3.0.26",
     "@types/ember-data": "3.1.3",
     "@types/ember-qunit": "3.4.4",
@@ -48,7 +47,6 @@
     "babel-eslint": "10.0.1",
     "broccoli-asset-rev": "3.0.0",
     "codecov": "3.1.0",
-    "commander": "2.19.0",
     "cross-env": "5.2.0",
     "ember-cli": "3.6.1",
     "ember-cli-code-coverage": "1.0.0-beta.8",

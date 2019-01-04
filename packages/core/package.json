@@ -1,7 +1,7 @@
 {
-  "name": "@snap-doc/cli",
-  "version": "0.0.5",
-  "description": "CLI for snap-doc",
+  "name": "@snap-doc/core",
+  "version": "0.0.0-development",
+  "description": "Core functionality for snap-doc",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
   "license": "BSD-2-Clause",
@@ -13,7 +13,6 @@
   "files": [
     "lib"
   ],
-  "bin": "bin/snap-doc",
   "publishConfig": {
     "registry": "https://registry.npmjs.com/"
   },
@@ -38,8 +37,8 @@
     "url": "https://github.com/snap-doc/snap-doc/issues"
   },
   "devDependencies": {
+    "@code-to-json/cli": "^0.6.1",
     "@types/chai": "4.1.7",
-    "@types/commander": "^2.12.2",
     "@types/debug": "^0.0.31",
     "@types/execa": "0.9.0",
     "@types/mocha": "5.2.5",
@@ -104,10 +103,9 @@
     ]
   },
   "dependencies": {
-    "@snap-doc/core": "^0.0.0-development",
     "chalk": "^2.4.1",
     "code-to-json": "^0.2.38",
-    "commander": "^2.19.0",
-    "debug": "^4.1.1"
+    "debug": "^4.1.1",
+    "vorpal": "^1.12.0"
   }
 }

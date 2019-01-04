@@ -20,5 +20,6 @@
     "inlineSourceMap": true,
     "strict": true,
     "composite": true
-  }
+  },
+  "exclude": ["../node_modules"]
 }
