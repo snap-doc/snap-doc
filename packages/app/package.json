@@ -74,7 +74,7 @@
     "ember-try": "1.1.0",
     "ember-welcome-page": "3.2.0",
     "eslint-plugin-ember": "6.1.0",
-    "eslint-plugin-node": "8.0.0",
+    "eslint-plugin-node": "8.0.1",
     "json-typescript": "1.1.0",
     "loader.js": "4.7.0",
     "nyc": "13.1.0",
