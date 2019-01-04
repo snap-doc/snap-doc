@@ -104,10 +104,12 @@
     ]
   },
   "dependencies": {
+    "@code-to-json/utils-ts": "^0.1.0",
     "@snap-doc/core": "^0.0.0-development",
     "chalk": "^2.4.1",
     "code-to-json": "^0.2.38",
     "commander": "^2.19.0",
-    "debug": "^4.1.1"
+    "debug": "^4.1.1",
+    "typescript": "^3.2.2"
   }
 }

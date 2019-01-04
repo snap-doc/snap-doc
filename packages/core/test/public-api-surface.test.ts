@@ -6,11 +6,11 @@ import * as Exports from '../src/index';
 export class PublicApiSurfaceTest {
   @test
   public async 'expected exported items'(): Promise<void> {
-    expect(Object.keys(Exports).sort()).to.deep.eq(['generateDocumentationForPath']);
+    expect(Object.keys(Exports).sort()).to.deep.eq(['generateDocumentationForProgram']);
 
-    expect(Exports.generateDocumentationForPath).to.be.a(
+    expect(Exports.generateDocumentationForProgram).to.be.a(
       'function',
-      'generateDocumentationForPath()'
+      'generateDocumentationForProgram()'
     );
   }
 }

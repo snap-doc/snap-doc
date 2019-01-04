@@ -20,7 +20,7 @@
     "lint:md": "remark .",
     "lint": "yarn lint:js && yarn lint:hbs && yarn lint:md",
     "start": "ember serve",
-    "test": "ember test",
+    "test": "ember test --test-port=8741",
     "test:coverage": "rm -rf coverage && cross-env COVERAGE=true ember test && cat coverage/lcov.info && yarn fix-lcov",
     "fix-lcov": "scripts/fix-lcov \"$(pwd)\"",
     "test:all": "ember try:each",

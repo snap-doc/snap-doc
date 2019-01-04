@@ -5,7 +5,8 @@
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
   "license": "BSD-2-Clause",
-  "main": "index.js",
+  "main": "lib/src/index.js",
+  "types": "lib/src/index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "test"
@@ -106,6 +107,6 @@
     "chalk": "^2.4.1",
     "code-to-json": "^0.2.38",
     "debug": "^4.1.1",
-    "vorpal": "^1.12.0"
+    "typescript": "^3.2.2"
   }
 }
