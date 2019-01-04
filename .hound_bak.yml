@@ -1,9 +1,0 @@
-esversion: 6
-
-eslint:
-  enabled: true
-  config_file: .eslintrc
-
-tslint:
-  config_file: tslint.json
-  enabled: true
