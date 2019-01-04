@@ -79,7 +79,7 @@
     "loader.js": "4.7.0",
     "nyc": "13.1.0",
     "prember": "1.0.1",
-    "qunit-dom": "0.8.3",
+    "qunit-dom": "0.8.4",
     "remark-cli": "6.0.1",
     "remark-lint": "6.0.4",
     "remark-lint-no-dead-urls": "0.4.1",
