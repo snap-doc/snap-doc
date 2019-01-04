@@ -29,6 +29,9 @@ install:
   - yarn install --non-interactive --no-lockfile
   - yarn global add lerna
 
+before_script:
+  - yarn build
+
 jobs:
   fail_fast: true
   allow_failures:
