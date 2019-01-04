@@ -1786,13 +1786,6 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
   integrity sha512-ONhaKPIufzzrlNbqtWFFd+jlnemX6lJAgq9ZeiZtS7I1PIf/la7CW4m83rTXRnVnsMbW2k56pGYu7AUFJD9Pow==
 
-"@snap-doc/ui-kit@^0.0.25":
-  version "0.0.25"
-  resolved "https://registry.yarnpkg.com/@snap-doc/ui-kit/-/ui-kit-0.0.25.tgz#f57d7d8e633b5296cb43cc20d73360056df7dc38"
-  integrity sha512-Huur7hj5CXw3US0EnnO11xfWdBNzz52bK3ksjNF/izQlOmQl+8M+umUHIZ62bBPRoVzghsH2lRq1FdXmjNfbnA==
-  dependencies:
-    ember-cli-babel "^7.0.0"
-
 "@szmarczak/http-timer@^1.1.0":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@szmarczak/http-timer/-/http-timer-1.1.2.tgz#b1665e2c461a2cd92f4c1bbf50d5454de0d4b421"
