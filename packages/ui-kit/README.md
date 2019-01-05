@@ -12,3 +12,5 @@ const app = require('app');
 
 // TODO: DEMONSTRATE API
 ```
+
+&copy; 2019 LinkedIn

@@ -12,3 +12,5 @@ const snapDoc = require('snap-doc');
 
 // TODO: DEMONSTRATE API
 ```
+
+&copy; 2019 LinkedIn

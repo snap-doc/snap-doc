@@ -8,3 +8,5 @@
 ```ts
 const app = require('app');
 ```
+
+&copy; 2019 LinkedIn

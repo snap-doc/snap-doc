@@ -20,7 +20,7 @@
     "build": "cp ../../README.md README.md",
     "test": "mocha",
     "lint:ts": "tslint --project .",
-    "lint:js": "eslint . --ext js",
+    "lint:js": "eslint .",
     "lint:md": "remark .",
     "lint": "yarn lint:js && yarn lint:ts && yarn lint:md"
   },
