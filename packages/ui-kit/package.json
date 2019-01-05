@@ -141,5 +141,6 @@
       "remark-preset-lint-recommended",
       "remark-preset-lint-markdown-style-guide"
     ]
-  }
+  },
+  "gitHead": "23b5c18afaac4e596b7bb3ae3d586a6a0cdc93f5"
 }

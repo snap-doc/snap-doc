@@ -108,5 +108,6 @@
     "code-to-json": "^0.2.38",
     "debug": "^4.1.1",
     "typescript": "^3.2.2"
-  }
+  },
+  "gitHead": "23b5c18afaac4e596b7bb3ae3d586a6a0cdc93f5"
 }
