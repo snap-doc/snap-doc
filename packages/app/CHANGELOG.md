@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.0.26...@snap-doc/app@0.1.0) (2019-01-05)
+
+
+### Features
+
+* core module ([b73ad68](https://github.com/snap-doc/snap-doc/commit/b73ad68))
+* major version dependency bumps ([3671974](https://github.com/snap-doc/snap-doc/commit/3671974))
+
+
+
+
+
 ## 0.0.26 (2019-01-03)
 
 **Note:** Version bump only for package @snap-doc/app
