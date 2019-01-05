@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/snap-doc/snap-doc/compare/@snap-doc/ui-kit@0.1.0...@snap-doc/ui-kit@0.1.1) (2019-01-05)
+
+
+### Bug Fixes
+
+* readme updates ([d954aa7](https://github.com/snap-doc/snap-doc/commit/d954aa7))
+
+
+
+
+
 # [0.1.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/ui-kit@0.0.55...@snap-doc/ui-kit@0.1.0) (2019-01-05)
 
 
