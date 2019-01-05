@@ -13,6 +13,8 @@ echo "https://mike-north-bot:${GH_TOKEN}@github.com/snap-doc/snap-doc.git" > ~/.
 
 npm config set "//registry.npmjs.org/:_authToken=$NPM_TOKEN" -q
 npm prune
+echo "npm whoami"
+npm whoami
 
 git config --global user.email "michael.l.north@gmail.com"
 git config --global user.name "Mike North"
@@ -33,5 +35,9 @@ yarn build
 
 echo "git status"
 git status
+
+echo "npm whoami"
+npm whoami
+
 echo "lerna publish"
 lerna publish --yes
