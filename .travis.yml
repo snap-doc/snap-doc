@@ -17,9 +17,7 @@ git:
 
 stages:
   - name: basic
-    if: branch != master OR type != push
   - name: compatibility
-    if: branch != master OR type != push
   - name: deploy
     if: branch = master AND type = push
 
