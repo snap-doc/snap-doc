@@ -54,8 +54,8 @@ jobs:
         - lerna run test:coverage --concurrency 1
       after_success:
         - test "$TRAVIS_BRANCH" = "master" && ./node_modules/.bin/codecov
-        - test "$TRAVIS_BRANCH" = "master" && npm install -g codacy-coverage
-        - test "$TRAVIS_BRANCH" = "master" && lerna run codacy:transmit-coverage
+        # - test "$TRAVIS_BRANCH" = "master" && npm install -g codacy-coverage
+        # - test "$TRAVIS_BRANCH" = "master" && lerna run codacy:transmit-coverage
 
     - stage: compatibility
       name: 'Floating Dependencies'
