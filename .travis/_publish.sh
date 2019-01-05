@@ -31,5 +31,7 @@ yarn install --non-interactive
 lerna bootstrap
 yarn build
 
+echo "git status"
+git status
 echo "lerna publish"
 lerna publish --yes
