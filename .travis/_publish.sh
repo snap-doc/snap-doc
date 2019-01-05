@@ -17,4 +17,4 @@ git config --global push.default simple
 echo "https://mike-north:${GH_TOKEN}@github.com/snap-doc/snap-doc.git" > ~/.git-credentials
 echo "git config --list"
 git config --list #debug
-./node_modules/.bin/lerna publish --yes
+./node_modules/.bin/lerna publish --yes --npm-client npm
