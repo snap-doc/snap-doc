@@ -36,6 +36,10 @@ yarn build
 echo "git status"
 git status
 
+git add -A
+echo "git status"
+git status
+
 echo "npm whoami"
 npm whoami
 
