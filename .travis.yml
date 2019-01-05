@@ -36,6 +36,7 @@ jobs:
   fail_fast: true
   allow_failures:
     - env: EMBER_TRY_SCENARIO=ember-canary
+    - name: 'Publish to npm'
   include:
     - stage: basic
       name: 'Conventional Commits, Lint and Fixed Dependencies'
