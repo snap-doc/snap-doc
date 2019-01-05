@@ -9,7 +9,7 @@
   ],
   "private": true,
   "devDependencies": {
-    "@code-to-json/cli": "0.6.3",
+    "@code-to-json/cli": "0.7.0",
     "@code-to-json/utils-ts": "0.1.0",
     "@commitlint/cli": "7.2.1",
     "@commitlint/config-conventional": "7.1.2",
