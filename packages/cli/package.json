@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/cli",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "CLI for snap-doc",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
@@ -105,7 +105,7 @@
   },
   "dependencies": {
     "@code-to-json/utils-ts": "^0.1.0",
-    "@snap-doc/core": "^0.0.6",
+    "@snap-doc/core": "^0.0.7",
     "chalk": "^2.4.1",
     "code-to-json": "^0.2.38",
     "commander": "^2.19.0",
