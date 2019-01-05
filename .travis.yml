@@ -21,13 +21,16 @@ stages:
   - name: deploy
     if: branch = master AND type = push
 
-# before_install:
-#   - curl -o- -L https://yarnpkg.com/install.sh | bash
-#   - export PATH=$HOME/.yarn/bin:$PATH
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH=$HOME/.yarn/bin:$PATH
 
 install:
   - yarn install --non-interactive --no-lockfile
   - yarn global add lerna
+
+before_script:
+  - yarn build
 
 jobs:
   fail_fast: true
@@ -41,12 +44,18 @@ jobs:
         - yarn add -WD codecov
       script:
         - commitlint-travis && echo "✅ Commitlint passed"
-        - lerna run lint --concurrency 4
+        - lerna run lint:ts
+        - lerna run lint:js
+        - lerna run lint:hbs
+        - lerna run lint:md
+        - ls -all packages/cli/node_modules
+        - ls -all node_modules | grep @snap-doc
+        - ls -all node_modules/@snap-doc
         - lerna run test:coverage --concurrency 1
       after_success:
         - test "$TRAVIS_BRANCH" = "master" && ./node_modules/.bin/codecov
-        - test "$TRAVIS_BRANCH" = "master" && npm install -g codacy-coverage
-        - test "$TRAVIS_BRANCH" = "master" && lerna run codacy:transmit-coverage
+        # - test "$TRAVIS_BRANCH" = "master" && npm install -g codacy-coverage
+        # - test "$TRAVIS_BRANCH" = "master" && lerna run codacy:transmit-coverage
 
     - stage: compatibility
       name: 'Floating Dependencies'

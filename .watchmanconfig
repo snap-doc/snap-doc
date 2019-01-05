@@ -1,0 +1,8 @@
+{
+  "ignore_dirs": [
+    "packages/app/tmp",
+    "packaes/app/dist",
+    "packages/ui-kit/tmp",
+    "packaes/ui-kit/dist"
+  ]
+}

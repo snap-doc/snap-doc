@@ -28,7 +28,7 @@
     "lint:md": "remark .",
     "test": "mocha",
     "test:coverage": "rm -rf coverage && nyc npm test",
-    "codacy:transmit-coverage": "cat coverage/lcov.info | codacy-coverage",
+    "codacy:transmit-coverage": "codacy-coverage",
     "clean": "rm -rf ./lib",
     "build": "tsc -b .",
     "rebuild": "npm run clean & npm run build",
@@ -39,6 +39,8 @@
   },
   "devDependencies": {
     "@types/chai": "4.1.7",
+    "@types/commander": "^2.12.2",
+    "@types/debug": "^0.0.31",
     "@types/execa": "0.9.0",
     "@types/mocha": "5.2.5",
     "chai": "4.2.0",
@@ -102,9 +104,12 @@
     ]
   },
   "dependencies": {
+    "@code-to-json/utils-ts": "^0.1.0",
+    "@snap-doc/core": "^0.0.0-development",
     "chalk": "^2.4.1",
     "code-to-json": "^0.2.38",
-    "execa": "^1.0.0",
-    "inquirer": "^6.2.1"
+    "commander": "^2.19.0",
+    "debug": "^4.1.1",
+    "typescript": "^3.2.2"
   }
 }
