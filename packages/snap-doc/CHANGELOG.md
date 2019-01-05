@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.10](https://github.com/snap-doc/snap-doc/compare/snap-doc@0.1.9...snap-doc@0.1.10) (2019-01-05)
+
+
+### Bug Fixes
+
+* release ([35c7454](https://github.com/snap-doc/snap-doc/commit/35c7454))
+
+
+
+
+
 ## [0.1.9](https://github.com/snap-doc/snap-doc/compare/snap-doc@0.1.8...snap-doc@0.1.9) (2019-01-05)
 
 
