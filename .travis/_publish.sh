@@ -36,9 +36,8 @@ yarn build
 echo "git status"
 git status
 
-git add -A
-echo "git status"
-git status
+ls -all .
+ls -all snap-doc/snap-doc
 
 echo "npm whoami"
 npm whoami
