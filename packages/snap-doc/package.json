@@ -12,9 +12,6 @@
   "files": [
     "lib"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/snap-doc/snap-doc.git"
@@ -95,6 +92,5 @@
       "remark-preset-lint-recommended",
       "remark-preset-lint-markdown-style-guide"
     ]
-  },
-  "gitHead": "ee76705286cabeffd7c562982d5956b4511168f6"
+  }
 }
