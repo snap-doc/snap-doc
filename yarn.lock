@@ -641,13 +641,13 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@code-to-json/cli@0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@code-to-json/cli/-/cli-0.7.0.tgz#1c8ea7890130952eccbc0ebdc614f280fc7cecfd"
-  integrity sha512-1LADyUJVJo9/9AY8HFMjo0FVrC7qKYWBpej5FVNfIntdsUGgOUYWX7ZYFeTG0gIcS+uC78lPEMkcI6wu+LP2CA==
+"@code-to-json/cli@0.7.1":
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/@code-to-json/cli/-/cli-0.7.1.tgz#ea81e967fdd76b75fa844c5bc847834aeb4a00c2"
+  integrity sha512-tFCPvVC7QaZdeJSpo5kOKYs4WEiJimNPBx8wZFf6GH2/JHrine+z3/Qx7DhEzCzYJMkT9eZnfbnUaxTBT4+uYg==
   dependencies:
-    "@code-to-json/core" "^0.7.0"
-    "@code-to-json/formatter" "^0.7.0"
+    "@code-to-json/core" "^0.8.0"
+    "@code-to-json/formatter" "^0.8.0"
     "@code-to-json/utils" "^0.6.0"
     chalk "^2.4.1"
     commander "^2.19.0"
@@ -683,10 +683,10 @@
     debug "4.1.1"
     typescript "^3.1.0"
 
-"@code-to-json/core@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@code-to-json/core/-/core-0.7.0.tgz#1d397ef56e1eccc4cd8cd642e7f92c77df09524b"
-  integrity sha512-LNuoQ7fmeZn8aF1MFqu/9OfOqvzY0FElKXuftNjbQLVD64xSqVGsXpRzoBjQ7A+KQvW2VvYPfhUsTDmYxBnpFA==
+"@code-to-json/core@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@code-to-json/core/-/core-0.8.0.tgz#cfa7818bb538a15ee6debea5ab0ddcfe49a7dcce"
+  integrity sha512-AwjTGjc/U5sPBFHTKfUsAdkqUmQXlY7jOYLmB7o4vxpyy5eZ/TG7cDgHTgKUW11PWFx/445MscH1zrITp07yKA==
   dependencies:
     "@code-to-json/utils" "^0.6.0"
     "@code-to-json/utils-ts" "^0.1.0"
@@ -701,12 +701,12 @@
     "@code-to-json/core" "^0.6.49"
     "@code-to-json/utils" "^0.5.49"
 
-"@code-to-json/formatter@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@code-to-json/formatter/-/formatter-0.7.0.tgz#0042619ab442ce718c8b26a040b5b8a21b3f7536"
-  integrity sha512-ZNtUZoZF1Nlwse4wZNFk0QbiRpq6xFpU7vBSsyoQDDDFITHa7rHm1SYtNGPN0uQz5yGBf9Su7iwYWG4debKIKw==
+"@code-to-json/formatter@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@code-to-json/formatter/-/formatter-0.8.0.tgz#075d11f3393f9b19e4b17dd6a8ed062fcddf9f1e"
+  integrity sha512-L0ik3+QelFlc5hfhBOGsotse1BUrxffba16HR3neQYKcJgF1ny6OFPmBcxJhgNMS6XzdXoxG/fAHIBrRDH7zag==
   dependencies:
-    "@code-to-json/core" "^0.7.0"
+    "@code-to-json/core" "^0.8.0"
     "@code-to-json/utils" "^0.6.0"
 
 "@code-to-json/utils-ts@0.1.0", "@code-to-json/utils-ts@^0.1.0":
