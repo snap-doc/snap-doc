@@ -38,7 +38,7 @@
     "url": "https://github.com/snap-doc/snap-doc/issues"
   },
   "devDependencies": {
-    "@code-to-json/cli": "0.7.0",
+    "@code-to-json/cli": "0.7.1",
     "@types/chai": "4.1.7",
     "@types/debug": "0.0.31",
     "@types/execa": "0.9.0",
