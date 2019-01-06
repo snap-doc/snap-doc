@@ -1,0 +1,9 @@
+{
+  "extends": "../tsconfig.settings.json",
+  "compilerOptions": {
+    "outDir": "lib",
+    "types": []
+  },
+  "include": ["src"],
+  "exclude": ["lib"]
+}
