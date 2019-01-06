@@ -70,7 +70,7 @@
     "mocha-typescript": "1.1.17",
     "mocha": "5.2.0",
     "nyc": "13.1.0",
-    "prember": "1.0.1",
+    "prember": "1.0.2",
     "qunit-dom": "0.8.3",
     "remark-cli": "6.0.1",
     "remark-lint-no-dead-urls": "0.4.1",
