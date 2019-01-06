@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.10](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.1.9...@snap-doc/cli@0.1.10) (2019-01-06)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
 ## [0.1.9](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.1.8...@snap-doc/cli@0.1.9) (2019-01-05)
 
 
