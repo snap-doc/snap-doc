@@ -8,6 +8,6 @@ export class PublicApiSurfaceTest {
   public async 'expected exported items'(): Promise<void> {
     expect(Object.keys(Exports).sort()).to.deep.eq(['foo']);
 
-    expect(Exports.foo).to.be.a('function', 'foo()');
+    expect(Exports.Emitter).to.be.a('Emitter', 'class Emitter');
   }
 }
