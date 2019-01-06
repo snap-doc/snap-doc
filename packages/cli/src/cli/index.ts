@@ -8,6 +8,15 @@ const log = debug('snap-doc:cli');
 
 const NO_CMD_TXT = chalk.blue(`Please choose from one of the commands below`);
 
+function invalidCommandHelp(): void {
+  commander.help(
+    hlp => `
+${NO_CMD_TXT}
+
+${hlp}`
+  );
+}
+
 export function run(): void {
   commander
     .command('generate <path>')
@@ -23,14 +32,10 @@ export function run(): void {
       generateDocumentationForProgram(prog, { outpath: 'out' });
     });
 
-  commander.action(() => {
-    commander.help(
-      hlp => `
-${NO_CMD_TXT}
-
-${hlp}`
-    );
-  });
+  commander.action(invalidCommandHelp);
 
   commander.parse(process.argv);
+  if (process.argv.length < 3) {
+    invalidCommandHelp();
+  }
 }
