@@ -1,3 +1,1 @@
-export function foo(): string {
-  return 'bar';
-}
+export { default as MarkdownFileEmitter } from './markdown-file-emitter';
