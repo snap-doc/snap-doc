@@ -1,7 +1,7 @@
 {
-  "name": "@snap-doc/core",
-  "version": "0.0.10",
-  "description": "Core functionality for snap-doc",
+  "name": "@snap-doc/emitter",
+  "version": "0.0.0-development",
+  "description": "Emitter utilities for snap-doc",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
   "license": "BSD-2-Clause",
@@ -38,9 +38,7 @@
     "url": "https://github.com/snap-doc/snap-doc/issues"
   },
   "devDependencies": {
-    "@types/chai": "4.1.7",
     "@types/debug": "0.0.31",
-    "@types/execa": "0.9.0",
     "@types/mocha": "5.2.5",
     "chai": "4.2.0",
     "codecov": "3.1.0",
@@ -103,13 +101,6 @@
     ]
   },
   "dependencies": {
-    "@code-to-json/core": "^0.8.0",
-    "@code-to-json/formatter": "^0.8.0",
-    "@snap-doc/emitter": "^0.0.0-development",
-    "@snap-doc/types": "^0.0.0-development",
-    "chalk": "^2.4.1",
-    "code-to-json": "^0.2.38",
-    "debug": "^4.1.1",
-    "typescript": "^3.2.2"
+    "debug": "^4.1.1"
   }
 }

@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2015",
+    "experimentalDecorators": true,
+    "lib": ["scripthost", "esnext"]
+  },
+  "include": ["../src/**/*.ts", "**/*.ts"]
+}

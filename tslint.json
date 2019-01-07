@@ -9,7 +9,8 @@
     "object-literal-sort-keys": false,
     "no-debugger": false,
 
-    "no-unused-variable": [true, { "ignore-pattern": "^_" }]
+    "no-unused-variable": [true, { "ignore-pattern": "^_" }],
+    "no-console": false
   },
   "rules": {
     "quotemark": false,
@@ -23,7 +24,8 @@
     "prefer-immediate-return": false,
     "no-dead-store": { "severity": "warning" },
     "no-commented-code": { "severity": "warning" },
-    "no-unused-variable": [true, { "ignore-pattern": "^_" }]
+    "no-unused-variable": [true, { "ignore-pattern": "^_" }],
+    "no-console": false
   },
   "rulesDirectory": []
 }

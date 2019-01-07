@@ -1,0 +1,26 @@
+{
+  "parser": "typescript-eslint-parser",
+  "extends": ["eslint:recommended"],
+  "rules": {
+    "no-console": "off"
+  },
+  "overrides": [
+    {
+      "files": [".remarkrc.js"],
+      "env": {
+        "node": true
+      }
+    },
+    {
+      "files": ["bin/*"],
+      "env": {
+        "node": true
+      },
+      "rules": {
+        "global-require": "off",
+        "no-var": "off",
+        "no-console": "off"
+      }
+    }
+  ]
+}

@@ -1,6 +1,10 @@
 {
   "files": [],
   "references": [
+    { "path": "utils" },
+    { "path": "types" },
+    { "path": "emitter" },
+    { "path": "markdown-emitter" },
     { "path": "core" },
     { "path": "cli" },
     { "path": "ui-kit" },

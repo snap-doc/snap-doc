@@ -1,12 +1,36 @@
 import { createProgramFromTsConfig } from '@code-to-json/utils-ts';
-import { generateDocumentationForProgram } from '@snap-doc/core';
+import { DocGenerator } from '@snap-doc/core';
+import { MarkdownFileEmitter } from '@snap-doc/markdown-emitter';
+import { TempFolderCreator } from '@snap-doc/types';
 import chalk from 'chalk';
 import * as commander from 'commander';
 import * as debug from 'debug';
 import { existsSync, readFileSync, statSync } from 'fs';
+import * as path from 'path';
+import * as tmp from 'tmp';
+
 const log = debug('snap-doc:cli');
 
 const NO_CMD_TXT = chalk.blue(`Please choose from one of the commands below`);
+
+function invalidCommandHelp(): void {
+  commander.help(
+    hlp => `
+${NO_CMD_TXT}
+
+${hlp}`
+  );
+}
+
+const tmpGenerator: TempFolderCreator = () => {
+  const folder = tmp.dirSync({ unsafeCleanup: true });
+  return {
+    name: folder.name,
+    cleanup(): void {
+      folder.removeCallback();
+    }
+  };
+};
 
 export function run(): void {
   commander
@@ -20,17 +44,25 @@ export function run(): void {
         f => readFileSync(f).toString(),
         f => existsSync(f) && statSync(f).isFile()
       );
-      generateDocumentationForProgram(prog, { outpath: 'out' });
+      const dg = new DocGenerator(
+        prog,
+        {
+          tmp: tmpGenerator,
+          logger: debug('snap-doc:doc-generator')
+        },
+        {
+          emitter: new MarkdownFileEmitter({
+            outDir: path.join(process.cwd(), 'out')
+          })
+        }
+      );
+      await dg.emit();
     });
 
-  commander.action(() => {
-    commander.help(
-      hlp => `
-${NO_CMD_TXT}
-
-${hlp}`
-    );
-  });
+  commander.action(invalidCommandHelp);
 
   commander.parse(process.argv);
+  if (process.argv.length < 3) {
+    invalidCommandHelp();
+  }
 }
