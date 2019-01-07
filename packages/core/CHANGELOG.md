@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.0.10...@snap-doc/core@0.1.0) (2019-01-07)
+
+
+### Features
+
+* **types:** new package - [@snap-doc](https://github.com/snap-doc)/types ([37b51ca](https://github.com/snap-doc/snap-doc/commit/37b51ca))
+* spike of Generator/Emitter architecture ([b28eb83](https://github.com/snap-doc/snap-doc/commit/b28eb83))
+
+
+
+
+
 ## [0.0.10](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.0.9...@snap-doc/core@0.0.10) (2019-01-06)
 
 **Note:** Version bump only for package @snap-doc/core
