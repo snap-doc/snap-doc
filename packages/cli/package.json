@@ -43,6 +43,7 @@
     "@types/debug": "0.0.31",
     "@types/execa": "0.9.0",
     "@types/mocha": "5.2.5",
+    "@types/tmp": "^0.0.33",
     "chai": "4.2.0",
     "codecov": "3.1.0",
     "json-typescript": "1.1.0",
@@ -106,11 +107,12 @@
   "dependencies": {
     "@code-to-json/utils-ts": "^0.1.0",
     "@snap-doc/core": "^0.0.10",
+    "@snap-doc/markdown-emitter": "^0.0.0-development",
     "chalk": "^2.4.1",
     "code-to-json": "^0.2.38",
     "commander": "^2.19.0",
     "debug": "^4.1.1",
+    "tmp": "^0.0.33",
     "typescript": "^3.2.2"
-  },
-  "gitHead": "ee76705286cabeffd7c562982d5956b4511168f6"
+  }
 }

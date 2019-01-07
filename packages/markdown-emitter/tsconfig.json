@@ -2,6 +2,7 @@
   "extends": "../tsconfig.settings.json",
   "compilerOptions": {
     "outDir": "lib",
+    "lib": ["scripthost", "esnext"],
     "types": []
   },
   "include": ["src"],

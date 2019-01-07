@@ -1,7 +1,11 @@
-import Emitter from './emitter';
+import Emitter, { EmitterOptions } from './emitter';
 
-export default class FileEmitter extends Emitter {
-  constructor() {
-    super();
+export interface FileEmitterOptions extends EmitterOptions {
+  outDir: string;
+}
+
+export default class FileEmitter<O extends FileEmitterOptions> extends Emitter<O> {
+  constructor(options: O) {
+    super(options);
   }
 }

@@ -6,8 +6,9 @@ import * as Exports from '../src/index';
 export class PublicApiSurfaceTest {
   @test
   public async 'expected exported items'(): Promise<void> {
-    expect(Object.keys(Exports).sort()).to.deep.eq(['foo']);
+    expect(Object.keys(Exports).sort()).to.deep.eq(['Emitter', 'FileEmitter']);
 
-    expect(Exports.Emitter).to.be.a('Emitter', 'class Emitter');
+    expect(Exports.Emitter).to.be.a('function', 'class Emitter');
+    expect(Exports.FileEmitter).to.be.a('function', 'class FileEmitter');
   }
 }

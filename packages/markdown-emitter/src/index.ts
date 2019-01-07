@@ -1,1 +1,4 @@
-export { default as MarkdownFileEmitter } from './markdown-file-emitter';
+export {
+  default as MarkdownFileEmitter,
+  MarkdownFileEmitterOptions
+} from './markdown-file-emitter';

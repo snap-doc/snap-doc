@@ -38,6 +38,7 @@
     "url": "https://github.com/snap-doc/snap-doc/issues"
   },
   "devDependencies": {
+    "@types/debug": "^0.0.31",
     "@types/mocha": "5.2.5",
     "chai": "4.2.0",
     "codecov": "3.1.0",
@@ -100,6 +101,7 @@
     ]
   },
   "dependencies": {
-    "@snap-doc/emitter": "^0.0.0-development"
+    "@snap-doc/emitter": "^0.0.0-development",
+    "debug": "^4.1.1"
   }
 }

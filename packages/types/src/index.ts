@@ -1,3 +1,2 @@
-export function foo(): string {
-  return 'bar';
-}
+export { TempFolderCreator } from './file-io';
+export { Logger } from './general';

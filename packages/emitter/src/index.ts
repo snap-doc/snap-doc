@@ -1,2 +1,2 @@
-export { default as Emitter } from './emitter';
-export { default as FileEmitter } from './file-emitter';
+export { default as Emitter, EmitterOptions } from './emitter';
+export { default as FileEmitter, FileEmitterOptions } from './file-emitter';

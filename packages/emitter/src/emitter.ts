@@ -1,4 +1,9 @@
-export default abstract class Emitter {
+export interface EmitterOptions {
+  projectName?: string;
+}
+
+export default abstract class Emitter<O extends EmitterOptions = EmitterOptions> {
+  constructor(protected options: O) {}
   public async emit(): Promise<void> {
     const [ready, err] = await this.validateConditions();
     if (ready) {
