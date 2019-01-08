@@ -1,3 +1,4 @@
+import { NodeHost } from '@code-to-json/utils-node';
 import { createProgramFromTsConfig } from '@code-to-json/utils-ts';
 import { DocGenerator } from '@snap-doc/core';
 import { MarkdownFileEmitter } from '@snap-doc/markdown-emitter';
@@ -5,7 +6,6 @@ import { TempFolderCreator } from '@snap-doc/types';
 import chalk from 'chalk';
 import * as commander from 'commander';
 import * as debug from 'debug';
-import { existsSync, readFileSync, statSync } from 'fs';
 import * as path from 'path';
 import * as tmp from 'tmp';
 
@@ -39,11 +39,7 @@ export function run(): void {
     .alias('g')
     .action(async pth => {
       log(`Generating docs at path: ${pth}`);
-      const prog = await createProgramFromTsConfig(
-        pth,
-        f => readFileSync(f).toString(),
-        f => existsSync(f) && statSync(f).isFile()
-      );
+      const prog = await createProgramFromTsConfig(pth, new NodeHost());
       const dg = new DocGenerator(
         prog,
         {

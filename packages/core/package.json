@@ -103,12 +103,12 @@
     ]
   },
   "dependencies": {
-    "@code-to-json/core": "^0.8.0",
-    "@code-to-json/formatter": "^0.8.0",
+    "@code-to-json/core": "^0.9.0",
+    "@code-to-json/formatter": "^0.9.0",
+    "@code-to-json/utils-node": "^0.0.0",
     "@snap-doc/emitter": "^0.0.0",
     "@snap-doc/types": "^0.0.0",
     "chalk": "^2.4.1",
-    "code-to-json": "^0.2.38",
     "debug": "^4.1.1",
     "typescript": "^3.2.2"
   }

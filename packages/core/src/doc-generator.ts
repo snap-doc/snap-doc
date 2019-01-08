@@ -1,6 +1,7 @@
 import { walkProgram } from '@code-to-json/core';
 import { WalkerOptions } from '@code-to-json/core/lib/src/walker/options';
 import { FormatterOptions, FormatterOutput, formatWalkerOutput } from '@code-to-json/formatter';
+import { NodeHost } from '@code-to-json/utils-node';
 import { Emitter } from '@snap-doc/emitter';
 import { Logger, TempFolderCreator } from '@snap-doc/types';
 import * as ts from 'typescript';
@@ -17,7 +18,7 @@ function generateFormatterOptions(): Partial<FormatterOptions> {
 }
 
 function analyzeProgram(program: ts.Program): FormatterOutput {
-  const walkerOutput = walkProgram(program, generateWalkerOptions());
+  const walkerOutput = walkProgram(program, new NodeHost(), generateWalkerOptions());
   const formatted = formatWalkerOutput(walkerOutput, generateFormatterOptions());
   return formatted;
 }
