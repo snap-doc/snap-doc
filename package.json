@@ -10,7 +10,7 @@
   "private": true,
   "devDependencies": {
     "@code-to-json/cli": "0.7.1",
-    "@code-to-json/utils-ts": "0.1.0",
+    "@code-to-json/utils-ts": "0.2.0",
     "@commitlint/cli": "7.2.1",
     "@commitlint/config-conventional": "7.1.2",
     "@commitlint/travis-cli": "7.2.1",

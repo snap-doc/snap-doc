@@ -105,7 +105,7 @@
     ]
   },
   "dependencies": {
-    "@code-to-json/utils-ts": "^0.1.0",
+    "@code-to-json/utils-ts": "^0.2.0",
     "@snap-doc/core": "^0.1.0",
     "@snap-doc/markdown-emitter": "^0.0.1",
     "chalk": "^2.4.1",
