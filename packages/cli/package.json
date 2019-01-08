@@ -109,7 +109,7 @@
     "@snap-doc/core": "^0.1.0",
     "@snap-doc/markdown-emitter": "^0.0.1",
     "chalk": "^2.4.1",
-    "code-to-json": "^0.2.38",
+    "code-to-json": "^0.3.0",
     "commander": "^2.19.0",
     "debug": "^4.1.1",
     "tmp": "^0.0.33",
