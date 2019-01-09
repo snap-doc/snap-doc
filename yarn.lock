@@ -659,13 +659,13 @@
     "@code-to-json/core" "^0.9.3"
     "@code-to-json/utils" "^0.6.3"
 
-"@code-to-json/utils-node@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@code-to-json/utils-node/-/utils-node-0.0.1.tgz#338eed67d2ace4ca117eea086fc5b3949a0c750c"
-  integrity sha512-CIRxi6qz0oFNkYDRc6psGASU5RsIwEkdhVXHY88hz7BHEFRPV4aC7XQaEs1CDfTSfuq5h1g3mm2YnbxTPK8gJQ==
+"@code-to-json/utils-node@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@code-to-json/utils-node/-/utils-node-0.0.3.tgz#59abcb32bdfd336712b5ad340d4479bbb19bcd67"
+  integrity sha512-O14+yUGKMO6Nbd8MafPpeZwnbPhXJR7jlQMHoRroKfb3mksKvS/XFSRYmMh5MFcUhs+OR7nUqUWwEdgwernKCg==
   dependencies:
-    "@code-to-json/utils" "^0.6.1"
-    "@code-to-json/utils-ts" "^0.2.1"
+    "@code-to-json/utils" "^0.6.3"
+    "@code-to-json/utils-ts" "^0.2.3"
     pkg-up "^2.0.0"
 
 "@code-to-json/utils-ts@^0.2.1", "@code-to-json/utils-ts@^0.2.3":
@@ -676,7 +676,7 @@
     "@code-to-json/utils" "^0.6.3"
     typescript "^3.1.0"
 
-"@code-to-json/utils@^0.6.1", "@code-to-json/utils@^0.6.3":
+"@code-to-json/utils@^0.6.3":
   version "0.6.3"
   resolved "https://registry.yarnpkg.com/@code-to-json/utils/-/utils-0.6.3.tgz#bacdfebb006d06c3c2c064d49d6456a21d7bdb15"
   integrity sha512-ODASS7ecreRmsNfI05F2tiuqUPWNYpAAj69LVKbaY6YkGyAyDQR0spewx5MIr/9snDNJ3ty+LCGGTkRLItLo2Q==
