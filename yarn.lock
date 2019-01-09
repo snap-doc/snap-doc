@@ -641,15 +641,15 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@code-to-json/cli@0.8.1":
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/@code-to-json/cli/-/cli-0.8.1.tgz#9533e42d2462ba0043bccde011032aa82974b7b6"
-  integrity sha512-qWyFHSpxSp9ZuovmcIdjOded1Y7rMvCyrR7cPEGsnSPlc8b1rz2EoU5++dzzs3Zag+3yLbK8wKuXGRdUrnrU1Q==
+"@code-to-json/cli@0.8.3":
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/@code-to-json/cli/-/cli-0.8.3.tgz#d3763a1315c7c3ddc42026d1fed435e1ae84b54b"
+  integrity sha512-2A17Z/wSPevLSvDRn6awtnZQx23KQAUR/6n5/05+atmSkKZfVUwXEjs+qClDv9wLN0yTToQzhm+AxCeT4QxuXQ==
   dependencies:
-    "@code-to-json/core" "^0.9.1"
-    "@code-to-json/formatter" "^0.9.1"
-    "@code-to-json/utils" "^0.6.1"
-    "@code-to-json/utils-node" "^0.0.1"
+    "@code-to-json/core" "^0.9.3"
+    "@code-to-json/formatter" "^0.9.3"
+    "@code-to-json/utils" "^0.6.3"
+    "@code-to-json/utils-node" "^0.0.3"
     chalk "^2.4.1"
     commander "^2.19.0"
     debug "^4.1.0"
@@ -658,7 +658,7 @@
     left-pad "^1.3.0"
     typescript "^3.1.0"
 
-"@code-to-json/core@^0.9.0", "@code-to-json/core@^0.9.1", "@code-to-json/core@^0.9.3":
+"@code-to-json/core@^0.9.0", "@code-to-json/core@^0.9.3":
   version "0.9.3"
   resolved "https://registry.yarnpkg.com/@code-to-json/core/-/core-0.9.3.tgz#bd5d0d5152b38e1f1585a5b37f00f3f6db98039b"
   integrity sha512-6b1bxUrjnynIGgJtayBgahJ5ax/GU04cBDHjGjmxwQpOlDbjgK3Qjk8f8AZnjlXmhwsOuuLnXMeqhG3z2lmwSA==
@@ -668,7 +668,7 @@
     debug "4.1.1"
     typescript "^3.1.0"
 
-"@code-to-json/formatter@^0.9.0", "@code-to-json/formatter@^0.9.1":
+"@code-to-json/formatter@^0.9.0", "@code-to-json/formatter@^0.9.3":
   version "0.9.3"
   resolved "https://registry.yarnpkg.com/@code-to-json/formatter/-/formatter-0.9.3.tgz#017363a28a7a11357393b9573947844aabddcef4"
   integrity sha512-OVMjfJ6roZ8aw5lhpJPiffX5FhKX9ttdGpIcMs535TzgKW0Pd96Bu8kzS2BmAKXl/febkcpefKBb2UeAv8PkBw==
@@ -683,6 +683,15 @@
   dependencies:
     "@code-to-json/utils" "^0.6.1"
     "@code-to-json/utils-ts" "^0.2.1"
+    pkg-up "^2.0.0"
+
+"@code-to-json/utils-node@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@code-to-json/utils-node/-/utils-node-0.0.3.tgz#59abcb32bdfd336712b5ad340d4479bbb19bcd67"
+  integrity sha512-O14+yUGKMO6Nbd8MafPpeZwnbPhXJR7jlQMHoRroKfb3mksKvS/XFSRYmMh5MFcUhs+OR7nUqUWwEdgwernKCg==
+  dependencies:
+    "@code-to-json/utils" "^0.6.3"
+    "@code-to-json/utils-ts" "^0.2.3"
     pkg-up "^2.0.0"
 
 "@code-to-json/utils-ts@0.2.1":
