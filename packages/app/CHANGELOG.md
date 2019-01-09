@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.14](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.1.13...@snap-doc/app@0.1.14) (2019-01-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency ember-cli-typescript to v2.0.0-rc.2 ([f707562](https://github.com/snap-doc/snap-doc/commit/f707562))
+* upgrade dependencies ([e2494b1](https://github.com/snap-doc/snap-doc/commit/e2494b1))
+
+
+
+
+
 ## [0.1.13](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.1.12...@snap-doc/app@0.1.13) (2019-01-07)
 
 **Note:** Version bump only for package @snap-doc/app
