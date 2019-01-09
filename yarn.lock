@@ -641,24 +641,7 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@code-to-json/cli@0.8.1":
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/@code-to-json/cli/-/cli-0.8.1.tgz#9533e42d2462ba0043bccde011032aa82974b7b6"
-  integrity sha512-qWyFHSpxSp9ZuovmcIdjOded1Y7rMvCyrR7cPEGsnSPlc8b1rz2EoU5++dzzs3Zag+3yLbK8wKuXGRdUrnrU1Q==
-  dependencies:
-    "@code-to-json/core" "^0.9.1"
-    "@code-to-json/formatter" "^0.9.1"
-    "@code-to-json/utils" "^0.6.1"
-    "@code-to-json/utils-node" "^0.0.1"
-    chalk "^2.4.1"
-    commander "^2.19.0"
-    debug "^4.1.0"
-    glob "^7.1.3"
-    import-local "^2.0.0"
-    left-pad "^1.3.0"
-    typescript "^3.1.0"
-
-"@code-to-json/core@^0.9.0", "@code-to-json/core@^0.9.1", "@code-to-json/core@^0.9.3":
+"@code-to-json/core@^0.9.0", "@code-to-json/core@^0.9.3":
   version "0.9.3"
   resolved "https://registry.yarnpkg.com/@code-to-json/core/-/core-0.9.3.tgz#bd5d0d5152b38e1f1585a5b37f00f3f6db98039b"
   integrity sha512-6b1bxUrjnynIGgJtayBgahJ5ax/GU04cBDHjGjmxwQpOlDbjgK3Qjk8f8AZnjlXmhwsOuuLnXMeqhG3z2lmwSA==
@@ -668,7 +651,7 @@
     debug "4.1.1"
     typescript "^3.1.0"
 
-"@code-to-json/formatter@^0.9.0", "@code-to-json/formatter@^0.9.1":
+"@code-to-json/formatter@^0.9.0":
   version "0.9.3"
   resolved "https://registry.yarnpkg.com/@code-to-json/formatter/-/formatter-0.9.3.tgz#017363a28a7a11357393b9573947844aabddcef4"
   integrity sha512-OVMjfJ6roZ8aw5lhpJPiffX5FhKX9ttdGpIcMs535TzgKW0Pd96Bu8kzS2BmAKXl/febkcpefKBb2UeAv8PkBw==
@@ -684,14 +667,6 @@
     "@code-to-json/utils" "^0.6.1"
     "@code-to-json/utils-ts" "^0.2.1"
     pkg-up "^2.0.0"
-
-"@code-to-json/utils-ts@0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@code-to-json/utils-ts/-/utils-ts-0.2.1.tgz#e66a45ecb25d59b4d11670d666d9eea1185c9d87"
-  integrity sha512-TE0kYTVaIPGwkFUEGadRl8IQfM5jfflHvla662Xfc3HYcjEfodB4gjKIJygtkhxzvyidtpq/KU++6GN2pbtR/g==
-  dependencies:
-    "@code-to-json/utils" "^0.6.1"
-    typescript "^3.1.0"
 
 "@code-to-json/utils-ts@^0.2.1", "@code-to-json/utils-ts@^0.2.3":
   version "0.2.3"
@@ -7424,14 +7399,6 @@ import-local@^1.0.0:
     pkg-dir "^2.0.0"
     resolve-cwd "^2.0.0"
 
-import-local@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/import-local/-/import-local-2.0.0.tgz#55070be38a5993cf18ef6db7e961f5bee5c5a09d"
-  integrity sha512-b6s04m3O+s3CGSbqDIyP4R6aAwAeYlVq9+WUWep6iHa8ETRf9yei1U48C5MmfJmV9AiLYYBKPMq/W+/WRpQmCQ==
-  dependencies:
-    pkg-dir "^3.0.0"
-    resolve-cwd "^2.0.0"
-
 imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
@@ -8353,11 +8320,6 @@ leek@0.0.24:
     debug "^2.1.0"
     lodash.assign "^3.2.0"
     rsvp "^3.0.21"
-
-left-pad@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/left-pad/-/left-pad-1.3.0.tgz#5b8a3a7765dfe001261dde915589e782f8c94d1e"
-  integrity sha512-XI5MPzVNApjAyhQzphX8BkmKsKUxD4LdyK24iZeQGinBN9yTQT3bFlCBy/aVx2HrNcqQGsdot8ghrjyrvMCoEA==
 
 lerna@3.10.1:
   version "3.10.1"
