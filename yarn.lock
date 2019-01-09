@@ -685,6 +685,15 @@
     "@code-to-json/utils-ts" "^0.2.1"
     pkg-up "^2.0.0"
 
+"@code-to-json/utils-node@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@code-to-json/utils-node/-/utils-node-0.0.3.tgz#59abcb32bdfd336712b5ad340d4479bbb19bcd67"
+  integrity sha512-O14+yUGKMO6Nbd8MafPpeZwnbPhXJR7jlQMHoRroKfb3mksKvS/XFSRYmMh5MFcUhs+OR7nUqUWwEdgwernKCg==
+  dependencies:
+    "@code-to-json/utils" "^0.6.3"
+    "@code-to-json/utils-ts" "^0.2.3"
+    pkg-up "^2.0.0"
+
 "@code-to-json/utils-ts@0.2.1":
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/@code-to-json/utils-ts/-/utils-ts-0.2.1.tgz#e66a45ecb25d59b4d11670d666d9eea1185c9d87"
