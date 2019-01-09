@@ -685,15 +685,7 @@
     "@code-to-json/utils-ts" "^0.2.1"
     pkg-up "^2.0.0"
 
-"@code-to-json/utils-ts@0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@code-to-json/utils-ts/-/utils-ts-0.2.1.tgz#e66a45ecb25d59b4d11670d666d9eea1185c9d87"
-  integrity sha512-TE0kYTVaIPGwkFUEGadRl8IQfM5jfflHvla662Xfc3HYcjEfodB4gjKIJygtkhxzvyidtpq/KU++6GN2pbtR/g==
-  dependencies:
-    "@code-to-json/utils" "^0.6.1"
-    typescript "^3.1.0"
-
-"@code-to-json/utils-ts@^0.2.1", "@code-to-json/utils-ts@^0.2.3":
+"@code-to-json/utils-ts@0.2.3", "@code-to-json/utils-ts@^0.2.1", "@code-to-json/utils-ts@^0.2.3":
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/@code-to-json/utils-ts/-/utils-ts-0.2.3.tgz#51fd342f58172b52e45484c99b530fdf438a9725"
   integrity sha512-45eRC2vHQX1fWwcpNh47kP9QrwLwtNxZVxjPCrJQHkQBvV0V8qOIM1FUQMwPO6qDRj8MPFbbH+PSUjyTxHs57A==
