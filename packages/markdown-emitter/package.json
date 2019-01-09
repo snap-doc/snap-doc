@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/markdown-emitter",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Markdown emitter for snap-doc",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
@@ -102,7 +102,7 @@
     ]
   },
   "dependencies": {
-    "@snap-doc/emitter": "^0.0.1",
+    "@snap-doc/emitter": "^0.0.2",
     "debug": "^4.1.1"
   }
 }
