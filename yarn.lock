@@ -641,15 +641,15 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@code-to-json/cli@0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@code-to-json/cli/-/cli-0.8.0.tgz#44022d6e571951909c4927981e34775f81d755cc"
-  integrity sha512-E0dkzw12fTd7HZyG4slR+yMemwe79EtecKx0b8hn2LKnF8PdRZaHtozWGquydMshoe0kBRZIZIV0SO8xgBkqPg==
+"@code-to-json/cli@0.8.1":
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/@code-to-json/cli/-/cli-0.8.1.tgz#9533e42d2462ba0043bccde011032aa82974b7b6"
+  integrity sha512-qWyFHSpxSp9ZuovmcIdjOded1Y7rMvCyrR7cPEGsnSPlc8b1rz2EoU5++dzzs3Zag+3yLbK8wKuXGRdUrnrU1Q==
   dependencies:
-    "@code-to-json/core" "^0.9.0"
-    "@code-to-json/formatter" "^0.9.0"
-    "@code-to-json/utils" "^0.6.0"
-    "@code-to-json/utils-node" "^0.0.0"
+    "@code-to-json/core" "^0.9.1"
+    "@code-to-json/formatter" "^0.9.1"
+    "@code-to-json/utils" "^0.6.1"
+    "@code-to-json/utils-node" "^0.0.1"
     chalk "^2.4.1"
     commander "^2.19.0"
     debug "^4.1.0"
@@ -668,6 +668,16 @@
     debug "4.1.1"
     typescript "^3.1.0"
 
+"@code-to-json/core@^0.9.1":
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/@code-to-json/core/-/core-0.9.1.tgz#f5404fae90822aeb3f8f4e162207fb3c472bee56"
+  integrity sha512-ryVdmU1R8fyS/WrWsLYRtF9eHbfIT65emmaJ7R3eW+O1kXcrhX3SfNxyVDr3RNurO6S3TG5WXuqe80cD+0OHag==
+  dependencies:
+    "@code-to-json/utils" "^0.6.1"
+    "@code-to-json/utils-ts" "^0.2.1"
+    debug "4.1.1"
+    typescript "^3.1.0"
+
 "@code-to-json/formatter@^0.9.0":
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/@code-to-json/formatter/-/formatter-0.9.0.tgz#e96ca3661c8f0e1b57a22ab3281a4e1d274e7adf"
@@ -675,6 +685,14 @@
   dependencies:
     "@code-to-json/core" "^0.9.0"
     "@code-to-json/utils" "^0.6.0"
+
+"@code-to-json/formatter@^0.9.1":
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/@code-to-json/formatter/-/formatter-0.9.1.tgz#f0db48c73fd1a4cb9a9731b19c75eefd705ba2d1"
+  integrity sha512-J2/u9c063/4jBR/Oq6eJU8r/vLjsWRV0YtxBPnHMTpj1te9xs8b9q6uucYIE9iCWB3Y50KCQWjqD6c/jijMIuA==
+  dependencies:
+    "@code-to-json/core" "^0.9.1"
+    "@code-to-json/utils" "^0.6.1"
 
 "@code-to-json/utils-node@^0.0.0":
   version "0.0.0"
@@ -685,6 +703,15 @@
     "@code-to-json/utils-ts" "^0.2.0"
     pkg-up "^2.0.0"
 
+"@code-to-json/utils-node@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@code-to-json/utils-node/-/utils-node-0.0.1.tgz#338eed67d2ace4ca117eea086fc5b3949a0c750c"
+  integrity sha512-CIRxi6qz0oFNkYDRc6psGASU5RsIwEkdhVXHY88hz7BHEFRPV4aC7XQaEs1CDfTSfuq5h1g3mm2YnbxTPK8gJQ==
+  dependencies:
+    "@code-to-json/utils" "^0.6.1"
+    "@code-to-json/utils-ts" "^0.2.1"
+    pkg-up "^2.0.0"
+
 "@code-to-json/utils-ts@0.2.0", "@code-to-json/utils-ts@^0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@code-to-json/utils-ts/-/utils-ts-0.2.0.tgz#8e02d4e9a351f7326338eda0172db0783303b24e"
@@ -693,10 +720,23 @@
     "@code-to-json/utils" "^0.6.0"
     typescript "^3.1.0"
 
+"@code-to-json/utils-ts@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@code-to-json/utils-ts/-/utils-ts-0.2.1.tgz#e66a45ecb25d59b4d11670d666d9eea1185c9d87"
+  integrity sha512-TE0kYTVaIPGwkFUEGadRl8IQfM5jfflHvla662Xfc3HYcjEfodB4gjKIJygtkhxzvyidtpq/KU++6GN2pbtR/g==
+  dependencies:
+    "@code-to-json/utils" "^0.6.1"
+    typescript "^3.1.0"
+
 "@code-to-json/utils@^0.6.0":
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/@code-to-json/utils/-/utils-0.6.0.tgz#28c56f4dca8452f225cc24b8a567ac7f98db0134"
   integrity sha512-8jFt2rVMS2IC5rcs1gJbXn3jQqspw4FyQFOh9NaO+xn1jyGplb9AgZBph0kJQb1qKV2AhnU1ChxlrA7JecdT/Q==
+
+"@code-to-json/utils@^0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@code-to-json/utils/-/utils-0.6.1.tgz#0457174c87e16cb8c1c9fe211c4ba84f8c9e3197"
+  integrity sha512-1GihLRJ3hROcXclTqa3csIw80kd7xnq5kuPVXIi3BHDrZ9sdZmjRNRe3gzJ/QkB6h0nw9SoWIRkieULz3R5NhA==
 
 "@commitlint/cli@7.2.1", "@commitlint/cli@^7.2.1":
   version "7.2.1"
