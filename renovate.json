@@ -18,6 +18,10 @@
       "minor": {
         "automerge": false
       }
+    },
+    {
+      "packagePatterns": ["@code-to-json/*", "code-to-json"],
+      "groupName": "code-to-json packages"
     }
   ]
 }
