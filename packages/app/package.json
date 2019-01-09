@@ -22,7 +22,8 @@
     "start": "ember serve",
     "test": "ember test",
     "test:coverage": "rm -rf coverage && cross-env COVERAGE=true ember test && yarn fix-lcov",
-    "codacy:transmit-coverage": "codacy-coverage",
+    "codacy:transmit-coverage": "cat coverage/lcov.info | codacy-coverage",
+    "coveralls:transmit-coverage": "cat coverage/lcov.info | coveralls",
     "fix-lcov": "scripts/fix-lcov \"$(pwd)\"",
     "try:one": "ember try:one $EMBER_TRY_SCENARIO",
     "prepublish": "ember build --prod"
