@@ -12488,18 +12488,21 @@ sourcemap-validator@^1.1.0:
     lodash.template "~2.3.x"
     source-map "~0.1.x"
 
-sparkles-component@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/sparkles-component/-/sparkles-component-1.2.0.tgz#55a9ce1bfebedee14b0a88109f079b480310d81c"
-  integrity sha512-FPRamNVN2dD76mPpV9b3fTzmlvVE2MY7CcVVEgHBXnl5+PmwYB7kjC4Ilf0S/uWDuJmIkptjucp20ZnuTaqlOA==
+sparkles-component@1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/sparkles-component/-/sparkles-component-1.3.0.tgz#1110db66edec300c80e8741229414e86b33004c3"
+  integrity sha512-19yH7S+PsA7Fn4tNk0Bu7ZqS/1P5asliNMD5d21J8YjIzKhlyzj40Ab0kB92lBLbrkxpb6D44KvbvD/TniUTZg==
   dependencies:
+    "@ember-decorators/utils" "^4.0.0"
     "@glimmer/env" "^0.1.7"
-    ember-cli-babel "^7.1.2"
+    ember-cli-babel "^7.2.0"
     ember-cli-get-component-path-option "^1.0.0"
     ember-cli-is-package-missing "^1.0.0"
     ember-cli-normalize-entity-name "^1.0.0"
     ember-cli-path-utils "^1.0.0"
     ember-cli-string-utils "^1.1.0"
+    ember-cli-typescript "^2.0.0-rc.1"
+    ember-compatibility-helpers "^1.1.2"
 
 spawn-args@^0.2.0:
   version "0.2.0"
