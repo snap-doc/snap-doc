@@ -81,7 +81,7 @@
     "scripty": "1.9.0",
     "sparkles-component": "1.3.0",
     "ts-node": "7.0.1",
-    "tslint": "5.12.0",
+    "tslint": "5.12.1",
     "tslint-config-prettier": "1.17.0",
     "tslint-sonarts": "1.8.0",
     "typescript": "3.2.2",
@@ -106,9 +106,11 @@
     "lint": "lerna run lint",
     "test": "lerna run test --concurrency 1",
     "rebuild": "scripty",
-    "build:watch": "scripty",
+    "build:watch:core": "scripty",
+    "build:watch:all": "scripty",
     "cli:build": "lerna run build --scope=@snap-doc/cli",
-    "cli:run": "lerna exec ./bin/snap-doc --scope=@snap-doc/cli"
+    "cli:run": "lerna exec ./bin/snap-doc --scope=@snap-doc/cli",
+    "link:code-to-json": "yarn link @code-to-json/core && yarn link @code-to-json/formatter && yarn link @code-to-json/utils && yarn link @code-to-json/utils-ts && yarn link @code-to-json/utils-node"
   },
   "repository": {
     "type": "git",
