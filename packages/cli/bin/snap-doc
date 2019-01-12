@@ -7,13 +7,8 @@
   var importLocal = require('import-local');
 
   if (!importLocal(__filename)) {
-    try {
-      require('../lib/src/cli/index.js').run({
-        args: process.argv
-      });
-    } catch (err) {
-      console.error(`Deliberately exiting due to ${err}`);
-      process.exit(1);
-    }
+    require('../lib/src/cli/index.js').run({
+      args: process.argv
+    });
   }
 })();

@@ -1,13 +1,11 @@
-import { NodeHost } from '@code-to-json/utils-node';
+import { findPkgJson, nodeHost } from '@code-to-json/utils-node';
 import { createProgramFromTsConfig } from '@code-to-json/utils-ts';
 import { DocGenerator } from '@snap-doc/core';
 import { MarkdownFileEmitter } from '@snap-doc/markdown-emitter';
-import { TempFolderCreator } from '@snap-doc/types';
 import chalk from 'chalk';
 import * as commander from 'commander';
 import * as debug from 'debug';
 import * as path from 'path';
-import * as tmp from 'tmp';
 
 const log = debug('snap-doc:cli');
 
@@ -22,36 +20,29 @@ ${hlp}`
   );
 }
 
-const tmpGenerator: TempFolderCreator = () => {
-  const folder = tmp.dirSync({ unsafeCleanup: true });
-  return {
-    name: folder.name,
-    cleanup(): void {
-      folder.removeCallback();
-    }
-  };
-};
-
 export function run(): void {
   commander
     .command('generate <path>')
     .description('Generate documentation from a TS or JS project')
     .alias('g')
     .action(async pth => {
-      log(`Generating docs at path: ${pth}`);
-      const prog = await createProgramFromTsConfig(pth, new NodeHost());
-      const dg = new DocGenerator(
-        prog,
-        {
-          tmp: tmpGenerator,
-          logger: debug('snap-doc:doc-generator')
-        },
-        {
-          emitter: new MarkdownFileEmitter({
-            outDir: path.join(process.cwd(), 'out')
-          })
+      log(`Generating docs for code at: ${pth}`);
+      const prog = await createProgramFromTsConfig(pth, nodeHost);
+      const pkg = await findPkgJson(pth);
+      if (!pkg) {
+        throw new Error(`Could not find package.json via search path "${pth}"`);
+      }
+      const dg = new DocGenerator(prog, nodeHost, {
+        emitter: new MarkdownFileEmitter({
+          outDir: path.join(process.cwd(), 'out'),
+          host: nodeHost
+        }),
+        pkgInfo: {
+          path: pkg.path,
+          name: pkg.contents.name,
+          main: pkg.contents['doc:main'] || pkg.contents.main || pkg.path
         }
-      );
+      });
       await dg.emit();
     });
 

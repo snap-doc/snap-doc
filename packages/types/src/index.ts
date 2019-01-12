@@ -1,2 +1,2 @@
 export { TempFolderCreator } from './file-io';
-export { Logger } from './general';
+export { DocData, DocDataFile } from './doc';

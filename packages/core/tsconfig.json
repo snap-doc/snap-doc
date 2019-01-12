@@ -2,8 +2,8 @@
   "extends": "../tsconfig.settings.json",
   "compilerOptions": {
     "outDir": "lib",
-    "lib": ["scripthost", "esnext"],
-    "types": []
+    "lib": ["scripthost", "esnext", "scripthost"],
+    "types": ["node"]
   },
   "include": ["src"],
   "exclude": ["lib"]

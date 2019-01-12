@@ -1,43 +1,53 @@
 import { walkProgram } from '@code-to-json/core';
 import { WalkerOptions } from '@code-to-json/core/lib/src/walker/options';
 import { FormatterOptions, FormatterOutput, formatWalkerOutput } from '@code-to-json/formatter';
-import { NodeHost } from '@code-to-json/utils-node';
+import { generateModulePathNormalizer, ProjectInfo, SysHost } from '@code-to-json/utils-ts';
 import { Emitter } from '@snap-doc/emitter';
-import { Logger, TempFolderCreator } from '@snap-doc/types';
+import { TempFolderCreator } from '@snap-doc/types';
+import * as debug from 'debug';
 import * as ts from 'typescript';
+import { generateDocData } from './doc-data';
+
+const log = debug('snap-doc:doc-generator');
 
 export interface DocGeneratorOptions {
   emitter: Emitter<any>;
+  pkgInfo: ProjectInfo;
 }
 
-function generateWalkerOptions(): Partial<WalkerOptions> {
-  return {};
+function generateWalkerOptions(host: SysHost, pkgInfo: ProjectInfo): Partial<WalkerOptions> {
+  return {
+    pathNormalizer: generateModulePathNormalizer(host, pkgInfo)
+  };
 }
 function generateFormatterOptions(): Partial<FormatterOptions> {
   return {};
 }
 
-function analyzeProgram(program: ts.Program): FormatterOutput {
-  const walkerOutput = walkProgram(program, new NodeHost(), generateWalkerOptions());
-  const formatted = formatWalkerOutput(walkerOutput, generateFormatterOptions());
+function analyzeProgram(program: ts.Program, host: SysHost, pkgInfo: ProjectInfo): FormatterOutput {
+  const walkerOptions = generateWalkerOptions(host, pkgInfo);
+  log('walker options: ', walkerOptions);
+  const walkerOutput = walkProgram(program, host, walkerOptions);
+  const formatterOptions = generateFormatterOptions();
+  log('formatter options: ', formatterOptions);
+  const formatted = formatWalkerOutput(walkerOutput, formatterOptions);
   return formatted;
 }
 
 export interface DocGeneratorUtilities {
   tmp: TempFolderCreator;
-  logger: Logger;
 }
 
 export default class DocGenerator {
   constructor(
     protected prog: ts.Program,
-    protected utils: DocGeneratorUtilities,
+    protected host: SysHost,
     protected options: DocGeneratorOptions
   ) {}
 
   public async emit(): Promise<void> {
-    analyzeProgram(this.prog);
-    const workspace = this.utils.tmp();
-    this.utils.logger(workspace.name);
+    const formatterOutput = analyzeProgram(this.prog, this.host, this.options.pkgInfo);
+    const docData = generateDocData(formatterOutput);
+    await this.options.emitter.emit(docData);
   }
 }
