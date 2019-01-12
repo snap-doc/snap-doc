@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.1.18...@snap-doc/app@0.2.0) (2019-01-12)
+
+
+### Features
+
+* markdown generation for summary ([a42da78](https://github.com/snap-doc/snap-doc/commit/a42da78))
+
+
+
+
+
 ## [0.1.18](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.1.17...@snap-doc/app@0.1.18) (2019-01-11)
 
 **Note:** Version bump only for package @snap-doc/app

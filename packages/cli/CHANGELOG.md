@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.2.4...@snap-doc/cli@0.3.0) (2019-01-12)
+
+
+### Features
+
+* markdown generation for summary ([a42da78](https://github.com/snap-doc/snap-doc/commit/a42da78))
+* support for comment examples, lots more test coverage for comment -> markdown ([c5fbacf](https://github.com/snap-doc/snap-doc/commit/c5fbacf))
+
+
+
+
+
 ## [0.2.4](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.2.3...@snap-doc/cli@0.2.4) (2019-01-09)
 
 

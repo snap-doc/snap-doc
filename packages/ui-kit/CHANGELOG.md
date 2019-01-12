@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/ui-kit@0.1.14...@snap-doc/ui-kit@0.2.0) (2019-01-12)
+
+
+### Features
+
+* markdown generation for summary ([a42da78](https://github.com/snap-doc/snap-doc/commit/a42da78))
+
+
+
+
+
 ## [0.1.14](https://github.com/snap-doc/snap-doc/compare/@snap-doc/ui-kit@0.1.13...@snap-doc/ui-kit@0.1.14) (2019-01-09)
 
 **Note:** Version bump only for package @snap-doc/ui-kit
