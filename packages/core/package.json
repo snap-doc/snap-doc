@@ -104,8 +104,8 @@
     ]
   },
   "dependencies": {
-    "@code-to-json/core": "^0.12.0",
-    "@code-to-json/formatter": "^0.9.7",
+    "@code-to-json/core": "^0.13.1",
+    "@code-to-json/formatter": "^0.10.1",
     "@snap-doc/emitter": "^0.0.2",
     "@snap-doc/types": "^0.0.2",
     "chalk": "^2.4.1",

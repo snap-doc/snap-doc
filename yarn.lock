@@ -641,31 +641,31 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@code-to-json/comments@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@code-to-json/comments/-/comments-0.1.0.tgz#64c8ed694cba744b02579717447fbba704a959e0"
-  integrity sha512-hpD6cBcQ+hAxJRe/ZfQTF5UxLBKhf5jWkhMSkBp58dAH0+LRWgohIIcWyqDTVy7nwcBhjVCBsgLoe/Uog0LvOA==
+"@code-to-json/comments@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@code-to-json/comments/-/comments-0.3.0.tgz#e7d5e7cc5dad41de5fb334c1cebd54a03a26fbf1"
+  integrity sha512-IbL8nNjNTMaGLRhy+MUt3sVGKBK2w4x/hauyhWTlUpatlMtwlMprW4mBXGyvfsS4gXTN7XycwyaYOgfOTL51Tg==
   dependencies:
     "@code-to-json/utils" "^0.6.4"
     "@microsoft/tsdoc" "^0.12.4"
 
-"@code-to-json/core@^0.12.0":
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/@code-to-json/core/-/core-0.12.0.tgz#99a89679767b751ea057972641da05bbe2c6574d"
-  integrity sha512-gb8lawp7XIHR6XtTiZYuluIIo8NXhpXGltgRnv2PewXsQGtPi5idW5OL8qTiibUTSTqNQy5hRSn82WYHkv5wRQ==
+"@code-to-json/core@^0.13.1":
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/@code-to-json/core/-/core-0.13.1.tgz#99ccee24bf92f8bc8534ce7bed074c03e6699394"
+  integrity sha512-csKD1KCqpenxv5v00h/Fw0ZbCDuQ2smd7BSU/TvZzbV3HiUs5DVfNLWB7zjZKBNhUI0jn8HrF/P0j0fcgjkptg==
   dependencies:
-    "@code-to-json/comments" "^0.1.0"
+    "@code-to-json/comments" "^0.3.0"
     "@code-to-json/utils" "^0.6.4"
     "@code-to-json/utils-ts" "^0.5.0"
     debug "4.1.1"
     typescript "^3.1.0"
 
-"@code-to-json/formatter@^0.9.7":
-  version "0.9.7"
-  resolved "https://registry.yarnpkg.com/@code-to-json/formatter/-/formatter-0.9.7.tgz#ec5d905c9108c1e01acc3b88831ba1e580510085"
-  integrity sha512-RARJADzSGfIOpbITO/3/nwVZz4yyu9uzT7NihTy/9Aagc9S2GRlYieuMUjymvNoWx1eMviO2vuS5VKLdOvLIVg==
+"@code-to-json/formatter@^0.10.1":
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/@code-to-json/formatter/-/formatter-0.10.1.tgz#7382de01696e878db601d27ef659c1b04988e766"
+  integrity sha512-GHt0zwFvL116u+pgqREh7AgnJw70m9/zYtdgtZXEQIy/FIJoRrTnXjqqnJS5PyFc+/hip8PSC8+Kr8ihARhu0w==
   dependencies:
-    "@code-to-json/core" "^0.12.0"
+    "@code-to-json/core" "^0.13.1"
     "@code-to-json/utils" "^0.6.4"
 
 "@code-to-json/utils-node@^0.2.0":
@@ -841,9 +841,9 @@
     execa "0.9.0"
 
 "@ember-decorators/babel-transforms@^4.0.0":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@ember-decorators/babel-transforms/-/babel-transforms-4.0.1.tgz#7b0dbbff9eaafe732cbf795df07fa94b3ab23305"
-  integrity sha512-WwLYVz0hIg0wa7kAobYOBPpxQBjysvmm7VirNcrGUnq8MHdTDUkvGxs6UpacxLKXu6UycZ5UZo5H8tKzIOeoDA==
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@ember-decorators/babel-transforms/-/babel-transforms-4.0.2.tgz#a7c7fd6c14c20e20685b5773271f828b956ae97a"
+  integrity sha512-COp0VNhX8tto1/9yPG9Jx/bTj1ViRkTCFrcaevz5YOyOLH9VmnkGuoz8jUeF1w8N7kbHKmWH8srZ+nOprrSNFg==
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.1.0"
     "@babel/plugin-proposal-decorators" "^7.1.2"

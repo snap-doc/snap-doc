@@ -1,4 +1,4 @@
-import { CommentData, CommentParagraphContent } from '@code-to-json/comments/lib/src/types';
+import { CommentData, CommentFencedCode, CommentParagraphContent } from '@code-to-json/comments';
 import { FileEmitter } from '@snap-doc/emitter';
 import { FileEmitterOptions } from '@snap-doc/emitter/lib/src/file-emitter';
 import { DocData, DocDataFile } from '@snap-doc/types';
@@ -31,7 +31,8 @@ function parseParagraphContent(summary: CommentParagraphContent): Node[] {
     if (typeof item === 'string') {
       parts.push(...(MD.parse(item) as Parent).children);
     } else if (item.kind === 'fencedCode') {
-      parts.push({ type: 'code', lang: item.language, value: item.code.trim() });
+      const c: CommentFencedCode = item;
+      parts.push({ type: 'code', lang: c.language, value: c.code.trim() });
     } else {
       console.log(item);
     }
