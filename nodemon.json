@@ -1,0 +1,23 @@
+{
+  "verbose": true,
+  "delay": 500,
+  "ext": "js,ts,json",
+  "watch": [
+    "packages/cli/test",
+    "packages/core/lib",
+    "packages/utils/lib",
+    "packages/emitter/lib",
+    "packages/markdown-emitter/lib",
+    "packages/types/lib",
+    "packages/ui-kit/dist",
+    "packages/app/dist",
+    "packages/cli/test",
+    "packages/core/test",
+    "packages/utils/test",
+    "packages/emitter/test",
+    "packages/markdown-emitter/test",
+    "packages/types/test",
+    "packages/ui-kit/tests",
+    "packages/app/tests"
+  ]
+}
