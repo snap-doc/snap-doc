@@ -677,7 +677,7 @@
     "@code-to-json/core" "^0.15.0"
     "@code-to-json/utils" "^0.6.4"
 
-"@code-to-json/utils-node@0.2.2":
+"@code-to-json/utils-node@0.2.2", "@code-to-json/utils-node@^0.2.2":
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/@code-to-json/utils-node/-/utils-node-0.2.2.tgz#787b7f9bf2f65ad9b4a18b729f70fd9b43d9e276"
   integrity sha512-QzQregzqxSA0MxD7mB6OvC2zY/p/JTb0Ln4ZN0r6A/70pj0x8b8rbanlFWyHd26R3ZLLWCayJHnrSJdZ6ig87A==
@@ -687,25 +687,6 @@
     pkg-up "^2.0.0"
     rimraf "^2.6.3"
     tmp "^0.0.33"
-
-"@code-to-json/utils-node@^0.2.0":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@code-to-json/utils-node/-/utils-node-0.2.1.tgz#5706d3e4c3a59ab1c83cb5f5c244c9acd91bc879"
-  integrity sha512-toMO26Zd9fvGFSeeogaqoUo+OZvoevXbwzGZnnzRF7SR+1cy2d5Ini0hXs769Epvkt0cBU5sZgv9/Zvy3nuKcg==
-  dependencies:
-    "@code-to-json/utils" "^0.6.4"
-    "@code-to-json/utils-ts" "^0.5.0"
-    pkg-up "^2.0.0"
-    rimraf "^2.6.3"
-    tmp "^0.0.33"
-
-"@code-to-json/utils-ts@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@code-to-json/utils-ts/-/utils-ts-0.5.0.tgz#283f5ca7133c31cdc775f70ef00b780d09d3fea7"
-  integrity sha512-MU/6p6/rTMjpozjsClCd6aKo3QFY8vxKr24fpV8+GY/V3SECN4NoQPdmR2E/Fahyf1HnGXkINgcwdJxiOI0gIg==
-  dependencies:
-    "@code-to-json/utils" "^0.6.4"
-    typescript "^3.1.0"
 
 "@code-to-json/utils-ts@^0.6.0":
   version "0.6.0"
