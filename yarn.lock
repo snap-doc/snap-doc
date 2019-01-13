@@ -649,34 +649,46 @@
     check-more-types "2.24.0"
     lazy-ass "1.6.0"
 
-"@code-to-json/comments@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@code-to-json/comments/-/comments-0.3.0.tgz#e7d5e7cc5dad41de5fb334c1cebd54a03a26fbf1"
-  integrity sha512-IbL8nNjNTMaGLRhy+MUt3sVGKBK2w4x/hauyhWTlUpatlMtwlMprW4mBXGyvfsS4gXTN7XycwyaYOgfOTL51Tg==
+"@code-to-json/comments@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@code-to-json/comments/-/comments-0.4.0.tgz#8adb312e85ce8bbc87bc95ab0a9677fcbed5dda9"
+  integrity sha512-zQRTzIbuD0pA6vg6SxTSGwqPVKK9NxagE3InQKWnrANv5prblQE9ujgDUCpOSAHiw3GZMBqEz8k13i3m+OmRIA==
   dependencies:
     "@code-to-json/utils" "^0.6.4"
     "@microsoft/tsdoc" "^0.12.4"
+    debug "^4.1.1"
 
-"@code-to-json/core@^0.13.1":
-  version "0.13.1"
-  resolved "https://registry.yarnpkg.com/@code-to-json/core/-/core-0.13.1.tgz#99ccee24bf92f8bc8534ce7bed074c03e6699394"
-  integrity sha512-csKD1KCqpenxv5v00h/Fw0ZbCDuQ2smd7BSU/TvZzbV3HiUs5DVfNLWB7zjZKBNhUI0jn8HrF/P0j0fcgjkptg==
+"@code-to-json/core@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/@code-to-json/core/-/core-0.15.0.tgz#7abfcb5a73c5f79be94c0b30ec0006b979bb2c0d"
+  integrity sha512-Eoe1zKsCgoVL6HFi0MttqaruUR2jF3KhAJwiuY1k51xfQCm1/IULDTngnKzua2rgha08JU9s+x0lWexhjIM8bA==
   dependencies:
-    "@code-to-json/comments" "^0.3.0"
+    "@code-to-json/comments" "^0.4.0"
     "@code-to-json/utils" "^0.6.4"
-    "@code-to-json/utils-ts" "^0.5.0"
+    "@code-to-json/utils-ts" "^0.6.0"
     debug "4.1.1"
     typescript "^3.1.0"
 
-"@code-to-json/formatter@^0.10.1":
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/@code-to-json/formatter/-/formatter-0.10.1.tgz#7382de01696e878db601d27ef659c1b04988e766"
-  integrity sha512-GHt0zwFvL116u+pgqREh7AgnJw70m9/zYtdgtZXEQIy/FIJoRrTnXjqqnJS5PyFc+/hip8PSC8+Kr8ihARhu0w==
+"@code-to-json/formatter@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@code-to-json/formatter/-/formatter-0.12.0.tgz#09e89c68b1b78e7ef8b2bf489aea05f549704899"
+  integrity sha512-Ivhxi2CxslMCHkRARTHBtIcTJUwijgFLF7XTHyPpOks0uUPqdlsOuuiUfqJgcLLx3+H3GH4nm+qaL1F3NAmqDQ==
   dependencies:
-    "@code-to-json/core" "^0.13.1"
+    "@code-to-json/core" "^0.15.0"
     "@code-to-json/utils" "^0.6.4"
 
-"@code-to-json/utils-node@0.2.1", "@code-to-json/utils-node@^0.2.0":
+"@code-to-json/utils-node@0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@code-to-json/utils-node/-/utils-node-0.2.2.tgz#787b7f9bf2f65ad9b4a18b729f70fd9b43d9e276"
+  integrity sha512-QzQregzqxSA0MxD7mB6OvC2zY/p/JTb0Ln4ZN0r6A/70pj0x8b8rbanlFWyHd26R3ZLLWCayJHnrSJdZ6ig87A==
+  dependencies:
+    "@code-to-json/utils" "^0.6.4"
+    "@code-to-json/utils-ts" "^0.6.0"
+    pkg-up "^2.0.0"
+    rimraf "^2.6.3"
+    tmp "^0.0.33"
+
+"@code-to-json/utils-node@^0.2.0":
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/@code-to-json/utils-node/-/utils-node-0.2.1.tgz#5706d3e4c3a59ab1c83cb5f5c244c9acd91bc879"
   integrity sha512-toMO26Zd9fvGFSeeogaqoUo+OZvoevXbwzGZnnzRF7SR+1cy2d5Ini0hXs769Epvkt0cBU5sZgv9/Zvy3nuKcg==
@@ -691,6 +703,14 @@
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@code-to-json/utils-ts/-/utils-ts-0.5.0.tgz#283f5ca7133c31cdc775f70ef00b780d09d3fea7"
   integrity sha512-MU/6p6/rTMjpozjsClCd6aKo3QFY8vxKr24fpV8+GY/V3SECN4NoQPdmR2E/Fahyf1HnGXkINgcwdJxiOI0gIg==
+  dependencies:
+    "@code-to-json/utils" "^0.6.4"
+    typescript "^3.1.0"
+
+"@code-to-json/utils-ts@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@code-to-json/utils-ts/-/utils-ts-0.6.0.tgz#c1d8b247f0379c83cfe789c257c79dd6a25f400e"
+  integrity sha512-m2BdE0rFfLpw5lSTwP2lWHbRcGxWC8Rd9zDTgWGj6nItC+EQyCLRBbwRZsLkQMhd9dIeNub2rApuxaqCLisPNg==
   dependencies:
     "@code-to-json/utils" "^0.6.4"
     typescript "^3.1.0"
