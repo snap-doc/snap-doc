@@ -677,7 +677,18 @@
     "@code-to-json/core" "^0.15.0"
     "@code-to-json/utils" "^0.6.4"
 
-"@code-to-json/utils-node@0.2.2", "@code-to-json/utils-node@^0.2.2":
+"@code-to-json/utils-node@0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@code-to-json/utils-node/-/utils-node-0.2.3.tgz#fd5f83b828c550115e0471535d16e2f12c52c3d2"
+  integrity sha512-fvcC0FtvaR2IulGd4kPaciKlqnzmqkqfRmXwIV82Ax9PqZIhJTQ6vE4LcxCJYt9+L39+vRcAp/wRQCz7LSZwlg==
+  dependencies:
+    "@code-to-json/utils" "^0.6.5"
+    "@code-to-json/utils-ts" "^0.6.1"
+    pkg-up "^2.0.0"
+    rimraf "^2.6.3"
+    tmp "^0.0.33"
+
+"@code-to-json/utils-node@^0.2.2":
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/@code-to-json/utils-node/-/utils-node-0.2.2.tgz#787b7f9bf2f65ad9b4a18b729f70fd9b43d9e276"
   integrity sha512-QzQregzqxSA0MxD7mB6OvC2zY/p/JTb0Ln4ZN0r6A/70pj0x8b8rbanlFWyHd26R3ZLLWCayJHnrSJdZ6ig87A==
@@ -696,10 +707,23 @@
     "@code-to-json/utils" "^0.6.4"
     typescript "^3.1.0"
 
+"@code-to-json/utils-ts@^0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@code-to-json/utils-ts/-/utils-ts-0.6.1.tgz#708bf636758bab31dbbf4259fb28473bb28b0344"
+  integrity sha512-yMKPEfwL7Np/PREoJI/JngMWIsGOcrAsc4ppVRCSD8JWunIlk+v+NMCDUeCHKMLvZ5nVuk6UGfzjIl6YOZSQtQ==
+  dependencies:
+    "@code-to-json/utils" "^0.6.5"
+    typescript "^3.1.0"
+
 "@code-to-json/utils@^0.6.4":
   version "0.6.4"
   resolved "https://registry.yarnpkg.com/@code-to-json/utils/-/utils-0.6.4.tgz#53ca1add9387da63d980c578d4b4b2ac95b20ff9"
   integrity sha512-omdjgAXJEWeTT9K0trYbu6nmrWeTa14do7v89us5PeIoSm7mZZnlXgs18+IlcdMxA3fbkNTnDoWbQ//7C1v1HA==
+
+"@code-to-json/utils@^0.6.5":
+  version "0.6.5"
+  resolved "https://registry.yarnpkg.com/@code-to-json/utils/-/utils-0.6.5.tgz#95cdc70ea55bc10bf8cffdfeb01df2ad0f347620"
+  integrity sha512-EVl42c5TXgsUDolPgTKtw/IRMA+luW44CI+IvcHDqTasPpNmWii+GBo9zHi3FQ/42KZLFpijU5LlXWTf0fRQVw==
 
 "@commitlint/cli@7.3.1", "@commitlint/cli@^7.3.1":
   version "7.3.1"
