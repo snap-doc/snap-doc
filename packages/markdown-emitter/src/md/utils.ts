@@ -3,6 +3,7 @@ import { DocDataFile } from '@snap-doc/types';
 import { Node, Parent } from 'unist';
 import { removePositionInformation } from '../node-utils';
 import md from './index';
+import { addToc } from './toc';
 
 const SOURCEFILE_HEADER_TOP_TAGS: string[] = ['author', 'file'];
 
@@ -204,5 +205,6 @@ export function markdownForDocFile(file: DocDataFile): string {
   if (other.length > 0) {
     root.children.push(createTagsTable('Other Details', other));
   }
+  addToc(root);
   return md.stringify(root).trim();
 }

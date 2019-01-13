@@ -2,6 +2,7 @@ import { FileEmitter } from '@snap-doc/emitter';
 import { FileEmitterOptions } from '@snap-doc/emitter/lib/src/file-emitter';
 import { DocData, DocDataFile } from '@snap-doc/types';
 import * as debug from 'debug';
+import { addToc } from './md/toc';
 import { markdownForDocFile } from './md/utils';
 
 const log = debug('snap-doc:markdown-file-emitter');

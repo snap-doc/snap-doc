@@ -107,8 +107,8 @@
   "dependencies": {
     "@snap-doc/emitter": "^0.1.0",
     "debug": "^4.1.1",
+    "mdast-util-toc": "^3.0.1",
     "remark-parse": "^6.0.3",
-    "remark-stringify": "^6.0.4",
-    "remark-toc": "^5.1.1"
+    "remark-stringify": "^6.0.4"
   }
 }
