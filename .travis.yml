@@ -46,10 +46,10 @@ jobs:
         - yarn add -WD coveralls
       script:
         - commitlint-travis && echo "✅ Commitlint passed"
-        - lerna run lint:ts
-        - lerna run lint:js
-        - lerna run lint:hbs
-        - lerna run lint:md
+        - lerna run lint:ts --parallel
+        - lerna run lint:js --parallel
+        - lerna run lint:hbs --parallel
+        - lerna run lint:md --parallel
         - ls -all packages/cli/node_modules
         - ls -all node_modules | grep @snap-doc
         - ls -all node_modules/@snap-doc
@@ -57,8 +57,8 @@ jobs:
       after_success:
         - test "$TRAVIS_BRANCH" = "master" && ./node_modules/.bin/codecov
         - test "$TRAVIS_BRANCH" = "master" && npm install -g codacy-coverage
-        - test "$TRAVIS_BRANCH" = "master" && lerna run codacy:transmit-coverage
-        - test "$TRAVIS_BRANCH" = "master" && lerna run coveralls:transmit-coverage
+        - test "$TRAVIS_BRANCH" = "master" && lerna run codacy:transmit-coverage --parallel
+        - test "$TRAVIS_BRANCH" = "master" && lerna run coveralls:transmit-coverage --parallel
 
     - stage: compatibility
       name: 'Floating Dependencies'
