@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.2.0...@snap-doc/core@0.2.1) (2019-01-13)
+
+
+### Bug Fixes
+
+* **deps:** update code-to-json packages ([edec1e8](https://github.com/snap-doc/snap-doc/commit/edec1e8))
+
+
+
+
+
 # [0.2.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.1.3...@snap-doc/core@0.2.0) (2019-01-12)
 
 

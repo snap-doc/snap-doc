@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/types",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Types & type utilities for snap-doc",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",

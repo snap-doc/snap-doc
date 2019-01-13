@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/markdown-emitter@0.1.0...@snap-doc/markdown-emitter@0.2.0) (2019-01-13)
+
+
+### Bug Fixes
+
+* **deps:** update code-to-json packages ([edec1e8](https://github.com/snap-doc/snap-doc/commit/edec1e8))
+
+
+### Features
+
+* **markdown-emitter:** markdown module-level table of contents ([9f3e17f](https://github.com/snap-doc/snap-doc/commit/9f3e17f))
+
+
+
+
+
 # [0.1.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/markdown-emitter@0.0.3...@snap-doc/markdown-emitter@0.1.0) (2019-01-12)
 
 
