@@ -1,4 +1,3 @@
-import { TypeRef } from '@code-to-json/core';
 import { FormattedSymbol, FormattedSymbolRef, FormattedType } from '@code-to-json/formatter';
 import { FormatterOutputData } from '@code-to-json/formatter/lib/src/formatter';
 import { isTruthy, UnreachableError } from '@code-to-json/utils';
