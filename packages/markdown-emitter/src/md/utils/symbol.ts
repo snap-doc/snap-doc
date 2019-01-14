@@ -51,7 +51,7 @@ function symbolClassTypeDescription(
             constructorParts.push(
               parameters
                 .map(p => {
-                  const paramType = resolveReference(data, p.type!);
+                  const paramType = resolveReference(data, p.type);
                   return `${p.name}: ${paramType.text}`;
                 })
                 .join(', ')
@@ -116,7 +116,7 @@ function symbolFunctionTypeDescription(
           parts.push(
             parameters
               .map(p => {
-                const paramType = resolveReference(data, p.type!);
+                const paramType = resolveReference(data, p.type);
                 return `${p.name}: ${paramType.text}`;
               })
               .join(', ')
@@ -144,7 +144,9 @@ function symbolPropertyTypeDescription(
 }
 
 function symbolKind(flags?: string[]): ExportKind {
-  if (!flags) { return 'property'; }
+  if (!flags) {
+    return 'property';
+  }
   if (flags.includes('class')) {
     return 'class';
   }
