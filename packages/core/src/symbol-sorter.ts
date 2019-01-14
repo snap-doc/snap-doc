@@ -19,17 +19,6 @@ export function isProperty(sym: FormattedSymbol): boolean {
   return !!sym.flags && sym.flags.includes('variable');
 }
 
-function filterFlags(flags?: string[]): string[] {
-  if (!flags) {
-    return [];
-  }
-  return flags.map(f => {
-    if (f === 'alias') {
-      return 'type';
-    }
-    return f;
-  });
-}
 export interface SortedExportSymbols {
   classes: Dict<FormattedSymbol>;
   properties: Dict<FormattedSymbol>;
