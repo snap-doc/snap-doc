@@ -122,7 +122,7 @@ class MarkdownUtilsTests {
       )
     ).to.eql(`# foo/bar
 
-  \`src/foo/bar\``);
+\`src/foo/bar\``);
   }
 
   @test
@@ -150,13 +150,13 @@ class MarkdownUtilsTests {
       )
     ).to.eql(`# foo/bar
 
-  \`src/foo/bar\`
+\`src/foo/bar\`
 
-  | Information |      |
-  | :---------- | :--: |
-  | **author**  | Mike |
+| Information |      |
+| :---------- | :--: |
+| **author**  | Mike |
 
-  My favorite module`);
+My favorite module`);
   }
 
   @test
@@ -200,22 +200,28 @@ class MarkdownUtilsTests {
       )
     ).to.eql(`# foo/bar
 
-  \`src/foo/bar\`
+## Table of Contents
 
-  | Information |      |
-  | :---------- | :--: |
-  | **author**  | Mike |
+*   [Examples](#examples)
 
-  My favorite module
+\`src/foo/bar\`
 
-  ## Examples
+| Information |      |
+| :---------- | :--: |
+| **author**  | Mike |
 
-  \`\`\`js
-  foo() {}
-  \`\`\`
+My favorite module
 
-  | Other Details |     |
-  | :------------ | :-: |
-  | **foobar**    | Baz |`);
+## Examples
+
+
+\`\`\`js
+foo() {}
+\`\`\`
+
+
+| Other Details |     |
+| :------------ | :-: |
+| **foobar**    | Baz |`);
   }
 }

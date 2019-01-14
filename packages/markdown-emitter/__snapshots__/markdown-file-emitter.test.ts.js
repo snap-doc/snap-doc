@@ -24,8 +24,8 @@ foo() {}
 | Other Details |     |
 | :------------ | :-: |
 | **foobar**    | Baz |
-`;
+`
 
 exports['file name'] = `
 out/src/foo/bar.md
-`;
+`

@@ -1,10 +1,8 @@
 import { CommentFencedCode } from '@code-to-json/comments';
-import { FormattedSourceFile } from '@code-to-json/formatter';
 import { nodeHost } from '@code-to-json/utils-node';
 import { expect } from 'chai';
 import { suite, test } from 'mocha-typescript';
 import { join } from 'path';
-import * as snapshot from 'snap-shot-it';
 import { MarkdownFileEmitter } from '../src';
 
 @suite
@@ -77,7 +75,31 @@ class MarkdownFileEmitterTests {
         }
       }
     });
-    snapshot('file name', writeParams[0][0]);
-    snapshot('file contents', writeParams[0][1].replace(/`/g, '\\`'));
+    expect(writeParams[0][0]).to.eql('out/src/foo/bar.md');
+    expect(writeParams[0][1]).to.eql(`# foo/bar
+
+## Table of Contents
+
+*   [Examples](#examples)
+
+\`src/foo/bar\`
+
+| Information |      |
+| :---------- | :--: |
+| **author**  | Mike |
+
+My favorite module
+
+## Examples
+
+
+\`\`\`js
+foo() {}
+\`\`\`
+
+
+| Other Details |     |
+| :------------ | :-: |
+| **foobar**    | Baz |`);
   }
 }
