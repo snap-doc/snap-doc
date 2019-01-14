@@ -51,9 +51,13 @@ function symbolClassTypeDescription(
             constructorParts.push(
               parameters
                 .map(p => {
+                  if (!p.type) {
+                    return null;
+                  }
                   const paramType = resolveReference(data, p.type);
                   return `${p.name}: ${paramType.text}`;
                 })
+                .filter(isTruthy)
                 .join(', ')
             );
           }
@@ -115,10 +119,15 @@ function symbolFunctionTypeDescription(
         if (parameters && parameters.length > 0) {
           parts.push(
             parameters
+              // tslint:disable-next-line:no-identical-functions
               .map(p => {
+                if (!p.type) {
+                  return null;
+                }
                 const paramType = resolveReference(data, p.type);
                 return `${p.name}: ${paramType.text}`;
               })
+              .filter(isTruthy)
               .join(', ')
           );
         }
