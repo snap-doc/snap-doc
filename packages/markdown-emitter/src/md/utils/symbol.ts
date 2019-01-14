@@ -1,3 +1,4 @@
+import { TypeRef } from '@code-to-json/core';
 import { FormattedSymbol, FormattedSymbolRef, FormattedType } from '@code-to-json/formatter';
 import { FormatterOutputData } from '@code-to-json/formatter/lib/src/formatter';
 import { isTruthy, UnreachableError } from '@code-to-json/utils';
@@ -52,12 +53,11 @@ function symbolClassTypeDescription(
               parameters
                 .map(p => {
                   if (!p.type) {
-                    return null;
+                    return '';
                   }
                   const paramType = resolveReference(data, p.type);
                   return `${p.name}: ${paramType.text}`;
                 })
-                .filter(isTruthy)
                 .join(', ')
             );
           }
@@ -122,12 +122,11 @@ function symbolFunctionTypeDescription(
               // tslint:disable-next-line:no-identical-functions
               .map(p => {
                 if (!p.type) {
-                  return null;
+                  return '';
                 }
                 const paramType = resolveReference(data, p.type);
                 return `${p.name}: ${paramType.text}`;
               })
-              .filter(isTruthy)
               .join(', ')
           );
         }
