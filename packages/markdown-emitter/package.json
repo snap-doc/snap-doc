@@ -39,7 +39,7 @@
     "url": "https://github.com/snap-doc/snap-doc/issues"
   },
   "devDependencies": {
-    "@code-to-json/utils-node": "0.2.4",
+    "@code-to-json/utils-node": "0.2.5",
     "@types/debug": "0.0.31",
     "@types/mocha": "5.2.5",
     "@types/rimraf": "2.0.2",
