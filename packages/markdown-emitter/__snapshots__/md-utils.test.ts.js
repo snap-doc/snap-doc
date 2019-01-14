@@ -18,29 +18,18 @@ exports['markdown utilities tests create root AST node from source root 1'] = {
   ]
 }
 
-exports['markdown utilities tests createSection tests 1'] = {
-  "type": "paragraph",
-  "children": [
-    {
-      "type": "heading",
-      "depth": 1,
-      "children": [
-        {
-          "type": "text",
-          "value": "My Title"
-        },
-        {
-          "type": "text",
-          "value": "\n\n"
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "children": []
-    }
-  ]
-}
+exports['markdown utilities tests createSection tests 1'] = [
+  {
+    "type": "heading",
+    "depth": 1,
+    "children": [
+      {
+        "type": "text",
+        "value": "My Title"
+      }
+    ]
+  }
+]
 
 exports['markdown utilities tests createTagsTable - no rows 1'] = {
   "type": "table",

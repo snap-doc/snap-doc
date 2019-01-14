@@ -7,7 +7,12 @@ import { createSection } from './section';
 type BlockTag = [string, Node[]];
 const SOURCEFILE_HEADER_TOP_TAGS: string[] = ['author', 'file'];
 
-function organizeTags(
+/**
+ *
+ * @param tags
+ * @internal
+ */
+export function organizeTags(
   tags: BlockTag[]
 ): { top: BlockTag[]; examples: BlockTag[]; other: BlockTag[] } {
   const top: BlockTag[] = [];
@@ -25,7 +30,13 @@ function organizeTags(
   return { top, examples, other };
 }
 
-function createTagsTable(title: string, tags: BlockTag[]): Node {
+/**
+ *
+ * @param title
+ * @param tags
+ * @internal
+ */
+export function createTagsTable(title: string, tags: BlockTag[]): Node {
   const rows = tags.map(t => {
     return {
       type: 'tableRow',
@@ -93,9 +104,9 @@ export function createDocumentation(documentation?: CommentData): Node[] {
 /**
  * Convert a CommentParagraphContent into a list of mdast Nodes
  * @param summary
- * @private
+ * @internal
  */
-function parseParagraphContent(summary: CommentParagraphContent): Node[] {
+export function parseParagraphContent(summary: CommentParagraphContent): Node[] {
   const parts: Node[] = [];
   summary.forEach(item => {
     if (typeof item === 'string') {
