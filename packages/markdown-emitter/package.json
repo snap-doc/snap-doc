@@ -39,7 +39,7 @@
     "url": "https://github.com/snap-doc/snap-doc/issues"
   },
   "devDependencies": {
-    "@code-to-json/utils-node": "0.2.3",
+    "@code-to-json/utils-node": "0.2.4",
     "@types/debug": "0.0.31",
     "@types/mocha": "5.2.5",
     "@types/rimraf": "2.0.2",
@@ -105,6 +105,8 @@
     ]
   },
   "dependencies": {
+    "@mike-north/types": "^1.0.7",
+    "@snap-doc/core": "^0.2.0",
     "@snap-doc/emitter": "^0.1.0",
     "debug": "^4.1.1",
     "mdast-util-toc": "^3.0.1",

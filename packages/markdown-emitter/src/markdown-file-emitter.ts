@@ -1,6 +1,7 @@
+import { FormattedSourceFile } from '@code-to-json/formatter';
+import { FormatterOutputData } from '@code-to-json/formatter/lib/src/formatter';
 import { FileEmitter } from '@snap-doc/emitter';
 import { FileEmitterOptions } from '@snap-doc/emitter/lib/src/file-emitter';
-import { DocData, DocDataFile } from '@snap-doc/types';
 import * as debug from 'debug';
 import { markdownForDocFile } from './md/utils';
 
@@ -17,8 +18,8 @@ export default class MarkdownFileEmitter<O extends MarkdownFileEmitterOptions> e
     log('outDir', this.options.outDir);
   }
 
-  public async generate(data: DocData): Promise<void> {
-    const { files } = data;
+  public async generate(data: FormatterOutputData): Promise<void> {
+    const { sourceFiles: files } = data;
     const { outDir, host: h } = this.options;
     const outExists = h.fileOrFolderExists(outDir);
     if (outExists && !h.isFolder(outDir)) {
@@ -29,7 +30,8 @@ export default class MarkdownFileEmitter<O extends MarkdownFileEmitterOptions> e
     }
     log(`Creating new directory at ${outDir}`);
     h.createFolder(outDir);
-    files.forEach(f => {
+    Object.keys(files).forEach(fname => {
+      const f = files[fname];
       const outPath = h.combinePaths(this.options.outDir, f.pathInPackage);
       log(`Processing module: ${f.name} (${f.pathInPackage})`);
       const parentDir = h.combinePaths(outPath, '..');
@@ -39,11 +41,11 @@ export default class MarkdownFileEmitter<O extends MarkdownFileEmitterOptions> e
       if (!h.isFolder(parentDir)) {
         throw new Error(`${parentDir} is not a directory`);
       }
-      h.writeFileSync(`${outPath}.md`, this.contentForModule(f));
+      h.writeFileSync(`${outPath}.md`, this.contentForModule(data, f));
     });
   }
 
-  public contentForModule(file: DocDataFile): string {
-    return markdownForDocFile(file);
+  public contentForModule(data: FormatterOutputData, file: FormattedSourceFile): string {
+    return markdownForDocFile(data, file);
   }
 }

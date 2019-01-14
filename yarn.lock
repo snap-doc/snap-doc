@@ -649,57 +649,64 @@
     check-more-types "2.24.0"
     lazy-ass "1.6.0"
 
-"@code-to-json/comments@^0.4.0", "@code-to-json/comments@^0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@code-to-json/comments/-/comments-0.4.1.tgz#10675efbb3bd8d45913e8c80937ab57871c070d2"
-  integrity sha512-VwOE3zBCpu94dOL4nYrWWCZhg0vtMRY21fdPBpemUVU9LD7DaxwjYc4SKx9ApM89dPFXDgm8SRCUn8bINWxBKA==
+"@code-to-json/comments@^0.4.0", "@code-to-json/comments@^0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@code-to-json/comments/-/comments-0.4.2.tgz#403b31112ae9d06cccb04136b3613beb6540d85a"
+  integrity sha512-vnRY/uBYjWqcw2V5fzJf3zhhDsp8E6OfYHvgHsCKPIjcQxIdq0cD93xhKQnFhP9hZCYD+KWK64vpoHO/PgMRIw==
   dependencies:
-    "@code-to-json/utils" "^0.6.5"
+    "@code-to-json/utils" "^0.6.6"
     "@microsoft/tsdoc" "^0.12.4"
+    "@mike-north/types" "^1.0.7"
     debug "^4.1.1"
 
-"@code-to-json/core@^0.15.0", "@code-to-json/core@^0.15.1":
-  version "0.15.1"
-  resolved "https://registry.yarnpkg.com/@code-to-json/core/-/core-0.15.1.tgz#da05f1353ccd82fdffd464889a964aa8fe68532c"
-  integrity sha512-WdotiwzxSvfdyB8+fBU8ivyKq80Gzh4pHL9HQHoY3W0EcUYH7a9dM9lfj+RfUqq5He68rS7i7QIrZ15Vbr09DA==
+"@code-to-json/core@^0.15.0", "@code-to-json/core@^0.15.2":
+  version "0.15.2"
+  resolved "https://registry.yarnpkg.com/@code-to-json/core/-/core-0.15.2.tgz#ab4bfbf58a5cbb1f1a42502cbf82c28a72cecaf3"
+  integrity sha512-7XEwX77ITt5RW1vuJ6D9ZiKuTFdEEO5DeU6Hl0PKJP62dhIPgzLrute+gtevOjZ0Kajv3Hgc9lfrV8rNIF3JNQ==
   dependencies:
-    "@code-to-json/comments" "^0.4.1"
-    "@code-to-json/utils" "^0.6.5"
-    "@code-to-json/utils-ts" "^0.6.1"
+    "@code-to-json/comments" "^0.4.2"
+    "@code-to-json/utils" "^0.6.6"
+    "@code-to-json/utils-ts" "^0.6.2"
+    "@mike-north/types" "^1.0.7"
     debug "4.1.1"
     typescript "^3.1.0"
 
-"@code-to-json/formatter@^0.12.0":
-  version "0.12.1"
-  resolved "https://registry.yarnpkg.com/@code-to-json/formatter/-/formatter-0.12.1.tgz#e4b620bdd26ae729d57b6cf7f2a36c117208ea5d"
-  integrity sha512-u49JnEp3Vamc+BemYNwaFyKJeHSb682n7Fk39E1N1QDF6y3sR/I9SPmKWe81LQ57h9pXYa26azy/u+J+UgUiAg==
+"@code-to-json/formatter@^0.12.0", "@code-to-json/formatter@^0.12.2":
+  version "0.12.3"
+  resolved "https://registry.yarnpkg.com/@code-to-json/formatter/-/formatter-0.12.3.tgz#87d52c837103b7bdc39443e3b6e076d1679ee2c6"
+  integrity sha512-SmSa2OSpkjABqOsuOICNy/w1EZ6vuurTVgmWR7MJHbfJpgvy/eMI3tbTd8zI3xbjFwUUK7n4ka4SEDctNEJ6SA==
   dependencies:
-    "@code-to-json/core" "^0.15.1"
-    "@code-to-json/utils" "^0.6.5"
+    "@code-to-json/core" "^0.15.2"
+    "@code-to-json/utils" "^0.6.6"
+    "@mike-north/types" "^1.0.7"
 
-"@code-to-json/utils-node@0.2.3", "@code-to-json/utils-node@^0.2.2":
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@code-to-json/utils-node/-/utils-node-0.2.3.tgz#fd5f83b828c550115e0471535d16e2f12c52c3d2"
-  integrity sha512-fvcC0FtvaR2IulGd4kPaciKlqnzmqkqfRmXwIV82Ax9PqZIhJTQ6vE4LcxCJYt9+L39+vRcAp/wRQCz7LSZwlg==
+"@code-to-json/utils-node@0.2.4", "@code-to-json/utils-node@^0.2.2":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@code-to-json/utils-node/-/utils-node-0.2.4.tgz#5b5d36db8ac75b5c8ab3763681c16bef5a39a96f"
+  integrity sha512-UK5HisKs71dl5MCAJ6zwXNLuZWiEUxrJx6RNBGpGPrhonSdmkXZBplr8tnEu4OtAvZClJPRHvgKZYQXWRq2AHQ==
   dependencies:
-    "@code-to-json/utils" "^0.6.5"
-    "@code-to-json/utils-ts" "^0.6.1"
+    "@code-to-json/utils" "^0.6.6"
+    "@code-to-json/utils-ts" "^0.6.2"
+    "@mike-north/types" "^1.0.7"
     pkg-up "^2.0.0"
     rimraf "^2.6.3"
     tmp "^0.0.33"
 
-"@code-to-json/utils-ts@^0.6.0", "@code-to-json/utils-ts@^0.6.1":
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/@code-to-json/utils-ts/-/utils-ts-0.6.1.tgz#708bf636758bab31dbbf4259fb28473bb28b0344"
-  integrity sha512-yMKPEfwL7Np/PREoJI/JngMWIsGOcrAsc4ppVRCSD8JWunIlk+v+NMCDUeCHKMLvZ5nVuk6UGfzjIl6YOZSQtQ==
+"@code-to-json/utils-ts@^0.6.0", "@code-to-json/utils-ts@^0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@code-to-json/utils-ts/-/utils-ts-0.6.2.tgz#934cae0625576140f9e07bf6a1d10aff714baa98"
+  integrity sha512-G93GESZ6GTnsYizdUCgS/3XGguxylSWEALtxmL2O7FZkvrSD2m8UEQygADR7dLp0Ft1GkTafxuoG4PYnY3XFZA==
   dependencies:
-    "@code-to-json/utils" "^0.6.5"
+    "@code-to-json/utils" "^0.6.6"
+    "@mike-north/types" "^1.0.7"
     typescript "^3.1.0"
 
-"@code-to-json/utils@^0.6.5":
-  version "0.6.5"
-  resolved "https://registry.yarnpkg.com/@code-to-json/utils/-/utils-0.6.5.tgz#95cdc70ea55bc10bf8cffdfeb01df2ad0f347620"
-  integrity sha512-EVl42c5TXgsUDolPgTKtw/IRMA+luW44CI+IvcHDqTasPpNmWii+GBo9zHi3FQ/42KZLFpijU5LlXWTf0fRQVw==
+"@code-to-json/utils@^0.6.6":
+  version "0.6.6"
+  resolved "https://registry.yarnpkg.com/@code-to-json/utils/-/utils-0.6.6.tgz#47c352f56eabdd0329c0680ac04537a71733f0d1"
+  integrity sha512-1o5J5qp1YmTxWE2YGd1owmb7dI4ZouWcqFtc6KsY2xYchtWtRfENZhUqJLIK0CR9LC4StH9gLvDwyLk1mFZv1A==
+  dependencies:
+    "@mike-north/types" "^1.0.7"
 
 "@commitlint/cli@7.3.1", "@commitlint/cli@^7.3.1":
   version "7.3.1"
@@ -841,61 +848,61 @@
     execa "0.9.0"
 
 "@ember-decorators/babel-transforms@^4.0.0":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@ember-decorators/babel-transforms/-/babel-transforms-4.0.2.tgz#a7c7fd6c14c20e20685b5773271f828b956ae97a"
-  integrity sha512-COp0VNhX8tto1/9yPG9Jx/bTj1ViRkTCFrcaevz5YOyOLH9VmnkGuoz8jUeF1w8N7kbHKmWH8srZ+nOprrSNFg==
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@ember-decorators/babel-transforms/-/babel-transforms-4.0.3.tgz#03382d93d4c160430a350b1e1339a8b703338f1d"
+  integrity sha512-ByNZiZ2Rhl1PyHDpnrn2dhl3599ZWhpgg0p6LtTfRao5B/vkfBsxdwb/aKqAbxM0OQp+6+f9i6D20BCWChxXng==
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.1.0"
     "@babel/plugin-proposal-decorators" "^7.1.2"
     ember-cli-babel-plugin-helpers "^1.0.0"
     ember-cli-version-checker "^2.1.0"
 
-"@ember-decorators/component@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@ember-decorators/component/-/component-4.0.2.tgz#27651fd17d6ba3be235f4d6555a481d584e8e962"
-  integrity sha512-RP+03b/30hX6EQW2KuiLzb5kvFggeQa5uhG3Lwb4rNqZK3yCxU3hJ2GXBxjtqcapbHklpKAHQg5GUySG3rxRtw==
+"@ember-decorators/component@^4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@ember-decorators/component/-/component-4.0.3.tgz#47785fc685a846acef120355d99866fe6a1556b8"
+  integrity sha512-JhgPdRL2e0wpiEFTiWhNN+Yk75f/NXL2glrx0z/EfbKSiw2hmmkJvPwCj7yeyp9to5XyzJoiT74SaVD5s9lnyg==
   dependencies:
-    "@ember-decorators/utils" "^4.0.2"
+    "@ember-decorators/utils" "^4.0.3"
     ember-cli-babel "^7.1.3"
 
-"@ember-decorators/controller@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@ember-decorators/controller/-/controller-4.0.2.tgz#b9cfea1f3092ea19e772fa70c22ce13994987767"
-  integrity sha512-+zTpEO77v/rzeA7psIM9Kw76km7KW/CXTpTlvlWxwjSFFtl/DFECoo6Ef7dTZYHz6m6iw+eWA/cmE/ipoZkWtQ==
+"@ember-decorators/controller@^4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@ember-decorators/controller/-/controller-4.0.3.tgz#f32a7293ec2941464e9ee1d8ad82fd8b2534e3a3"
+  integrity sha512-Dl9NW9qwOC9lbn+RlqquY0X17bBvwe19MQSOe//jR0RZy8jl7pD+spr7PJKi2C38Ym4rEjWcOLUZmCABLRLgNw==
   dependencies:
-    "@ember-decorators/utils" "^4.0.2"
+    "@ember-decorators/utils" "^4.0.3"
     ember-cli-babel "^7.1.3"
 
-"@ember-decorators/data@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@ember-decorators/data/-/data-4.0.2.tgz#8d803a51ffa423450f2af6aa2070b1a19afd66a5"
-  integrity sha512-XSp7hXUcPUYnv3Ytw1UiP6Z/5uYJ7GvJQD7sof8jAOUSdV0kb+XNIzgijelvGuBaDjUCFqJIQgWQPUSOXaN8Uw==
+"@ember-decorators/data@^4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@ember-decorators/data/-/data-4.0.3.tgz#44e4f70457ac7226dba1ae6e12b34357f1d3dc31"
+  integrity sha512-xO8BOH3AWUKzZdc+HAFIakPsffu3CawObWPmkHEb9qWtxDcgvrLtLQMqOs4qfi9LG1LAaMqj8wunANRCPZgftQ==
   dependencies:
-    "@ember-decorators/utils" "^4.0.2"
+    "@ember-decorators/utils" "^4.0.3"
     ember-cli-babel "^7.1.3"
 
-"@ember-decorators/object@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@ember-decorators/object/-/object-4.0.2.tgz#bfdc0abeb1453e0f866bf27d13f561f752ad68c1"
-  integrity sha512-XdtZInzFUA5pZxos7Mv+I4iEim3k0clRqjctqDlqx5Rl1jotn2/7s88tyKDT1i+8rBCgT8TliowND6gNyAe9Yw==
+"@ember-decorators/object@^4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@ember-decorators/object/-/object-4.0.3.tgz#db6879c7b151e9ab24fbdc059aa4cc0294ed2f42"
+  integrity sha512-Ml6uK8enXm6u62M6oHMCUilhTJoT2gU+idx3gMH6gmcY7+DRSMI3dtnox68Uxn/7LSCIf1V1s5yr58uB2SNGFg==
   dependencies:
-    "@ember-decorators/utils" "^4.0.2"
+    "@ember-decorators/utils" "^4.0.3"
     ember-cli-babel "^7.1.3"
 
-"@ember-decorators/service@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@ember-decorators/service/-/service-4.0.2.tgz#3fae5bcd5e65fe300ff1e5c94f023cdee9e173ba"
-  integrity sha512-1JTOBWVM/8ZEdCboYBLTwHvgU0wqP6TA8hbYd02F678pYAvLhpZCsH/99gF1br+ycqyn7Yti4YtVYOIi27u6Ig==
+"@ember-decorators/service@^4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@ember-decorators/service/-/service-4.0.3.tgz#1a157570d65d0c77cf9799a5e32bf790bd36d165"
+  integrity sha512-CeNKYpit+QnyouwCO7P7aBpDDZTIOUP7fBhoXovnY6ALzyWrLDGabWGY/k3TLIFL6E9IPP4dSCvZuk0mBaprwg==
   dependencies:
-    "@ember-decorators/utils" "^4.0.2"
+    "@ember-decorators/utils" "^4.0.3"
     ember-cli-babel "^7.1.3"
 
-"@ember-decorators/utils@^4.0.0", "@ember-decorators/utils@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@ember-decorators/utils/-/utils-4.0.2.tgz#deb6d718a4087382206a2494e9f0a507512cc861"
-  integrity sha512-hm3A3rpYF61sFhXQhrdfQlSqhTAbgbtUjwDSaQQb7hB3t7uTwtWRLVOG5kOqp+bwOIEB7bor+zEmfyubrTp+Qw==
+"@ember-decorators/utils@^4.0.0", "@ember-decorators/utils@^4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@ember-decorators/utils/-/utils-4.0.3.tgz#41087d90fbd2caf851386785c954cd0839c6558e"
+  integrity sha512-ZxnKoN1GYbzVKCs/i757Psiwf7RSl42zEhYDXlctgWJe7HtgAkcM/PXXhKda1sWWEA1g9pF6VLaYldxajFMAig==
   dependencies:
-    babel-plugin-debug-macros "^0.1.11 || ^0.2.0"
+    babel-plugin-debug-macros "^0.2.0"
     ember-cli-babel "^7.1.3"
     ember-cli-version-checker "^2.1.2"
     ember-compatibility-helpers "^1.1.2"
@@ -1606,6 +1613,11 @@
   version "0.12.4"
   resolved "https://registry.yarnpkg.com/@microsoft/tsdoc/-/tsdoc-0.12.4.tgz#42159590f2b12e23f6028c70aed41dd5b11275c3"
   integrity sha512-nQZVQg3fXygj+9JT/FSPZOz3vqAIVAAR3ZuAuUdU4DSM/ubJq5lbl1hpLtl+REFmEq1rkvDmmPoJAbSoqjcmZQ==
+
+"@mike-north/types@^1.0.7":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@mike-north/types/-/types-1.1.0.tgz#265d26ab4f93120957fe4331265af8de340150bb"
+  integrity sha512-txbrBmm2k9hDN7khRbsxPKijUjrGAMRR2/kFW/oYcO2+SkS2B8blym8g/MdsYpZm+cViw/DOOb66PoNP5GnAJQ==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -2551,7 +2563,7 @@ babel-plugin-debug-macros@^0.1.10:
   dependencies:
     semver "^5.3.0"
 
-"babel-plugin-debug-macros@^0.1.11 || ^0.2.0", babel-plugin-debug-macros@^0.2.0, babel-plugin-debug-macros@^0.2.0-beta.6:
+babel-plugin-debug-macros@^0.2.0, babel-plugin-debug-macros@^0.2.0-beta.6:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-debug-macros/-/babel-plugin-debug-macros-0.2.0.tgz#0120ac20ce06ccc57bf493b667cf24b85c28da7a"
   integrity sha512-Wpmw4TbhR3Eq2t3W51eBAQSdKlr+uAyF0GI4GtPfMCD12Y4cIdpKC9l0RjNTH/P9isFypSqqewMPm7//fnZlNA==
@@ -5503,16 +5515,16 @@ ember-data@3.7.0:
     semver "^5.6.0"
     silent-error "^1.1.1"
 
-ember-decorators@4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/ember-decorators/-/ember-decorators-4.0.2.tgz#4b22981f87752091193c622c8516c46ba85e16d3"
-  integrity sha512-GWdF1+MfKixoPvTaYetjGRXfgI0TfVe9CGhj+N9jT0VVr76jXqPSrYJ7D3757x5JrTjXCrZMxJd5TFSfpHtpig==
+ember-decorators@4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/ember-decorators/-/ember-decorators-4.0.3.tgz#d5789d52e95f88a1bae0d13d27fa28a14cebf516"
+  integrity sha512-6V1QvdOUMJdpTp0lpuJQt9OOxf7BNAUOJEHebpzTNUuURjJvOFe1/thznxYQjWj5ZI4Ic28UrKyGLkFXvorVhg==
   dependencies:
-    "@ember-decorators/component" "^4.0.2"
-    "@ember-decorators/controller" "^4.0.2"
-    "@ember-decorators/data" "^4.0.2"
-    "@ember-decorators/object" "^4.0.2"
-    "@ember-decorators/service" "^4.0.2"
+    "@ember-decorators/component" "^4.0.3"
+    "@ember-decorators/controller" "^4.0.3"
+    "@ember-decorators/data" "^4.0.3"
+    "@ember-decorators/object" "^4.0.3"
+    "@ember-decorators/service" "^4.0.3"
     ember-cli-babel "^7.1.3"
     semver "^5.5.0"
 

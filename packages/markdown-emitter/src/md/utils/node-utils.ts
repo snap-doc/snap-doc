@@ -23,3 +23,14 @@ export function removePositionInformation(nodes: Node[]): Node[] {
     return n;
   });
 }
+
+export function indentHeadings(shift: number, ...nodes: Node[]): void {
+  nodes.forEach(n => {
+    if (n.type === 'heading') {
+      n.depth = (n.depth as number) + shift;
+    }
+    if (isParent(n)) {
+      indentHeadings(shift, ...n.children);
+    }
+  });
+}
