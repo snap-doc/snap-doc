@@ -107,97 +107,115 @@ class MarkdownUtilsTests {
     );
   }
 
-  //   @test
-  //   public 'markdownForDocFile - no documentation'(): void {
-  //     expect(
-  //       markdownForDocFile({
-  //         name: 'foo/bar',
-  //         pathInPackage: 'src/foo/bar'
-  //       })
-  //     ).to.eql(`# foo/bar
+  @test
+  public 'markdownForDocFile - no documentation'(): void {
+    expect(
+      markdownForDocFile(
+        { sourceFiles: {}, symbols: {}, types: {} },
+        {
+          name: 'foo/bar',
+          extension: 'ts',
+          moduleName: 'bar',
+          isDeclarationFile: false,
+          pathInPackage: 'src/foo/bar'
+        }
+      )
+    ).to.eql(`# foo/bar
 
-  // \`src/foo/bar\``);
-  //   }
+  \`src/foo/bar\``);
+  }
 
-  //   @test
-  //   public 'markdownForDocFile - with documentation'(): void {
-  //     expect(
-  //       markdownForDocFile({
-  //         name: 'foo/bar',
-  //         pathInPackage: 'src/foo/bar',
-  //         documentation: {
-  //           summary: ['My favorite module'],
-  //           customTags: [
-  //             {
-  //               kind: 'blockTag',
-  //               tagName: 'author',
-  //               content: ['Mike']
-  //             }
-  //           ]
-  //         }
-  //       } as DocDataFile)
-  //     ).to.eql(`# foo/bar
+  @test
+  public 'markdownForDocFile - with documentation'(): void {
+    expect(
+      markdownForDocFile(
+        { sourceFiles: {}, symbols: {}, types: {} },
+        {
+          name: 'foo/bar',
+          pathInPackage: 'src/foo/bar',
+          extension: 'ts',
+          moduleName: 'bar',
+          isDeclarationFile: false,
+          documentation: {
+            summary: ['My favorite module'],
+            customTags: [
+              {
+                kind: 'blockTag',
+                tagName: 'author',
+                content: ['Mike']
+              }
+            ]
+          }
+        }
+      )
+    ).to.eql(`# foo/bar
 
-  // \`src/foo/bar\`
+  \`src/foo/bar\`
 
-  // | Information |      |
-  // | :---------- | :--: |
-  // | **author**  | Mike |
+  | Information |      |
+  | :---------- | :--: |
+  | **author**  | Mike |
 
-  // My favorite module`);
-  //   }
+  My favorite module`);
+  }
 
-  //   @test
-  //   public 'markdownForDocFile - with examples'(): void {
-  //     expect(
-  //       markdownForDocFile({
-  //         name: 'foo/bar',
-  //         pathInPackage: 'src/foo/bar',
-  //         documentation: {
-  //           summary: ['My favorite module'],
-  //           customTags: [
-  //             {
-  //               kind: 'blockTag',
-  //               tagName: 'author',
-  //               content: ['Mike']
-  //             },
-  //             {
-  //               kind: 'blockTag',
-  //               tagName: 'foobar',
-  //               content: ['Baz']
-  //             },
-  //             {
-  //               kind: 'blockTag',
-  //               tagName: 'example',
-  //               content: [
-  //                 {
-  //                   kind: 'fencedCode',
-  //                   language: 'js',
-  //                   code: 'foo() {}'
-  //                 } as CommentFencedCode
-  //               ]
-  //             }
-  //           ]
-  //         }
-  //       } as DocDataFile)
-  //     ).to.eql(`# foo/bar
+  @test
+  public 'markdownForDocFile - with examples'(): void {
+    expect(
+      markdownForDocFile(
+        { sourceFiles: {}, symbols: {}, types: {} },
+        {
+          name: 'foo/bar',
+          extension: 'ts',
+          moduleName: 'bar',
+          isDeclarationFile: false,
+          pathInPackage: 'src/foo/bar',
+          documentation: {
+            summary: ['My favorite module'],
+            customTags: [
+              {
+                kind: 'blockTag',
+                tagName: 'author',
+                content: ['Mike']
+              },
+              {
+                kind: 'blockTag',
+                tagName: 'foobar',
+                content: ['Baz']
+              },
+              {
+                kind: 'blockTag',
+                tagName: 'example',
+                content: [
+                  {
+                    kind: 'fencedCode',
+                    language: 'js',
+                    code: 'foo() {}'
+                  } as CommentFencedCode
+                ]
+              }
+            ]
+          }
+        }
+      )
+    ).to.eql(`# foo/bar
 
-  // \`src/foo/bar\`
+  \`src/foo/bar\`
 
-  // | Information |      |
-  // | :---------- | :--: |
-  // | **author**  | Mike |
+  | Information |      |
+  | :---------- | :--: |
+  | **author**  | Mike |
 
-  // My favorite module
+  My favorite module
 
-  // ## Examples
+  ## Examples
 
-  // \`\`\`js
-  // foo() {}
-  // \`\`\`
+  \`\`\`js
+  foo() {}
+  \`\`\`
 
-  // | Other Details |     |
-  // | :------------ | :-: |
-  // | **foobar**    | Baz |`);
-  //   }
+  | Other Details |     |
+  | :------------ | :-: |
+  | **foobar**    | Baz |`);
+  }
 }
