@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.2.1...@snap-doc/core@0.3.0) (2019-01-15)
+
+
+### Features
+
+* markdown emitter improvements ([634e24f](https://github.com/snap-doc/snap-doc/commit/634e24f))
+* type parameters ([a1e4258](https://github.com/snap-doc/snap-doc/commit/a1e4258))
+
+
+
+
+
 ## [0.2.1](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.2.0...@snap-doc/core@0.2.1) (2019-01-13)
 
 
