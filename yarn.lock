@@ -649,7 +649,7 @@
     check-more-types "2.24.0"
     lazy-ass "1.6.0"
 
-"@code-to-json/comments@^0.4.0", "@code-to-json/comments@^0.4.1":
+"@code-to-json/comments@^0.4.0":
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/@code-to-json/comments/-/comments-0.4.1.tgz#10675efbb3bd8d45913e8c80937ab57871c070d2"
   integrity sha512-VwOE3zBCpu94dOL4nYrWWCZhg0vtMRY21fdPBpemUVU9LD7DaxwjYc4SKx9ApM89dPFXDgm8SRCUn8bINWxBKA==
@@ -658,26 +658,50 @@
     "@microsoft/tsdoc" "^0.12.4"
     debug "^4.1.1"
 
-"@code-to-json/core@^0.15.0", "@code-to-json/core@^0.15.1":
-  version "0.15.1"
-  resolved "https://registry.yarnpkg.com/@code-to-json/core/-/core-0.15.1.tgz#da05f1353ccd82fdffd464889a964aa8fe68532c"
-  integrity sha512-WdotiwzxSvfdyB8+fBU8ivyKq80Gzh4pHL9HQHoY3W0EcUYH7a9dM9lfj+RfUqq5He68rS7i7QIrZ15Vbr09DA==
+"@code-to-json/comments@^0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@code-to-json/comments/-/comments-0.4.2.tgz#403b31112ae9d06cccb04136b3613beb6540d85a"
+  integrity sha512-vnRY/uBYjWqcw2V5fzJf3zhhDsp8E6OfYHvgHsCKPIjcQxIdq0cD93xhKQnFhP9hZCYD+KWK64vpoHO/PgMRIw==
   dependencies:
-    "@code-to-json/comments" "^0.4.1"
-    "@code-to-json/utils" "^0.6.5"
-    "@code-to-json/utils-ts" "^0.6.1"
+    "@code-to-json/utils" "^0.6.6"
+    "@microsoft/tsdoc" "^0.12.4"
+    "@mike-north/types" "^1.0.7"
+    debug "^4.1.1"
+
+"@code-to-json/core@^0.16.0", "@code-to-json/core@^0.16.2":
+  version "0.16.2"
+  resolved "https://registry.yarnpkg.com/@code-to-json/core/-/core-0.16.2.tgz#78bd041719d8e11189947100785782090f2a875b"
+  integrity sha512-HgiQZJnkI4rm49udd74XSXBgNnpIWnLxd1DLAArhbRjDGXJ4NSEQWt1o8eqX/YFFADnDoGpwd2jMNjGS8jyyFQ==
+  dependencies:
+    "@code-to-json/comments" "^0.4.2"
+    "@code-to-json/utils" "^0.6.6"
+    "@code-to-json/utils-ts" "^0.6.6"
+    "@mike-north/types" "^1.0.7"
     debug "4.1.1"
     typescript "^3.1.0"
 
-"@code-to-json/formatter@^0.12.0":
-  version "0.12.1"
-  resolved "https://registry.yarnpkg.com/@code-to-json/formatter/-/formatter-0.12.1.tgz#e4b620bdd26ae729d57b6cf7f2a36c117208ea5d"
-  integrity sha512-u49JnEp3Vamc+BemYNwaFyKJeHSb682n7Fk39E1N1QDF6y3sR/I9SPmKWe81LQ57h9pXYa26azy/u+J+UgUiAg==
+"@code-to-json/formatter@^0.14.0":
+  version "0.14.2"
+  resolved "https://registry.yarnpkg.com/@code-to-json/formatter/-/formatter-0.14.2.tgz#ecb22d917c71e8b4d139e3709956d58c55ea46f5"
+  integrity sha512-0lXPJEO3XyCVmL76fwNOCMy3YvUmKJebSPbeA/lo51ZHSXxeRyH5uRdaKWNFHdwCgyIXZBD0nknp2dt1rAUycw==
   dependencies:
-    "@code-to-json/core" "^0.15.1"
-    "@code-to-json/utils" "^0.6.5"
+    "@code-to-json/core" "^0.16.2"
+    "@code-to-json/utils" "^0.6.6"
+    "@mike-north/types" "^1.0.7"
 
-"@code-to-json/utils-node@0.2.3", "@code-to-json/utils-node@^0.2.2":
+"@code-to-json/utils-node@0.2.8":
+  version "0.2.8"
+  resolved "https://registry.yarnpkg.com/@code-to-json/utils-node/-/utils-node-0.2.8.tgz#b90a649f68b0ab3a8b6ad226f67aaceffa93f777"
+  integrity sha512-HIFDmaSypDjWstI/VQ4MVCUUa3f8yUglSuJiQn8bjtpKSpISvN1rk8hMt4/+ApJdjdNWH/NOTNP5SfmEtuHJ3Q==
+  dependencies:
+    "@code-to-json/utils" "^0.6.6"
+    "@code-to-json/utils-ts" "^0.6.6"
+    "@mike-north/types" "^1.0.7"
+    pkg-up "^2.0.0"
+    rimraf "^2.6.3"
+    tmp "^0.0.33"
+
+"@code-to-json/utils-node@^0.2.2":
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/@code-to-json/utils-node/-/utils-node-0.2.3.tgz#fd5f83b828c550115e0471535d16e2f12c52c3d2"
   integrity sha512-fvcC0FtvaR2IulGd4kPaciKlqnzmqkqfRmXwIV82Ax9PqZIhJTQ6vE4LcxCJYt9+L39+vRcAp/wRQCz7LSZwlg==
@@ -696,10 +720,26 @@
     "@code-to-json/utils" "^0.6.5"
     typescript "^3.1.0"
 
+"@code-to-json/utils-ts@^0.6.6":
+  version "0.6.6"
+  resolved "https://registry.yarnpkg.com/@code-to-json/utils-ts/-/utils-ts-0.6.6.tgz#299cacccb7f5ecc9d602a52c2f6182c0069d14a4"
+  integrity sha512-zJBMbNdz/IifydT7YC2Nhen/5DH72ReWvNLgkcqaaVYN6F9euj5MkaMBasxBMTmnHDNVvIHQhG9JuxPyWx3Cpw==
+  dependencies:
+    "@code-to-json/utils" "^0.6.6"
+    "@mike-north/types" "^1.0.7"
+    typescript "^3.1.0"
+
 "@code-to-json/utils@^0.6.5":
   version "0.6.5"
   resolved "https://registry.yarnpkg.com/@code-to-json/utils/-/utils-0.6.5.tgz#95cdc70ea55bc10bf8cffdfeb01df2ad0f347620"
   integrity sha512-EVl42c5TXgsUDolPgTKtw/IRMA+luW44CI+IvcHDqTasPpNmWii+GBo9zHi3FQ/42KZLFpijU5LlXWTf0fRQVw==
+
+"@code-to-json/utils@^0.6.6":
+  version "0.6.6"
+  resolved "https://registry.yarnpkg.com/@code-to-json/utils/-/utils-0.6.6.tgz#47c352f56eabdd0329c0680ac04537a71733f0d1"
+  integrity sha512-1o5J5qp1YmTxWE2YGd1owmb7dI4ZouWcqFtc6KsY2xYchtWtRfENZhUqJLIK0CR9LC4StH9gLvDwyLk1mFZv1A==
+  dependencies:
+    "@mike-north/types" "^1.0.7"
 
 "@commitlint/cli@7.3.1", "@commitlint/cli@^7.3.1":
   version "7.3.1"
@@ -1617,6 +1657,11 @@
   version "0.12.4"
   resolved "https://registry.yarnpkg.com/@microsoft/tsdoc/-/tsdoc-0.12.4.tgz#42159590f2b12e23f6028c70aed41dd5b11275c3"
   integrity sha512-nQZVQg3fXygj+9JT/FSPZOz3vqAIVAAR3ZuAuUdU4DSM/ubJq5lbl1hpLtl+REFmEq1rkvDmmPoJAbSoqjcmZQ==
+
+"@mike-north/types@^1.0.7":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@mike-north/types/-/types-1.1.0.tgz#265d26ab4f93120957fe4331265af8de340150bb"
+  integrity sha512-txbrBmm2k9hDN7khRbsxPKijUjrGAMRR2/kFW/oYcO2+SkS2B8blym8g/MdsYpZm+cViw/DOOb66PoNP5GnAJQ==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
