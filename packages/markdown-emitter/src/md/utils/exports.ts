@@ -17,21 +17,22 @@ function createExportSection(
   const symbols = Object.keys(symCollection)
     .sort()
     .map(name => symCollection[name]);
-  const parts: Node[] = [];
   if (symbols.length === 0) {
-    parts.push({ type: 'text', value: 'todo' });
-  } else {
-    parts.push(
-      ...symbols.reduce(
-        (all, sym) => {
-          if (!sym) { return all; }
-          all.push(...mdForSymbol(data, sym, kind));
-          return all;
-        },
-        [] as Node[]
-      )
-    );
+    return [];
   }
+  const parts: Node[] = [];
+  parts.push(
+    ...symbols.reduce(
+      (all, sym) => {
+        if (!sym) {
+          return all;
+        }
+        all.push(...mdForSymbol(data, sym, kind));
+        return all;
+      },
+      [] as Node[]
+    )
+  );
   const secRoot = createSection(3, sectionName, parts);
   return secRoot;
 }

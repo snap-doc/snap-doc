@@ -1,6 +1,7 @@
 {
   "extends": "../tslint.json",
   "rules": {
-    "no-duplicate-string": false
+    "no-duplicate-string": false,
+    "typedef": false
   }
 }

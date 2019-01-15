@@ -1,4 +1,10 @@
-import { FormattedSymbol, FormattedSymbolRef, FormattedType } from '@code-to-json/formatter';
+import {
+  FormattedSignature,
+  FormattedSymbol,
+  FormattedSymbolRef,
+  FormattedType,
+  FormattedTypeRef
+} from '@code-to-json/formatter';
 import { FormatterOutputData } from '@code-to-json/formatter/lib/src/formatter';
 import { isTruthy, UnreachableError } from '@code-to-json/utils';
 import { Dict } from '@mike-north/types';
@@ -8,25 +14,49 @@ import { createDocumentation } from './documentation';
 import { ExportKind } from './exports';
 import { createSection } from './section';
 
-function symbolTypeTypeDescription(
+function symbolConstructorSignatures(
   data: FormatterOutputData,
-  symbol: FormattedSymbol,
-  type: FormattedType
-): string {
-  const { name, members = {}, flags } = symbol;
-  const isInterface = flags ? flags.includes('interface') : false;
-  let value: string = '';
-  if (type.baseTypes && type.baseTypes.length > 0) {
+  sigs?: FormattedSignature[]
+): string[] {
+  if (!sigs || sigs.length === 0) {
+    return [];
+  } else {
     debugger;
   }
-  if (isInterface) {
-    value = [`interface ${name} {`, ...symbolMembers(data, members).map(s => `  ${s}`), '}'].join(
-      '\n'
-    );
+  return [];
+}
+
+// tslint:disable-next-line:no-identical-functions
+function symbolCallSignatures(data: FormatterOutputData, sigs?: FormattedSignature[]): string[] {
+  if (!sigs || sigs.length === 0) {
+    return [];
   } else {
-    value = `type ${name} = { }`;
+    debugger;
   }
-  return value;
+  return [];
+}
+
+// tslint:disable-next-line:no-identical-functions
+function symbolIndexSignature(indexType: 'string' | 'number', sig?: FormattedType): string[] {
+  if (!sig) {
+    return [];
+  } else {
+    return [`[k: ${indexType}]: ${sig.text}`];
+  }
+}
+
+function symbolTypeDescription(
+  data: FormatterOutputData,
+  symbol: FormattedSymbol,
+  type: FormattedType,
+  kind: ExportKind
+): Node {
+  return {
+    type: 'paragraph',
+    children: [
+      { type: 'code', lang: 'ts', value: symbolTypeDescriptionCode(data, symbol, type, kind) }
+    ]
+  };
 }
 
 function symbolClassTypeDescription(
@@ -60,48 +90,16 @@ function symbolClassTypeDescription(
                 .join(', ')
             );
           }
-          constructorParts.push(') {}');
+          constructorParts.push(`): ${symbol.name}`);
           return constructorParts.join('');
         })
         .map(s => `  ${s}`)
     );
-    parts.push(...symbolMembers(data, members).map(s => `  ${s}`));
+    parts.push(...symbolMembers(data, members));
     parts.push('}');
     return parts.join('\n');
   }
   return symbolPropertyTypeDescription(data, symbol, type);
-}
-
-function symbolTypeDescriptionCode(
-  data: FormatterOutputData,
-  symbol: FormattedSymbol,
-  type: FormattedType,
-  kind: ExportKind
-): string {
-  switch (kind) {
-    case 'function':
-      return symbolFunctionTypeDescription(data, symbol, type);
-    case 'class':
-      return symbolClassTypeDescription(data, symbol, type);
-    case 'type':
-      return symbolTypeTypeDescription(data, symbol, type);
-    default:
-      return symbolPropertyTypeDescription(data, symbol, type);
-  }
-}
-
-function symbolTypeDescription(
-  data: FormatterOutputData,
-  symbol: FormattedSymbol,
-  type: FormattedType,
-  kind: ExportKind
-): Node {
-  return {
-    type: 'paragraph',
-    children: [
-      { type: 'code', lang: 'ts', value: symbolTypeDescriptionCode(data, symbol, type, kind) }
-    ]
-  };
 }
 
 function symbolFunctionTypeDescription(
@@ -150,6 +148,96 @@ function symbolPropertyTypeDescription(
   return [symbol.name, type.text].join(': ');
 }
 
+function makeTypeParamString(
+  data: FormatterOutputData,
+  aliasTypeArgumentRefs?: FormattedTypeRef[]
+): string {
+  if (!aliasTypeArgumentRefs || aliasTypeArgumentRefs.length === 0) {
+    return '';
+  }
+  const typeParams: Array<{ type: string; constraint: string }> = !aliasTypeArgumentRefs
+    ? []
+    : aliasTypeArgumentRefs
+        .map(t => resolveReference(data, t))
+        .filter(isTruthy)
+        .map(t => ({
+          type: t.text,
+          constraint: t.constraint ? resolveReference(data, t.constraint).text : ''
+        }));
+  if (!typeParams) {
+    return '';
+  }
+  const typeParamString: string = typeParams
+    .map(tp => {
+      const constraintStr = tp.constraint ? ` extends ${tp.constraint}` : '';
+      return `${tp.type}${constraintStr}`;
+    })
+    .join(', ');
+  return `<${typeParamString}>`;
+}
+
+function symbolTypeTypeDescription(
+  data: FormatterOutputData,
+  symbol: FormattedSymbol,
+  type: FormattedType
+): string {
+  const { name, members = {}, flags, callSignatures, constructorSignatures } = symbol;
+  const {
+    numberIndexType: numberIndexTypeRef,
+    stringIndexType: stringIndexTypeRef,
+    properties,
+    baseTypes,
+    aliasTypeArguments: aliasTypeArgumentRefs
+  } = type;
+  const isInterface = flags ? flags.includes('interface') : false;
+  let value: string = '';
+  if (baseTypes && baseTypes.length > 0) {
+    debugger;
+  }
+  const numberIndexType = !numberIndexTypeRef
+    ? undefined
+    : resolveReference(data, numberIndexTypeRef);
+  const stringIndexType = !stringIndexTypeRef
+    ? undefined
+    : resolveReference(data, stringIndexTypeRef);
+  if (properties && Object.keys(properties).length > 0) {
+    // TODO handle properties vs members
+  }
+
+  const commonParts: string[] = [
+    ...symbolConstructorSignatures(data, constructorSignatures),
+    ...symbolCallSignatures(data, callSignatures),
+    ...symbolIndexSignature('number', numberIndexType),
+    ...symbolIndexSignature('string', stringIndexType),
+    ...symbolMembers(data, members)
+  ].map(s => `  ${s}`);
+  const typeParamString = makeTypeParamString(data, aliasTypeArgumentRefs);
+  if (isInterface) {
+    value = [`interface ${name}${typeParamString} {`, ...commonParts, '}'].join('\n');
+  } else {
+    value = [`type ${name}${typeParamString} = {`, ...commonParts, `}`].join('\n');
+  }
+  return value;
+}
+
+function symbolTypeDescriptionCode(
+  data: FormatterOutputData,
+  symbol: FormattedSymbol,
+  type: FormattedType,
+  kind: ExportKind
+): string {
+  switch (kind) {
+    case 'function':
+      return symbolFunctionTypeDescription(data, symbol, type);
+    case 'class':
+      return symbolClassTypeDescription(data, symbol, type);
+    case 'type':
+      return symbolTypeTypeDescription(data, symbol, type);
+    default:
+      return symbolPropertyTypeDescription(data, symbol, type);
+  }
+}
+
 function symbolKind(flags?: string[]): ExportKind {
   if (!flags) {
     return 'property';
@@ -166,10 +254,13 @@ function symbolKind(flags?: string[]): ExportKind {
   return 'property';
 }
 
-function symbolMembers(data: FormatterOutputData, members: Dict<FormattedSymbolRef>): string[] {
+export function symbolMembers(
+  data: FormatterOutputData,
+  members: Dict<FormattedSymbolRef>
+): string[] {
   return Object.keys(members)
     .map(memName => {
-      if (memName === '__constructor') {
+      if (['__constructor', '__index'].includes(memName)) {
         return null;
       }
       const memRef = members[memName];
@@ -181,6 +272,9 @@ function symbolMembers(data: FormatterOutputData, members: Dict<FormattedSymbolR
       const { type: memTypeRef } = mem;
       if (memTypeRef) {
         const memType = resolveReference(data, memTypeRef);
+        if (memType.flags && memType.flags.includes('typeParameter')) {
+          return null;
+        }
         return symbolTypeDescriptionCode(data, mem, memType, childKind);
       } else {
         return memName;

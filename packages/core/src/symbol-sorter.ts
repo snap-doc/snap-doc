@@ -8,7 +8,7 @@ export function isClass(sym: FormattedSymbol): boolean {
 }
 
 export function isType(sym: FormattedSymbol): boolean {
-  return !!sym.flags && (sym.flags.includes('alias') || sym.flags.includes('interface'));
+  return !!sym.flags && (sym.flags.includes('typeAlias') || sym.flags.includes('interface'));
 }
 
 export function isFunction(sym: FormattedSymbol): boolean {

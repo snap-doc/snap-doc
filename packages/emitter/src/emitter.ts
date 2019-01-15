@@ -2,6 +2,7 @@ import { FormatterOutputData } from '@code-to-json/formatter';
 
 export interface EmitterOptions {
   projectName?: string;
+  omitToc?: boolean;
 }
 
 export default abstract class Emitter<O extends EmitterOptions = EmitterOptions> {

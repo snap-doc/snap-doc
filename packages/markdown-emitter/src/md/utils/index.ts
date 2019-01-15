@@ -34,12 +34,20 @@ export function createSourceFileRoot(f: FormattedSourceFile): Parent {
   };
 }
 
+export interface MarkdownGenOptions {
+  omitToc: boolean;
+}
+
 /**
  * Create documentation markdown text for a file
  * @param file file to document
  * @private
  */
-export function markdownForDocFile(data: FormatterOutputData, file: FormattedSourceFile): string {
+export function markdownForDocFile(
+  data: FormatterOutputData,
+  file: FormattedSourceFile,
+  options: MarkdownGenOptions = { omitToc: false }
+): string {
   const { documentation, exports } = file;
   const root = createSourceFileRoot(file);
   root.children.push(...createDocumentation(documentation));
@@ -47,6 +55,8 @@ export function markdownForDocFile(data: FormatterOutputData, file: FormattedSou
     const sortedExports: SortedExportSymbols = sortSymbols(data, exports);
     root.children.push(...createExportSections(data, sortedExports));
   }
-  addToc(root);
+  if (!options.omitToc) {
+    addToc(root);
+  }
   return md.stringify(root).trim();
 }

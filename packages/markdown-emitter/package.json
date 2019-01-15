@@ -27,6 +27,7 @@
     "lint:js": "eslint .",
     "lint:md": "remark .",
     "test": "mocha",
+    "test:debug": "mocha --inspect-brk",
     "test:coverage": "rm -rf coverage && nyc npm test",
     "codacy:transmit-coverage": "cat coverage/lcov.info | codacy-coverage",
     "coveralls:transmit-coverage": "cat coverage/lcov.info | coveralls",
@@ -39,9 +40,11 @@
     "url": "https://github.com/snap-doc/snap-doc/issues"
   },
   "devDependencies": {
+    "@code-to-json/test-helpers": "^0.3.8",
     "@code-to-json/utils-node": "0.2.5",
     "@types/debug": "0.0.31",
     "@types/mocha": "5.2.5",
+    "@types/node": "^10.12.18",
     "@types/rimraf": "2.0.2",
     "chai": "4.2.0",
     "codecov": "3.1.0",
