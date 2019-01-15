@@ -6,7 +6,6 @@ import { Emitter } from '@snap-doc/emitter';
 import { TempFolderCreator } from '@snap-doc/types';
 import * as debug from 'debug';
 import * as ts from 'typescript';
-import { generateDocData } from './doc-data';
 
 const log = debug('snap-doc:doc-generator');
 
@@ -47,7 +46,6 @@ export default class DocGenerator {
 
   public async emit(): Promise<void> {
     const formatterOutput = analyzeProgram(this.prog, this.host, this.options.pkgInfo);
-    const docData = generateDocData(formatterOutput);
-    await this.options.emitter.emit(docData);
+    await this.options.emitter.emit(formatterOutput.data);
   }
 }

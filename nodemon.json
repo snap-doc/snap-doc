@@ -18,6 +18,7 @@
     "packages/markdown-emitter/test",
     "packages/types/test",
     "packages/ui-kit/tests",
-    "packages/app/tests"
+    "packages/app/tests",
+    "node_modules/@code-to-json"
   ]
 }

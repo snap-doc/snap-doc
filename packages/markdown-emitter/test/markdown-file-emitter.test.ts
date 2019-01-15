@@ -27,7 +27,9 @@ class MarkdownFileEmitterTests {
         isFile(path: string): boolean {
           return true;
         },
+        // tslint:disable-next-line:no-empty
         async removeFolderAndContents(name: string): Promise<void> {},
+        // tslint:disable-next-line:no-empty
         createFolder(name: string): void {},
         writeFileSync(filePath: string, contents: string): void {
           writeParams.push([filePath, contents]);
@@ -35,25 +37,30 @@ class MarkdownFileEmitterTests {
       }
     });
     mfe.generate({
-      files: [
-        {
+      types: {},
+      symbols: {},
+      sourceFiles: {
+        foo: {
           name: 'foo/bar',
           pathInPackage: 'src/foo/bar',
+          extension: 'ts',
+          moduleName: 'foo',
+          isDeclarationFile: false,
           documentation: {
             summary: ['My favorite module'],
             customTags: [
               {
-                kind: 'blockTag',
+                kind: 'blockTag' as 'blockTag',
                 tagName: 'author',
                 content: ['Mike']
               },
               {
-                kind: 'blockTag',
+                kind: 'blockTag' as 'blockTag',
                 tagName: 'foobar',
                 content: ['Baz']
               },
               {
-                kind: 'blockTag',
+                kind: 'blockTag' as 'blockTag',
                 tagName: 'example',
                 content: [
                   {
@@ -66,12 +73,14 @@ class MarkdownFileEmitterTests {
             ]
           }
         }
-      ]
+      }
     });
-    expect(writeParams).to.deep.eq([
-      [
-        'out/src/foo/bar.md',
-        `# foo/bar
+    expect(writeParams[0][0]).to.eql('out/src/foo/bar.md');
+    expect(writeParams[0][1]).to.eql(`# foo/bar
+
+## Table of Contents
+
+*   [Examples](#examples)
 
 \`src/foo/bar\`
 
@@ -91,8 +100,6 @@ foo() {}
 
 | Other Details |     |
 | :------------ | :-: |
-| **foobar**    | Baz |`
-      ]
-    ]);
+| **foobar**    | Baz |`);
   }
 }

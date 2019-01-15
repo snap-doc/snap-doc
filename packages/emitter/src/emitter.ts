@@ -1,12 +1,13 @@
-import { DocData } from '@snap-doc/types';
+import { FormatterOutputData } from '@code-to-json/formatter';
 
 export interface EmitterOptions {
   projectName?: string;
+  omitToc?: boolean;
 }
 
 export default abstract class Emitter<O extends EmitterOptions = EmitterOptions> {
   constructor(protected options: O) {}
-  public async emit(data: DocData): Promise<void> {
+  public async emit(data: FormatterOutputData): Promise<void> {
     const [ready, err] = await this.validateConditions();
     if (ready) {
       await this.prepare(data);
@@ -21,10 +22,10 @@ export default abstract class Emitter<O extends EmitterOptions = EmitterOptions>
   }
 
   // tslint:disable-next-line:no-empty
-  protected async prepare(_data: DocData): Promise<void> {}
+  protected async prepare(_data: FormatterOutputData): Promise<void> {}
 
   // tslint:disable-next-line:no-empty
-  protected async generate(_data: DocData): Promise<void> {}
+  protected async generate(_data: FormatterOutputData): Promise<void> {}
 
   // tslint:disable-next-line:no-empty
   protected async validateResult(): Promise<void> {}

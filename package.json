@@ -103,7 +103,7 @@
     "publish": "scripty",
     "clean": "scripty",
     "build": "lerna run link && lerna run build",
-    "lint": "lerna run lint",
+    "lint": "lerna run lint --parallel",
     "test": "lerna run test --concurrency 1",
     "rebuild": "scripty",
     "build:watch:core": "scripty",
