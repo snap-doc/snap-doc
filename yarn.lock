@@ -680,7 +680,7 @@
     "@code-to-json/utils" "^0.6.6"
     "@mike-north/types" "^1.0.7"
 
-"@code-to-json/test-helpers@^0.3.8":
+"@code-to-json/test-helpers@0.3.11":
   version "0.3.11"
   resolved "https://registry.yarnpkg.com/@code-to-json/test-helpers/-/test-helpers-0.3.11.tgz#bc713c9fe95abbdc5ca67ab4f920f959703a3592"
   integrity sha512-Bx4ZEg+gyAv3uqrNCsh9LhbDFVjUnrkLr1mP9K8jB+ZE3di/YnBb91amYGxwkOplBx2UbZeDjGC1ZMfC22AhLw==
@@ -1920,7 +1920,7 @@
   resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-5.2.5.tgz#8a4accfc403c124a0bafe8a9fc61a05ec1032073"
   integrity sha512-lAVp+Kj54ui/vLUFxsJTMtWvZraZxum3w3Nwkble2dNuV5VnPA+Mi2oGX9XYJAaIvZi3tn3cbjS/qcJXRb6Bww==
 
-"@types/node@*", "@types/node@^10.12.18":
+"@types/node@*", "@types/node@10.12.18":
   version "10.12.18"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.18.tgz#1d3ca764718915584fcd9f6344621b7672665c67"
   integrity sha512-fh+pAqt4xRzPfqA6eh3Z2y6fyZavRIumvjhaCL753+TVkGKGhpPeyrJG2JftD0T9q4GF00KjefsQ+PQNDdWQaQ==
