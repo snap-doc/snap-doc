@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@code-to-json/test-helpers": "^0.3.8",
-    "@code-to-json/utils-node": "0.2.5",
+    "@code-to-json/utils-node": "0.2.6",
     "@types/debug": "0.0.31",
     "@types/mocha": "5.2.5",
     "@types/node": "^10.12.18",
