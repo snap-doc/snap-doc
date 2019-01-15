@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/snap-doc/snap-doc/compare/@snap-doc/ui-kit@0.3.0...@snap-doc/ui-kit@0.3.1) (2019-01-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency [@ember-decorators](https://github.com/ember-decorators)/babel-transforms to v5 ([24aa7a3](https://github.com/snap-doc/snap-doc/commit/24aa7a3))
+
+
+
+
+
 # [0.3.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/ui-kit@0.2.3...@snap-doc/ui-kit@0.3.0) (2019-01-15)
 
 
