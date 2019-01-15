@@ -97,7 +97,7 @@
     "node": "6.* || 8.* || >= 10.*"
   },
   "dependencies": {
-    "@ember-decorators/babel-transforms": "^4.0.0",
+    "@ember-decorators/babel-transforms": "^5.0.0",
     "@mike-north/types": "^1.0.7",
     "ember-cli-babel": "^7.0.0",
     "ember-cli-typescript": "2.0.0-rc.2"
