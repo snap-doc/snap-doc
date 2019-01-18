@@ -24,7 +24,7 @@
     "@types/ember__test-helpers": "0.7.6",
     "@types/execa": "0.9.0",
     "@types/mocha": "5.2.5",
-    "@types/qunit": "2.5.3",
+    "@types/qunit": "2.5.4",
     "@types/rsvp": "4.0.2",
     "babel-eslint": "10.0.1",
     "broccoli-asset-rev": "3.0.0",
