@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.8](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.3.7...@snap-doc/app@0.3.8) (2019-01-19)
+
+**Note:** Version bump only for package @snap-doc/app
+
+
+
+
+
 ## [0.3.7](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.3.6...@snap-doc/app@0.3.7) (2019-01-18)
 
 **Note:** Version bump only for package @snap-doc/app
