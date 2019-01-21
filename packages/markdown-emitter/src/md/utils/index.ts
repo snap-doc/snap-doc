@@ -12,7 +12,7 @@ import { addToc } from './toc';
  * @private
  */
 export function createSourceFileRoot(f: FormattedSourceFile): Parent {
-  const { name, pathInPackage } = f;
+  const { moduleName, pathInPackage } = f;
   return {
     type: 'root',
     children: [
@@ -22,7 +22,7 @@ export function createSourceFileRoot(f: FormattedSourceFile): Parent {
         children: [
           {
             type: 'text',
-            value: name
+            value: moduleName
           }
         ]
       },

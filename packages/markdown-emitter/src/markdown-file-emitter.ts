@@ -32,7 +32,7 @@ export default class MarkdownFileEmitter extends FileEmitter<MarkdownFileEmitter
       .filter(f => !f.isDeclarationFile)
       .forEach(f => {
         const outPath = h.combinePaths(this.options.outDir, f.pathInPackage);
-        log(`Processing module: ${f.name} (${f.pathInPackage})`);
+        log(`Processing module: ${f.moduleName} (${f.pathInPackage})`);
         const parentDir = h.combinePaths(outPath, '..');
         if (!h.fileOrFolderExists(parentDir)) {
           h.createFolder(parentDir);

@@ -6,7 +6,7 @@ import {
   FormattedTypeRef
 } from '@code-to-json/formatter';
 import { FormatterOutputData } from '@code-to-json/formatter/lib/src/formatter';
-import { isTruthy, UnreachableError } from '@code-to-json/utils';
+import { isDefined, UnreachableError } from '@code-to-json/utils';
 import { Dict } from '@mike-north/types';
 import { resolveReference } from '@snap-doc/core';
 import { Node } from 'unist';
@@ -159,7 +159,7 @@ function makeTypeParamString(
     ? []
     : aliasTypeArgumentRefs
         .map(t => resolveReference(data, t))
-        .filter(isTruthy)
+        .filter(isDefined)
         .map(t => ({
           type: t.text,
           constraint: t.constraint ? resolveReference(data, t.constraint).text : ''
@@ -280,7 +280,7 @@ export function symbolMembers(
         return memName;
       }
     })
-    .filter(isTruthy);
+    .filter(isDefined);
 }
 
 function sectionHeaderForSymbol(
