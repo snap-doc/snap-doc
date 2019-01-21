@@ -106,8 +106,8 @@
     ]
   },
   "dependencies": {
-    "@code-to-json/utils-node": "^0.2.2",
-    "@code-to-json/utils-ts": "^0.6.0",
+    "@code-to-json/utils-node": "^0.3.0",
+    "@code-to-json/utils-ts": "^0.9.0",
     "@mike-north/types": "^1.1.0",
     "@snap-doc/core": "^0.3.0",
     "@snap-doc/markdown-emitter": "^0.3.0",
