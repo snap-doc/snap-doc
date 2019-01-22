@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/utils@0.2.0...@snap-doc/utils@0.3.0) (2019-01-22)
+
+
+### Features
+
+* dependency upgrades ([c2b7b02](https://github.com/snap-doc/snap-doc/commit/c2b7b02))
+
+
+
+
+
 # [0.2.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/utils@0.1.0...@snap-doc/utils@0.2.0) (2019-01-15)
 
 

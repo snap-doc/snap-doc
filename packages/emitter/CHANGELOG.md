@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.2.0...@snap-doc/emitter@0.3.0) (2019-01-22)
+
+
+### Bug Fixes
+
+* **deps:** update code-to-json packages ([3d3c850](https://github.com/snap-doc/snap-doc/commit/3d3c850))
+
+
+### Features
+
+* dependency upgrades ([c2b7b02](https://github.com/snap-doc/snap-doc/commit/c2b7b02))
+
+
+
+
+
 # [0.2.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.1.1...@snap-doc/emitter@0.2.0) (2019-01-15)
 
 
