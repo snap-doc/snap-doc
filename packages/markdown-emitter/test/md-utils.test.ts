@@ -18,7 +18,7 @@ class MarkdownUtilsTests {
   public 'create root AST node from source root'(): void {
     snapshot(
       createSourceFileRoot({
-        name: 'foo',
+        id: '',
         moduleName: 'foo',
         pathInPackage: 'src/foo',
         extension: 'ts',
@@ -113,14 +113,14 @@ class MarkdownUtilsTests {
       markdownForDocFile(
         { sourceFiles: {}, symbols: {}, types: {} },
         {
-          name: 'foo/bar',
+          id: '',
           extension: 'ts',
           moduleName: 'bar',
           isDeclarationFile: false,
           pathInPackage: 'src/foo/bar'
         }
       )
-    ).to.eql(`# foo/bar
+    ).to.eql(`# bar
 
 \`src/foo/bar\``);
   }
@@ -131,7 +131,7 @@ class MarkdownUtilsTests {
       markdownForDocFile(
         { sourceFiles: {}, symbols: {}, types: {} },
         {
-          name: 'foo/bar',
+          id: '',
           pathInPackage: 'src/foo/bar',
           extension: 'ts',
           moduleName: 'bar',
@@ -148,7 +148,7 @@ class MarkdownUtilsTests {
           }
         }
       )
-    ).to.eql(`# foo/bar
+    ).to.eql(`# bar
 
 \`src/foo/bar\`
 
@@ -165,7 +165,7 @@ My favorite module`);
       markdownForDocFile(
         { sourceFiles: {}, symbols: {}, types: {} },
         {
-          name: 'foo/bar',
+          id: '',
           extension: 'ts',
           moduleName: 'bar',
           isDeclarationFile: false,
@@ -198,7 +198,7 @@ My favorite module`);
           }
         }
       )
-    ).to.eql(`# foo/bar
+    ).to.eql(`# bar
 
 ## Table of Contents
 

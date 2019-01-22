@@ -61,8 +61,8 @@
     "ts-node": "7.0.1",
     "tslint": "5.12.1",
     "tslint-config-prettier": "1.17.0",
-    "tslint-sonarts": "1.8.0",
-    "typescript-eslint-parser": "21.0.2"
+    "tslint-sonarts": "^1.9.0",
+    "typescript-eslint-parser": "^22.0.0"
   },
   "nyc": {
     "watermarks": {
@@ -106,8 +106,8 @@
     ]
   },
   "dependencies": {
-    "@code-to-json/utils-node": "^0.2.2",
-    "@code-to-json/utils-ts": "^0.6.0",
+    "@code-to-json/utils-node": "^0.3.0",
+    "@code-to-json/utils-ts": "^0.10.0",
     "@mike-north/types": "^1.1.0",
     "@snap-doc/core": "^0.3.0",
     "@snap-doc/markdown-emitter": "^0.3.0",

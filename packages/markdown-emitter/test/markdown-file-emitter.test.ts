@@ -41,7 +41,7 @@ class MarkdownFileEmitterTests {
       symbols: {},
       sourceFiles: {
         foo: {
-          name: 'foo/bar',
+          id: '',
           pathInPackage: 'src/foo/bar',
           extension: 'ts',
           moduleName: 'foo',
@@ -76,7 +76,7 @@ class MarkdownFileEmitterTests {
       }
     });
     expect(writeParams[0][0]).to.eql('out/src/foo/bar.md');
-    expect(writeParams[0][1]).to.eql(`# foo/bar
+    expect(writeParams[0][1]).to.eql(`# foo
 
 ## Table of Contents
 

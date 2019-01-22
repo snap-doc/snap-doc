@@ -6,7 +6,7 @@ import {
   FormattedTypeRef
 } from '@code-to-json/formatter';
 import { FormatterOutputData } from '@code-to-json/formatter/lib/src/formatter';
-import { isTruthy, UnreachableError } from '@code-to-json/utils';
+import { isDefined, UnreachableError } from '@code-to-json/utils';
 import { Dict } from '@mike-north/types';
 import { resolveReference } from '@snap-doc/core';
 import { Node } from 'unist';
@@ -64,10 +64,9 @@ function symbolClassTypeDescription(
   symbol: FormattedSymbol,
   type: FormattedType
 ): string {
-  const { constructorSignatures, members = {} } = symbol;
-  const { baseTypes } = type;
-  console.log('baseTypes', baseTypes);
-  if (type.baseTypes && type.baseTypes.length > 0) {
+  const { members = {}, properties = {} } = symbol;
+  const { constructorSignatures, baseTypes } = type;
+  if (baseTypes && baseTypes.length > 0) {
     debugger;
   }
   const parts: string[] = [`class ${symbol.name} {`];
@@ -95,11 +94,12 @@ function symbolClassTypeDescription(
         })
         .map(s => `  ${s}`)
     );
-    parts.push(...symbolMembers(data, members));
-    parts.push('}');
-    return parts.join('\n');
   }
-  return symbolPropertyTypeDescription(data, symbol, type);
+  parts.push(...symbolProperties(data, properties));
+  parts.push(...symbolProperties(data, members));
+  parts.push('}');
+  return parts.join('\n');
+  // return symbolPropertyTypeDescription(data, symbol, type);
 }
 
 function symbolFunctionTypeDescription(
@@ -107,7 +107,7 @@ function symbolFunctionTypeDescription(
   symbol: FormattedSymbol,
   type: FormattedType
 ): string {
-  const { callSignatures } = symbol;
+  const { callSignatures } = type;
   if (callSignatures && callSignatures.length > 0) {
     return callSignatures
       .map(s => {
@@ -159,7 +159,7 @@ function makeTypeParamString(
     ? []
     : aliasTypeArgumentRefs
         .map(t => resolveReference(data, t))
-        .filter(isTruthy)
+        .filter(isDefined)
         .map(t => ({
           type: t.text,
           constraint: t.constraint ? resolveReference(data, t.constraint).text : ''
@@ -181,14 +181,17 @@ function symbolTypeTypeDescription(
   symbol: FormattedSymbol,
   type: FormattedType
 ): string {
-  const { name, members = {}, flags, callSignatures, constructorSignatures } = symbol;
+  const { name, flags } = symbol;
   const {
+    callSignatures,
+    constructorSignatures,
     numberIndexType: numberIndexTypeRef,
     stringIndexType: stringIndexTypeRef,
-    properties,
+    properties = {},
     baseTypes,
-    aliasTypeArguments: aliasTypeArgumentRefs
+    typeParameters: typeParameterRefs
   } = type;
+  const { members } = symbol;
   const isInterface = flags ? flags.includes('interface') : false;
   let value: string = '';
   if (baseTypes && baseTypes.length > 0) {
@@ -200,18 +203,16 @@ function symbolTypeTypeDescription(
   const stringIndexType = !stringIndexTypeRef
     ? undefined
     : resolveReference(data, stringIndexTypeRef);
-  if (properties && Object.keys(properties).length > 0) {
-    // TODO handle properties vs members
-  }
 
   const commonParts: string[] = [
     ...symbolConstructorSignatures(data, constructorSignatures),
     ...symbolCallSignatures(data, callSignatures),
     ...symbolIndexSignature('number', numberIndexType),
     ...symbolIndexSignature('string', stringIndexType),
-    ...symbolMembers(data, members)
+    ...symbolProperties(data, members),
+    ...symbolProperties(data, properties)
   ].map(s => `  ${s}`);
-  const typeParamString = makeTypeParamString(data, aliasTypeArgumentRefs);
+  const typeParamString = makeTypeParamString(data, typeParameterRefs);
   if (isInterface) {
     value = [`interface ${name}${typeParamString} {`, ...commonParts, '}'].join('\n');
   } else {
@@ -254,33 +255,33 @@ function symbolKind(flags?: string[]): ExportKind {
   return 'property';
 }
 
-export function symbolMembers(
+export function symbolProperties(
   data: FormatterOutputData,
-  members: Dict<FormattedSymbolRef>
+  props?: Dict<FormattedSymbolRef>
 ): string[] {
-  return Object.keys(members)
-    .map(memName => {
-      if (['__constructor', '__index'].includes(memName)) {
+  if (!props) {
+    return [];
+  }
+  return Object.keys(props)
+    .map(propName => {
+      const propRef = props[propName];
+      if (!propRef) {
         return null;
       }
-      const memRef = members[memName];
-      if (!memRef) {
-        return null;
-      }
-      const mem = resolveReference(data, memRef);
-      const childKind = symbolKind(mem.flags);
-      const { type: memTypeRef } = mem;
-      if (memTypeRef) {
-        const memType = resolveReference(data, memTypeRef);
-        if (memType.flags && memType.flags.includes('typeParameter')) {
+      const prop = resolveReference(data, propRef);
+      const childKind = symbolKind(prop.flags);
+      const { type: propTypeRef } = prop;
+      if (propTypeRef) {
+        const propType = resolveReference(data, propTypeRef);
+        if (propType.flags && propType.flags.includes('typeParameter')) {
           return null;
         }
-        return symbolTypeDescriptionCode(data, mem, memType, childKind);
+        return symbolTypeDescriptionCode(data, prop, propType, childKind);
       } else {
-        return memName;
+        return propName;
       }
     })
-    .filter(isTruthy);
+    .filter(isDefined);
 }
 
 function sectionHeaderForSymbol(
