@@ -13,7 +13,7 @@ async function runAcceptanceTest(code: string, expectedComments: string): Promis
 
 @suite
 class FirstAcceptance {
-  @test.skip
+  @test
   public async 'binary function with no return type'() {
     await runAcceptanceTest(
       `export function add(a: number, b: number) { return '' + a + b; }`,
@@ -53,7 +53,7 @@ x: string | number
     );
   }
 
-  @test.skip
+  @test
   public async 'exported interface'() {
     await runAcceptanceTest(
       `export interface Foo { val: string | number }`,
@@ -75,7 +75,7 @@ interface Foo {
     );
   }
 
-  @test.skip
+  @test
   public async 'type alias'() {
     await runAcceptanceTest(
       `export type Dict = { [k: string]: number | undefined }`,
@@ -96,7 +96,7 @@ type Dict = {
 \`\`\``
     );
   }
-  @test.skip
+  @test
   public async 'type alias w/ type parameter'() {
     await runAcceptanceTest(
       `export type Dict<T> = { [k: string]: T }`,
@@ -118,8 +118,30 @@ type Dict<T> = {
     );
   }
 
-  @test.skip
-  public async 'type alias w/ type parameter and constraint'() {
+  @test
+  public async 'interface w/ type parameter '() {
+    await runAcceptanceTest(
+      `export interface Dict<T> { [k: string]: T }`,
+      `# my-pkg
+
+\`src/index\`
+
+## Exports
+
+### Types
+
+#### \`Dict\`
+
+\`\`\`ts
+interface Dict<T> {
+  [k: string]: T
+}
+\`\`\``
+    );
+  }
+
+  @test
+  public async 'interface w/ type parameter and constraint'() {
     await runAcceptanceTest(
       `export interface Dict<T extends 'foo' | 'bar'> { [k: string]: T }`,
       `# my-pkg
@@ -140,7 +162,7 @@ interface Dict<T extends "foo" | "bar"> {
     );
   }
 
-  @test.skip
+  @test
   public async 'simple class w/ constructor'() {
     await runAcceptanceTest(
       `export class SimpleClass {
