@@ -5672,7 +5672,7 @@ ember-source-channel-url@1.1.0, ember-source-channel-url@^1.0.1:
   dependencies:
     got "^8.0.1"
 
-ember-source@^3.7.1:
+ember-source@3.7.1:
   version "3.7.1"
   resolved "https://registry.yarnpkg.com/ember-source/-/ember-source-3.7.1.tgz#c6e8fb26ff25d9754add3e87e3f292da2feeeb31"
   integrity sha512-xwebK659JP/VEqTPMQ5WtTnae/eSx1KAbp6YrBZ7ypMiL4EmJDLpE4xUbEn91mipdKN1DQgHVOwF6yOHDTTXtA==
@@ -13372,7 +13372,7 @@ tslint-config-prettier@1.17.0:
   resolved "https://registry.yarnpkg.com/tslint-config-prettier/-/tslint-config-prettier-1.17.0.tgz#946ed6117f98f3659a65848279156d87628c33dc"
   integrity sha512-NKWNkThwqE4Snn4Cm6SZB7lV5RMDDFsBwz6fWUkTxOKGjMx8ycOHnjIbhn7dZd5XmssW3CwqUjlANR6EhP9YQw==
 
-tslint-sonarts@^1.9.0:
+tslint-sonarts@1.9.0:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/tslint-sonarts/-/tslint-sonarts-1.9.0.tgz#feb593e92db328c0328b430b838adbe65d504de9"
   integrity sha512-CJWt+IiYI8qggb2O/JPkS6CkC5DY1IcqRsm9EHJ+AxoWK70lvtP7jguochyNDMP2vIz/giGdWCfEM39x/I/Vnw==
@@ -13441,7 +13441,7 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript-eslint-parser@^22.0.0:
+typescript-eslint-parser@22.0.0:
   version "22.0.0"
   resolved "https://registry.yarnpkg.com/typescript-eslint-parser/-/typescript-eslint-parser-22.0.0.tgz#f5e766c9b50711b03535e29a10b45f957e3c516a"
   integrity sha512-pD8D7oTeRwWvFVxK3PaY6FYAiZsuRXFkIc2+1xkwCT3NduySgCgjeAkR5/dnIWecOiFVcEHf4ypXurF02Q6Z3Q==

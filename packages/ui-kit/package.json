@@ -68,7 +68,7 @@
     "ember-maybe-import-regenerator": "0.1.6",
     "ember-qunit": "4.2.0",
     "ember-resolver": "5.0.1",
-    "ember-source": "^3.7.1",
+    "ember-source": "3.7.1",
     "ember-source-channel-url": "1.1.0",
     "ember-try": "1.1.0",
     "eslint-plugin-ember": "6.1.0",
@@ -86,9 +86,9 @@
     "scripty": "1.9.0",
     "tslint": "5.12.1",
     "tslint-config-prettier": "1.17.0",
-    "tslint-sonarts": "^1.9.0",
+    "tslint-sonarts": "1.9.0",
     "typescript": "3.2.4",
-    "typescript-eslint-parser": "^22.0.0"
+    "typescript-eslint-parser": "22.0.0"
   },
   "publishConfig": {
     "access": "public"
