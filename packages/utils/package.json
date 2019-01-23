@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/utils",
-  "version": "0.2.0",
+  "version": "0.3.1",
   "description": "Low-level utilities for snap-doc",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
@@ -54,7 +54,7 @@
     "remark-preset-lint-recommended": "3.0.2",
     "remark-validate-links": "8.0.0",
     "scripty": "1.9.0",
-    "ts-node": "7.0.1",
+    "ts-node": "8.0.1",
     "tslint": "5.12.1",
     "tslint-config-prettier": "1.17.0",
     "tslint-sonarts": "1.9.0",

@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.5.0...@snap-doc/cli@0.5.1) (2019-01-22)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+# [0.5.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.4.0...@snap-doc/cli@0.5.0) (2019-01-22)
+
+
+### Bug Fixes
+
+* **deps:** update code-to-json packages ([3d3c850](https://github.com/snap-doc/snap-doc/commit/3d3c850))
+
+
+### Features
+
+* dependency upgrades ([c2b7b02](https://github.com/snap-doc/snap-doc/commit/c2b7b02))
+
+
+
+
+
 # [0.4.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.3.2...@snap-doc/cli@0.4.0) (2019-01-15)
 
 
