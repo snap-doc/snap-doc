@@ -1,8 +1,5 @@
 # SnapDoc
 
-[![version](https://img.shields.io/npm/v/snap-doc.svg)](https://www.npmjs.com/package/snap-doc)
-[![codecov](https://codecov.io/gh/snap-doc/snap-doc/branch/master/graph/badge.svg)](https://codecov.io/gh/snap-doc/snap-doc)
-
 Easy versioned documentation for TypeScript and JavaScript apps and libraries
 
 [![Build Status](https://travis-ci.org/snap-doc/snap-doc.svg?branch=master)](https://travis-ci.org/snap-doc/snap-doc)
