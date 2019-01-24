@@ -69,6 +69,7 @@ function symbolClassTypeDescription(
   if (baseTypes && baseTypes.length > 0) {
     debugger;
   }
+  debugger;
   const parts: string[] = [`class ${symbol.name} {`];
   if (constructorSignatures && constructorSignatures.length > 0) {
     parts.push(

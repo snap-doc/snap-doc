@@ -40,8 +40,8 @@
     "url": "https://github.com/snap-doc/snap-doc/issues"
   },
   "devDependencies": {
-    "@code-to-json/test-helpers": "0.4.1",
-    "@code-to-json/utils-node": "0.3.2",
+    "@code-to-json/test-helpers": "0.4.4",
+    "@code-to-json/utils-node": "^1.0.0-rc.0",
     "@types/debug": "0.0.31",
     "@types/mocha": "5.2.5",
     "@types/node": "10.12.18",
