@@ -17,6 +17,10 @@
     "strictNullChecks": true,
     "downlevelIteration": true,
     "experimentalDecorators": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
     "inlineSourceMap": true,
     "strict": true,
     "composite": true

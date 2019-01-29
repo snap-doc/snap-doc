@@ -11,8 +11,7 @@ export type ExportKind = 'class' | 'property' | 'type' | 'function';
 function createExportSection(
   data: FormatterOutputData,
   sectionName: string,
-  symCollection: Dict<FormattedSymbol>,
-  kind: ExportKind
+  symCollection: Dict<FormattedSymbol>
 ): Node[] {
   const symbols = Object.keys(symCollection)
     .sort()
@@ -27,7 +26,7 @@ function createExportSection(
         if (!sym) {
           return all;
         }
-        all.push(...mdForSymbol(data, sym, kind));
+        all.push(...mdForSymbol(data, sym));
         return all;
       },
       [] as Node[]
@@ -42,10 +41,10 @@ export function createExportSections(
   { classes, properties, types, functions }: SortedExportSymbols
 ): Node[] {
   const parts: Node[] = [
-    ...createExportSection(data, 'Properties', properties, 'property'),
-    ...createExportSection(data, 'Types', types, 'type'),
-    ...createExportSection(data, 'Classes', classes, 'class'),
-    ...createExportSection(data, 'Functions', functions, 'function')
+    ...createExportSection(data, 'Properties', properties),
+    ...createExportSection(data, 'Types', types),
+    ...createExportSection(data, 'Classes', classes),
+    ...createExportSection(data, 'Functions', functions)
   ];
   const secRoot = createSection(2, 'Exports', parts);
   return secRoot;

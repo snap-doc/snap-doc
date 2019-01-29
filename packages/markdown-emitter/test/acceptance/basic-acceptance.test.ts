@@ -1,25 +1,26 @@
 import { expect } from 'chai';
-import { suite, test } from 'mocha-typescript';
+import { slow, suite, test } from 'mocha-typescript';
 import { setupAcceptanceTest } from './helpers';
 
 async function runAcceptanceTest(code: string, expectedComments: string): Promise<void> {
   const tc = await setupAcceptanceTest({
     'index.ts': code
   });
-  expect(tc.contentFor('index.md')).to.eq(expectedComments);
+  expect(tc.contentFor('index.ts.md')).to.eq(expectedComments);
 
   tc.cleanup();
 }
 
 @suite
-class BasicAcceptance {
+@slow(1000)
+export class BasicAcceptance {
   @test
   public async 'binary function with no return type'() {
     await runAcceptanceTest(
       `export function add(a: number, b: number) { return '' + a + b; }`,
       `# my-pkg
 
-\`src/index\`
+\`src/index.ts\`
 
 ## Exports
 
@@ -34,12 +35,39 @@ function add(a: number, b: number): string;
   }
 
   @test
+  public async 'function with overloaded signatures'() {
+    await runAcceptanceTest(
+      `
+export function add(a: number, b: number): number;
+export function add(a: string, b: string): string;
+export function add(a: any, b: any): any {
+  return a + b;
+}
+`,
+      `# my-pkg
+
+\`src/index.ts\`
+
+## Exports
+
+### Functions
+
+#### \`add(...)\`
+
+\`\`\`ts
+function add(a: number, b: number): number;
+function add(a: string, b: string): string;
+\`\`\``
+    );
+  }
+
+  @test
   public async 'union type with core types'() {
     await runAcceptanceTest(
       `export const x: string | number = 44;`,
       `# my-pkg
 
-\`src/index\`
+\`src/index.ts\`
 
 ## Exports
 
@@ -59,7 +87,7 @@ x: string | number
       `export interface Foo { val: string | number }`,
       `# my-pkg
 
-\`src/index\`
+\`src/index.ts\`
 
 ## Exports
 
@@ -81,7 +109,7 @@ interface Foo {
       `export type Dict = { [k: string]: number | undefined }`,
       `# my-pkg
 
-\`src/index\`
+\`src/index.ts\`
 
 ## Exports
 
@@ -102,7 +130,7 @@ type Dict = {
       `export type Dict<T> = { [k: string]: T }`,
       `# my-pkg
 
-\`src/index\`
+\`src/index.ts\`
 
 ## Exports
 
@@ -124,7 +152,7 @@ type Dict<T> = {
       `export interface Dict<T> { [k: string]: T }`,
       `# my-pkg
 
-\`src/index\`
+\`src/index.ts\`
 
 ## Exports
 
@@ -146,7 +174,7 @@ interface Dict<T> {
       `export interface Dict<T extends 'foo' | 'bar'> { [k: string]: T }`,
       `# my-pkg
 
-\`src/index\`
+\`src/index.ts\`
 
 ## Exports
 
@@ -170,7 +198,7 @@ interface Dict<T extends "foo" | "bar"> {
 }`,
       `# my-pkg
 
-\`src/index\`
+\`src/index.ts\`
 
 ## Exports
 
@@ -187,12 +215,125 @@ class SimpleClass {
   }
 
   @test
+  public async 'simple class w/ constructor and fields'() {
+    await runAcceptanceTest(
+      `export class SimpleClass {
+  public foo: string = 'bar';
+  private biz: string[] = ['baz'];
+  constructor(bar: string) { console.log(bar); }
+}`,
+      `# my-pkg
+
+\`src/index.ts\`
+
+## Exports
+
+### Classes
+
+#### \`SimpleClass\`
+
+\`\`\`ts
+class SimpleClass {
+  constructor(bar: string): SimpleClass
+  public foo: string
+  private biz: string[]
+}
+\`\`\``
+    );
+  }
+
+  @test
+  public async 'class with exported base class'() {
+    await runAcceptanceTest(
+      `
+export class SimpleBase { foo: string }
+export class SimpleClass extends SimpleBase {
+  constructor(bar: string) { console.log(bar); }
+}`,
+      `# my-pkg
+
+\`src/index.ts\`
+
+## Exports
+
+### Classes
+
+#### \`SimpleBase\`
+
+\`\`\`ts
+class SimpleBase {
+  constructor(): SimpleBase
+  foo: string
+}
+\`\`\`
+
+#### \`SimpleClass\`
+
+\`\`\`ts
+class SimpleClass {
+  constructor(bar: string): SimpleClass
+}
+\`\`\``
+    );
+  }
+
+  @test
+  public async 'class with non-exported base class'() {
+    await runAcceptanceTest(
+      `
+class SimpleBase { foo: string }
+export class SimpleClass extends SimpleBase {
+  constructor(bar: string) { console.log(bar); }
+}`,
+      `# my-pkg
+
+\`src/index.ts\`
+
+## Exports
+
+### Classes
+
+#### \`SimpleClass\`
+
+\`\`\`ts
+class SimpleClass {
+  constructor(bar: string): SimpleClass
+}
+\`\`\``
+    );
+  }
+
+  @test
+  public async 'simple class w/ constructor - export default'() {
+    await runAcceptanceTest(
+      `export default class SimpleClass {
+  constructor(bar: string) { console.log(bar); }
+}`,
+      `# my-pkg
+
+\`src/index.ts\`
+
+## Exports
+
+### Classes
+
+#### \`default\`
+
+\`\`\`ts
+class SimpleClass {
+  constructor(bar: string): SimpleClass
+}
+\`\`\``
+    );
+  }
+
+  @test
   public async 'const symbols should get narrow types of the symbol value'() {
     await runAcceptanceTest(
       `export const TextType = "Text";`,
       `# my-pkg
 
-\`src/index\`
+\`src/index.ts\`
 
 ## Exports
 
@@ -211,7 +352,7 @@ TextType: "Text"
       `export let TextType = "Text";`,
       `# my-pkg
 
-\`src/index\`
+\`src/index.ts\`
 
 ## Exports
 
@@ -231,7 +372,7 @@ TextType: string
 export type TextType = typeof MySymbol;`,
       `# my-pkg
 
-\`src/index\`
+\`src/index.ts\`
 
 ## Exports
 
@@ -255,7 +396,7 @@ type ElementType = typeof ElementType;
 export type NodeType = ElementType | TextType;`,
       `# my-pkg
 
-\`src/index\`
+\`src/index.ts\`
 
 ## Exports
 
@@ -280,7 +421,7 @@ type NodeType = ElementType | TextType;
 export const DefaultType: NodeType = ElementType;`,
       `# my-pkg
 
-\`src/index\`
+\`src/index.ts\`
 
 ## Exports
 

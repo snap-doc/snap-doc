@@ -102,7 +102,7 @@
     ]
   },
   "dependencies": {
-    "@code-to-json/comments": "^0.6.0",
+    "@code-to-json/comments": "^1.0.0-rc.0",
     "@mike-north/types": "^1.0.7"
   }
 }

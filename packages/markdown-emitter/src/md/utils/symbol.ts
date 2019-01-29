@@ -6,12 +6,12 @@ import {
   FormattedTypeRef
 } from '@code-to-json/formatter';
 import { FormatterOutputData } from '@code-to-json/formatter/lib/src/formatter';
-import { isDefined, UnreachableError } from '@code-to-json/utils';
+import { FormattedSymbolKind, FormattedTypeKind } from '@code-to-json/formatter/lib/src/types';
+import { isDefined, isNotNull, UnreachableError } from '@code-to-json/utils';
 import { Dict } from '@mike-north/types';
 import { resolveReference } from '@snap-doc/core';
 import { Node } from 'unist';
 import { createDocumentation } from './documentation';
-import { ExportKind } from './exports';
 import { createSection } from './section';
 
 function symbolConstructorSignatures(
@@ -20,20 +20,66 @@ function symbolConstructorSignatures(
 ): string[] {
   if (!sigs || sigs.length === 0) {
     return [];
-  } else {
-    debugger;
   }
-  return [];
+  return sigs
+    .map(s => {
+      const constructorParts: string[] = ['constructor('];
+      const { parameters } = s;
+      if (parameters && parameters.length > 0) {
+        constructorParts.push(
+          parameters
+            .map(p => {
+              if (!p.type) {
+                return '';
+              }
+              const paramType = resolveReference(data, p.type);
+              return `${p.name}: ${paramType.text}`;
+            })
+            .join(', ')
+        );
+      }
+      if (s.returnType) {
+        const returnType = resolveReference(data, s.returnType);
+
+        constructorParts.push(`): ${returnType.text}`);
+      } else {
+        constructorParts.push(`): (unknown)`);
+      }
+      return constructorParts.join('');
+    })
+    .map(s => `  ${s}`);
 }
 
 // tslint:disable-next-line:no-identical-functions
 function symbolCallSignatures(data: FormatterOutputData, sigs?: FormattedSignature[]): string[] {
   if (!sigs || sigs.length === 0) {
     return [];
-  } else {
-    debugger;
   }
-  return [];
+  return sigs.map(s => {
+    const parts: string[] = ['('];
+    const { parameters, returnType: returnTypeRef } = s;
+    if (parameters && parameters.length > 0) {
+      parts.push(
+        parameters
+          // tslint:disable-next-line:no-identical-functions
+          .map(p => {
+            if (!p.type) {
+              return '';
+            }
+            const paramType = resolveReference(data, p.type);
+            return `${p.name}: ${paramType.text}`;
+          })
+          .join(', ')
+      );
+    }
+    parts.push(')');
+    if (returnTypeRef) {
+      const returnType = resolveReference(data, returnTypeRef);
+      parts.push(`: ${returnType.text}`);
+    }
+    parts.push(';');
+    return parts.join('');
+  });
 }
 
 // tslint:disable-next-line:no-identical-functions
@@ -48,14 +94,11 @@ function symbolIndexSignature(indexType: 'string' | 'number', sig?: FormattedTyp
 function symbolTypeDescription(
   data: FormatterOutputData,
   symbol: FormattedSymbol,
-  type: FormattedType,
-  kind: ExportKind
+  type: FormattedType
 ): Node {
   return {
     type: 'paragraph',
-    children: [
-      { type: 'code', lang: 'ts', value: symbolTypeDescriptionCode(data, symbol, type, kind) }
-    ]
+    children: [{ type: 'code', lang: 'ts', value: symbolTypeDescriptionCode(data, symbol, type) }]
   };
 }
 
@@ -66,40 +109,18 @@ function symbolClassTypeDescription(
 ): string {
   const { members = {}, properties = {} } = symbol;
   const { constructorSignatures, baseTypes } = type;
+  // tslint:disable-next-line:no-debugger
   if (baseTypes && baseTypes.length > 0) {
+    // tslint:disable-next-line:no-debugger
     debugger;
   }
-  const parts: string[] = [`class ${symbol.name} {`];
-  if (constructorSignatures && constructorSignatures.length > 0) {
-    parts.push(
-      ...constructorSignatures
-        .map(s => {
-          const constructorParts: string[] = ['constructor('];
-          const { parameters } = s;
-          if (parameters && parameters.length > 0) {
-            constructorParts.push(
-              parameters
-                .map(p => {
-                  if (!p.type) {
-                    return '';
-                  }
-                  const paramType = resolveReference(data, p.type);
-                  return `${p.name}: ${paramType.text}`;
-                })
-                .join(', ')
-            );
-          }
-          constructorParts.push(`): ${symbol.name}`);
-          return constructorParts.join('');
-        })
-        .map(s => `  ${s}`)
-    );
-  }
-  parts.push(...symbolProperties(data, properties));
-  parts.push(...symbolProperties(data, members));
+  const parts: string[] = [`class ${symbol.text} {`];
+  parts.push(...symbolConstructorSignatures(data, constructorSignatures));
+
+  parts.push(...symbolProperties(data, properties).map(s => `  ${s}`));
+  parts.push(...symbolProperties(data, members).map(s => `  ${s}`));
   parts.push('}');
   return parts.join('\n');
-  // return symbolPropertyTypeDescription(data, symbol, type);
 }
 
 function symbolFunctionTypeDescription(
@@ -108,36 +129,9 @@ function symbolFunctionTypeDescription(
   type: FormattedType
 ): string {
   const { callSignatures } = type;
-  if (callSignatures && callSignatures.length > 0) {
-    return callSignatures
-      .map(s => {
-        const parts: string[] = ['function ', symbol.name, '('];
-        const { parameters, returnType: returnTypeRef } = s;
-        if (parameters && parameters.length > 0) {
-          parts.push(
-            parameters
-              // tslint:disable-next-line:no-identical-functions
-              .map(p => {
-                if (!p.type) {
-                  return '';
-                }
-                const paramType = resolveReference(data, p.type);
-                return `${p.name}: ${paramType.text}`;
-              })
-              .join(', ')
-          );
-        }
-        parts.push(')');
-        if (returnTypeRef) {
-          const returnType = resolveReference(data, returnTypeRef);
-          parts.push(`: ${returnType.text}`);
-        }
-        parts.push(';');
-        return parts.join('');
-      })
-      .join('\n');
-  }
-  return symbolPropertyTypeDescription(data, symbol, type);
+  return symbolCallSignatures(data, callSignatures)
+    .map(cs => `function ${symbol.text}${cs}`)
+    .join('\n');
 }
 
 function symbolPropertyTypeDescription(
@@ -181,7 +175,7 @@ function symbolTypeTypeDescription(
   symbol: FormattedSymbol,
   type: FormattedType
 ): string {
-  const { name, flags } = symbol;
+  const { name, kind } = symbol;
   const {
     callSignatures,
     constructorSignatures,
@@ -191,10 +185,11 @@ function symbolTypeTypeDescription(
     baseTypes,
     typeParameters: typeParameterRefs
   } = type;
-  const { members } = symbol;
-  const isInterface = flags ? flags.includes('interface') : false;
+  // const { members } = symbol;
+  const isInterface = kind === FormattedSymbolKind.interface;
   let value: string = '';
   if (baseTypes && baseTypes.length > 0) {
+    // tslint:disable-next-line:no-debugger
     debugger;
   }
   const numberIndexType = !numberIndexTypeRef
@@ -209,7 +204,6 @@ function symbolTypeTypeDescription(
     ...symbolCallSignatures(data, callSignatures),
     ...symbolIndexSignature('number', numberIndexType),
     ...symbolIndexSignature('string', stringIndexType),
-    ...symbolProperties(data, members),
     ...symbolProperties(data, properties)
   ].map(s => `  ${s}`);
   const typeParamString = makeTypeParamString(data, typeParameterRefs);
@@ -224,37 +218,20 @@ function symbolTypeTypeDescription(
 function symbolTypeDescriptionCode(
   data: FormatterOutputData,
   symbol: FormattedSymbol,
-  type: FormattedType,
-  kind: ExportKind
+  type: FormattedType
 ): string {
-  switch (kind) {
-    case 'function':
+  switch (symbol.kind) {
+    case FormattedSymbolKind.function:
       return symbolFunctionTypeDescription(data, symbol, type);
-    case 'class':
+    case FormattedSymbolKind.class:
       return symbolClassTypeDescription(data, symbol, type);
-    case 'type':
+    case FormattedSymbolKind.interface:
+    case FormattedSymbolKind.typeAlias:
       return symbolTypeTypeDescription(data, symbol, type);
     default:
       return symbolPropertyTypeDescription(data, symbol, type);
   }
 }
-
-function symbolKind(flags?: string[]): ExportKind {
-  if (!flags) {
-    return 'property';
-  }
-  if (flags.includes('class')) {
-    return 'class';
-  }
-  if (flags.includes('function')) {
-    return 'function';
-  }
-  if (flags.includes('interface') || flags.includes('alias')) {
-    return 'type';
-  }
-  return 'property';
-}
-
 export function symbolProperties(
   data: FormatterOutputData,
   props?: Dict<FormattedSymbolRef>
@@ -269,52 +246,54 @@ export function symbolProperties(
         return null;
       }
       const prop = resolveReference(data, propRef);
-      const childKind = symbolKind(prop.flags);
       const { type: propTypeRef } = prop;
       if (propTypeRef) {
         const propType = resolveReference(data, propTypeRef);
-        if (propType.flags && propType.flags.includes('typeParameter')) {
+        if (propType.kind === FormattedTypeKind.typeParameter) {
           return null;
         }
-        return symbolTypeDescriptionCode(data, prop, propType, childKind);
+        return [prop.accessModifier, symbolTypeDescriptionCode(data, prop, propType)]
+          .join(' ')
+          .trim();
       } else {
         return propName;
       }
     })
-    .filter(isDefined);
+    .filter(isDefined)
+    .filter(isNotNull);
 }
 
-function sectionHeaderForSymbol(
-  data: FormatterOutputData,
-  s: FormattedSymbol,
-  kind: ExportKind
-): Node {
-  switch (kind) {
-    case 'property':
+function sectionHeaderForSymbol(_data: FormatterOutputData, s: FormattedSymbol): Node {
+  switch (s.kind) {
+    case FormattedSymbolKind.enum:
+    case FormattedSymbolKind.enumMember:
+    case FormattedSymbolKind.constEnum:
+    case FormattedSymbolKind.property:
+    case FormattedSymbolKind.method:
+    case FormattedSymbolKind.module:
+    case FormattedSymbolKind.typeParameter:
+      throw new Error(`Should not receive symbol kind ${s.kind}`);
+    case FormattedSymbolKind.variable:
+    case FormattedSymbolKind.typeAlias:
+    case FormattedSymbolKind.typeLiteral:
+    case FormattedSymbolKind.interface:
+    case FormattedSymbolKind.class:
       return { type: 'inlineCode', value: s.name };
-    case 'class':
-      return { type: 'inlineCode', value: s.name };
-    case 'type':
-      return { type: 'inlineCode', value: s.name };
-    case 'function':
+    case FormattedSymbolKind.function:
       return { type: 'inlineCode', value: `${s.name}(...)` };
     default:
-      throw new UnreachableError(kind);
+      throw new UnreachableError(s.kind);
   }
 }
 
-export function mdForSymbol(
-  data: FormatterOutputData,
-  s: FormattedSymbol,
-  kind: ExportKind
-): Node[] {
+export function mdForSymbol(data: FormatterOutputData, s: FormattedSymbol): Node[] {
   const parts: Node[] = [];
   const { documentation } = s;
   parts.push(...createDocumentation(documentation));
   const { type: typeRef } = s;
   if (typeRef) {
     const type = resolveReference(data, typeRef);
-    parts.push(symbolTypeDescription(data, s, type, kind));
+    parts.push(symbolTypeDescription(data, s, type));
   }
-  return createSection(4, sectionHeaderForSymbol(data, s, kind), parts);
+  return createSection(4, sectionHeaderForSymbol(data, s), parts);
 }
