@@ -706,7 +706,7 @@
     "@code-to-json/utils" "^1.0.0-rc.6"
     "@mike-north/types" "^1.0.7"
 
-"@code-to-json/test-helpers@^1.0.0-rc.0":
+"@code-to-json/test-helpers@1.0.0-rc.6":
   version "1.0.0-rc.6"
   resolved "https://registry.yarnpkg.com/@code-to-json/test-helpers/-/test-helpers-1.0.0-rc.6.tgz#53a2badab87030ca103fd8b4de7d96b7cd67f4c7"
   integrity sha512-y/2Wdpf5Kp5+Asn1DVJvCFYL7+7v+9JcNSXNDR+XafgVhlfEnUgmvONur7+CHd1mgCGeCGo+zpNwsYgcmNfpBw==
@@ -720,7 +720,7 @@
     treeify "^1.1.0"
     typescript "^3.1.0"
 
-"@code-to-json/utils-node@^1.0.0-rc.0":
+"@code-to-json/utils-node@1.0.0-rc.7", "@code-to-json/utils-node@^1.0.0-rc.0":
   version "1.0.0-rc.7"
   resolved "https://registry.yarnpkg.com/@code-to-json/utils-node/-/utils-node-1.0.0-rc.7.tgz#672975f5fca2b4c563d5c5c5b7684021eba27deb"
   integrity sha512-ZpcFWqug2He6RVeYhYciIDPAIE1PwrsGmSC9MD2Fwi5KTGY4TZZVvjLLUYjmZPXHcCHJm5ovaUfZJgHaf8q4lw==
