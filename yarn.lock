@@ -719,7 +719,19 @@
     treeify "^1.1.0"
     typescript "^3.1.0"
 
-"@code-to-json/utils-node@1.0.0-rc.0", "@code-to-json/utils-node@^1.0.0-rc.0":
+"@code-to-json/utils-node@1.0.0-rc.7":
+  version "1.0.0-rc.7"
+  resolved "https://registry.yarnpkg.com/@code-to-json/utils-node/-/utils-node-1.0.0-rc.7.tgz#672975f5fca2b4c563d5c5c5b7684021eba27deb"
+  integrity sha512-ZpcFWqug2He6RVeYhYciIDPAIE1PwrsGmSC9MD2Fwi5KTGY4TZZVvjLLUYjmZPXHcCHJm5ovaUfZJgHaf8q4lw==
+  dependencies:
+    "@code-to-json/utils" "^1.0.0-rc.6"
+    "@code-to-json/utils-ts" "^1.0.0-rc.7"
+    "@mike-north/types" "^1.0.7"
+    pkg-up "^2.0.0"
+    rimraf "^2.6.3"
+    tmp "^0.0.33"
+
+"@code-to-json/utils-node@^1.0.0-rc.0":
   version "1.0.0-rc.0"
   resolved "https://registry.yarnpkg.com/@code-to-json/utils-node/-/utils-node-1.0.0-rc.0.tgz#92489fd1ee31d56643b8dffd5fd5347be1b5f6a4"
   integrity sha512-CB+tX94lb5NE80Tnq5fun7U9XzZ0vY3EMq5nCNU0y+2YuSCFicF2vr0a+pd8LaeVaGxL68IPJOiUcMA8XMwgXw==
@@ -740,10 +752,26 @@
     "@mike-north/types" "^1.0.7"
     typescript "^3.1.0"
 
+"@code-to-json/utils-ts@^1.0.0-rc.7":
+  version "1.0.0-rc.7"
+  resolved "https://registry.yarnpkg.com/@code-to-json/utils-ts/-/utils-ts-1.0.0-rc.7.tgz#b5df7b7f6a4256301a0b96fb617872757d56c0f7"
+  integrity sha512-k6xONeC/Qk9tKeIFMiysiFGpL1XSSXhVI8oZ+S9ademlI3LjQlOReRsfT6F6W0HFVjiPWzKMOU0RAGHh+GESrA==
+  dependencies:
+    "@code-to-json/utils" "^1.0.0-rc.6"
+    "@mike-north/types" "^1.0.7"
+    typescript "^3.1.0"
+
 "@code-to-json/utils@^0.8.4":
   version "0.8.4"
   resolved "https://registry.yarnpkg.com/@code-to-json/utils/-/utils-0.8.4.tgz#70316abb31a3fca95a4ced442a9b7c7824bfbc2d"
   integrity sha512-5H3YaQdaP5oO6lGhqrazJCcJll5kVHjew+R6Wczd6w3Sg2qN56PMK3hCB+2RC3VBU8Wat36vcLZlWGA6blQ35A==
+  dependencies:
+    "@mike-north/types" "^1.0.7"
+
+"@code-to-json/utils@^1.0.0-rc.6":
+  version "1.0.0-rc.6"
+  resolved "https://registry.yarnpkg.com/@code-to-json/utils/-/utils-1.0.0-rc.6.tgz#94061ceeb9f4eb71000dca766a6bccd6d2e8f0e9"
+  integrity sha512-7EMyLzWKBpTk7587pV2vIKy3g28azlzuKLBf01XXJfUlBUgMNa+Xfjq3Pgi5ReeV8ONmX0JNlEh8lAZXEfUu0A==
   dependencies:
     "@mike-north/types" "^1.0.7"
 
