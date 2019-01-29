@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/types@0.3.2...@snap-doc/types@0.4.0) (2019-01-29)
+
+
+### Features
+
+* updates for new code-to-json release candidate ([30dab70](https://github.com/snap-doc/snap-doc/commit/30dab70))
+
+
+
+
+
 ## [0.3.2](https://github.com/snap-doc/snap-doc/compare/@snap-doc/types@0.3.1...@snap-doc/types@0.3.2) (2019-01-24)
 
 **Note:** Version bump only for package @snap-doc/types

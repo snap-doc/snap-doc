@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.4.2...@snap-doc/core@0.5.0) (2019-01-29)
+
+
+### Features
+
+* updates for new code-to-json release candidate ([30dab70](https://github.com/snap-doc/snap-doc/commit/30dab70))
+
+
+
+
+
 ## [0.4.2](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.4.1...@snap-doc/core@0.4.2) (2019-01-24)
 
 **Note:** Version bump only for package @snap-doc/core
