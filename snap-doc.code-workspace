@@ -33,7 +33,8 @@
         "name": "Attach",
         "port": 9229,
         "restart": true,
-        "stopOnEntry": false
+        "stopOnEntry": false,
+        "timeout": 60000
       }
     ],
     "compounds": []

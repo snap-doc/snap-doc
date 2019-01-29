@@ -27,12 +27,13 @@ export default class MarkdownFileEmitter extends FileEmitter<MarkdownFileEmitter
     }
     log(`Creating new directory at ${outDir}`);
     h.createFolder(outDir);
+
     Object.keys(files)
       .map(fname => files[fname])
       .filter(f => !f.isDeclarationFile)
       .forEach(f => {
-        const outPath = h.combinePaths(this.options.outDir, f.pathInPackage);
-        log(`Processing module: ${f.moduleName} (${f.pathInPackage})`);
+        const outPath = h.combinePaths(this.options.outDir, f.path);
+        log(`Processing module: ${f.moduleName} (${f.path})`);
         const parentDir = h.combinePaths(outPath, '..');
         if (!h.fileOrFolderExists(parentDir)) {
           h.createFolder(parentDir);
@@ -40,7 +41,8 @@ export default class MarkdownFileEmitter extends FileEmitter<MarkdownFileEmitter
         if (!h.isFolder(parentDir)) {
           throw new Error(`${parentDir} is not a directory`);
         }
-        h.writeFileSync(`${outPath}.md`, this.contentForModule(data, f));
+        const content = this.contentForModule(data, f);
+        h.writeFileSync(`${outPath}.md`, content);
       });
   }
 

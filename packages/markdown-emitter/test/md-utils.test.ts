@@ -2,7 +2,8 @@ import { expect } from 'chai';
 import { suite, test } from 'mocha-typescript';
 import * as snapshot from 'snap-shot-it';
 
-import { CommentBlockTag, CommentFencedCode } from '@code-to-json/comments';
+import { CommentFencedCode } from '@code-to-json/comments';
+import { FormattedSymbolKind } from '@code-to-json/formatter';
 import { createSourceFileRoot, markdownForDocFile } from '../src/md/utils';
 import {
   createTagsTable,
@@ -13,14 +14,14 @@ import {
 import { createSection } from '../src/md/utils/section';
 
 @suite('markdown utilities tests')
-class MarkdownUtilsTests {
+export class MarkdownUtilsTests {
   @test
   public 'create root AST node from source root'(): void {
     snapshot(
       createSourceFileRoot({
         id: '',
         moduleName: 'foo',
-        pathInPackage: 'src/foo',
+        path: 'src/foo',
         extension: 'ts',
         isDeclarationFile: false
       })
@@ -111,29 +112,51 @@ class MarkdownUtilsTests {
   public 'markdownForDocFile - no documentation'(): void {
     expect(
       markdownForDocFile(
-        { sourceFiles: {}, symbols: {}, types: {} },
+        {
+          sourceFiles: {},
+          symbols: {
+            '12345': {
+              id: '12345',
+              name: 'src/foo/bar.ts',
+              kind: FormattedSymbolKind.module
+            }
+          },
+          types: {}
+        },
         {
           id: '',
+          symbol: ['s', '12345'] as any,
           extension: 'ts',
           moduleName: 'bar',
           isDeclarationFile: false,
-          pathInPackage: 'src/foo/bar'
+          path: 'src/foo/bar.ts'
         }
       )
     ).to.eql(`# bar
 
-\`src/foo/bar\``);
+\`src/foo/bar.ts\``);
   }
 
   @test
   public 'markdownForDocFile - with documentation'(): void {
     expect(
       markdownForDocFile(
-        { sourceFiles: {}, symbols: {}, types: {} },
+        {
+          sourceFiles: {},
+          symbols: {
+            '12345': {
+              id: '12345',
+              name: 'src/foo/bar.ts',
+              kind: FormattedSymbolKind.module
+            }
+          },
+          types: {}
+        },
         {
           id: '',
-          pathInPackage: 'src/foo/bar',
+          path: 'src/foo/bar.ts',
           extension: 'ts',
+          symbol: ['s', '12345'] as any,
           moduleName: 'bar',
           isDeclarationFile: false,
           documentation: {
@@ -150,7 +173,7 @@ class MarkdownUtilsTests {
       )
     ).to.eql(`# bar
 
-\`src/foo/bar\`
+\`src/foo/bar.ts\`
 
 | Information |      |
 | :---------- | :--: |
@@ -163,13 +186,24 @@ My favorite module`);
   public 'markdownForDocFile - with examples'(): void {
     expect(
       markdownForDocFile(
-        { sourceFiles: {}, symbols: {}, types: {} },
+        {
+          sourceFiles: {},
+          symbols: {
+            '12345': {
+              id: '12345',
+              name: 'src/foo/bar.ts',
+              kind: FormattedSymbolKind.module
+            }
+          },
+          types: {}
+        },
         {
           id: '',
           extension: 'ts',
           moduleName: 'bar',
           isDeclarationFile: false,
-          pathInPackage: 'src/foo/bar',
+          path: 'src/foo/bar.ts',
+          symbol: ['s', '12345'] as any,
           documentation: {
             summary: ['My favorite module'],
             customTags: [
@@ -204,7 +238,7 @@ My favorite module`);
 
 *   [Examples](#examples)
 
-\`src/foo/bar\`
+\`src/foo/bar.ts\`
 
 | Information |      |
 | :---------- | :--: |

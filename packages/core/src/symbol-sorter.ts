@@ -1,22 +1,23 @@
-import { FormattedSourceFile, FormattedSymbol } from '@code-to-json/formatter';
+import { FormattedSymbol } from '@code-to-json/formatter';
 import { FormatterOutputData } from '@code-to-json/formatter/lib/src/formatter';
+import { FormattedSymbolKind } from '@code-to-json/formatter/lib/src/types';
 import { Dict } from '@mike-north/types';
 import resolveReference from './resolve-reference';
 
 export function isClass(sym: FormattedSymbol): boolean {
-  return !!sym.flags && sym.flags.includes('class');
+  return sym.kind === FormattedSymbolKind.class;
 }
 
 export function isType(sym: FormattedSymbol): boolean {
-  return !!sym.flags && (sym.flags.includes('typeAlias') || sym.flags.includes('interface'));
+  return [FormattedSymbolKind.interface, FormattedSymbolKind.typeAlias].includes(sym.kind);
 }
 
 export function isFunction(sym: FormattedSymbol): boolean {
-  return !!sym.flags && sym.flags.includes('function');
+  return sym.kind === FormattedSymbolKind.function;
 }
 
 export function isProperty(sym: FormattedSymbol): boolean {
-  return !!sym.flags && sym.flags.includes('variable');
+  return sym.kind === FormattedSymbolKind.variable;
 }
 
 export interface SortedExportSymbols {
@@ -28,7 +29,7 @@ export interface SortedExportSymbols {
 
 export function sortSymbols(
   fd: FormatterOutputData,
-  exports: Exclude<FormattedSourceFile['exports'], undefined>
+  exports: Exclude<FormattedSymbol['exports'], undefined>
 ): SortedExportSymbols {
   const classes: Dict<FormattedSymbol> = {};
   const properties: Dict<FormattedSymbol> = {};
