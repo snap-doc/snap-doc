@@ -1,5 +1,4 @@
-import { FormattedSymbol } from '@code-to-json/formatter';
-import { FormatterOutputData } from '@code-to-json/formatter/lib/src/formatter';
+import { LinkedFormattedSymbol } from '@code-to-json/formatter-linker';
 import { Dict } from '@mike-north/types';
 import { SortedExportSymbols } from '@snap-doc/core';
 import { Node } from 'unist';
@@ -9,9 +8,8 @@ import { mdForSymbol } from './symbol';
 export type ExportKind = 'class' | 'property' | 'type' | 'function';
 
 function createExportSection(
-  data: FormatterOutputData,
   sectionName: string,
-  symCollection: Dict<FormattedSymbol>
+  symCollection: Dict<LinkedFormattedSymbol>
 ): Node[] {
   const symbols = Object.keys(symCollection)
     .sort()
@@ -26,7 +24,7 @@ function createExportSection(
         if (!sym) {
           return all;
         }
-        all.push(...mdForSymbol(data, sym));
+        all.push(...mdForSymbol(sym));
         return all;
       },
       [] as Node[]
@@ -36,15 +34,17 @@ function createExportSection(
   return secRoot;
 }
 
-export function createExportSections(
-  data: FormatterOutputData,
-  { classes, properties, types, functions }: SortedExportSymbols
-): Node[] {
+export function createExportSections({
+  classes,
+  properties,
+  types,
+  functions
+}: SortedExportSymbols): Node[] {
   const parts: Node[] = [
-    ...createExportSection(data, 'Properties', properties),
-    ...createExportSection(data, 'Types', types),
-    ...createExportSection(data, 'Classes', classes),
-    ...createExportSection(data, 'Functions', functions)
+    ...createExportSection('Properties', properties),
+    ...createExportSection('Types', types),
+    ...createExportSection('Classes', classes),
+    ...createExportSection('Functions', functions)
   ];
   const secRoot = createSection(2, 'Exports', parts);
   return secRoot;

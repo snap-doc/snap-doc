@@ -29,7 +29,7 @@ export class BasicAcceptance {
 #### \`add(...)\`
 
 \`\`\`ts
-function add(a: number, b: number): string;
+(a: number, b: number) => string
 \`\`\``
     );
   }
@@ -55,8 +55,7 @@ export function add(a: any, b: any): any {
 #### \`add(...)\`
 
 \`\`\`ts
-function add(a: number, b: number): number;
-function add(a: string, b: string): string;
+{ (a: number, b: number): number; (a: string, b: string): string; }
 \`\`\``
     );
   }
@@ -76,7 +75,7 @@ function add(a: string, b: string): string;
 #### \`x\`
 
 \`\`\`ts
-x: string | number
+string | number
 \`\`\``
     );
   }
@@ -96,9 +95,7 @@ x: string | number
 #### \`Foo\`
 
 \`\`\`ts
-interface Foo {
-  val: string | number
-}
+Foo
 \`\`\``
     );
   }
@@ -118,9 +115,7 @@ interface Foo {
 #### \`Dict\`
 
 \`\`\`ts
-type Dict = {
-  [k: string]: number
-}
+Dict
 \`\`\``
     );
   }
@@ -139,9 +134,7 @@ type Dict = {
 #### \`Dict\`
 
 \`\`\`ts
-type Dict<T> = {
-  [k: string]: T
-}
+Dict<T>
 \`\`\``
     );
   }
@@ -161,9 +154,7 @@ type Dict<T> = {
 #### \`Dict\`
 
 \`\`\`ts
-interface Dict<T> {
-  [k: string]: T
-}
+Dict<T>
 \`\`\``
     );
   }
@@ -183,9 +174,7 @@ interface Dict<T> {
 #### \`Dict\`
 
 \`\`\`ts
-interface Dict<T extends "foo" | "bar"> {
-  [k: string]: T
-}
+Dict<T>
 \`\`\``
     );
   }
@@ -207,9 +196,8 @@ interface Dict<T extends "foo" | "bar"> {
 #### \`SimpleClass\`
 
 \`\`\`ts
-class SimpleClass {
-  constructor(bar: string): SimpleClass
-}
+SimpleClass
+typeof SimpleClass
 \`\`\``
     );
   }
@@ -233,11 +221,8 @@ class SimpleClass {
 #### \`SimpleClass\`
 
 \`\`\`ts
-class SimpleClass {
-  constructor(bar: string): SimpleClass
-  public foo: string
-  private biz: string[]
-}
+SimpleClass
+typeof SimpleClass
 \`\`\``
     );
   }
@@ -261,18 +246,15 @@ export class SimpleClass extends SimpleBase {
 #### \`SimpleBase\`
 
 \`\`\`ts
-class SimpleBase {
-  constructor(): SimpleBase
-  foo: string
-}
+SimpleBase
+typeof SimpleBase
 \`\`\`
 
 #### \`SimpleClass\`
 
 \`\`\`ts
-class SimpleClass {
-  constructor(bar: string): SimpleClass
-}
+SimpleClass
+typeof SimpleClass
 \`\`\``
     );
   }
@@ -296,9 +278,8 @@ export class SimpleClass extends SimpleBase {
 #### \`SimpleClass\`
 
 \`\`\`ts
-class SimpleClass {
-  constructor(bar: string): SimpleClass
-}
+SimpleClass
+typeof SimpleClass
 \`\`\``
     );
   }
@@ -320,9 +301,8 @@ class SimpleClass {
 #### \`default\`
 
 \`\`\`ts
-class SimpleClass {
-  constructor(bar: string): SimpleClass
-}
+SimpleClass
+typeof SimpleClass
 \`\`\``
     );
   }
@@ -342,7 +322,7 @@ class SimpleClass {
 #### \`TextType\`
 
 \`\`\`ts
-TextType: "Text"
+"Text"
 \`\`\``
     );
   }
@@ -361,11 +341,11 @@ TextType: "Text"
 #### \`TextType\`
 
 \`\`\`ts
-TextType: string
+string
 \`\`\``
     );
   }
-  @test.skip
+  @test
   public async 'symbol type checker -> type of symbol (1)'() {
     await runAcceptanceTest(
       `const MySymbol = "Text";
@@ -376,17 +356,17 @@ export type TextType = typeof MySymbol;`,
 
 ## Exports
 
-### Properties
+### Types
 
 #### \`TextType\`
 
 \`\`\`ts
-type TextType = "Text"
+"Text"
 \`\`\``
     );
   }
 
-  @test.skip
+  @test
   public async 'symbol type checker -> type of symbol (2)'() {
     await runAcceptanceTest(
       `const TextType = "Text";
@@ -405,7 +385,7 @@ export type NodeType = ElementType | TextType;`,
 #### \`NodeType\`
 
 \`\`\`ts
-type NodeType = "Element" | "Text"
+NodeType
 \`\`\``
     );
   }
@@ -430,7 +410,7 @@ export const DefaultType: NodeType = ElementType;`,
 #### \`DefaultType\`
 
 \`\`\`ts
-DefaultType: NodeType
+NodeType
 \`\`\``
     );
   }

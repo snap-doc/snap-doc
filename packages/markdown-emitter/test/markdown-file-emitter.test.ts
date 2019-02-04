@@ -1,6 +1,5 @@
 import { CommentFencedCode } from '@code-to-json/comments';
-import { FormattedSymbolKind } from '@code-to-json/formatter';
-import { nodeHost } from '@code-to-json/utils-node';
+import { NODE_HOST } from '@code-to-json/utils-node';
 import { expect } from 'chai';
 import { suite, test } from 'mocha-typescript';
 import { join } from 'path';
@@ -15,7 +14,7 @@ export class MarkdownFileEmitterTests {
       projectName: 'foo',
       outDir: 'out',
       host: {
-        ...nodeHost,
+        ...NODE_HOST,
         combinePaths(...paths: string[]): string {
           return join(...paths);
         },
@@ -42,10 +41,13 @@ export class MarkdownFileEmitterTests {
       symbols: {
         '12345': {
           id: '12345',
-          kind: FormattedSymbolKind.module,
+          kind: 'symbol',
+          flags: ['module'],
           name: 'src/foo/bar'
         }
       },
+      declarations: {},
+      nodes: {},
       sourceFiles: {
         foo: {
           id: '',
@@ -54,6 +56,7 @@ export class MarkdownFileEmitterTests {
           moduleName: 'foo',
           symbol: ['s', '12345'] as any,
           isDeclarationFile: false,
+          kind: 'sourceFile',
           documentation: {
             summary: ['My favorite module'],
             customTags: [

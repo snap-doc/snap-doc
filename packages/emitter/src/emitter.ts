@@ -1,5 +1,4 @@
-import { FormatterOutputData } from '@code-to-json/formatter';
-
+import { LinkedFormattedOutputData } from '@code-to-json/formatter-linker';
 export interface EmitterOptions {
   projectName?: string;
   omitToc?: boolean;
@@ -7,7 +6,7 @@ export interface EmitterOptions {
 
 export default abstract class Emitter<O extends EmitterOptions = EmitterOptions> {
   constructor(protected options: O) {}
-  public async emit(data: FormatterOutputData): Promise<void> {
+  public async emit(data: LinkedFormattedOutputData): Promise<void> {
     const [ready, err] = await this.validateConditions();
     if (ready) {
       await this.prepare(data);
@@ -22,10 +21,10 @@ export default abstract class Emitter<O extends EmitterOptions = EmitterOptions>
   }
 
   // tslint:disable-next-line:no-empty
-  protected async prepare(_data: FormatterOutputData): Promise<void> {}
+  protected async prepare(_data: LinkedFormattedOutputData): Promise<void> {}
 
   // tslint:disable-next-line:no-empty
-  protected async generate(_data: FormatterOutputData): Promise<void> {}
+  protected async generate(_data: LinkedFormattedOutputData): Promise<void> {}
 
   // tslint:disable-next-line:no-empty
   protected async validateResult(): Promise<void> {}
