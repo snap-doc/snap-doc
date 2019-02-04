@@ -77,8 +77,6 @@ jobs:
       env: EMBER_TRY_SCENARIO=ember-release
     - <<: *ui-kit-test-one
       env: EMBER_TRY_SCENARIO=ember-canary
-    - <<: *ui-kit-test-one
-      env: EMBER_TRY_SCENARIO=ember-default-with-jquery
     - stage: deploy
       name: 'Publish to npm'
       script: .travis/_publish.sh
