@@ -42,9 +42,6 @@
   "devDependencies": {
     "@code-to-json/test-helpers": "1.0.0-rc.15",
     "@code-to-json/utils-node": "1.0.0-rc.17",
-    "@types/debug": "0.0.31",
-    "@types/mocha": "5.2.5",
-    "@types/node": "10.12.19",
     "@types/rimraf": "2.0.2",
     "chai": "4.2.0",
     "codecov": "3.1.0",
@@ -62,7 +59,7 @@
     "snap-shot-it": "6.2.9",
     "ts-node": "8.0.2",
     "tslint": "5.12.1",
-    "tslint-config-prettier": "1.17.0",
+    "tslint-config-prettier": "^1.18.0",
     "tslint-sonarts": "1.9.0",
     "typescript-eslint-parser": "22.0.0"
   },
