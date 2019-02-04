@@ -1,5 +1,5 @@
 import { FixtureFolder, setupTestCase } from '@code-to-json/test-helpers';
-import { findPkgJson, nodeHost } from '@code-to-json/utils-node';
+import { findPkgJson, NODE_HOST } from '@code-to-json/utils-node';
 import { DocGenerator } from '@snap-doc/core';
 import * as debug from 'debug';
 import { readFileSync } from 'fs';
@@ -52,17 +52,17 @@ export async function setupAcceptanceTest(src: FixtureFolder): Promise<Acceptanc
     name: pkg.contents.name,
     main: pkg.contents['doc:main'] || pkg.contents.main || pkg.path
   };
-  const dg = new DocGenerator(testCase.program, nodeHost, {
+  const dg = new DocGenerator(testCase.program, NODE_HOST, {
     emitter: new MarkdownFileEmitter({
-      host: nodeHost,
-      outDir: nodeHost.combinePaths(testCase.rootPath, 'out'),
+      host: NODE_HOST,
+      outDir: NODE_HOST.combinePaths(testCase.rootPath, 'out'),
       omitToc: true
     }),
     pkgInfo
   });
   await dg.emit();
   return new AcceptanceTestCase(
-    nodeHost.combinePaths(testCase.rootPath, 'out', 'src'),
+    NODE_HOST.combinePaths(testCase.rootPath, 'out', 'src'),
     testCase.cleanup,
     '' + testCase
   );

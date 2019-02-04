@@ -103,6 +103,7 @@
   },
   "dependencies": {
     "@code-to-json/formatter": "^1.0.0-rc.0",
+    "@code-to-json/formatter-linker": "^1.0.0-rc.0",
     "@code-to-json/utils-ts": "^1.0.0-rc.0",
     "@mike-north/types": "^1.1.0",
     "@snap-doc/types": "^0.4.1",

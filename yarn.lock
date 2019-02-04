@@ -697,7 +697,17 @@
     debug "^4.0.0"
     typescript "^3.2.4"
 
-"@code-to-json/formatter@^1.0.0-rc.0":
+"@code-to-json/formatter-linker@^1.0.0-rc.0":
+  version "1.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/@code-to-json/formatter-linker/-/formatter-linker-1.0.0-rc.3.tgz#06f3bfc3e373b814a98e53545176bc37dc60e3f1"
+  integrity sha512-GFACv+PWzNxXEnfMIP4t9ZxbYk94eGLyOxT6MdmNpfLPv1Y6XUEkwnPy4on7TCJUaquoJl4icrVbEMJhJhxYMA==
+  dependencies:
+    "@code-to-json/formatter" "^1.0.0-rc.20"
+    "@mike-north/types" "^1.0.7"
+    debug "^4.0.0"
+    typescript "^3.2.4"
+
+"@code-to-json/formatter@^1.0.0-rc.0", "@code-to-json/formatter@^1.0.0-rc.20":
   version "1.0.0-rc.20"
   resolved "https://registry.yarnpkg.com/@code-to-json/formatter/-/formatter-1.0.0-rc.20.tgz#e0cd65a5139d1aeb8d321f40278528252e728e84"
   integrity sha512-rJ3g5adcYPBYyBLPTW+Ld9p/8bUXSRLgS/tY8lgNf+bMqs5M3255I3bGmiO9CeRANBEB85yrmpA+Qz2LQAr3qg==

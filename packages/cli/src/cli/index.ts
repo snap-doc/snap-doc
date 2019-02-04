@@ -1,4 +1,4 @@
-import { findPkgJson, nodeHost } from '@code-to-json/utils-node';
+import { findPkgJson, NODE_HOST } from '@code-to-json/utils-node';
 import { createProgramFromTsConfig } from '@code-to-json/utils-ts';
 import { DocGenerator } from '@snap-doc/core';
 import { MarkdownFileEmitter } from '@snap-doc/markdown-emitter';
@@ -27,15 +27,15 @@ export function run(): void {
     .alias('g')
     .action(async pth => {
       log(`Generating docs for code at: ${pth}`);
-      const prog = await createProgramFromTsConfig(pth, nodeHost);
+      const prog = await createProgramFromTsConfig(pth, NODE_HOST);
       const pkg = await findPkgJson(pth);
       if (!pkg) {
         throw new Error(`Could not find package.json via search path "${pth}"`);
       }
-      const dg = new DocGenerator(prog, nodeHost, {
+      const dg = new DocGenerator(prog, NODE_HOST, {
         emitter: new MarkdownFileEmitter({
           outDir: path.join(process.cwd(), 'out'),
-          host: nodeHost
+          host: NODE_HOST
         }),
         pkgInfo: {
           path: pkg.path,

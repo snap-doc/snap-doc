@@ -3,5 +3,4 @@ export {
   DocGeneratorUtilities,
   DocGeneratorOptions
 } from './doc-generator';
-export { default as resolveReference } from './resolve-reference';
 export { SortedExportSymbols, sortSymbols } from './symbol-sorter';

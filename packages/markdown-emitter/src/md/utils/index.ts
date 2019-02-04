@@ -1,5 +1,8 @@
-import { FormattedSourceFile, FormatterOutputData } from '@code-to-json/formatter';
-import { resolveReference, SortedExportSymbols, sortSymbols } from '@snap-doc/core';
+import {
+  LinkedFormattedOutputData,
+  LinkedFormattedSourceFile
+} from '@code-to-json/formatter-linker';
+import { SortedExportSymbols, sortSymbols } from '@snap-doc/core';
 import { Parent } from 'unist';
 import md from '../index';
 import { createDocumentation } from './documentation';
@@ -11,7 +14,7 @@ import { addToc } from './toc';
  * @param f file
  * @private
  */
-export function createSourceFileRoot(f: FormattedSourceFile): Parent {
+export function createSourceFileRoot(f: LinkedFormattedSourceFile): Parent {
   const { moduleName, path } = f;
   return {
     type: 'root',
@@ -44,8 +47,8 @@ export interface MarkdownGenOptions {
  * @private
  */
 export function markdownForDocFile(
-  data: FormatterOutputData,
-  file: FormattedSourceFile,
+  data: LinkedFormattedOutputData,
+  file: LinkedFormattedSourceFile,
   options: MarkdownGenOptions = { omitToc: false }
 ): string {
   const { documentation, symbol } = file;
@@ -53,12 +56,11 @@ export function markdownForDocFile(
   if (!symbol) {
     throw new Error(`File ${file.path} is not associated with a symbol`);
   }
-  const fileSymbol = resolveReference(data, symbol);
-  const { exports: exportSymbols } = fileSymbol;
+  const { exports: exportSymbols } = symbol;
   root.children.push(...createDocumentation(documentation));
   if (exportSymbols && Object.keys(exportSymbols).length > 0) {
     const sortedExports: SortedExportSymbols = sortSymbols(data, exportSymbols);
-    root.children.push(...createExportSections(data, sortedExports));
+    root.children.push(...createExportSections(sortedExports));
   }
   if (!options.omitToc) {
     addToc(root);

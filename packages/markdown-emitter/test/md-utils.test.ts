@@ -3,7 +3,6 @@ import { suite, test } from 'mocha-typescript';
 import * as snapshot from 'snap-shot-it';
 
 import { CommentFencedCode } from '@code-to-json/comments';
-import { FormattedSymbolKind } from '@code-to-json/formatter';
 import { createSourceFileRoot, markdownForDocFile } from '../src/md/utils';
 import {
   createTagsTable,
@@ -21,6 +20,7 @@ export class MarkdownUtilsTests {
       createSourceFileRoot({
         id: '',
         moduleName: 'foo',
+        kind: 'sourceFile',
         path: 'src/foo',
         extension: 'ts',
         isDeclarationFile: false
@@ -118,16 +118,20 @@ export class MarkdownUtilsTests {
             '12345': {
               id: '12345',
               name: 'src/foo/bar.ts',
-              kind: FormattedSymbolKind.module
+              kind: 'symbol',
+              flags: ['module']
             }
           },
-          types: {}
+          types: {},
+          nodes: {},
+          declarations: {}
         },
         {
           id: '',
           symbol: ['s', '12345'] as any,
           extension: 'ts',
           moduleName: 'bar',
+          kind: 'sourceFile',
           isDeclarationFile: false,
           path: 'src/foo/bar.ts'
         }
@@ -147,10 +151,13 @@ export class MarkdownUtilsTests {
             '12345': {
               id: '12345',
               name: 'src/foo/bar.ts',
-              kind: FormattedSymbolKind.module
+              kind: 'symbol',
+              flags: ['module']
             }
           },
-          types: {}
+          types: {},
+          nodes: {},
+          declarations: {}
         },
         {
           id: '',
@@ -158,6 +165,7 @@ export class MarkdownUtilsTests {
           extension: 'ts',
           symbol: ['s', '12345'] as any,
           moduleName: 'bar',
+          kind: 'sourceFile',
           isDeclarationFile: false,
           documentation: {
             summary: ['My favorite module'],
@@ -192,15 +200,19 @@ My favorite module`);
             '12345': {
               id: '12345',
               name: 'src/foo/bar.ts',
-              kind: FormattedSymbolKind.module
+              kind: 'symbol',
+              flags: ['module']
             }
           },
-          types: {}
+          types: {},
+          nodes: {},
+          declarations: {}
         },
         {
           id: '',
           extension: 'ts',
           moduleName: 'bar',
+          kind: 'sourceFile',
           isDeclarationFile: false,
           path: 'src/foo/bar.ts',
           symbol: ['s', '12345'] as any,

@@ -1,42 +1,39 @@
-import { FormattedSymbol } from '@code-to-json/formatter';
-import { FormatterOutputData } from '@code-to-json/formatter/lib/src/formatter';
-import { FormattedSymbolKind } from '@code-to-json/formatter/lib/src/types';
+import { LinkedFormattedOutputData, LinkedFormattedSymbol } from '@code-to-json/formatter-linker';
 import { Dict } from '@mike-north/types';
-import resolveReference from './resolve-reference';
 
-export function isClass(sym: FormattedSymbol): boolean {
-  return sym.kind === FormattedSymbolKind.class;
+export function isClass(sym: LinkedFormattedSymbol): boolean {
+  return !!(sym.flags && sym.flags.includes('class'));
 }
 
-export function isType(sym: FormattedSymbol): boolean {
-  return [FormattedSymbolKind.interface, FormattedSymbolKind.typeAlias].includes(sym.kind);
+export function isType(sym: LinkedFormattedSymbol): boolean {
+  return !!(sym.flags && (sym.flags.includes('interface') || sym.flags.includes('typeAlias')));
 }
 
-export function isFunction(sym: FormattedSymbol): boolean {
-  return sym.kind === FormattedSymbolKind.function;
+export function isFunction(sym: LinkedFormattedSymbol): boolean {
+  return !!(sym.flags && sym.flags.includes('function'));
 }
 
-export function isProperty(sym: FormattedSymbol): boolean {
-  return sym.kind === FormattedSymbolKind.variable;
+export function isProperty(sym: LinkedFormattedSymbol): boolean {
+  return !!(sym.flags && sym.flags.includes('variable'));
 }
 
 export interface SortedExportSymbols {
-  classes: Dict<FormattedSymbol>;
-  properties: Dict<FormattedSymbol>;
-  functions: Dict<FormattedSymbol>;
-  types: Dict<FormattedSymbol>;
+  classes: Dict<LinkedFormattedSymbol>;
+  properties: Dict<LinkedFormattedSymbol>;
+  functions: Dict<LinkedFormattedSymbol>;
+  types: Dict<LinkedFormattedSymbol>;
 }
 
 export function sortSymbols(
-  fd: FormatterOutputData,
-  exports: Exclude<FormattedSymbol['exports'], undefined>
+  _fd: LinkedFormattedOutputData,
+  exports: Exclude<LinkedFormattedSymbol['exports'], undefined>
 ): SortedExportSymbols {
-  const classes: Dict<FormattedSymbol> = {};
-  const properties: Dict<FormattedSymbol> = {};
-  const functions: Dict<FormattedSymbol> = {};
-  const types: Dict<FormattedSymbol> = {};
+  const classes: Dict<LinkedFormattedSymbol> = {};
+  const properties: Dict<LinkedFormattedSymbol> = {};
+  const functions: Dict<LinkedFormattedSymbol> = {};
+  const types: Dict<LinkedFormattedSymbol> = {};
 
-  function listForSym(sym: FormattedSymbol): Dict<FormattedSymbol> {
+  function listForSym(sym: LinkedFormattedSymbol): Dict<LinkedFormattedSymbol> {
     if (isClass(sym)) {
       return classes;
     } else if (isType(sym)) {
@@ -53,11 +50,10 @@ export function sortSymbols(
   }
 
   Object.keys(exports).forEach(name => {
-    const expRef = exports[name];
-    if (!expRef) {
+    const exp = exports[name];
+    if (!exp) {
       throw new Error(`Invalid FormatterOutput reference for export: ${name}`);
     }
-    const exp = resolveReference(fd, expRef);
     listForSym(exp)[name] = exp;
   });
 
