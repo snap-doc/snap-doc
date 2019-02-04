@@ -1,6 +1,6 @@
 {
   "name": "snap-doc",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "description": "> TODO: description",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "@mike-north/types": "^1.0.7",
-    "@snap-doc/cli": "^0.5.6"
+    "@snap-doc/cli": "^0.5.7"
   },
   "nyc": {
     "watermarks": {
