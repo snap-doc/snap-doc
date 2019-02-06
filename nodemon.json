@@ -3,7 +3,7 @@
   "delay": 500,
   "ext": "js,ts,json",
   "watch": [
-    "packages/cli/test",
+    "packages/cli/lib",
     "packages/core/lib",
     "packages/utils/lib",
     "packages/emitter/lib",
