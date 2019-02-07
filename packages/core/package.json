@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/core",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "Core functionality for snap-doc",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
@@ -108,8 +108,8 @@
     "@code-to-json/formatter": "^1.0.0-rc.0",
     "@code-to-json/formatter-linker": "^1.0.0-rc.0",
     "@mike-north/types": "^1.1.0",
-    "@snap-doc/emitter": "^0.3.6",
-    "@snap-doc/types": "^0.4.3",
+    "@snap-doc/emitter": "^0.3.7",
+    "@snap-doc/types": "^0.4.4",
     "chalk": "^2.4.1",
     "debug": "^4.1.1",
     "typescript": "^3.2.2"
