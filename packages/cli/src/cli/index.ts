@@ -61,6 +61,7 @@ export function run(): void {
           if (errMessageParts.length > 1) {
             errParts.push(chalk.redBright(restErrParts.map(s => `  ${s}`).join('\n')));
           }
+          errParts.push('\n');
           e.message = errParts.join('\n');
           process.stderr.write(e.stack!);
         } else {
