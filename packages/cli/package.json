@@ -26,8 +26,9 @@
     "lint:ts": "tslint --project .",
     "lint:js": "eslint .",
     "lint:md": "remark .",
-    "test": "mocha",
-    "test:coverage": "rm -rf coverage && nyc npm test",
+    "test": "cd test && mocha --opts mocha.opts",
+    "test:debug": "yarn test -- --inspect-brk",
+    "test:coverage": "rm -rf coverage && nyc yarn test",
     "codacy:transmit-coverage": "cat coverage/lcov.info | codacy-coverage",
     "coveralls:transmit-coverage": "cat coverage/lcov.info | coveralls",
     "clean": "rm -rf ./lib",
@@ -45,6 +46,7 @@
     "@types/execa": "0.9.0",
     "@types/mocha": "5.2.5",
     "@types/tmp": "0.0.33",
+    "@types/window-size": "^0.2.4",
     "chai": "4.2.0",
     "codecov": "3.1.0",
     "json-typescript": "1.1.0",
@@ -115,6 +117,7 @@
     "commander": "^2.19.0",
     "debug": "^4.1.1",
     "tmp": "^0.0.33",
-    "typescript": "^3.2.2"
+    "typescript": "^3.2.2",
+    "window-size": "^1.1.1"
   }
 }

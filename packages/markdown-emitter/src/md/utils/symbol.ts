@@ -1,6 +1,8 @@
-import { LinkedFormattedSymbol } from '@code-to-json/formatter-linker';
+import { LinkedFormattedOutputData, LinkedFormattedSymbol } from '@code-to-json/formatter-linker';
 import { Node } from 'unist';
-import { createDocumentation } from './documentation';
+import md from '../index';
+import { createDocumentationForCommentData } from './comment-data';
+import { createSourceFileRoot } from './file';
 import { createSection } from './section';
 
 function symbolTypeDescription(symbol: LinkedFormattedSymbol): Node {
@@ -28,7 +30,12 @@ function symbolTypeDescriptionCode(symbol: LinkedFormattedSymbol): string | unde
   return parts.join('\n');
 }
 
-function sectionHeaderForSymbol(s: LinkedFormattedSymbol): Node {
+function sectionHeaderForSymbol(
+  s: LinkedFormattedSymbol,
+  opts: {
+    headerUrlFactory?: (name: string) => string;
+  } = {}
+): Node {
   const { flags } = s;
   if (!flags) {
     throw new Error('symbol had no flags');
@@ -38,20 +45,53 @@ function sectionHeaderForSymbol(s: LinkedFormattedSymbol): Node {
     flags.includes('typeAlias') ||
     flags.includes('typeLiteral') ||
     flags.includes('interface') ||
-    flags.includes('class')
+    flags.includes('class') ||
+    flags.includes('function')
   ) {
-    return { type: 'inlineCode', value: s.name };
-  } else if (flags.includes('function')) {
-    return { type: 'inlineCode', value: `${s.name}(...)` };
+    const value = s.text || s.name;
+    const content = { type: 'inlineCode', value };
+    if (opts.headerUrlFactory) {
+      return {
+        type: 'link',
+        url: opts.headerUrlFactory(value),
+        title: value,
+        children: [content]
+      };
+    } else {
+      return content;
+    }
   } else {
     throw new Error(`Should not receive symbol with flags ${flags.join(', ')}`);
   }
 }
 
-export function mdForSymbol(s: LinkedFormattedSymbol): Node[] {
+export interface MDSymbolOptions {
+  includeTypeInformation: boolean;
+  headerUrlFactory?: (name: string) => string;
+}
+
+export function mdForSymbol(s: LinkedFormattedSymbol, opts: MDSymbolOptions): Node[] {
   const parts: Node[] = [];
   const { documentation } = s;
-  parts.push(...createDocumentation(documentation));
-  parts.push(symbolTypeDescription(s));
-  return createSection(4, sectionHeaderForSymbol(s), parts);
+  parts.push(...createDocumentationForCommentData(documentation));
+  if (opts.includeTypeInformation) {
+    parts.push(symbolTypeDescription(s));
+  }
+  return createSection(
+    4,
+    sectionHeaderForSymbol(s, {
+      headerUrlFactory: opts.headerUrlFactory
+    }),
+    parts
+  );
+}
+export function markdownForSymbolFile(
+  _data: LinkedFormattedOutputData,
+  sym: LinkedFormattedSymbol
+): string {
+  const root = createSourceFileRoot(sym);
+
+  root.children.push(...mdForSymbol(sym, { includeTypeInformation: true }));
+
+  return md.stringify(root).trim();
 }

@@ -4,9 +4,10 @@ import { FormatterOptions, formatWalkerOutput } from '@code-to-json/formatter';
 import { LinkedFormattedOutputData, linkFormatterData } from '@code-to-json/formatter-linker';
 import { createReverseResolver, ProjectInfo, SysHost } from '@code-to-json/utils-ts';
 import { Emitter } from '@snap-doc/emitter';
-import { TempFolderCreator } from '@snap-doc/types';
+import { DocDataSource, DocEnvLike, TempFolderCreator } from '@snap-doc/types';
 import * as debug from 'debug';
 import * as ts from 'typescript';
+import DocData from './doc-data';
 
 const log = debug('snap-doc:doc-generator');
 
@@ -50,8 +51,12 @@ export default class DocGenerator {
     protected options: DocGeneratorOptions
   ) {}
 
-  public async emit(): Promise<void> {
+  public async emit(env: DocEnvLike): Promise<void> {
     const data = analyzeProgram(this.prog, this.host, this.options.pkgInfo);
-    await this.options.emitter.emit(data);
+    const source: DocDataSource = new DocData(data);
+    if (source.prepare) {
+      await source.prepare();
+    }
+    await this.options.emitter.emit(source, env);
   }
 }

@@ -26,7 +26,7 @@ export class BasicAcceptance {
 
 ### Functions
 
-#### \`add(...)\`
+#### \`add\`
 
 \`\`\`ts
 (a: number, b: number) => string
@@ -52,7 +52,7 @@ export function add(a: any, b: any): any {
 
 ### Functions
 
-#### \`add(...)\`
+#### \`add\`
 
 \`\`\`ts
 { (a: number, b: number): number; (a: string, b: string): string; }
@@ -92,11 +92,7 @@ string | number
 
 ### Types
 
-#### \`Foo\`
-
-\`\`\`ts
-Foo
-\`\`\``
+#### [\`Foo\`](./types/Foo.md "Foo")`
     );
   }
 
@@ -112,11 +108,7 @@ Foo
 
 ### Types
 
-#### \`Dict\`
-
-\`\`\`ts
-Dict
-\`\`\``
+#### [\`Dict\`](./types/Dict.md "Dict")`
     );
   }
   @test
@@ -131,11 +123,7 @@ Dict
 
 ### Types
 
-#### \`Dict\`
-
-\`\`\`ts
-Dict<T>
-\`\`\``
+#### [\`Dict\`](./types/Dict.md "Dict")`
     );
   }
 
@@ -151,11 +139,7 @@ Dict<T>
 
 ### Types
 
-#### \`Dict\`
-
-\`\`\`ts
-Dict<T>
-\`\`\``
+#### [\`Dict\`](./types/Dict.md "Dict")`
     );
   }
 
@@ -171,11 +155,7 @@ Dict<T>
 
 ### Types
 
-#### \`Dict\`
-
-\`\`\`ts
-Dict<T>
-\`\`\``
+#### [\`Dict\`](./types/Dict.md "Dict")`
     );
   }
 
@@ -193,12 +173,7 @@ Dict<T>
 
 ### Classes
 
-#### \`SimpleClass\`
-
-\`\`\`ts
-SimpleClass
-typeof SimpleClass
-\`\`\``
+#### [\`SimpleClass\`](./classes/SimpleClass.md "SimpleClass")`
     );
   }
 
@@ -218,12 +193,7 @@ typeof SimpleClass
 
 ### Classes
 
-#### \`SimpleClass\`
-
-\`\`\`ts
-SimpleClass
-typeof SimpleClass
-\`\`\``
+#### [\`SimpleClass\`](./classes/SimpleClass.md "SimpleClass")`
     );
   }
 
@@ -243,19 +213,9 @@ export class SimpleClass extends SimpleBase {
 
 ### Classes
 
-#### \`SimpleBase\`
+#### [\`SimpleBase\`](./classes/SimpleBase.md "SimpleBase")
 
-\`\`\`ts
-SimpleBase
-typeof SimpleBase
-\`\`\`
-
-#### \`SimpleClass\`
-
-\`\`\`ts
-SimpleClass
-typeof SimpleClass
-\`\`\``
+#### [\`SimpleClass\`](./classes/SimpleClass.md "SimpleClass")`
     );
   }
 
@@ -275,12 +235,7 @@ export class SimpleClass extends SimpleBase {
 
 ### Classes
 
-#### \`SimpleClass\`
-
-\`\`\`ts
-SimpleClass
-typeof SimpleClass
-\`\`\``
+#### [\`SimpleClass\`](./classes/SimpleClass.md "SimpleClass")`
     );
   }
 
@@ -298,12 +253,7 @@ typeof SimpleClass
 
 ### Classes
 
-#### \`default\`
-
-\`\`\`ts
-SimpleClass
-typeof SimpleClass
-\`\`\``
+#### [\`SimpleClass\`](./classes/SimpleClass.md "SimpleClass")`
     );
   }
 
@@ -358,11 +308,7 @@ export type TextType = typeof MySymbol;`,
 
 ### Types
 
-#### \`TextType\`
-
-\`\`\`ts
-"Text"
-\`\`\``
+#### [\`TextType\`](./types/TextType.md "TextType")`
     );
   }
 
@@ -382,11 +328,7 @@ export type NodeType = ElementType | TextType;`,
 
 ### Types
 
-#### \`NodeType\`
-
-\`\`\`ts
-NodeType
-\`\`\``
+#### [\`NodeType\`](./types/NodeType.md "NodeType")`
     );
   }
 

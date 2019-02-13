@@ -4,7 +4,11 @@
     "target": "es2015",
     "experimentalDecorators": true,
     "lib": ["scripthost", "esnext"],
-    "types": ["node"]
+    "types": ["node"],
+    "baseUrl": ".",
+    "paths": {
+      "*": ["../types/*"]
+    }
   },
   "include": ["../src/**/*.ts", "**/*.ts"]
 }

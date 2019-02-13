@@ -75,7 +75,7 @@ export function createTagsTable(title: string, tags: BlockTag[]): Node {
   };
 }
 
-export function createDocumentation(documentation?: CommentData): Node[] {
+export function createDocumentationForCommentData(documentation?: CommentData): Node[] {
   const { headerTags, summary } = parseDocumentation(documentation);
   const { top, examples, other } = organizeTags(headerTags);
   const parts: Node[] = [];

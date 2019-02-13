@@ -24,8 +24,8 @@
     "@types/ember__test-helpers": "0.7.7",
     "@types/execa": "0.9.0",
     "@types/mocha": "5.2.5",
-    "@types/qunit": "2.5.4",
     "@types/node": "10.12.21",
+    "@types/qunit": "2.5.4",
     "@types/rsvp": "4.0.2",
     "babel-eslint": "10.0.1",
     "broccoli-asset-rev": "3.0.0",
@@ -65,7 +65,7 @@
     "eslint-plugin-node": "8.0.1",
     "husky": "1.3.1",
     "json-typescript": "1.1.0",
-    "lerna": "3.10.8",
+    "lerna": "3.11.0",
     "loader.js": "4.7.0",
     "mocha": "5.2.0",
     "mocha-typescript": "1.1.17",
@@ -85,7 +85,7 @@
     "tslint": "5.12.1",
     "tslint-config-prettier": "1.18.0",
     "tslint-sonarts": "1.9.0",
-    "typescript": "3.3.1",
+    "typescript": "3.3.3",
     "typescript-eslint-parser": "22.0.0"
   },
   "commitlint": {
@@ -103,17 +103,15 @@
   "scripts": {
     "publish": "scripty",
     "clean": "scripty",
-    "build": "lerna run link && lerna run build",
-    "build:core": "lerna run link && lerna run build --ignore=@snap-doc/ui-kit --ignore=@snap-doc/app",
     "lint": "lerna run lint --parallel",
     "test": "lerna run test --concurrency 1",
-    "test:core": "lerna run test --parallel --ignore=@snap-doc/ui-kit --ignore=@snap-doc/app",
+    "test:core": "lerna run test --parallel --ignore=@snap-doc/ui-kit --ignore=@snap-doc/app --ignore=snap-doc",
     "rebuild": "scripty",
-    "build:watch:core": "scripty",
-    "build:watch:all": "scripty",
-    "cli:build": "lerna run build --scope=@snap-doc/cli",
-    "cli:run": "lerna exec ./bin/snap-doc --scope=@snap-doc/cli",
-    "link:code-to-json": "yarn link @code-to-json/core && yarn link @code-to-json/formatter && yarn link @code-to-json/utils && yarn link @code-to-json/utils-ts && yarn link @code-to-json/utils-node"
+    "build": "lerna run link && lerna run build",
+    "build:core": "lerna run link && lerna run build --ignore=@snap-doc/ui-kit --ignore=@snap-doc/app",
+    "build:watch": "lerna exec \"tsc -w --preserveWatchOutput -p ./\" --stream --ignore=snap-doc --parallel",
+    "build:watch:core": "yarn build:watch --  --ignore=@snap-doc/ui-kit --ignore=@snap-doc/app",
+    "link:code-to-json": "yarn link @code-to-json/core && @code-to-json/core-linker && yarn link @code-to-json/formatter && yarn link @code-to-json/formatter-linker && yarn link @code-to-json/utils && yarn link @code-to-json/utils-ts && yarn link @code-to-json/utils-node"
   },
   "repository": {
     "type": "git",

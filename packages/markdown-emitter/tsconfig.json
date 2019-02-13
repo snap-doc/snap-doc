@@ -3,12 +3,11 @@
   "compilerOptions": {
     "outDir": "lib",
     "lib": ["scripthost", "esnext"],
-    "types": [],
     "baseUrl": ".",
+    "types": [],
     "paths": {
       "*": ["types/*"]
     }
   },
-  "include": ["types", "src"],
-  "exclude": ["lib", "test"]
+  "include": ["src/**/*.ts"]
 }

@@ -1,3 +1,1 @@
-export function foo(): string {
-  return 'bar';
-}
+export { default as ProjectPathHelper, ProjectInfo } from './project-path-helper';
