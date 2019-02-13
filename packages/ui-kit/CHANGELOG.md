@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/ui-kit@0.4.6...@snap-doc/ui-kit@0.5.0) (2019-02-13)
+
+
+### Features
+
+* classes and types have their own markdown output files ([6e9f643](https://github.com/snap-doc/snap-doc/commit/6e9f643))
+
+
+
+
+
 ## [0.4.6](https://github.com/snap-doc/snap-doc/compare/@snap-doc/ui-kit@0.4.5...@snap-doc/ui-kit@0.4.6) (2019-02-07)
 
 **Note:** Version bump only for package @snap-doc/ui-kit

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.5.9...@snap-doc/cli@0.6.0) (2019-02-13)
+
+
+### Bug Fixes
+
+* newlines above and below CLI error messages ([607d50b](https://github.com/snap-doc/snap-doc/commit/607d50b))
+
+
+### Features
+
+* **cli:** better error message logging ([aea0961](https://github.com/snap-doc/snap-doc/commit/aea0961))
+* classes and types have their own markdown output files ([6e9f643](https://github.com/snap-doc/snap-doc/commit/6e9f643))
+* doctest command ([97716e3](https://github.com/snap-doc/snap-doc/commit/97716e3))
+
+
+
+
+
 ## [0.5.9](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.5.8...@snap-doc/cli@0.5.9) (2019-02-07)
 
 **Note:** Version bump only for package @snap-doc/cli

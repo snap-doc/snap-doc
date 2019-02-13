@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/utils@0.3.6...@snap-doc/utils@0.4.0) (2019-02-13)
+
+
+### Features
+
+* classes and types have their own markdown output files ([6e9f643](https://github.com/snap-doc/snap-doc/commit/6e9f643))
+
+
+
+
+
 ## [0.3.6](https://github.com/snap-doc/snap-doc/compare/@snap-doc/utils@0.3.5...@snap-doc/utils@0.3.6) (2019-02-07)
 
 **Note:** Version bump only for package @snap-doc/utils

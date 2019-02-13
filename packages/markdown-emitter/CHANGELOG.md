@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/markdown-emitter@0.5.6...@snap-doc/markdown-emitter@0.6.0) (2019-02-13)
+
+
+### Features
+
+* classes and types have their own markdown output files ([6e9f643](https://github.com/snap-doc/snap-doc/commit/6e9f643))
+* option to overwrite existing output dir ([ed8dba4](https://github.com/snap-doc/snap-doc/commit/ed8dba4))
+
+
+
+
+
 ## [0.5.6](https://github.com/snap-doc/snap-doc/compare/@snap-doc/markdown-emitter@0.5.5...@snap-doc/markdown-emitter@0.5.6) (2019-02-07)
 
 **Note:** Version bump only for package @snap-doc/markdown-emitter
