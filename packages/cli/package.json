@@ -116,6 +116,7 @@
     "chalk": "^2.4.1",
     "commander": "^2.19.0",
     "debug": "^4.1.1",
+    "doc-tester": "sparshithNR/doc-tester#open-to-external",
     "tmp": "^0.0.33",
     "typescript": "^3.2.2",
     "window-size": "^1.1.1"
