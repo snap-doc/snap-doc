@@ -26,8 +26,9 @@
     "lint:ts": "tslint --project .",
     "lint:js": "eslint .",
     "lint:md": "remark .",
-    "test": "mocha",
-    "test:coverage": "rm -rf coverage && nyc npm test",
+    "test": "cd test && mocha --opts mocha.opts",
+    "test:debug": "yarn test -- --inspect-brk",
+    "test:coverage": "rm -rf coverage && nyc yarn test",
     "codacy:transmit-coverage": "cat coverage/lcov.info | codacy-coverage",
     "coveralls:transmit-coverage": "cat coverage/lcov.info | coveralls",
     "clean": "rm -rf ./lib",
@@ -103,6 +104,8 @@
   },
   "dependencies": {
     "@code-to-json/comments": "^1.0.0-rc.0",
-    "@mike-north/types": "^1.0.7"
+    "@code-to-json/formatter-linker": "^1.0.0-rc.7",
+    "@mike-north/types": "^1.0.7",
+    "@snap-doc/utils": "^0.3.6"
   }
 }

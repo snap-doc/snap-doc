@@ -1,6 +1,6 @@
 import { findPkgJson, NODE_HOST } from '@code-to-json/utils-node';
 import { createProgramFromTsConfig } from '@code-to-json/utils-ts';
-import { DocGenerator } from '@snap-doc/core';
+import { DocEnv, DocGenerator } from '@snap-doc/core';
 import { MarkdownFileEmitter } from '@snap-doc/markdown-emitter';
 import chalk from 'chalk';
 import * as commander from 'commander';
@@ -38,20 +38,21 @@ export function run(): void {
       if (!pkg) {
         throw new Error(`Could not find package.json via search path "${pth}"`);
       }
+      const pkgInfo = {
+        path: pkg.path,
+        name: pkg.contents.name,
+        main: pkg.contents['doc:main'] || pkg.contents.main || pkg.path
+      };
       const { force = false } = cliProgram.opts();
       const dg = new DocGenerator(prog, NODE_HOST, {
         emitter: new MarkdownFileEmitter(NODE_HOST, {
           outDir: path.join(process.cwd(), 'out'),
           overwriteOutDir: force
         }),
-        pkgInfo: {
-          path: pkg.path,
-          name: pkg.contents.name,
-          main: pkg.contents['doc:main'] || pkg.contents.main || pkg.path
-        }
+        pkgInfo
       });
       try {
-        await dg.emit();
+        await dg.emit(new DocEnv(pkgInfo, NODE_HOST));
       } catch (e) {
         if (e instanceof Error) {
           const errMessageParts = e.message.split('\n');
