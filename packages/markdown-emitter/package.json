@@ -44,7 +44,7 @@
     "@code-to-json/utils-node": "1.0.0-rc.19",
     "@types/rimraf": "2.0.2",
     "chai": "4.2.0",
-    "codecov": "3.1.0",
+    "codecov": "3.2.0",
     "json-typescript": "1.1.0",
     "mocha": "5.2.0",
     "mocha-typescript": "1.1.17",
