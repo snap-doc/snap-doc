@@ -37,10 +37,10 @@ export default class MarkdownFileEmitter extends FileEmitter<MarkdownFileEmitter
         await this.host.removeFolderAndContents(outDir);
       } else {
         throw new Error(
-          `Existing content found at ${outDir}. 
+          `Existing content found at ${outDir}.
 Please use either
-  (1) the 'overwriteOutDir' API option or 
-  (2) the '--force' CLI flag 
+  (1) the 'overwriteOutDir' API option or
+  (2) the '--force' CLI flag
 if you want to replace existing content in the output directory`
         );
       }
