@@ -755,10 +755,10 @@
     treeify "^1.1.0"
     typescript "^3.1.0"
 
-"@code-to-json/utils-node@1.0.0-rc.24":
-  version "1.0.0-rc.24"
-  resolved "https://registry.yarnpkg.com/@code-to-json/utils-node/-/utils-node-1.0.0-rc.24.tgz#9a789f830beede6a4d32d8033bb64410ece4f627"
-  integrity sha512-AZvonenNTzjqLq1Z3dH46kyUmcSdTLSphwen32JKoZ/v3YLNHvpJxVw55kvpqXZNOWpMWEd69nAImHX7a7MLSg==
+"@code-to-json/utils-node@1.0.0-rc.25":
+  version "1.0.0-rc.25"
+  resolved "https://registry.yarnpkg.com/@code-to-json/utils-node/-/utils-node-1.0.0-rc.25.tgz#de95bce1a6b67b73e1c6a42607f344d46faa01ae"
+  integrity sha512-UC1MndY0e2TAzKeGMb7gDVo9naE68VEA3caKZIhnIH1ZrmsEYZR7xUk4ru8ntaSm4Yd+dzAhUS0ivLlRegpLfg==
   dependencies:
     "@code-to-json/utils" "^1.0.0-rc.18"
     "@code-to-json/utils-ts" "^1.0.0-rc.24"
