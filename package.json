@@ -68,7 +68,7 @@
     "loader.js": "4.7.0",
     "mocha": "5.2.0",
     "mocha-typescript": "1.1.17",
-    "nyc": "13.2.0",
+    "nyc": "13.3.0",
     "prember": "1.0.2",
     "qunit-dom": "0.8.4",
     "remark-cli": "6.0.1",
