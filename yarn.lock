@@ -8130,19 +8130,19 @@ is-callable@^1.1.4:
   resolved "https://registry.yarnpkg.com/is-callable/-/is-callable-1.1.4.tgz#1e1adf219e1eeb684d691f9d6a05ff0d30a24d75"
   integrity sha512-r5p9sxJjYnArLjObpjA4xu5EKI3CuKHkJXMhT7kwbpUyIFD1n5PMAsoPvWnvtZiNz7LjkYDRZhd7FlI0eMijEA==
 
-is-ci@1.2.1, is-ci@^1.0.10:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/is-ci/-/is-ci-1.2.1.tgz#e3779c8ee17fccf428488f6e281187f2e632841c"
-  integrity sha512-s6tfsaQaQi3JNciBH6shVqEDvhGut0SUXr31ag8Pd8BBbVVlcGfWhpPmEOoM6RJ5TFhbypvf5yyRw/VXW1IiWg==
-  dependencies:
-    ci-info "^1.5.0"
-
-is-ci@^2.0.0:
+is-ci@2.0.0, is-ci@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/is-ci/-/is-ci-2.0.0.tgz#6bc6334181810e04b5c22b3d589fdca55026404c"
   integrity sha512-YfJT7rkpQB0updsdHLGWrvhBJfcfzNNawYDNIyQXJz0IViGf75O8EBPKSdvw2rF+LGCsX4FZ8tcr3b19LcZq4w==
   dependencies:
     ci-info "^2.0.0"
+
+is-ci@^1.0.10:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/is-ci/-/is-ci-1.2.1.tgz#e3779c8ee17fccf428488f6e281187f2e632841c"
+  integrity sha512-s6tfsaQaQi3JNciBH6shVqEDvhGut0SUXr31ag8Pd8BBbVVlcGfWhpPmEOoM6RJ5TFhbypvf5yyRw/VXW1IiWg==
+  dependencies:
+    ci-info "^1.5.0"
 
 is-data-descriptor@^0.1.4:
   version "0.1.4"
@@ -12805,27 +12805,27 @@ snap-shot-compare@2.7.1:
     strip-ansi "4.0.0"
     variable-diff "1.1.0"
 
-snap-shot-core@7.1.12:
-  version "7.1.12"
-  resolved "https://registry.yarnpkg.com/snap-shot-core/-/snap-shot-core-7.1.12.tgz#568d5701e478a437119f82d62579f2401f562f89"
-  integrity sha512-bRZfGP2MgPCpzRi/Zou9om7VoAMp3cwFj5Xp19NSRuRzOiLJpuoa62msyY7jcy/zr69Shg1OgHCDSoaH7B59wA==
+snap-shot-core@7.1.13:
+  version "7.1.13"
+  resolved "https://registry.yarnpkg.com/snap-shot-core/-/snap-shot-core-7.1.13.tgz#452f93f3e63850354f81bf6f26877075296424a1"
+  integrity sha512-ylPfUBV1gjE5s/rlViEqRZGI4E4Cwn9ZeGss/0ujgGnXc73LsXpo7YY+f/LXfBlDP1HZbltVKoEbdqq8KWYtUA==
   dependencies:
     check-more-types "2.24.0"
     common-tags "1.8.0"
     debug "3.2.6"
     escape-quotes "1.0.2"
     folktale "2.3.2"
-    is-ci "1.2.1"
+    is-ci "2.0.0"
     jsesc "2.5.2"
     lazy-ass "1.6.0"
     mkdirp "0.5.1"
     pluralize "7.0.0"
     ramda "0.26.1"
 
-snap-shot-it@6.2.9:
-  version "6.2.9"
-  resolved "https://registry.yarnpkg.com/snap-shot-it/-/snap-shot-it-6.2.9.tgz#9356ecfe20dbe3722e49f35bbffca3d04da82de2"
-  integrity sha512-bN51yrg6a14bqwjCzCUD2czyOu47J2ndYxc4fiSlYz3jT0HBCJL8rP5M6nDbaftH7DQYIkew3Vx7lShpzpJZjg==
+snap-shot-it@6.2.10:
+  version "6.2.10"
+  resolved "https://registry.yarnpkg.com/snap-shot-it/-/snap-shot-it-6.2.10.tgz#89dcffbf246b4bde93cf4ef9cc578806317bd839"
+  integrity sha512-BfYhkbJda5orPz8NZWz7KWskCdujCImvCXDRH8wg07ALVf5EFMUtJLt14nZzWGBtmasnxK7koK2l2YSxIw9pNg==
   dependencies:
     "@bahmutov/data-driven" "1.0.0"
     check-more-types "2.24.0"
@@ -12834,7 +12834,7 @@ snap-shot-it@6.2.9:
     pluralize "7.0.0"
     ramda "0.26.1"
     snap-shot-compare "2.7.1"
-    snap-shot-core "7.1.12"
+    snap-shot-core "7.1.13"
 
 snapdragon-node@^2.0.1:
   version "2.1.1"
