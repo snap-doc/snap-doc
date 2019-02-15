@@ -741,12 +741,12 @@
     "@code-to-json/utils" "^1.0.0-rc.18"
     "@mike-north/types" "^1.0.7"
 
-"@code-to-json/test-helpers@1.0.0-rc.22":
-  version "1.0.0-rc.22"
-  resolved "https://registry.yarnpkg.com/@code-to-json/test-helpers/-/test-helpers-1.0.0-rc.22.tgz#5971d9bb6902965870f196de315bcfd445ca2407"
-  integrity sha512-InVPPyvo+mTYm2JY3oEOXi0GQr68mFjV9tYudEJ9Fdf9fKP/JjVZvPBdSVaoSiM21mgxjEmCJxRdVGlNSk6MHw==
+"@code-to-json/test-helpers@1.0.0-rc.23":
+  version "1.0.0-rc.23"
+  resolved "https://registry.yarnpkg.com/@code-to-json/test-helpers/-/test-helpers-1.0.0-rc.23.tgz#93f2624ae2713db44b7ee7658495540872b78696"
+  integrity sha512-00RaYAPgYFPJqw3xs3tGACsYMa7L+848LfmF6bNFrJRp0gsb+8IXiKcwFAjrgrV1xxSZf4XE0VxpPr9vkCQeiA==
   dependencies:
-    "@code-to-json/utils" "^1.0.0-rc.18"
+    "@code-to-json/utils" "^1.0.0-rc.19"
     "@mike-north/types" "^1.0.7"
     debug "^4.1.0"
     directory-tree "^2.2.1"
@@ -755,13 +755,13 @@
     treeify "^1.1.0"
     typescript "^3.1.0"
 
-"@code-to-json/utils-node@1.0.0-rc.25":
-  version "1.0.0-rc.25"
-  resolved "https://registry.yarnpkg.com/@code-to-json/utils-node/-/utils-node-1.0.0-rc.25.tgz#de95bce1a6b67b73e1c6a42607f344d46faa01ae"
-  integrity sha512-UC1MndY0e2TAzKeGMb7gDVo9naE68VEA3caKZIhnIH1ZrmsEYZR7xUk4ru8ntaSm4Yd+dzAhUS0ivLlRegpLfg==
+"@code-to-json/utils-node@1.0.0-rc.26":
+  version "1.0.0-rc.26"
+  resolved "https://registry.yarnpkg.com/@code-to-json/utils-node/-/utils-node-1.0.0-rc.26.tgz#39a495677f41bf0db8197e9a5d84aece1c3deb25"
+  integrity sha512-4k34SsyIWqCm863EV7UNOvWjeVw4tCErBBEmJ2VP3yEB6+37xJhZe45joGqwpb5/cAYBu/CnqGuv9BfEhOjpow==
   dependencies:
-    "@code-to-json/utils" "^1.0.0-rc.18"
-    "@code-to-json/utils-ts" "^1.0.0-rc.24"
+    "@code-to-json/utils" "^1.0.0-rc.19"
+    "@code-to-json/utils-ts" "^1.0.0-rc.25"
     "@mike-north/types" "^1.0.7"
     pkg-up "^2.0.0"
     rimraf "^2.6.3"
@@ -788,12 +788,12 @@
     "@mike-north/types" "^1.0.7"
     typescript "^3.1.0"
 
-"@code-to-json/utils-ts@^1.0.0-rc.24":
-  version "1.0.0-rc.24"
-  resolved "https://registry.yarnpkg.com/@code-to-json/utils-ts/-/utils-ts-1.0.0-rc.24.tgz#2ae99a3d037337322bb995766dc1619ba281f8a1"
-  integrity sha512-Sdc6N7eHJCFtfUGSLABsgRj3vKPlsuTEssRwl2debYLzazOVaSYXhuqQcIO61X/7sWp3XuMqp8Yn6nZ8aDsBhA==
+"@code-to-json/utils-ts@^1.0.0-rc.25":
+  version "1.0.0-rc.25"
+  resolved "https://registry.yarnpkg.com/@code-to-json/utils-ts/-/utils-ts-1.0.0-rc.25.tgz#afbb2de9cae47c5190a5071ab1793b5e4339417e"
+  integrity sha512-5SOA+QwBZSAzx6le+vwX/Qc75xSnYewLLzHMh4fl8u/Z8ZVsi0X+eE0/YnbLs0Yv1RyPAv6DAufaWDgzTLkseA==
   dependencies:
-    "@code-to-json/utils" "^1.0.0-rc.18"
+    "@code-to-json/utils" "^1.0.0-rc.19"
     "@mike-north/types" "^1.0.7"
     typescript "^3.1.0"
 
@@ -801,6 +801,13 @@
   version "1.0.0-rc.18"
   resolved "https://registry.yarnpkg.com/@code-to-json/utils/-/utils-1.0.0-rc.18.tgz#984aed9662a2c4c4d2466b7fa8c09815780d054d"
   integrity sha512-wQXeJyzMUDIr9fYaoWke6X1s8Ij/F9aX5xO792uSAfA3THI2IvsTv+hhCJB+WNrbvEmq38va0YEvdi3CQozyKQ==
+  dependencies:
+    "@mike-north/types" "^1.0.7"
+
+"@code-to-json/utils@^1.0.0-rc.19":
+  version "1.0.0-rc.19"
+  resolved "https://registry.yarnpkg.com/@code-to-json/utils/-/utils-1.0.0-rc.19.tgz#ec6b3f36740e10d0c70c9a5f7f0ab41748d3e4ce"
+  integrity sha512-D9EG+g568XTwSFJK768byS3723IxMdegobT7O+BLQp1yN2j26SIUYOF3oRZfz6BIDDoBSDvdMe7RcF2KKd9RTQ==
   dependencies:
     "@mike-north/types" "^1.0.7"
 
