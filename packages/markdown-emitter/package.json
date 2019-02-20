@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/markdown-emitter",
-  "version": "0.6.9",
+  "version": "0.6.8",
   "description": "Markdown emitter for snap-doc",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
@@ -41,8 +41,8 @@
     "url": "https://github.com/snap-doc/snap-doc/issues"
   },
   "devDependencies": {
-    "@code-to-json/test-helpers": "1.0.0-rc.25",
-    "@code-to-json/utils-node": "1.0.0-rc.28",
+    "@code-to-json/test-helpers": "1.0.0-rc.26",
+    "@code-to-json/utils-node": "1.0.0-rc.29",
     "@types/rimraf": "2.0.2",
     "@types/unist": "2.0.3",
     "chai": "4.2.0",
@@ -108,8 +108,8 @@
   },
   "dependencies": {
     "@mike-north/types": "^1.1.0",
-    "@snap-doc/core": "^0.6.4",
-    "@snap-doc/emitter": "^0.4.4",
+    "@snap-doc/core": "^0.6.3",
+    "@snap-doc/emitter": "^0.4.3",
     "debug": "^4.1.1",
     "mdast-util-toc": "^3.0.1",
     "remark-parse": "^6.0.3",
