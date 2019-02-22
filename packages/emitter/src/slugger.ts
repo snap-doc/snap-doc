@@ -39,7 +39,7 @@ export default class Slugger {
         ct = duplicateWords[word] = 0;
       } else {
         // typeof duplicateWords[word] === 'number'
-        ct = duplicateWords[word]!++;
+        ct = (duplicateWords[word] as number)++;
       }
       this.slugs.set(sf, ct ? `${word}-${ct}` : word);
     });
