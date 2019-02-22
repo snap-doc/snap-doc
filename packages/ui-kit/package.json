@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/ui-kit",
-  "version": "0.5.1",
+  "version": "0.5.7",
   "description": "UI-kit for Snap-Doc",
   "keywords": [
     "ember-addon"
@@ -66,16 +66,16 @@
     "ember-export-application-global": "2.0.0",
     "ember-load-initializers": "2.0.0",
     "ember-maybe-import-regenerator": "0.1.6",
-    "ember-qunit": "4.3.0",
-    "ember-resolver": "5.1.1",
-    "ember-source": "3.7.3",
+    "ember-qunit": "4.4.0",
+    "ember-resolver": "5.1.3",
+    "ember-source": "3.8.0",
     "ember-source-channel-url": "1.1.0",
     "ember-try": "1.1.0",
     "eslint-plugin-ember": "6.2.0",
     "eslint-plugin-node": "8.0.1",
     "json-typescript": "1.1.0",
     "loader.js": "4.7.0",
-    "nyc": "^13.3.0",
+    "nyc": "13.3.0",
     "qunit-dom": "0.8.4",
     "remark-cli": "6.0.1",
     "remark-lint": "6.0.4",
@@ -87,7 +87,7 @@
     "tslint": "5.12.1",
     "tslint-config-prettier": "1.18.0",
     "tslint-sonarts": "1.9.0",
-    "typescript": "3.3.3",
+    "typescript": "3.3.3333",
     "typescript-eslint-parser": "22.0.0"
   },
   "publishConfig": {

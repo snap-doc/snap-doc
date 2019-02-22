@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.19](https://github.com/snap-doc/snap-doc/compare/snap-doc@0.4.18...snap-doc@0.4.19) (2019-02-20)
+
+**Note:** Version bump only for package snap-doc
+
+
+
+
+
+## [0.4.18](https://github.com/snap-doc/snap-doc/compare/snap-doc@0.4.17...snap-doc@0.4.18) (2019-02-16)
+
+**Note:** Version bump only for package snap-doc
+
+
+
+
+
+## [0.4.17](https://github.com/snap-doc/snap-doc/compare/snap-doc@0.4.16...snap-doc@0.4.17) (2019-02-15)
+
+**Note:** Version bump only for package snap-doc
+
+
+
+
+
+## [0.4.16](https://github.com/snap-doc/snap-doc/compare/snap-doc@0.4.15...snap-doc@0.4.16) (2019-02-15)
+
+**Note:** Version bump only for package snap-doc
+
+
+
+
+
+## [0.4.15](https://github.com/snap-doc/snap-doc/compare/snap-doc@0.4.14...snap-doc@0.4.15) (2019-02-15)
+
+**Note:** Version bump only for package snap-doc
+
+
+
+
+
+## [0.4.14](https://github.com/snap-doc/snap-doc/compare/snap-doc@0.4.13...snap-doc@0.4.14) (2019-02-15)
+
+**Note:** Version bump only for package snap-doc
+
+
+
+
+
+## [0.4.13](https://github.com/snap-doc/snap-doc/compare/snap-doc@0.4.12...snap-doc@0.4.13) (2019-02-14)
+
+**Note:** Version bump only for package snap-doc
+
+
+
+
+
 ## [0.4.12](https://github.com/snap-doc/snap-doc/compare/snap-doc@0.4.11...snap-doc@0.4.12) (2019-02-14)
 
 **Note:** Version bump only for package snap-doc

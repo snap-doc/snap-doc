@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/utils",
-  "version": "0.4.2",
+  "version": "0.4.4",
   "description": "Low-level utilities for snap-doc",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
@@ -40,7 +40,7 @@
     "url": "https://github.com/snap-doc/snap-doc/issues"
   },
   "devDependencies": {
-    "@types/debug": "4.1.1",
+    "@types/debug": "4.1.2",
     "@types/mocha": "5.2.6",
     "@types/node": "11.9.4",
     "chai": "4.2.0",
@@ -48,7 +48,7 @@
     "json-typescript": "1.1.0",
     "mocha": "5.2.0",
     "mocha-typescript": "1.1.17",
-    "nyc": "^13.3.0",
+    "nyc": "13.3.0",
     "remark-cli": "6.0.1",
     "remark-lint": "6.0.4",
     "remark-lint-no-dead-urls": "0.4.1",

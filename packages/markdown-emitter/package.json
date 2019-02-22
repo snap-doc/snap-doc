@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/markdown-emitter",
-  "version": "0.6.2",
+  "version": "0.6.9",
   "description": "Markdown emitter for snap-doc",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
@@ -50,7 +50,7 @@
     "json-typescript": "1.1.0",
     "mocha": "5.2.0",
     "mocha-typescript": "1.1.17",
-    "nyc": "^13.3.0",
+    "nyc": "13.3.0",
     "remark-cli": "6.0.1",
     "remark-lint": "6.0.4",
     "remark-lint-no-dead-urls": "0.4.1",
@@ -108,8 +108,8 @@
   },
   "dependencies": {
     "@mike-north/types": "^1.1.0",
-    "@snap-doc/core": "^0.6.2",
-    "@snap-doc/emitter": "^0.4.2",
+    "@snap-doc/core": "^0.6.4",
+    "@snap-doc/emitter": "^0.4.4",
     "debug": "^4.1.1",
     "mdast-builder": "^1.0.1",
     "mdast-util-toc": "^3.0.1",

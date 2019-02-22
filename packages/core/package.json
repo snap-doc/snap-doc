@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/core",
-  "version": "0.6.2",
+  "version": "0.6.4",
   "description": "Core functionality for snap-doc",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@types/chai": "4.1.7",
-    "@types/debug": "4.1.1",
+    "@types/debug": "4.1.2",
     "@types/execa": "0.9.0",
     "@types/mocha": "5.2.6",
     "chai": "4.2.0",
@@ -49,7 +49,7 @@
     "json-typescript": "1.1.0",
     "mocha": "5.2.0",
     "mocha-typescript": "1.1.17",
-    "nyc": "^13.3.0",
+    "nyc": "13.3.0",
     "remark-cli": "6.0.1",
     "remark-lint": "6.0.4",
     "remark-lint-no-dead-urls": "0.4.1",
@@ -109,9 +109,9 @@
     "@code-to-json/formatter": "^1.0.0-rc.0",
     "@code-to-json/formatter-linker": "^1.0.0-rc.0",
     "@mike-north/types": "^1.1.0",
-    "@snap-doc/emitter": "^0.4.2",
-    "@snap-doc/types": "^0.5.2",
-    "@snap-doc/utils": "^0.4.2",
+    "@snap-doc/emitter": "^0.4.4",
+    "@snap-doc/types": "^0.5.4",
+    "@snap-doc/utils": "^0.4.4",
     "chalk": "^2.4.1",
     "debug": "^4.1.1",
     "typescript": "^3.2.2"

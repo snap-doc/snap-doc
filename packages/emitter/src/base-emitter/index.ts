@@ -23,7 +23,7 @@ abstract class Emitter<O extends EmitterOptions = EmitterOptions, W extends Work
 
   protected async prepare(workspace: W): Promise<void> {
     log('preparing emitter');
-    return await workspace.prepare();
+    await workspace.prepare();
   }
 
   protected abstract async generate(workspace: W): Promise<void>;
