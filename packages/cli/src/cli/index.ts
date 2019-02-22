@@ -15,19 +15,19 @@ ${hlp}`
 }
 
 export function run(): void {
-  commander
+  const generateCommand = commander
     .command('generate <path>')
     .description('Generate documentation from a TS or JS project')
     .alias('g')
     .option('--force', 'Overwrite any existing content found in the output directory')
     .action(async pth => {
-      generateDocs(pth, commander);
+      generateDocs(pth, generateCommand);
     });
-  commander
+  const docTestsCommand = commander
     .command('doctest <path>')
     .description('Run doctests')
     .action(async pth => {
-      runDoctests(pth, commander);
+      runDoctests(pth, docTestsCommand);
     });
   commander.action(invalidCommandHelp);
 

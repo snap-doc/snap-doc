@@ -1,7 +1,7 @@
 import { findPkgJson, NODE_HOST } from '@code-to-json/utils-node';
 import { createProgramFromTsConfig } from '@code-to-json/utils-ts';
-import { DocEnv, DocGenerator } from '@snap-doc/core';
-import { MarkdownFileEmitter } from '@snap-doc/markdown-emitter';
+import { DocGenerator } from '@snap-doc/core';
+import { MarkdownFileEmitter, MarkdownFileEmitterWorkspace } from '@snap-doc/markdown-emitter';
 import chalk from 'chalk';
 import { Command } from 'commander';
 import * as debug from 'debug';
@@ -35,7 +35,7 @@ export default async function generateDocs(pth: string, commander: Command): Pro
     pkgInfo
   });
   try {
-    await dg.emit(new DocEnv(pkgInfo, NODE_HOST));
+    await dg.emit(new MarkdownFileEmitterWorkspace(NODE_HOST, pkgInfo));
   } catch (e) {
     if (e instanceof Error) {
       const errMessageParts = e.message.split('\n');
