@@ -1,7 +1,6 @@
 {
   "settings": {
     "typescript.tsdk": "node_modules/typescript/lib",
-    "tslint.autoFixOnSave": true,
     "editor.formatOnSave": true,
     "files.exclude": {
       "**/.git": true,
@@ -23,6 +22,10 @@
   "folders": [
     {
       "path": "."
+    },
+    {
+      "name": "examples",
+      "path": "../code-to-json/samples"
     }
   ],
   "launch": {
@@ -34,6 +37,7 @@
         "port": 9229,
         "restart": true,
         "stopOnEntry": false,
+        "smartStep": false,
         "timeout": 60000
       }
     ],
