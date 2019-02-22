@@ -6,31 +6,31 @@ async function runAcceptanceTest(code: string, expectedComments: string): Promis
   const tc = await setupAcceptanceTest({
     'index.ts': code
   });
-  expect(tc.contentFor('index.ts.md')).to.eq(expectedComments);
+  expect(tc.contentFor('modules/index.ts.md')).to.eq(expectedComments);
 
   tc.cleanup();
 }
 
 @suite
-@slow(1000)
+@slow(1500)
 export class BasicAcceptance {
   @test
   public async 'binary function with no return type'() {
     await runAcceptanceTest(
       `export function add(a: number, b: number) { return '' + a + b; }`,
-      `# my-pkg
-
-\`src/index.ts\`
+      `# \`my-pkg\`
 
 ## Exports
 
 ### Functions
 
+---
+
 #### \`add\`
 
-\`\`\`ts
-(a: number, b: number) => string
-\`\`\``
+\`function\`
+
+\`(a: number, b: number): string\``
     );
   }
 
@@ -44,19 +44,23 @@ export function add(a: any, b: any): any {
   return a + b;
 }
 `,
-      `# my-pkg
-
-\`src/index.ts\`
+      `# \`my-pkg\`
 
 ## Exports
 
 ### Functions
 
+---
+
 #### \`add\`
 
-\`\`\`ts
-{ (a: number, b: number): number; (a: string, b: string): string; }
-\`\`\``
+\`function\`
+
+##### Call Signatures
+
+\`(a: number, b: number): number\`
+
+\`(a: string, b: string): string\``
     );
   }
 
@@ -64,19 +68,21 @@ export function add(a: any, b: any): any {
   public async 'union type with core types'() {
     await runAcceptanceTest(
       `export const x: string | number = 44;`,
-      `# my-pkg
-
-\`src/index.ts\`
+      `# \`my-pkg\`
 
 ## Exports
 
 ### Properties
 
+---
+
 #### \`x\`
 
-\`\`\`ts
-string | number
-\`\`\``
+\`variable\`
+
+> \`\`\`ts
+> string | number
+> \`\`\``
     );
   }
 
@@ -84,15 +90,23 @@ string | number
   public async 'exported interface'() {
     await runAcceptanceTest(
       `export interface Foo { val: string | number }`,
-      `# my-pkg
-
-\`src/index.ts\`
+      `# \`my-pkg\`
 
 ## Exports
 
 ### Types
 
-#### [\`Foo\`](./types/Foo.md "Foo")`
+---
+
+#### \`Foo\`
+
+\`interface\`
+
+##### val
+
+> \`\`\`ts
+> string | number
+> \`\`\``
     );
   }
 
@@ -100,30 +114,54 @@ string | number
   public async 'type alias'() {
     await runAcceptanceTest(
       `export type Dict = { [k: string]: number | undefined }`,
-      `# my-pkg
-
-\`src/index.ts\`
+      `# \`my-pkg\`
 
 ## Exports
 
 ### Types
 
-#### [\`Dict\`](./types/Dict.md "Dict")`
+---
+
+#### \`Dict\`
+
+\`typeAlias\`
+
+> \`\`\`ts
+> Dict
+> \`\`\`
+
+> \`\`\`ts
+> [k: string]: number
+> \`\`\``
     );
   }
   @test
   public async 'type alias w/ type parameter'() {
     await runAcceptanceTest(
       `export type Dict<T> = { [k: string]: T }`,
-      `# my-pkg
-
-\`src/index.ts\`
+      `# \`my-pkg\`
 
 ## Exports
 
 ### Types
 
-#### [\`Dict\`](./types/Dict.md "Dict")`
+---
+
+#### \`Dict\`
+
+\`typeAlias\`
+
+> \`\`\`ts
+> Dict<T>
+> \`\`\`
+
+**Type Parameters**
+
+*   \`<T>\`
+
+> \`\`\`ts
+> [k: string]: T
+> \`\`\``
     );
   }
 
@@ -131,15 +169,25 @@ string | number
   public async 'interface w/ type parameter '() {
     await runAcceptanceTest(
       `export interface Dict<T> { [k: string]: T }`,
-      `# my-pkg
-
-\`src/index.ts\`
+      `# \`my-pkg\`
 
 ## Exports
 
 ### Types
 
-#### [\`Dict\`](./types/Dict.md "Dict")`
+---
+
+#### \`Dict\`
+
+\`interface\`
+
+**Type Parameters**
+
+*   \`<T>\`
+
+> \`\`\`ts
+> [k: string]: T
+> \`\`\``
     );
   }
 
@@ -147,15 +195,25 @@ string | number
   public async 'interface w/ type parameter and constraint'() {
     await runAcceptanceTest(
       `export interface Dict<T extends 'foo' | 'bar'> { [k: string]: T }`,
-      `# my-pkg
-
-\`src/index.ts\`
+      `# \`my-pkg\`
 
 ## Exports
 
 ### Types
 
-#### [\`Dict\`](./types/Dict.md "Dict")`
+---
+
+#### \`Dict\`
+
+\`interface\`
+
+**Type Parameters**
+
+*   \`<T extends "foo" | "bar">\`
+
+> \`\`\`ts
+> [k: string]: T
+> \`\`\``
     );
   }
 
@@ -165,15 +223,19 @@ string | number
       `export class SimpleClass {
   constructor(bar: string) { console.log(bar); }
 }`,
-      `# my-pkg
-
-\`src/index.ts\`
+      `# \`my-pkg\`
 
 ## Exports
 
 ### Classes
 
-#### [\`SimpleClass\`](./classes/SimpleClass.md "SimpleClass")`
+---
+
+#### \`SimpleClass\`
+
+\`class\`
+
+\`(bar: string): SimpleClass\``
     );
   }
 
@@ -185,15 +247,31 @@ string | number
   private biz: string[] = ['baz'];
   constructor(bar: string) { console.log(bar); }
 }`,
-      `# my-pkg
-
-\`src/index.ts\`
+      `# \`my-pkg\`
 
 ## Exports
 
 ### Classes
 
-#### [\`SimpleClass\`](./classes/SimpleClass.md "SimpleClass")`
+---
+
+#### \`SimpleClass\`
+
+\`class\`
+
+\`(bar: string): SimpleClass\`
+
+##### foo
+
+> \`\`\`ts
+> string
+> \`\`\`
+
+##### biz
+
+> \`\`\`ts
+> string[]
+> \`\`\``
     );
   }
 
@@ -205,17 +283,39 @@ export class SimpleBase { foo: string }
 export class SimpleClass extends SimpleBase {
   constructor(bar: string) { console.log(bar); }
 }`,
-      `# my-pkg
-
-\`src/index.ts\`
+      `# \`my-pkg\`
 
 ## Exports
 
 ### Classes
 
-#### [\`SimpleBase\`](./classes/SimpleBase.md "SimpleBase")
+---
 
-#### [\`SimpleClass\`](./classes/SimpleClass.md "SimpleClass")`
+#### \`SimpleBase\`
+
+\`class\`
+
+\`(): SimpleBase\`
+
+##### foo
+
+> \`\`\`ts
+> string
+> \`\`\`
+
+---
+
+#### \`SimpleClass\`
+
+\`class\` \`extends\` \`SimpleBase\`
+
+\`(bar: string): SimpleClass\`
+
+##### foo
+
+> \`\`\`ts
+> string
+> \`\`\``
     );
   }
 
@@ -227,15 +327,25 @@ class SimpleBase { foo: string }
 export class SimpleClass extends SimpleBase {
   constructor(bar: string) { console.log(bar); }
 }`,
-      `# my-pkg
-
-\`src/index.ts\`
+      `# \`my-pkg\`
 
 ## Exports
 
 ### Classes
 
-#### [\`SimpleClass\`](./classes/SimpleClass.md "SimpleClass")`
+---
+
+#### \`SimpleClass\`
+
+\`class\` \`extends\` \`SimpleBase\`
+
+\`(bar: string): SimpleClass\`
+
+##### foo
+
+> \`\`\`ts
+> string
+> \`\`\``
     );
   }
 
@@ -243,17 +353,28 @@ export class SimpleClass extends SimpleBase {
   public async 'simple class w/ constructor - export default'() {
     await runAcceptanceTest(
       `export default class SimpleClass {
+  public foo: string = 'my class field'
   constructor(bar: string) { console.log(bar); }
 }`,
-      `# my-pkg
-
-\`src/index.ts\`
+      `# \`my-pkg\`
 
 ## Exports
 
 ### Classes
 
-#### [\`SimpleClass\`](./classes/SimpleClass.md "SimpleClass")`
+---
+
+#### \`SimpleClass\`
+
+\`class\`
+
+\`(bar: string): SimpleClass\`
+
+##### foo
+
+> \`\`\`ts
+> string
+> \`\`\``
     );
   }
 
@@ -261,38 +382,42 @@ export class SimpleClass extends SimpleBase {
   public async 'const symbols should get narrow types of the symbol value'() {
     await runAcceptanceTest(
       `export const TextType = "Text";`,
-      `# my-pkg
-
-\`src/index.ts\`
+      `# \`my-pkg\`
 
 ## Exports
 
 ### Properties
 
+---
+
 #### \`TextType\`
 
-\`\`\`ts
-"Text"
-\`\`\``
+\`variable\`
+
+> \`\`\`ts
+> "Text"
+> \`\`\``
     );
   }
   @test
   public async 'let symbols should get narrow types of the symbol value'() {
     await runAcceptanceTest(
       `export let TextType = "Text";`,
-      `# my-pkg
-
-\`src/index.ts\`
+      `# \`my-pkg\`
 
 ## Exports
 
 ### Properties
 
+---
+
 #### \`TextType\`
 
-\`\`\`ts
-string
-\`\`\``
+\`variable\`
+
+> \`\`\`ts
+> string
+> \`\`\``
     );
   }
   @test
@@ -300,15 +425,21 @@ string
     await runAcceptanceTest(
       `const MySymbol = "Text";
 export type TextType = typeof MySymbol;`,
-      `# my-pkg
-
-\`src/index.ts\`
+      `# \`my-pkg\`
 
 ## Exports
 
 ### Types
 
-#### [\`TextType\`](./types/TextType.md "TextType")`
+---
+
+#### \`TextType\`
+
+\`typeAlias\`
+
+> \`\`\`ts
+> "Text"
+> \`\`\``
     );
   }
 
@@ -320,15 +451,21 @@ type TextType = typeof TextType;
 const ElementType = "Element";
 type ElementType = typeof ElementType;
 export type NodeType = ElementType | TextType;`,
-      `# my-pkg
-
-\`src/index.ts\`
+      `# \`my-pkg\`
 
 ## Exports
 
 ### Types
 
-#### [\`NodeType\`](./types/NodeType.md "NodeType")`
+---
+
+#### \`NodeType\`
+
+\`typeAlias\`
+
+> \`\`\`ts
+> NodeType
+> \`\`\``
     );
   }
 
@@ -341,19 +478,21 @@ const ElementType = "Element";
 type ElementType = typeof ElementType;
 type NodeType = ElementType | TextType;
 export const DefaultType: NodeType = ElementType;`,
-      `# my-pkg
-
-\`src/index.ts\`
+      `# \`my-pkg\`
 
 ## Exports
 
 ### Properties
 
+---
+
 #### \`DefaultType\`
 
-\`\`\`ts
-NodeType
-\`\`\``
+\`variable\`
+
+> \`\`\`ts
+> NodeType
+> \`\`\``
     );
   }
 }
