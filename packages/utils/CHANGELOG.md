@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.6](https://github.com/snap-doc/snap-doc/compare/@snap-doc/utils@0.4.5...@snap-doc/utils@0.4.6) (2019-02-23)
+
+
+### Bug Fixes
+
+* relocate path helper to emitter workspace ([d5516fa](https://github.com/snap-doc/snap-doc/commit/d5516fa))
+
+
+
+
+
 ## [0.4.5](https://github.com/snap-doc/snap-doc/compare/@snap-doc/utils@0.4.4...@snap-doc/utils@0.4.5) (2019-02-22)
 
 **Note:** Version bump only for package @snap-doc/utils

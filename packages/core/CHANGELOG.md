@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.6.5...@snap-doc/core@0.7.0) (2019-02-23)
+
+
+### Features
+
+* use emitter workspace ([00127d4](https://github.com/snap-doc/snap-doc/commit/00127d4))
+
+
+
+
+
 ## [0.6.5](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.6.4...@snap-doc/core@0.6.5) (2019-02-22)
 
 **Note:** Version bump only for package @snap-doc/core

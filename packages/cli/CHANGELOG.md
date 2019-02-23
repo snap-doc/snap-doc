@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.6.10...@snap-doc/cli@0.7.0) (2019-02-23)
+
+
+### Features
+
+* use new file emitter workspace class to configure emitter ([9935237](https://github.com/snap-doc/snap-doc/commit/9935237))
+
+
+
+
+
 ## [0.6.10](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.6.9...@snap-doc/cli@0.6.10) (2019-02-22)
 
 **Note:** Version bump only for package @snap-doc/cli

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/markdown-emitter@0.6.10...@snap-doc/markdown-emitter@0.7.0) (2019-02-23)
+
+
+### Features
+
+* multi-file output ([c5fe357](https://github.com/snap-doc/snap-doc/commit/c5fe357))
+
+
+
+
+
 ## [0.6.10](https://github.com/snap-doc/snap-doc/compare/@snap-doc/markdown-emitter@0.6.9...@snap-doc/markdown-emitter@0.6.10) (2019-02-22)
 
 **Note:** Version bump only for package @snap-doc/markdown-emitter
