@@ -1,97 +1,246 @@
-import { LinkedFormattedOutputData, LinkedFormattedSymbol } from '@code-to-json/formatter-linker';
+import {
+  LinkedFormattedSignature,
+  LinkedFormattedSymbol,
+  LinkedFormattedType
+} from '@code-to-json/formatter-linker';
+import { isDefined } from '@code-to-json/utils';
+import { Dict } from '@mike-north/types';
+import {
+  blockquote,
+  code,
+  heading,
+  inlineCode,
+  link,
+  paragraph,
+  text,
+  list,
+  listItem,
+  strong
+} from 'mdast-builder';
 import { Node } from 'unist';
-import md from '../index';
 import { createDocumentationForCommentData } from './comment-data';
-import { createSourceFileRoot } from './file';
-import { createSection } from './section';
-
-function symbolTypeDescription(symbol: LinkedFormattedSymbol): Node {
-  return {
-    type: 'paragraph',
-    children: [{ type: 'code', lang: 'ts', value: symbolTypeDescriptionCode(symbol) }]
-  };
-}
-
-function symbolTypeDescriptionCode(symbol: LinkedFormattedSymbol): string | undefined {
-  const { flags } = symbol;
-  if (!flags) {
-    return undefined;
-  }
-  const parts: string[] = [];
-  if (symbol.type) {
-    parts.push(symbol.type.text);
-  }
-  if (symbol.valueType) {
-    parts.push(symbol.valueType.text);
-  }
-  if (parts.length === 0) {
-    return undefined;
-  }
-  return parts.join('\n');
-}
-
-function sectionHeaderForSymbol(
-  s: LinkedFormattedSymbol,
-  opts: {
-    headerUrlFactory?: (name: string) => string;
-  } = {}
-): Node {
-  const { flags } = s;
-  if (!flags) {
-    throw new Error('symbol had no flags');
-  }
-  if (
-    flags.includes('variable') ||
-    flags.includes('typeAlias') ||
-    flags.includes('typeLiteral') ||
-    flags.includes('interface') ||
-    flags.includes('class') ||
-    flags.includes('function')
-  ) {
-    const value = s.text || s.name;
-    const content = { type: 'inlineCode', value };
-    if (opts.headerUrlFactory) {
-      return {
-        type: 'link',
-        url: opts.headerUrlFactory(value),
-        title: value,
-        children: [content]
-      };
-    } else {
-      return content;
-    }
-  } else {
-    throw new Error(`Should not receive symbol with flags ${flags.join(', ')}`);
-  }
-}
+import { mdSignatures } from './signature';
+import MarkdownFileEmitterWorkspace from '../../emitter/workspace';
 
 export interface MDSymbolOptions {
-  includeTypeInformation: boolean;
-  headerUrlFactory?: (name: string) => string;
+  path: string;
+  includeDetails?: boolean;
+  includeTitle?: boolean;
+  baseDepth?: number;
 }
 
-export function mdForSymbol(s: LinkedFormattedSymbol, opts: MDSymbolOptions): Node[] {
-  const parts: Node[] = [];
-  const { documentation } = s;
-  parts.push(...createDocumentationForCommentData(documentation));
-  if (opts.includeTypeInformation) {
-    parts.push(symbolTypeDescription(s));
+function mdForSymbolTitle(
+  w: MarkdownFileEmitterWorkspace,
+  s: LinkedFormattedSymbol,
+  opts: MDSymbolOptions
+): Node[] {
+  const { includeTitle } = opts;
+  if (!includeTitle) {
+    return [];
   }
-  return createSection(
-    4,
-    sectionHeaderForSymbol(s, {
-      headerUrlFactory: opts.headerUrlFactory
-    }),
-    parts
-  );
+  const sName = s.text || s.name;
+  const url = opts.includeDetails ? undefined : w.pathFor(s);
+  const title = inlineCode(sName);
+  if (url) {
+    return [heading(opts.baseDepth || 1, link(url, sName, title))];
+  } else {
+    return [heading(opts.baseDepth || 1, title)];
+  }
 }
-export function markdownForSymbolFile(
-  _data: LinkedFormattedOutputData,
-  sym: LinkedFormattedSymbol
-): string {
-  const root = createSourceFileRoot(sym);
 
-  root.children.push(...mdForSymbol(sym, { includeTypeInformation: true }));
+function mdForSymbolSignatures(
+  s: LinkedFormattedSymbol,
+  sigs: LinkedFormattedSignature[] | undefined,
+  head: Node[]
+): Node[] {
+  const parts: Node[] = [];
 
-  return md.stringify(root).trim();
+  if (sigs && sigs.length > 0) {
+    if (sigs.length > 1) {
+      parts.push(...head);
+    }
+
+    parts.push(...mdSignatures(s, sigs));
+  }
+  return parts;
+}
+
+function mdForProperties(props: Dict<LinkedFormattedSymbol>, opts: MDSymbolOptions): Node[] {
+  return Object.keys(props)
+    .map(p => props[p])
+    .filter(isDefined)
+    .reduce(
+      (lst, p) => {
+        lst.push(
+          heading((opts.baseDepth || 1) + 1, text(p.name)),
+          blockquote(() => {
+            const parts: Node[] = [];
+            const { valueType, documentation } = p;
+            if (valueType) {
+              parts.push(code('ts', valueType.text));
+            }
+            if (documentation) {
+              parts.push(...createDocumentationForCommentData(documentation));
+            }
+            return parts;
+          })
+        );
+        return lst;
+      },
+      [] as Node[]
+    );
+}
+
+export function mdForSymbolType(
+  s: LinkedFormattedSymbol,
+  type: LinkedFormattedType,
+  opts: MDSymbolOptions
+): Node[] {
+  const parts: Node[] = [];
+  const { flags } = s;
+  const {
+    callSignatures,
+    constructorSignatures,
+    properties,
+    stringIndexType,
+    numberIndexType,
+    typeParameters
+  } = type;
+  if (flags && (flags.includes('variable') || flags.includes('typeAlias')))
+    parts.push(blockquote(code('ts', type.text)));
+  if (typeParameters) {
+    parts.push(
+      paragraph(strong(text('Type Parameters'))),
+      list(
+        'unordered',
+        typeParameters.map(tp =>
+          listItem(() =>
+            paragraph(() => {
+              const { constraint } = tp;
+              const typeLabelParts: string[] = [tp.text];
+              if (constraint) {
+                typeLabelParts.push('extends', constraint.text);
+              }
+              return inlineCode(`<${typeLabelParts.join(' ')}>`);
+            })
+          )
+        )
+      )
+    );
+  }
+  parts.push(
+    ...mdForSymbolSignatures(s, callSignatures, [
+      heading((opts.baseDepth || 1) + 1, text('Call Signatures'))
+    ])
+  );
+  parts.push(
+    ...mdForSymbolSignatures(s, constructorSignatures, [
+      heading((opts.baseDepth || 1) + 1, text('Constructor Signatures'))
+    ])
+  );
+  if (properties) {
+    parts.push(...mdForProperties(properties, opts));
+  }
+
+  if (stringIndexType) {
+    parts.push(blockquote(code('ts', `[k: string]: ${stringIndexType.text}`)));
+  }
+  if (numberIndexType) {
+    parts.push(blockquote(code('ts', `[k: number]: ${numberIndexType.text}`)));
+  }
+
+  return parts;
+}
+
+export function mdForSymbolDetails(s: LinkedFormattedSymbol, opts: MDSymbolOptions): Node[] {
+  const { includeDetails } = opts;
+  if (!includeDetails) {
+    return [];
+  }
+  const { valueType, type } = s;
+  const parts: Node[] = [];
+
+  if (valueType) {
+    parts.push(...mdForSymbolType(s, valueType, opts));
+  }
+  if (type) {
+    parts.push(...mdForSymbolType(s, type, opts));
+  }
+  return parts;
+}
+
+function mdForBaseTypes(
+  _w: MarkdownFileEmitterWorkspace,
+  _path: string,
+  _s: LinkedFormattedSymbol,
+  type: LinkedFormattedType | undefined
+): Node {
+  if (!type || !type.baseTypes) {
+    return text('');
+  }
+
+  return paragraph([
+    text(' '),
+    inlineCode('extends'),
+    text(' '),
+    ...type.baseTypes.reverse().map(
+      bt => (bt.symbol ? inlineCode(bt.symbol.name) : inlineCode('(unknown symbol)'))
+      // bt.symbol
+      // ? link(
+      //     w.host.pathRelativeTo(w.host.combinePaths(w.pathFor(s)), path),
+      //     bt.symbol.name,
+      //     inlineCode(bt.symbol.name)
+      //   )
+      // : inlineCode('(unknown symbol)')
+    )
+  ]);
+}
+
+function mdForSymbolHeader(
+  w: MarkdownFileEmitterWorkspace,
+  path: string,
+  s: LinkedFormattedSymbol
+): Node {
+  const { flags, type, accessModifier } = s;
+  const kids: Node[] = [];
+  if (accessModifier) {
+    kids.push(inlineCode(accessModifier), text(' '));
+  }
+  if (flags) {
+    kids.push(
+      ...flags.reduce(
+        (all, f, i) => {
+          all.push(inlineCode(f));
+          if (i < flags.length - 1) {
+            all.push(text(', '));
+          }
+          return all;
+        },
+        [] as Node[]
+      )
+    );
+  }
+  kids.push(mdForBaseTypes(w, path, s, type));
+
+  if (kids.length === 0) {
+    return text('');
+  }
+  return paragraph(kids);
+}
+
+export function mdForSymbol(
+  w: MarkdownFileEmitterWorkspace,
+  s: LinkedFormattedSymbol,
+  opts: MDSymbolOptions
+): Node[] {
+  const { documentation } = s;
+
+  const parts: Node[] = [text('---')];
+  parts.push(...mdForSymbolTitle(w, s, opts));
+  parts.push(mdForSymbolHeader(w, opts.path, s));
+  if (documentation) {
+    parts.push(paragraph(createDocumentationForCommentData(documentation)));
+  }
+  parts.push(...mdForSymbolDetails(s, opts));
+  return parts;
 }

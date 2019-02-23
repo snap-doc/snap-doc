@@ -1,10 +1,10 @@
 import { FixtureFolder, setupTestCase } from '@code-to-json/test-helpers';
 import { findPkgJson, NODE_HOST } from '@code-to-json/utils-node';
-import { DocEnv, DocGenerator } from '@snap-doc/core';
+import { DocGenerator } from '@snap-doc/core';
 import * as debug from 'debug';
 import { readFileSync } from 'fs';
 import { join } from 'path';
-import { MarkdownFileEmitter } from '../../src';
+import { MarkdownFileEmitter, MarkdownFileEmitterWorkspace } from '../../src';
 
 const log = debug('snap-doc:markdown-emitter:acceptance-tests');
 
@@ -55,12 +55,13 @@ export async function setupAcceptanceTest(src: FixtureFolder): Promise<Acceptanc
   const dg = new DocGenerator(testCase.program, NODE_HOST, {
     emitter: new MarkdownFileEmitter(NODE_HOST, {
       outDir: NODE_HOST.combinePaths(testCase.rootPath, 'out'),
-      omitToc: true
+      omitToc: true,
+      detailedModules: true
     }),
     pkgInfo
   });
-  const env = new DocEnv(pkgInfo, NODE_HOST);
-  await dg.emit(env);
+  const workspace = new MarkdownFileEmitterWorkspace(NODE_HOST, pkgInfo);
+  await dg.emit(workspace);
   return new AcceptanceTestCase(
     NODE_HOST.combinePaths(testCase.rootPath, 'out'),
     testCase.cleanup,

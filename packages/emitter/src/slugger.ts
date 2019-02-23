@@ -1,24 +1,30 @@
 import {
-  LinkedFormattedOutputData,
   LinkedFormattedSourceFile,
-  LinkedFormattedSymbol
+  LinkedFormattedSymbol,
+  LinkedFormattedOutputData
 } from '@code-to-json/formatter-linker';
 import { forEachDict } from '@code-to-json/utils-ts';
 import { Dict } from '@mike-north/types';
-import { DocDataSource } from '@snap-doc/types';
+import * as debug from 'debug';
 
-export default class DocData implements DocDataSource {
+const log = debug('snap-doc:slugger');
+
+export type SluggedEntities = 'class' | 'type' | 'sourceFile';
+export type Sluggable = LinkedFormattedSourceFile | LinkedFormattedSymbol;
+export default class Slugger {
   protected slugs = new Map<LinkedFormattedSourceFile | LinkedFormattedSymbol, string>();
 
-  constructor(public readonly data: Readonly<LinkedFormattedOutputData>) {}
-  public prepare(): void {
+  constructor(protected readonly data: Readonly<LinkedFormattedOutputData>) {}
+
+  public async prepare(): Promise<void> {
+    log('calculating slugs...');
     this.calculateSlugs();
   }
 
-  public slugFor(entity: LinkedFormattedSourceFile | LinkedFormattedSymbol): string {
+  public slugFor(entity: Sluggable): string {
     const s = this.slugs.get(entity);
     if (!s) {
-      throw new Error('Unable to create slug for: ' + entity.kind);
+      throw new Error('No slug found for entity: ' + entity.kind);
     }
     return s;
   }
@@ -33,7 +39,7 @@ export default class DocData implements DocDataSource {
         ct = duplicateWords[word] = 0;
       } else {
         // typeof duplicateWords[word] === 'number'
-        ct = duplicateWords[word]!++;
+        ct = (duplicateWords[word] as number)++;
       }
       this.slugs.set(sf, ct ? `${word}-${ct}` : word);
     });

@@ -20,11 +20,13 @@
     "object-literal-sort-keys": false,
     "interface-name": false,
     "typedef": [true, "call-signature"],
+    "ordered-imports": false,
     "prefer-immediate-return": false,
     "no-dead-store": { "severity": "warning" },
     "no-commented-code": { "severity": "warning" },
     "no-unused-variable": [true, { "ignore-pattern": "^_" }],
-    "no-console": false
+    "no-console": false,
+    "curly": false
   },
   "rulesDirectory": []
 }

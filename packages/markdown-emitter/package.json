@@ -41,8 +41,8 @@
     "url": "https://github.com/snap-doc/snap-doc/issues"
   },
   "devDependencies": {
-    "@code-to-json/test-helpers": "1.0.0-rc.25",
-    "@code-to-json/utils-node": "1.0.0-rc.28",
+    "@code-to-json/test-helpers": "1.0.0-rc.26",
+    "@code-to-json/utils-node": "1.0.0-rc.29",
     "@types/rimraf": "2.0.2",
     "@types/unist": "2.0.3",
     "chai": "4.2.0",
@@ -111,6 +111,7 @@
     "@snap-doc/core": "^0.6.5",
     "@snap-doc/emitter": "^0.4.5",
     "debug": "^4.1.1",
+    "mdast-builder": "^1.0.1",
     "mdast-util-toc": "^3.0.1",
     "remark-parse": "^6.0.3",
     "remark-stringify": "^6.0.4"

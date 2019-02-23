@@ -1,21 +1,6 @@
-import { LinkedFormattedOutputData, LinkedFormattedSymbol } from '@code-to-json/formatter-linker';
+import { LinkedFormattedSymbol } from '@code-to-json/formatter-linker';
 import { Dict } from '@mike-north/types';
-
-export function isClass(sym: LinkedFormattedSymbol): boolean {
-  return !!(sym.flags && sym.flags.includes('class'));
-}
-
-export function isType(sym: LinkedFormattedSymbol): boolean {
-  return !!(sym.flags && (sym.flags.includes('interface') || sym.flags.includes('typeAlias')));
-}
-
-export function isFunction(sym: LinkedFormattedSymbol): boolean {
-  return !!(sym.flags && sym.flags.includes('function'));
-}
-
-export function isProperty(sym: LinkedFormattedSymbol): boolean {
-  return !!(sym.flags && sym.flags.includes('variable'));
-}
+import { isClass, isProperty, isFunction, isType } from './guards';
 
 export interface SortedExportSymbols {
   classes: Dict<LinkedFormattedSymbol>;
@@ -25,7 +10,6 @@ export interface SortedExportSymbols {
 }
 
 export function sortSymbols(
-  _fd: LinkedFormattedOutputData,
   exports: Exclude<LinkedFormattedSymbol['exports'], undefined>
 ): SortedExportSymbols {
   const classes: Dict<LinkedFormattedSymbol> = {};

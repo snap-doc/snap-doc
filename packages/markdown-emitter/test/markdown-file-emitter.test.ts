@@ -1,15 +1,16 @@
 import { CommentFencedCode } from '@code-to-json/comments';
+import { LinkedFormattedOutputData } from '@code-to-json/formatter-linker';
 import { NODE_HOST } from '@code-to-json/utils-node';
-import { ProjectPathHelper } from '@snap-doc/utils';
 import { expect } from 'chai';
 import { suite, test } from 'mocha-typescript';
-import { join, relative } from 'path';
-import { MarkdownFileEmitter } from '../src';
+import { join } from 'path';
+import MarkdownFileEmitter from '../src/emitter';
+import MarkdownFileEmitterWorkspace from '../src/emitter/workspace';
 
 @suite
 export class MarkdownFileEmitterTests {
   @test
-  public 'markdown emitter'(): void {
+  public async 'markdown emitter'(): Promise<void> {
     const writeParams: Array<[string, string]> = [];
     const mfe = new MarkdownFileEmitter(
       {
@@ -39,106 +40,75 @@ export class MarkdownFileEmitterTests {
         outDir: 'out'
       }
     );
-    mfe.generate(
-      {
-        data: {
-          types: {},
-          symbols: {
-            '12345': {
-              id: '12345',
-              kind: 'symbol',
-              flags: ['module'],
-              name: 'src/foo/bar'
-            }
-          },
-          declarations: {},
-          nodes: {},
-          sourceFiles: {
-            foo: {
-              id: '',
-              path: 'src/foo/bar',
-              extension: 'ts',
-              moduleName: 'foo',
-              symbol: ['s', '12345'] as any,
-              isDeclarationFile: false,
-              kind: 'sourceFile',
-              documentation: {
-                summary: ['My favorite module'],
-                customTags: [
-                  {
-                    kind: 'blockTag' as 'blockTag',
-                    tagName: 'author',
-                    content: ['Mike']
-                  },
-                  {
-                    kind: 'blockTag' as 'blockTag',
-                    tagName: 'foobar',
-                    content: ['Baz']
-                  },
-                  {
-                    kind: 'blockTag' as 'blockTag',
-                    tagName: 'example',
-                    content: [
-                      {
-                        kind: 'fencedCode',
-                        language: 'js',
-                        code: 'foo() {}'
-                      } as CommentFencedCode
-                    ]
-                  }
-                ]
-              }
-            }
-          }
-        },
-        // tslint:disable-next-line:no-empty
-        prepare() {},
-        slugFor(x) {
-          return '';
+    const fwo: LinkedFormattedOutputData = {
+      types: {},
+      symbols: {
+        '12345': {
+          id: '12345',
+          kind: 'symbol',
+          flags: ['module'],
+          name: 'src/foo/bar'
         }
       },
-      {
-        pathHelper: new ProjectPathHelper(
-          {
-            path: 'out',
-            main: 'src/index.ts',
-            name: 'my-example-project'
-          },
-          {
-            pathRelativeTo: relative,
-            combinePaths: join
+      declarations: {},
+      nodes: {},
+      sourceFiles: {
+        foo: {
+          id: '',
+          path: 'src/foo/bar',
+          extension: 'ts',
+          moduleName: 'foo',
+          symbol: ['s', '12345'] as any,
+          isDeclarationFile: false,
+          kind: 'sourceFile',
+          documentation: {
+            summary: ['My favorite module'],
+            customTags: [
+              {
+                kind: 'blockTag' as 'blockTag',
+                tagName: 'author',
+                content: ['Mike']
+              },
+              {
+                kind: 'blockTag' as 'blockTag',
+                tagName: 'foobar',
+                content: ['Baz']
+              },
+              {
+                kind: 'blockTag' as 'blockTag',
+                tagName: 'example',
+                content: [
+                  {
+                    kind: 'fencedCode',
+                    language: 'js',
+                    code: 'foo() {}'
+                  } as CommentFencedCode
+                ]
+              }
+            ]
           }
-        ),
-        host: NODE_HOST
+        }
       }
-    );
+    };
+
+    const workspace = new MarkdownFileEmitterWorkspace(NODE_HOST, {
+      path: 'out',
+      main: 'src/index.ts',
+      name: 'my-example-project'
+    });
+    workspace.data = fwo;
+    await mfe.emit(workspace);
     expect(writeParams).to.be.instanceOf(Array);
-    expect(writeParams).to.have.lengthOf(1);
-    expect(writeParams[0][0]).to.eql('out/foo/bar.md');
-    expect(writeParams[0][1]).to.eql(`# foo
-
-## Table of Contents
-
-*   [Examples](#examples)
-
-\`src/foo/bar\`
-
-| Information |      |
+    expect(writeParams.map(x => x[0])).to.deep.eq(['out/modules/foo/bar.md', 'out/index.md']);
+    expect(writeParams[0][1])
+      .to.contain('# `foo`')
+      .to.contain('My favorite module').to.contain(`| Information |      |
 | :---------- | :--: |
-| **author**  | Mike |
-
-My favorite module
-
-## Examples
-
-
-\`\`\`js
-foo() {}
-\`\`\`
-
-
-| Other Details |     |
+| **author**  | Mike |`).to.contain(`| Other Details |     |
 | :------------ | :-: |
 | **foobar**    | Baz |`);
+    expect(writeParams[1][1]).to.contain('# my-example-project').to.contain(`## Modules
+
+*   [foo](modules/foo/bar.md "foo"`);
   }
 }

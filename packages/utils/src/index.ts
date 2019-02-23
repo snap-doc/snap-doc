@@ -1,1 +1,1 @@
-export { default as ProjectPathHelper, ProjectInfo } from './project-path-helper';
+export const abc = 'foo';

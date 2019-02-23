@@ -7,9 +7,11 @@ export class PublicApiSurfaceTest {
   @test
   public async 'expected exported items'(): Promise<void> {
     expect(Object.keys(Exports).sort()).to.deep.eq([
-      'DocData',
-      'DocEnv',
       'DocGenerator',
+      'isClass',
+      'isFunction',
+      'isProperty',
+      'isType',
       'sortSymbols'
     ]);
 
