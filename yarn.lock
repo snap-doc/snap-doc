@@ -808,7 +808,7 @@
     "@mike-north/types" "^1.0.7"
     typescript "^3.1.0"
 
-"@code-to-json/utils-ts@^1.0.0-rc.28":
+"@code-to-json/utils-ts@^1.0.0-rc.22", "@code-to-json/utils-ts@^1.0.0-rc.28":
   version "1.0.0-rc.28"
   resolved "https://registry.yarnpkg.com/@code-to-json/utils-ts/-/utils-ts-1.0.0-rc.28.tgz#86c63a696a1285a1ded59a249e510db6f978487a"
   integrity sha512-bAA6xnxVcUHLEerkB03D7zh28yLsm38E1PwwPMSU/g/HeFTMfQxjJju02+VkyPfRgCDTrC+jxZ9qLO15jObkQQ==
@@ -9475,7 +9475,7 @@ lodash.values@~2.3.0:
   dependencies:
     lodash.keys "~2.3.0"
 
-lodash@4.17.11, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1, lodash@^4.8.2:
+lodash@4.17.11, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1:
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
   integrity sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==
@@ -12682,14 +12682,14 @@ sax@^1.2.4:
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
 
-scripty@1.9.0:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/scripty/-/scripty-1.9.0.tgz#41db74aa36ba31c92090eb189f9f642bde6d803d"
-  integrity sha512-aXSqeJHUhobpZ2bQkL06GAghZGUBVBzz+SSZMI4ngJ8tjBvW7e200bLdbR8Ql9EPftoUo+NHCb5r0ao/kpVy5w==
+scripty@1.9.1:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/scripty/-/scripty-1.9.1.tgz#538d12ad816b564584b4b787800f6567bb97c84a"
+  integrity sha512-zsQlz4mxQz7EqvoWTobcNsVS8uv1nrk5IME62QHDSwazxclNUqjGdMF4ZI7nWgKSBFQFWCKGwRFJjfzSJj9ERQ==
   dependencies:
     async "^2.6.1"
     glob "^7.0.3"
-    lodash "^4.8.2"
+    lodash "^4.17.11"
     resolve-pkg "^1.0.0"
 
 semver-compare@^1.0.0:
