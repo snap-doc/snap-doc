@@ -84,7 +84,7 @@
     "remark-preset-lint-recommended": "3.0.2",
     "remark-validate-links": "8.0.0",
     "scripty": "1.9.1",
-    "tslint": "5.12.1",
+    "tslint": "5.13.0",
     "tslint-config-prettier": "1.18.0",
     "tslint-sonarts": "1.9.0",
     "typescript": "3.3.3333",
