@@ -25,7 +25,7 @@
     "lint": "yarn lint:js && yarn lint:md",
     "lint:js": "eslint . --ext js,ts",
     "lint:md": "remark .",
-    "test": "cd test && mocha --opts mocha.opts",
+    "test": "mocha",
     "test:debug": "yarn test -- --inspect-brk",
     "test:coverage": "rm -rf coverage && nyc yarn test",
     "codacy:transmit-coverage": "cat coverage/lcov.info | codacy-coverage",

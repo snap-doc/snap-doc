@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import * as snapshot from 'snap-shot-it';
 import { describe, it } from 'mocha';
 import { createTagsTable, organizeTags, parseParagraphContent } from '../src/md/utils/comment-data';
