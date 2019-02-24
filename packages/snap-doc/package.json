@@ -31,8 +31,6 @@
     "@types/mocha": "5.2.6",
     "chai": "4.2.0",
     "codecov": "3.2.0",
-    "eslint-config-airbnb-base": "13.1.0",
-    "eslint-plugin-promise": "^4.0.1",
     "json-typescript": "1.1.0",
     "mocha": "6.0.1",
     "nyc": "13.3.0",

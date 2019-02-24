@@ -51,7 +51,6 @@
     "@types/window-size": "0.2.4",
     "chai": "4.2.0",
     "codecov": "3.2.0",
-    "eslint-plugin-promise": "^4.0.1",
     "json-typescript": "1.1.0",
     "mocha": "6.0.1",
     "nyc": "13.3.0",
