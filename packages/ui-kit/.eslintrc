@@ -4,12 +4,15 @@
     "sourceType": "module",
     "project": "tsconfig.json"
   },
-  "plugins": ["ember"],
-  "extends": ["../.eslintrc", "plugin:ember/recommended"],
+  "plugins": ["ember", "@typescript-eslint", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "extends": ["plugin:ember/recommended"],
   "env": {
     "browser": true
   },
-  "rules": {},
+  "rules": {
+    "strict": "off"
+  },
   "overrides": [
     {
       "files": [

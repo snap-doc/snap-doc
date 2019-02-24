@@ -2,8 +2,11 @@
   "extends": "../tsconfig.settings.json",
   "compilerOptions": {
     "outDir": "lib",
-    "types": ["node"]
+    "types": ["node"],
+    "baseUrl": ".",
+    "paths": {
+      "*": ["types/*"]
+    }
   },
-  "include": ["src"],
-  "exclude": ["lib"]
+  "include": ["src"]
 }

@@ -6,6 +6,7 @@ const log = debug('snap-doc:base-emitter');
 
 abstract class Emitter<O extends EmitterOptions = EmitterOptions, W extends Workspace = Workspace> {
   constructor(protected options: O) {}
+
   public async emit(workspace: W): Promise<void> {
     const [ready, err] = await this.validateConditions();
     if (ready) {
@@ -27,6 +28,7 @@ abstract class Emitter<O extends EmitterOptions = EmitterOptions, W extends Work
   }
 
   protected abstract async generate(workspace: W): Promise<void>;
+
   protected async validateResult(): Promise<void> {
     return Promise.resolve();
   }

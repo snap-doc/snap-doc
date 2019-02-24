@@ -1,8 +1,67 @@
 {
-  "root": true,
   "parser": "@typescript-eslint/parser",
-  "extends": ["eslint:recommended"],
+  "plugins": ["@typescript-eslint", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "airbnb-base",
+    "plugin:prettier/recommended",
+    "plugin:import/warnings"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 9,
+    "sourceType": "module",
+    "project": "tsconfig.json"
+  },
   "env": {
-    "browser": true
-  }
+    "es6": true,
+    "browser": false,
+    "node": false,
+    "shared-node-browser": true
+  },
+  "rules": {
+    "camelcase": "off",
+    "no-unused-vars": "off",
+    "import/no-unresolved": "off",
+    "import/export": "off",
+    "import/first": "off",
+    "import/no-extraneous-dependencies": "off",
+    "no-underscore-dangle": "off",
+    "no-plusplus": "off",
+    "no-useless-constructor": "off",
+    "import/prefer-default-export": "off",
+    "no-use-before-define": "off",
+    "no-bitwise": "off",
+    "no-restricted-syntax": "off",
+    "no-console": "off",
+    "no-dupe-class-members": "off",
+    "max-classes-per-file": ["error", 1],
+    "complexity": "off",
+    "no-empty-function": "off",
+    "class-methods-use-this": "off"
+  },
+  "overrides": [
+    {
+      "files": ["**/test/**/*.ts"],
+      "env": {
+        "node": true
+      },
+      "rules": {
+        "class-methods-use-this": "off",
+        "max-classes-per-file": "off"
+      }
+    },
+    {
+      "files": ["**/.remarkrc.js"],
+      "env": {
+        "node": true
+      }
+    },
+    {
+      "files": ["**/__snapshots__/**/*"],
+      "env": {
+        "node": true
+      },
+      "rules": { "comma-dangle": "off" }
+    }
+  ]
 }

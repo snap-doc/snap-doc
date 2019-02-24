@@ -1,9 +1,17 @@
 {
-  "extends": ["../.eslintrc"],
+  "extends": ["../.eslintrc", "plugin:node/recommended"],
   "parserOptions": {
     "project": "tsconfig.json"
   },
   "env": {
     "node": true
+  },
+  "rules": {
+    "node/no-unsupported-features/es-syntax": [
+      "error",
+      {
+        "ignores": ["modules"]
+      }
+    ]
   }
 }

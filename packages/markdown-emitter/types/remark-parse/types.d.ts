@@ -26,6 +26,7 @@ export interface Tokenizer {
 
 export class MDParser extends Parser {
   public blockMethods: string[];
+
   public inlineTokenizers: {
     [k: string]: Tokenizer;
   };

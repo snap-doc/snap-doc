@@ -14,12 +14,15 @@ class AcceptanceTestCase {
     private caseCleanup: () => void,
     private folderStr: string,
   ) {}
+
   public cleanup() {
     this.caseCleanup();
   }
+
   public contentFor(fileName: string): string {
     return readFileSync(join(this.rootPath, fileName)).toString();
   }
+
   public toString() {
     return this.folderStr;
   }
