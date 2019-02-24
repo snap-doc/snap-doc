@@ -38,6 +38,9 @@
   "bugs": {
     "url": "https://github.com/snap-doc/snap-doc/issues"
   },
+  "engines": {
+    "node": "8.* || >= 10.*"
+  },
   "devDependencies": {
     "@types/chai": "4.1.7",
     "@types/commander": "2.12.2",
@@ -46,12 +49,9 @@
     "@types/mocha": "5.2.6",
     "@types/tmp": "0.0.34",
     "@types/window-size": "0.2.4",
-    "@typescript-eslint/eslint-plugin": "1.4.1",
-    "@typescript-eslint/parser": "1.4.1",
     "chai": "4.2.0",
     "codecov": "3.2.0",
-    "eslint-config-airbnb-base": "13.1.0",
-    "eslint-plugin-import": "2.16.0",
+    "eslint-plugin-promise": "^4.0.1",
     "json-typescript": "1.1.0",
     "mocha": "6.0.1",
     "nyc": "13.3.0",

@@ -19,6 +19,7 @@ export default class FileEmitterWorkspace extends Workspace {
       : slug;
     return [this.prefixFor(entity), modulePath];
   }
+
   protected pathPartsForSymbol(entity: LinkedFormattedSymbol): string[] {
     return [this.prefixFor(entity), this.slugger.slugFor(entity)];
   }

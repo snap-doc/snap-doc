@@ -44,7 +44,7 @@ function mdForSymbolTitle(
   if (url) {
     return [heading(opts.baseDepth || 1, link(url, sName, title))];
   }
-    return [heading(opts.baseDepth || 1, title)];
+  return [heading(opts.baseDepth || 1, title)];
 }
 
 function mdForSymbolSignatures(
@@ -105,7 +105,8 @@ export function mdForSymbolType(
     numberIndexType,
     typeParameters,
   } = type;
-  if (flags && (flags.includes('variable') || flags.includes('typeAlias'))) parts.push(blockquote(code('ts', type.text)));
+  if (flags && (flags.includes('variable') || flags.includes('typeAlias')))
+    parts.push(blockquote(code('ts', type.text)));
   if (typeParameters) {
     parts.push(
       paragraph(strong(text('Type Parameters'))),
