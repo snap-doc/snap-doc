@@ -7,4 +7,4 @@ export default class XFoo extends Component.extend({
 }) {
   layout = layout;
   // normal class body definition here
-};
+}

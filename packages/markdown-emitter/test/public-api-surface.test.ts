@@ -8,13 +8,13 @@ export class PublicApiSurfaceTest {
   public async 'expected exported items'(): Promise<void> {
     expect(Object.keys(Exports).sort()).to.deep.eq([
       'MarkdownFileEmitter',
-      'MarkdownFileEmitterWorkspace'
+      'MarkdownFileEmitterWorkspace',
     ]);
 
     expect(Exports.MarkdownFileEmitter).to.be.a('function', 'class MarkdownFileEmitter');
     expect(Exports.MarkdownFileEmitterWorkspace).to.be.a(
       'function',
-      'class MarkdownFileEmitterWorkspace'
+      'class MarkdownFileEmitterWorkspace',
     );
   }
 }

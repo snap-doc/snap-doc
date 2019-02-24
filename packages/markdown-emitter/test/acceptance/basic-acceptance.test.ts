@@ -4,7 +4,7 @@ import { setupAcceptanceTest } from './helpers';
 
 async function runAcceptanceTest(code: string, expectedComments: string): Promise<void> {
   const tc = await setupAcceptanceTest({
-    'index.ts': code
+    'index.ts': code,
   });
   expect(tc.contentFor('modules/index.ts.md')).to.eq(expectedComments);
 
@@ -30,7 +30,7 @@ export class BasicAcceptance {
 
 \`function\`
 
-\`(a: number, b: number): string\``
+\`(a: number, b: number): string\``,
     );
   }
 
@@ -60,7 +60,7 @@ export function add(a: any, b: any): any {
 
 \`(a: number, b: number): number\`
 
-\`(a: string, b: string): string\``
+\`(a: string, b: string): string\``,
     );
   }
 
@@ -82,7 +82,7 @@ export function add(a: any, b: any): any {
 
 > \`\`\`ts
 > string | number
-> \`\`\``
+> \`\`\``,
     );
   }
 
@@ -106,7 +106,7 @@ export function add(a: any, b: any): any {
 
 > \`\`\`ts
 > string | number
-> \`\`\``
+> \`\`\``,
     );
   }
 
@@ -132,7 +132,7 @@ export function add(a: any, b: any): any {
 
 > \`\`\`ts
 > [k: string]: number
-> \`\`\``
+> \`\`\``,
     );
   }
   @test
@@ -161,7 +161,7 @@ export function add(a: any, b: any): any {
 
 > \`\`\`ts
 > [k: string]: T
-> \`\`\``
+> \`\`\``,
     );
   }
 
@@ -187,7 +187,7 @@ export function add(a: any, b: any): any {
 
 > \`\`\`ts
 > [k: string]: T
-> \`\`\``
+> \`\`\``,
     );
   }
 
@@ -213,7 +213,7 @@ export function add(a: any, b: any): any {
 
 > \`\`\`ts
 > [k: string]: T
-> \`\`\``
+> \`\`\``,
     );
   }
 
@@ -235,7 +235,7 @@ export function add(a: any, b: any): any {
 
 \`class\`
 
-\`(bar: string): SimpleClass\``
+\`(bar: string): SimpleClass\``,
     );
   }
 
@@ -271,7 +271,7 @@ export function add(a: any, b: any): any {
 
 > \`\`\`ts
 > string[]
-> \`\`\``
+> \`\`\``,
     );
   }
 
@@ -315,7 +315,7 @@ export class SimpleClass extends SimpleBase {
 
 > \`\`\`ts
 > string
-> \`\`\``
+> \`\`\``,
     );
   }
 
@@ -345,7 +345,7 @@ export class SimpleClass extends SimpleBase {
 
 > \`\`\`ts
 > string
-> \`\`\``
+> \`\`\``,
     );
   }
 
@@ -374,7 +374,7 @@ export class SimpleClass extends SimpleBase {
 
 > \`\`\`ts
 > string
-> \`\`\``
+> \`\`\``,
     );
   }
 
@@ -396,7 +396,7 @@ export class SimpleClass extends SimpleBase {
 
 > \`\`\`ts
 > "Text"
-> \`\`\``
+> \`\`\``,
     );
   }
   @test
@@ -417,7 +417,7 @@ export class SimpleClass extends SimpleBase {
 
 > \`\`\`ts
 > string
-> \`\`\``
+> \`\`\``,
     );
   }
   @test
@@ -439,7 +439,7 @@ export type TextType = typeof MySymbol;`,
 
 > \`\`\`ts
 > "Text"
-> \`\`\``
+> \`\`\``,
     );
   }
 
@@ -465,7 +465,7 @@ export type NodeType = ElementType | TextType;`,
 
 > \`\`\`ts
 > NodeType
-> \`\`\``
+> \`\`\``,
     );
   }
 
@@ -492,7 +492,7 @@ export const DefaultType: NodeType = ElementType;`,
 
 > \`\`\`ts
 > NodeType
-> \`\`\``
+> \`\`\``,
     );
   }
 }

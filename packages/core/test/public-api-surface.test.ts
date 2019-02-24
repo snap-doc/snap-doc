@@ -12,7 +12,7 @@ export class PublicApiSurfaceTest {
       'isFunction',
       'isProperty',
       'isType',
-      'sortSymbols'
+      'sortSymbols',
     ]);
 
     expect(Exports.DocGenerator).to.be.a('function', 'class DocGenerator');

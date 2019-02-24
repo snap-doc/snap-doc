@@ -22,7 +22,7 @@ export default class MarkdownFileEmitter extends FileEmitter<
 
   public async generate(workspace: MarkdownFileEmitterWorkspace): Promise<void> {
     const {
-      data: { sourceFiles: files }
+      data: { sourceFiles: files },
     } = workspace;
     const { outDir } = this.options;
 
@@ -38,7 +38,7 @@ export default class MarkdownFileEmitter extends FileEmitter<
 Please use either
   (1) the 'overwriteOutDir' API option or
   (2) the '--force' CLI flag
-if you want to replace existing content in the output directory`
+if you want to replace existing content in the output directory`,
         );
       }
     }
@@ -59,7 +59,7 @@ if you want to replace existing content in the output directory`
         const outPath = this.pathInOutDir(workspace.pathFor(f));
         const content = this.contentForModule(workspace, f, {
           classes: classSymbols,
-          types: typeSymbols
+          types: typeSymbols,
         });
         this.writeFileInOutDir(outPath, content);
         return [f.moduleName, outPath];
@@ -88,25 +88,25 @@ if you want to replace existing content in the output directory`
           rootWithTitle(1, text(workspace.projectName), [
             heading(2, text('Modules')),
             paragraph(
-              list('unordered', modulePaths.map(mp => listItem(link(mp[1], mp[0], text(mp[0])))))
+              list('unordered', modulePaths.map(mp => listItem(link(mp[1], mp[0], text(mp[0]))))),
             ),
             heading(2, text('Classes')),
             paragraph(
-              list('unordered', classPaths.map(cp => listItem(link(cp[1], cp[0], text(cp[0])))))
+              list('unordered', classPaths.map(cp => listItem(link(cp[1], cp[0], text(cp[0]))))),
             ),
             heading(2, text('Types')),
             paragraph(
-              list('unordered', typePaths.map(tp => listItem(link(tp[1], tp[0], text(tp[0])))))
-            )
-          ])
+              list('unordered', typePaths.map(tp => listItem(link(tp[1], tp[0], text(tp[0]))))),
+            ),
+          ]),
         )
-        .trim()
+        .trim(),
     );
   }
 
   protected contentForSymbol(
     workspace: MarkdownFileEmitterWorkspace,
-    sym: LinkedFormattedSymbol
+    sym: LinkedFormattedSymbol,
   ): string {
     const root = markdownForSymbolFile(workspace, sym);
     return md.stringify(root).trim();
@@ -115,7 +115,7 @@ if you want to replace existing content in the output directory`
   protected contentForModule(
     workspace: MarkdownFileEmitterWorkspace,
     file: LinkedFormattedSourceFile,
-    symbolsToSerialize: { classes: LinkedFormattedSymbol[]; types: LinkedFormattedSymbol[] }
+    symbolsToSerialize: { classes: LinkedFormattedSymbol[]; types: LinkedFormattedSymbol[] },
   ): string {
     log(`serializing module: ${file.moduleName}`);
     const classSymbols: LinkedFormattedSymbol[] = [];
@@ -126,12 +126,12 @@ if you want to replace existing content in the output directory`
       file,
       {
         omitToc: !!this.options.omitToc,
-        detailedModules: this.options.detailedModules || false
+        detailedModules: this.options.detailedModules || false,
       },
       {
         classes: classSymbols,
-        types: typeSymbols
-      }
+        types: typeSymbols,
+      },
     );
     log(`  ├─ found classes:\t${classSymbols.map(s => s.text).join(', ')}`);
     log(`  └─ found types:\t${typeSymbols.map(s => s.text).join(', ')}`);

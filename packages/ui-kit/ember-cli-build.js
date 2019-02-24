@@ -2,16 +2,16 @@
 
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
-module.exports = function(defaults) {
-  let app = new EmberAddon(defaults, {
+module.exports = function build(defaults) {
+  const app = new EmberAddon(defaults, {
     // Add options here
     babel: {
-      sourceMaps: 'inline'
+      sourceMaps: 'inline',
     },
     sourcemaps: {
       enabled: true,
-      extensions: ['js']
-    }
+      extensions: ['js'],
+    },
   });
 
   /*

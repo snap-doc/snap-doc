@@ -81,11 +81,7 @@
     "scripty": "1.9.1",
     "sparkles-component": "1.3.0",
     "ts-node": "8.0.2",
-    "tslint": "5.12.1",
-    "tslint-config-prettier": "1.18.0",
-    "tslint-sonarts": "1.9.0",
-    "typescript": "3.3.3333",
-    "typescript-eslint-parser": "22.0.0"
+    "typescript": "3.3.3333"
   },
   "commitlint": {
     "extends": [
@@ -103,6 +99,8 @@
     "publish": "scripty",
     "clean": "scripty",
     "lint": "lerna run lint --parallel",
+    "lint:js": "lerna run lint:js --parallel --concurrency 8",
+    "lint:md": "lerna run lint:md --parallel --concurrency 8",
     "test": "lerna run test --concurrency 1",
     "test:core": "lerna run test --parallel --ignore=@snap-doc/ui-kit --ignore=@snap-doc/app --ignore=snap-doc",
     "rebuild": "scripty",

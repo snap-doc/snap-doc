@@ -3,10 +3,10 @@ import config from './config/environment';
 
 const Router = EmberRouter.extend({
   location: config.locationType,
-  rootURL: config.rootURL
+  rootURL: config.rootURL,
 });
 
-Router.map(function() {
-});
+// eslint-disable-next-line prefer-arrow-callback, array-callback-return
+Router.map(function router() {});
 
 export default Router;

@@ -4,5 +4,5 @@ export default {
   gfm: true,
   bullet: '*',
   fences: true,
-  incrementListMarker: false
+  incrementListMarker: false,
 } as Partial<RemarkStringifyOptions>;

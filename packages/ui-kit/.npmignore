@@ -10,7 +10,7 @@
 /.editorconfig
 /.ember-cli
 /.eslintignore
-/.eslintrc.js
+/.eslintrc
 /.gitignore
 /.template-lintrc.js
 /.travis.yml

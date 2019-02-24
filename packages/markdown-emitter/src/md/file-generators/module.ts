@@ -26,7 +26,7 @@ function createExportSection(
   sectionName: string,
   filePath: string,
   symCollection: Dict<LinkedFormattedSymbol>,
-  { summarizeOnly }: ExportSectionOptions
+  { summarizeOnly }: ExportSectionOptions,
 ): Node[] {
   const symbols = Object.keys(symCollection)
     .sort()
@@ -44,12 +44,12 @@ function createExportSection(
           includeTitle: true,
           includeDetails: !summarizeOnly,
           baseDepth: 4,
-          path: filePath
-        })
+          path: filePath,
+        }),
       );
       return all;
     },
-    [] as Node[]
+    [] as Node[],
   );
 
   const secRoot = [heading(3, text(sectionName)), ...parts];
@@ -60,7 +60,7 @@ export function createExportSections(
   w: MarkdownFileEmitterWorkspace,
   { classes, properties, types, functions }: SortedExportSymbols,
   filePath: string,
-  options: MarkdownGenOptions
+  options: MarkdownGenOptions,
 ): Node[] {
   const parts: Node[] = [
     ...createExportSection(w, 'Properties', filePath, properties, { summarizeOnly: false }),
@@ -68,13 +68,13 @@ export function createExportSections(
     ...createExportSection(w, 'Types', filePath, types, {
       summarizeOnly: !options.detailedModules,
       headerUrlFactory: (sym: LinkedFormattedSymbol) =>
-        w.host.pathRelativeTo(w.host.combinePaths(filePath, '..'), w.pathFor(sym))
+        w.host.pathRelativeTo(w.host.combinePaths(filePath, '..'), w.pathFor(sym)),
     }),
     ...createExportSection(w, 'Classes', filePath, classes, {
       summarizeOnly: !options.detailedModules,
       headerUrlFactory: (sym: LinkedFormattedSymbol) =>
-        w.host.pathRelativeTo(w.host.combinePaths(filePath, '..'), w.pathFor(sym))
-    })
+        w.host.pathRelativeTo(w.host.combinePaths(filePath, '..'), w.pathFor(sym)),
+    }),
   ];
   const secRoot = [heading(2, text('Exports')), ...parts];
   return secRoot;
@@ -89,7 +89,7 @@ export function markdownForSourceFile(
   workspace: MarkdownFileEmitterWorkspace,
   file: LinkedFormattedSourceFile,
   options: MarkdownGenOptions = { omitToc: false, detailedModules: false },
-  symbolsToSerialize: { classes: LinkedFormattedSymbol[]; types: LinkedFormattedSymbol[] }
+  symbolsToSerialize: { classes: LinkedFormattedSymbol[]; types: LinkedFormattedSymbol[] },
 ): Node {
   const { documentation, symbol } = file;
   const rootNode = rootWithTitle(1, inlineCode(file.moduleName));
@@ -106,12 +106,12 @@ export function markdownForSourceFile(
     symbolsToSerialize.classes.push(
       ...Object.keys(sortedExports.classes)
         .map(k => sortedExports.classes[k])
-        .filter(isDefined)
+        .filter(isDefined),
     );
     symbolsToSerialize.types.push(
       ...Object.keys(sortedExports.types)
         .map(k => sortedExports.types[k])
-        .filter(isDefined)
+        .filter(isDefined),
     );
   }
 

@@ -18,8 +18,8 @@ export class MarkdownUtilsTests {
     snapshot(
       createTagsTable('Important Information', [
         ['author', [{ type: 'text', value: 'Mike' }]],
-        ['note', [{ type: 'text', value: 'Read this carefully!' }]]
-      ])
+        ['note', [{ type: 'text', value: 'Read this carefully!' }]],
+      ]),
     );
   }
   @test
@@ -27,8 +27,8 @@ export class MarkdownUtilsTests {
     snapshot(
       organizeTags([
         ['author', [{ type: 'text', value: 'Mike' }]],
-        ['note', [{ type: 'text', value: 'Read this carefully!' }]]
-      ])
+        ['note', [{ type: 'text', value: 'Read this carefully!' }]],
+      ]),
     );
   }
 }

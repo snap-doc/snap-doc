@@ -7,15 +7,15 @@ import MarkdownFileEmitterWorkspace from '../../emitter/workspace';
 
 export function markdownForSymbolFile(
   workspace: MarkdownFileEmitterWorkspace,
-  sym: LinkedFormattedSymbol
+  sym: LinkedFormattedSymbol,
 ): Node {
   const rootNode = rootWithTitle(1, inlineCode(sym.text || sym.name));
   rootNode.children.push(
     ...mdForSymbol(workspace, sym, {
       includeDetails: true,
       includeTitle: false,
-      path: workspace.pathFor(sym)
-    })
+      path: workspace.pathFor(sym),
+    }),
   );
   addToc(rootNode);
   return rootNode;

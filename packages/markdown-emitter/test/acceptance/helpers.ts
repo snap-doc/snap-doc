@@ -12,7 +12,7 @@ class AcceptanceTestCase {
   constructor(
     private rootPath: string,
     private caseCleanup: () => void,
-    private folderStr: string
+    private folderStr: string,
   ) {}
   public cleanup() {
     this.caseCleanup();
@@ -36,12 +36,12 @@ export async function setupAcceptanceTest(src: FixtureFolder): Promise<Acceptanc
           module: 'commonjs',
           target: 'es2015',
           experimentalDecorators: true,
-          lib: ['scripthost', 'esnext']
+          lib: ['scripthost', 'esnext'],
         },
-        include: ['../src/**/*.ts', '**/*.ts']
-      })
+        include: ['../src/**/*.ts', '**/*.ts'],
+      }),
     },
-    ['src/index.ts']
+    ['src/index.ts'],
   );
   const pkg = await findPkgJson(testCase.rootPath);
   if (!pkg) {
@@ -50,21 +50,21 @@ export async function setupAcceptanceTest(src: FixtureFolder): Promise<Acceptanc
   const pkgInfo = {
     path: pkg.path,
     name: pkg.contents.name,
-    main: pkg.contents['doc:main'] || pkg.contents.main || pkg.path
+    main: pkg.contents['doc:main'] || pkg.contents.main || pkg.path,
   };
   const dg = new DocGenerator(testCase.program, NODE_HOST, {
     emitter: new MarkdownFileEmitter(NODE_HOST, {
       outDir: NODE_HOST.combinePaths(testCase.rootPath, 'out'),
       omitToc: true,
-      detailedModules: true
+      detailedModules: true,
     }),
-    pkgInfo
+    pkgInfo,
   });
   const workspace = new MarkdownFileEmitterWorkspace(NODE_HOST, pkgInfo);
   await dg.emit(workspace);
   return new AcceptanceTestCase(
     NODE_HOST.combinePaths(testCase.rootPath, 'out'),
     testCase.cleanup,
-    '' + testCase
+    `${testCase}`,
   );
 }

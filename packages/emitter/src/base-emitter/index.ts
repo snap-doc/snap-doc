@@ -1,6 +1,6 @@
+import * as debug from 'debug';
 import EmitterOptions from './options';
 import Workspace from './workspace';
-import * as debug from 'debug';
 
 const log = debug('snap-doc:base-emitter');
 

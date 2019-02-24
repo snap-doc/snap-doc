@@ -6,14 +6,13 @@ import { module, test } from 'qunit';
 module('Integration | Component | x-foo', hooks => {
   setupRenderingTest(hooks);
 
-  // tslint:disable-next-line:typedef
-  test('it renders', async function(assert: Assert) {
+  test('it renders', async function run(assert: Assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
     await render(hbs`{{x-foo}}`);
 
-    assert.equal(('' + this.element.textContent).trim(), '');
+    assert.equal(`${this.element.textContent}`.trim(), '');
 
     // Template block usage:
     await render(hbs`
@@ -22,6 +21,6 @@ module('Integration | Component | x-foo', hooks => {
       {{/x-foo}}
     `);
 
-    assert.equal(('' + this.element.textContent).trim(), 'template block text');
+    assert.equal(`${this.element.textContent}`.trim(), 'template block text');
   });
 });

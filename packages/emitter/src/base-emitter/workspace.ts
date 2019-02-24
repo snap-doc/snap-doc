@@ -1,11 +1,11 @@
 import {
   LinkedFormattedOutputData,
   LinkedFormattedSourceFile,
-  LinkedFormattedSymbol
+  LinkedFormattedSymbol,
 } from '@code-to-json/formatter-linker';
-import Slugger from '../slugger';
 import * as debug from 'debug';
 import { UnreachableError } from '@code-to-json/utils';
+import Slugger from '../slugger';
 
 const log = debug('snap-doc:base-emitter/workspace');
 
@@ -76,11 +76,11 @@ abstract class Workspace {
   protected prefixFor(entity: Pathable): string {
     if (entity.kind === 'sourceFile') {
       return 'modules';
-    } else if (entity.kind === 'symbol') {
-      return this.prefixForSymbol(entity);
-    } else {
-      throw new UnreachableError(entity);
     }
+    if (entity.kind === 'symbol') {
+      return this.prefixForSymbol(entity);
+    }
+    throw new UnreachableError(entity);
   }
 }
 

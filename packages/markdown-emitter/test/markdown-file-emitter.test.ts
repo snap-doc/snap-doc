@@ -27,18 +27,16 @@ export class MarkdownFileEmitterTests {
         isFile(_path: string): boolean {
           return true;
         },
-        // tslint:disable-next-line:no-empty
         async removeFolderAndContents(_name: string): Promise<void> {},
-        // tslint:disable-next-line:no-empty
         createFolder(_name: string): void {},
         writeFileSync(filePath: string, contents: string): void {
           writeParams.push([filePath, contents]);
-        }
+        },
       },
       {
         projectName: 'foo',
-        outDir: 'out'
-      }
+        outDir: 'out',
+      },
     );
     const fwo: LinkedFormattedOutputData = {
       types: {},
@@ -47,8 +45,8 @@ export class MarkdownFileEmitterTests {
           id: '12345',
           kind: 'symbol',
           flags: ['module'],
-          name: 'src/foo/bar'
-        }
+          name: 'src/foo/bar',
+        },
       },
       declarations: {},
       nodes: {},
@@ -67,12 +65,12 @@ export class MarkdownFileEmitterTests {
               {
                 kind: 'blockTag' as 'blockTag',
                 tagName: 'author',
-                content: ['Mike']
+                content: ['Mike'],
               },
               {
                 kind: 'blockTag' as 'blockTag',
                 tagName: 'foobar',
-                content: ['Baz']
+                content: ['Baz'],
               },
               {
                 kind: 'blockTag' as 'blockTag',
@@ -81,20 +79,20 @@ export class MarkdownFileEmitterTests {
                   {
                     kind: 'fencedCode',
                     language: 'js',
-                    code: 'foo() {}'
-                  } as CommentFencedCode
-                ]
-              }
-            ]
-          }
-        }
-      }
+                    code: 'foo() {}',
+                  } as CommentFencedCode,
+                ],
+              },
+            ],
+          },
+        },
+      },
     };
 
     const workspace = new MarkdownFileEmitterWorkspace(NODE_HOST, {
       path: 'out',
       main: 'src/index.ts',
-      name: 'my-example-project'
+      name: 'my-example-project',
     });
     workspace.data = fwo;
     await mfe.emit(workspace);

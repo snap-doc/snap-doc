@@ -10,7 +10,7 @@ export class PublicApiSurfaceTest {
       'Emitter',
       'EmitterWorkspace',
       'FileEmitter',
-      'FileEmitterWorkspace'
+      'FileEmitterWorkspace',
     ]);
 
     expect(Exports.Emitter).to.be.a('function', 'class Emitter');

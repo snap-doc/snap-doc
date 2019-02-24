@@ -1,7 +1,7 @@
 import {
+  LinkedFormattedOutputData,
   LinkedFormattedSourceFile,
   LinkedFormattedSymbol,
-  LinkedFormattedOutputData
 } from '@code-to-json/formatter-linker';
 import { forEachDict } from '@code-to-json/utils-ts';
 import { Dict } from '@mike-north/types';
@@ -24,7 +24,7 @@ export default class Slugger {
   public slugFor(entity: Sluggable): string {
     const s = this.slugs.get(entity);
     if (!s) {
-      throw new Error('No slug found for entity: ' + entity.kind);
+      throw new Error(`No slug found for entity: ${entity.kind}`);
     }
     return s;
   }
@@ -36,7 +36,8 @@ export default class Slugger {
       const word = sf.path;
       let ct: number;
       if (typeof duplicateWords[word] === 'undefined') {
-        ct = duplicateWords[word] = 0;
+        ct = 0;
+        duplicateWords[word] = ct;
       } else {
         // typeof duplicateWords[word] === 'number'
         ct = (duplicateWords[word] as number)++;
