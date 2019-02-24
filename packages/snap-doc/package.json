@@ -21,7 +21,7 @@
     "test": "mocha",
     "lint:js": "eslint . --ext js,ts",
     "lint:md": "remark .",
-    "lint": "yarn lint:js && yarn lint:ts && yarn lint:md"
+    "lint": "yarn lint:js && yarn lint:md"
   },
   "bugs": {
     "url": "https://github.com/snap-doc/snap-doc/issues"
@@ -37,7 +37,6 @@
     "eslint-plugin-import": "^2.16.0",
     "json-typescript": "1.1.0",
     "mocha": "5.2.0",
-    "mocha-typescript": "1.1.17",
     "nyc": "13.3.0",
     "remark-cli": "6.0.1",
     "remark-lint": "6.0.4",
