@@ -1,4 +1,4 @@
-exports['MarkdownUtilsTests createTagsTable - no rows 1'] = {
+exports['Markdown utils tests createTagsTable - no rows 1'] = {
   "type": "table",
   "children": [
     {
@@ -22,7 +22,7 @@ exports['MarkdownUtilsTests createTagsTable - no rows 1'] = {
   ]
 }
 
-exports['MarkdownUtilsTests createTagsTable - with rows 1'] = {
+exports['Markdown utils tests createTagsTable - with rows 1'] = {
   "type": "table",
   "children": [
     {
@@ -102,7 +102,7 @@ exports['MarkdownUtilsTests createTagsTable - with rows 1'] = {
   ]
 }
 
-exports['MarkdownUtilsTests organizeTags tests 1'] = {
+exports['Markdown utils tests organizeTags tests 1'] = {
   "top": [
     [
       "author",
@@ -128,7 +128,7 @@ exports['MarkdownUtilsTests organizeTags tests 1'] = {
   ]
 }
 
-exports['MarkdownUtilsTests parseParagraphContent simple text list 1'] = [
+exports['Markdown utils tests parseParagraphContent simple text list 1'] = [
   {
     "type": "paragraph",
     "children": [

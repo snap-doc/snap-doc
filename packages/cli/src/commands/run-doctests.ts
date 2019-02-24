@@ -5,7 +5,7 @@ import {
   LinkedFormattedOutputData,
   LinkedFormattedSourceFile,
   LinkedFormattedSymbol,
-  linkFormatterData
+  linkFormatterData,
 } from '@code-to-json/formatter-linker';
 import { isDefined } from '@code-to-json/utils';
 import { findPkgJson, NODE_HOST } from '@code-to-json/utils-node';
@@ -43,7 +43,7 @@ interface DocTestFile {
 function gatherDocTest(tag: CommentBlockTag): DocTest | undefined {
   const { content } = tag;
   if (!content) {
-    return;
+    return undefined;
   }
   const contentArr = content.filter((c): c is string => typeof c === 'string' && c !== '\n');
   const codeArray: string[] = [];
@@ -57,23 +57,23 @@ function gatherDocTest(tag: CommentBlockTag): DocTest | undefined {
   });
   return {
     codeArray,
-    importsArray
+    importsArray,
   };
 }
 
 function gatherSymbolDocTests(sym: LinkedFormattedSymbol): DocTestSymbol | undefined {
   const { documentation } = sym;
   if (!documentation) {
-    return;
+    return undefined;
   }
   const { customTags } = documentation;
   if (!customTags) {
-    return;
+    return undefined;
   }
 
   const examples = customTags.filter(ct => ['example', 'doctest'].indexOf(ct.tagName) >= 0);
   if (examples.length === 0) {
-    return;
+    return undefined;
   }
   const { name } = sym;
   return { name, tests: examples.map(gatherDocTest).filter(isDefined) };
@@ -82,7 +82,7 @@ function gatherSymbolDocTests(sym: LinkedFormattedSymbol): DocTestSymbol | undef
 function gatherFileDocTests(file: LinkedFormattedSourceFile): DocTestFile | undefined {
   const fileSym = file.symbol;
   if (!fileSym || typeof fileSym.exports === 'undefined') {
-    return;
+    return undefined;
   }
   const { exports: fileExports } = fileSym;
   const exportSyms = Object.keys(fileExports)
@@ -108,10 +108,10 @@ export default async function runDoctests(pth: string, _commander: Command): Pro
   const pkgInfo = {
     path: pkg.path,
     name: pkg.contents.name,
-    main: pkg.contents['doc:main'] || pkg.contents.main || pkg.path
+    main: pkg.contents['doc:main'] || pkg.contents.main || pkg.path,
   };
   const walkerOutput = walkProgram(prog, NODE_HOST, {
-    pathNormalizer: createReverseResolver(NODE_HOST, pkgInfo)
+    pathNormalizer: createReverseResolver(NODE_HOST, pkgInfo),
   });
 
   const formatted = formatWalkerOutput(walkerOutput);
@@ -134,18 +134,18 @@ export default async function runDoctests(pth: string, _commander: Command): Pro
             log(`    ${symName} - no doctests`);
             return;
           }
-          return Promise.all(
+          await Promise.all(
             // for each tagged blog comment (i.e., an @example or @doctest)
             tests.map(async t => {
               const { codeArray, importsArray } = t;
               // run the test
               await runTest({ codeArray, importsArray });
-            })
+            }),
           )
             .then(() => console.log(`    ✅ ${symName}`))
             .catch(() => console.log(`    ❌ ${symName}`));
-        })
+        }),
       );
-    })
+    }),
   );
 }

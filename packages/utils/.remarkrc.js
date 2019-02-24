@@ -6,9 +6,9 @@ exports.plugins = [
     [
       'error',
       {
-        skipOffline: true
-      }
-    ]
+        skipOffline: true,
+      },
+    ],
   ],
   ['remark-validate-links', { repository: 'snap-doc/snap-doc' }],
   ['remark-lint-list-item-indent', false],
@@ -17,5 +17,5 @@ exports.plugins = [
   ['remark-lint-maximum-line-length', false],
   ['remark-lint-unordered-list-marker-style', false],
   ['remark-lint-no-duplicate-headings', false],
-  ['remark-lint-heading-increment', false]
+  ['remark-lint-heading-increment', false],
 ];

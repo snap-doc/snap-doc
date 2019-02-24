@@ -1,22 +1,6 @@
 {
-  "parser": "typescript-eslint-parser",
+  "extends": ["../.eslintrc"],
   "parserOptions": {
-    "ecmaVersion": 2017,
-    "sourceType": "module"
-  },
-  "extends": ["eslint:recommended"],
-  "rules": {},
-  "overrides": [
-    {
-      "files": [".remarkrc.js"],
-      "env": { "node": true }
-    },
-    {
-      "files": ["__tests__/*"],
-      "env": {
-        "node": true,
-        "mocha": true
-      }
-    }
-  ]
+    "project": "tsconfig.json"
+  }
 }

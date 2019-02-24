@@ -1,20 +1,18 @@
 import { expect } from 'chai';
-import { suite, test } from 'mocha-typescript';
+import { describe, it } from 'mocha';
 import * as Exports from '../src/index';
 
-@suite
-export class PublicApiSurfaceTest {
-  @test
-  public async 'expected exported items'(): Promise<void> {
+describe('Public API surface test', () => {
+  it('expected exported items', async () => {
     expect(Object.keys(Exports).sort()).to.deep.eq([
       'DocGenerator',
       'isClass',
       'isFunction',
       'isProperty',
       'isType',
-      'sortSymbols'
+      'sortSymbols',
     ]);
 
     expect(Exports.DocGenerator).to.be.a('function', 'class DocGenerator');
-  }
-}
+  });
+});

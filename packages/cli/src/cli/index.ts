@@ -10,7 +10,7 @@ function invalidCommandHelp(): void {
     hlp => `
 ${NO_CMD_TXT}
 
-${hlp}`
+${hlp}`,
   );
 }
 

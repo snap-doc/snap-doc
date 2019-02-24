@@ -24,15 +24,15 @@ export default async function generateDocs(pth: string, commander: Command): Pro
   const pkgInfo = {
     path: pkg.path,
     name: pkg.contents.name,
-    main: pkg.contents['doc:main'] || pkg.contents.main || pkg.path
+    main: pkg.contents['doc:main'] || pkg.contents.main || pkg.path,
   };
   const { force = false } = commander.opts();
   const dg = new DocGenerator(prog, NODE_HOST, {
     emitter: new MarkdownFileEmitter(NODE_HOST, {
       outDir: path.join(process.cwd(), 'out'),
-      overwriteOutDir: force
+      overwriteOutDir: force,
     }),
-    pkgInfo
+    pkgInfo,
   });
   try {
     await dg.emit(new MarkdownFileEmitterWorkspace(NODE_HOST, pkgInfo));

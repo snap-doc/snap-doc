@@ -19,6 +19,7 @@ export function removePositionInformation(nodes: Node[]): Node[] {
     if (isParent(n)) {
       removePositionInformation(n.children);
     }
+    // eslint-disable-next-line no-param-reassign
     delete n.position;
     return n;
   });
@@ -27,6 +28,7 @@ export function removePositionInformation(nodes: Node[]): Node[] {
 export function indentHeadings(shift: number, ...nodes: Node[]): void {
   nodes.forEach(n => {
     if (n.type === 'heading') {
+      // eslint-disable-next-line no-param-reassign
       n.depth = (n.depth as number) + shift;
     }
     if (isParent(n)) {

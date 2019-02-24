@@ -2,15 +2,13 @@ import { CommentFencedCode } from '@code-to-json/comments';
 import { LinkedFormattedOutputData } from '@code-to-json/formatter-linker';
 import { NODE_HOST } from '@code-to-json/utils-node';
 import { expect } from 'chai';
-import { suite, test } from 'mocha-typescript';
 import { join } from 'path';
+import { describe, it } from 'mocha';
 import MarkdownFileEmitter from '../src/emitter';
 import MarkdownFileEmitterWorkspace from '../src/emitter/workspace';
 
-@suite
-export class MarkdownFileEmitterTests {
-  @test
-  public async 'markdown emitter'(): Promise<void> {
+describe('Markdown file emitter tests', () => {
+  it('markdown emitter', async () => {
     const writeParams: Array<[string, string]> = [];
     const mfe = new MarkdownFileEmitter(
       {
@@ -27,18 +25,16 @@ export class MarkdownFileEmitterTests {
         isFile(_path: string): boolean {
           return true;
         },
-        // tslint:disable-next-line:no-empty
         async removeFolderAndContents(_name: string): Promise<void> {},
-        // tslint:disable-next-line:no-empty
         createFolder(_name: string): void {},
         writeFileSync(filePath: string, contents: string): void {
           writeParams.push([filePath, contents]);
-        }
+        },
       },
       {
         projectName: 'foo',
-        outDir: 'out'
-      }
+        outDir: 'out',
+      },
     );
     const fwo: LinkedFormattedOutputData = {
       types: {},
@@ -47,8 +43,8 @@ export class MarkdownFileEmitterTests {
           id: '12345',
           kind: 'symbol',
           flags: ['module'],
-          name: 'src/foo/bar'
-        }
+          name: 'src/foo/bar',
+        },
       },
       declarations: {},
       nodes: {},
@@ -67,12 +63,12 @@ export class MarkdownFileEmitterTests {
               {
                 kind: 'blockTag' as 'blockTag',
                 tagName: 'author',
-                content: ['Mike']
+                content: ['Mike'],
               },
               {
                 kind: 'blockTag' as 'blockTag',
                 tagName: 'foobar',
-                content: ['Baz']
+                content: ['Baz'],
               },
               {
                 kind: 'blockTag' as 'blockTag',
@@ -81,20 +77,20 @@ export class MarkdownFileEmitterTests {
                   {
                     kind: 'fencedCode',
                     language: 'js',
-                    code: 'foo() {}'
-                  } as CommentFencedCode
-                ]
-              }
-            ]
-          }
-        }
-      }
+                    code: 'foo() {}',
+                  } as CommentFencedCode,
+                ],
+              },
+            ],
+          },
+        },
+      },
     };
 
     const workspace = new MarkdownFileEmitterWorkspace(NODE_HOST, {
       path: 'out',
       main: 'src/index.ts',
-      name: 'my-example-project'
+      name: 'my-example-project',
     });
     workspace.data = fwo;
     await mfe.emit(workspace);
@@ -110,5 +106,5 @@ export class MarkdownFileEmitterTests {
     expect(writeParams[1][1]).to.contain('# my-example-project').to.contain(`## Modules
 
 *   [foo](modules/foo/bar.md "foo"`);
-  }
-}
+  });
+});

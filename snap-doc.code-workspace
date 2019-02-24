@@ -1,7 +1,6 @@
 {
   "settings": {
     "typescript.tsdk": "node_modules/typescript/lib",
-    "editor.formatOnSave": true,
     "files.exclude": {
       "**/.git": true,
       "**/.svn": true,
@@ -17,7 +16,10 @@
       "packages/*/lib": true,
       "**/node_modules": true,
       "**/bower_components": true
-    }
+    },
+    "eslint.enable": true,
+    "eslint.validate": ["javascript", "typescript"],
+    "eslint.packageManager": "yarn"
   },
   "folders": [
     {

@@ -1,7 +1,7 @@
 import {
   LinkedFormattedSignature,
   LinkedFormattedSymbol,
-  LinkedFormattedType
+  LinkedFormattedType,
 } from '@code-to-json/formatter-linker';
 import { isDefined } from '@code-to-json/utils';
 import { Dict } from '@mike-north/types';
@@ -15,7 +15,7 @@ import {
   text,
   list,
   listItem,
-  strong
+  strong,
 } from 'mdast-builder';
 import { Node } from 'unist';
 import { createDocumentationForCommentData } from './comment-data';
@@ -32,7 +32,7 @@ export interface MDSymbolOptions {
 function mdForSymbolTitle(
   w: MarkdownFileEmitterWorkspace,
   s: LinkedFormattedSymbol,
-  opts: MDSymbolOptions
+  opts: MDSymbolOptions,
 ): Node[] {
   const { includeTitle } = opts;
   if (!includeTitle) {
@@ -43,15 +43,14 @@ function mdForSymbolTitle(
   const title = inlineCode(sName);
   if (url) {
     return [heading(opts.baseDepth || 1, link(url, sName, title))];
-  } else {
-    return [heading(opts.baseDepth || 1, title)];
   }
+    return [heading(opts.baseDepth || 1, title)];
 }
 
 function mdForSymbolSignatures(
   s: LinkedFormattedSymbol,
   sigs: LinkedFormattedSignature[] | undefined,
-  head: Node[]
+  head: Node[],
 ): Node[] {
   const parts: Node[] = [];
 
@@ -83,18 +82,18 @@ function mdForProperties(props: Dict<LinkedFormattedSymbol>, opts: MDSymbolOptio
               parts.push(...createDocumentationForCommentData(documentation));
             }
             return parts;
-          })
+          }),
         );
         return lst;
       },
-      [] as Node[]
+      [] as Node[],
     );
 }
 
 export function mdForSymbolType(
   s: LinkedFormattedSymbol,
   type: LinkedFormattedType,
-  opts: MDSymbolOptions
+  opts: MDSymbolOptions,
 ): Node[] {
   const parts: Node[] = [];
   const { flags } = s;
@@ -104,10 +103,9 @@ export function mdForSymbolType(
     properties,
     stringIndexType,
     numberIndexType,
-    typeParameters
+    typeParameters,
   } = type;
-  if (flags && (flags.includes('variable') || flags.includes('typeAlias')))
-    parts.push(blockquote(code('ts', type.text)));
+  if (flags && (flags.includes('variable') || flags.includes('typeAlias'))) parts.push(blockquote(code('ts', type.text)));
   if (typeParameters) {
     parts.push(
       paragraph(strong(text('Type Parameters'))),
@@ -122,21 +120,21 @@ export function mdForSymbolType(
                 typeLabelParts.push('extends', constraint.text);
               }
               return inlineCode(`<${typeLabelParts.join(' ')}>`);
-            })
-          )
-        )
-      )
+            }),
+          ),
+        ),
+      ),
     );
   }
   parts.push(
     ...mdForSymbolSignatures(s, callSignatures, [
-      heading((opts.baseDepth || 1) + 1, text('Call Signatures'))
-    ])
+      heading((opts.baseDepth || 1) + 1, text('Call Signatures')),
+    ]),
   );
   parts.push(
     ...mdForSymbolSignatures(s, constructorSignatures, [
-      heading((opts.baseDepth || 1) + 1, text('Constructor Signatures'))
-    ])
+      heading((opts.baseDepth || 1) + 1, text('Constructor Signatures')),
+    ]),
   );
   if (properties) {
     parts.push(...mdForProperties(properties, opts));
@@ -173,7 +171,7 @@ function mdForBaseTypes(
   _w: MarkdownFileEmitterWorkspace,
   _path: string,
   _s: LinkedFormattedSymbol,
-  type: LinkedFormattedType | undefined
+  type: LinkedFormattedType | undefined,
 ): Node {
   if (!type || !type.baseTypes) {
     return text('');
@@ -184,7 +182,7 @@ function mdForBaseTypes(
     inlineCode('extends'),
     text(' '),
     ...type.baseTypes.reverse().map(
-      bt => (bt.symbol ? inlineCode(bt.symbol.name) : inlineCode('(unknown symbol)'))
+      bt => (bt.symbol ? inlineCode(bt.symbol.name) : inlineCode('(unknown symbol)')),
       // bt.symbol
       // ? link(
       //     w.host.pathRelativeTo(w.host.combinePaths(w.pathFor(s)), path),
@@ -192,14 +190,14 @@ function mdForBaseTypes(
       //     inlineCode(bt.symbol.name)
       //   )
       // : inlineCode('(unknown symbol)')
-    )
+    ),
   ]);
 }
 
 function mdForSymbolHeader(
   w: MarkdownFileEmitterWorkspace,
   path: string,
-  s: LinkedFormattedSymbol
+  s: LinkedFormattedSymbol,
 ): Node {
   const { flags, type, accessModifier } = s;
   const kids: Node[] = [];
@@ -216,8 +214,8 @@ function mdForSymbolHeader(
           }
           return all;
         },
-        [] as Node[]
-      )
+        [] as Node[],
+      ),
     );
   }
   kids.push(mdForBaseTypes(w, path, s, type));
@@ -231,7 +229,7 @@ function mdForSymbolHeader(
 export function mdForSymbol(
   w: MarkdownFileEmitterWorkspace,
   s: LinkedFormattedSymbol,
-  opts: MDSymbolOptions
+  opts: MDSymbolOptions,
 ): Node[] {
   const { documentation } = s;
 

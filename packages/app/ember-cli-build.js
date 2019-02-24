@@ -2,18 +2,18 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-module.exports = function(defaults) {
-  let app = new EmberApp(defaults, {
+module.exports = function build(defaults) {
+  const app = new EmberApp(defaults, {
     prember: {
-      urls: ['/']
+      urls: ['/'],
     },
     babel: {
-      sourceMaps: 'inline'
+      sourceMaps: 'inline',
     },
     sourcemaps: {
       enabled: true,
-      extensions: ['js']
-    }
+      extensions: ['js'],
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated

@@ -7,7 +7,7 @@ export function bannerNode(
   noticeContent: Node[],
   options: {
     emoji?: keyof EMOJI_MAP;
-  } = {}
+  } = {},
 ): Node {
   const pKids: Node[] = [];
   if (options.emoji) {

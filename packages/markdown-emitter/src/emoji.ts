@@ -7,8 +7,8 @@ export const EMOJI_MAP = {
     variable: '𝒙',
     public: '🔓',
     protected: '🔐',
-    private: '🔒'
-  }
+    private: '🔒',
+  },
 };
 
 export type EMOJI_MAP = typeof EMOJI_MAP;

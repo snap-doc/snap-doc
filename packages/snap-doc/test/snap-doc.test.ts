@@ -1,10 +1,8 @@
 import { expect } from 'chai';
-import { suite, test } from 'mocha-typescript';
+import { describe, it } from 'mocha';
 
-@suite
-export class FirstTest {
-  @test
-  public async 'first test'(): Promise<void> {
+describe('First test', () => {
+  it('first test', () => {
     expect(true).to.eql(true);
-  }
-}
+  });
+});

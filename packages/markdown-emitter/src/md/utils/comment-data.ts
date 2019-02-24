@@ -2,7 +2,7 @@ import {
   CommentData,
   CommentFencedCode,
   CommentParagraphContent,
-  CommentParam
+  CommentParam,
 } from '@code-to-json/comments';
 import {
   brk,
@@ -16,7 +16,7 @@ import {
   table,
   tableCell,
   tableRow,
-  text
+  text,
 } from 'mdast-builder';
 import { Node, Parent } from 'unist';
 import md from '../index';
@@ -32,13 +32,14 @@ const SOURCEFILE_HEADER_TOP_TAGS: string[] = ['author', 'file'];
  * @internal
  */
 export function organizeTags(
-  tags: BlockTag[]
+  tags: BlockTag[],
 ): { top: BlockTag[]; examples: BlockTag[]; other: BlockTag[] } {
   const top: BlockTag[] = [];
   const examples: BlockTag[] = [];
   const other: BlockTag[] = [];
   tags.forEach(t => {
     const name = t[0];
+    // eslint-disable-next-line no-nested-ternary
     const lst = SOURCEFILE_HEADER_TOP_TAGS.includes(name)
       ? top
       : name === 'example'
@@ -60,7 +61,7 @@ export function createTagsTable(title: string, tags: BlockTag[]): Node {
     tableRow([tableCell(text(title))]),
     ...tags.map(t => {
       return tableRow([tableCell(strong(text(t[0]))), tableCell(t[1])]);
-    })
+    }),
   ]);
 }
 
@@ -103,7 +104,7 @@ function mdParamsList(params?: CommentParam[]): Node | null {
           parts.push(text(' - '), ...parseParagraphContent(content));
         }
         return parts;
-      })
+      }),
     );
   });
 
@@ -111,7 +112,7 @@ function mdParamsList(params?: CommentParam[]): Node | null {
 }
 
 const DEFAULT_DEPRECATION_CONTENT = [
-  paragraph(text('This has been deprecated, and may be removed in a future release.'))
+  paragraph(text('This has been deprecated, and may be removed in a future release.')),
 ];
 function mdDeprecationNotice(content?: CommentParagraphContent): Node {
   const noticeContent: Node[] = content
@@ -123,7 +124,6 @@ function mdDeprecationNotice(content?: CommentParagraphContent): Node {
   return bannerNode('Deprecation Warning', noticeContent, { emoji: 'deprecation' });
 }
 
-// tslint:disable-next-line:cognitive-complexity
 export function createDocumentationForCommentData(documentation?: CommentData): Node[] {
   if (!documentation) {
     return [];
@@ -133,7 +133,7 @@ export function createDocumentationForCommentData(documentation?: CommentData): 
   const parts: Node[] = [];
   if (modifiers) {
     const filteredModifiers = modifiers.filter(
-      m => ['public', 'private', 'protected'].indexOf(m) < 0
+      m => ['public', 'private', 'protected'].indexOf(m) < 0,
     );
     if (filteredModifiers.length > 0) {
       parts.push(...filteredModifiers.map(m => emphasis(text(m))), brk);
@@ -173,9 +173,9 @@ export function createDocumentationForCommentData(documentation?: CommentData): 
       paragraph(
         examples.map(e => ({
           type: 'paragraph',
-          children: e[1]
-        }))
-      )
+          children: e[1],
+        })),
+      ),
     );
   }
   if (other.length > 0) {

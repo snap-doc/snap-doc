@@ -6,13 +6,13 @@ import { module, test } from 'qunit';
 module('Integration | Component | x-bar', hooks => {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert): Promise<void> {
+  test('it renders', async function run(assert): Promise<void> {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
     await render(hbs`{{x-bar}}`);
 
-    assert.equal(('' + this.element.textContent).trim(), '');
+    assert.equal(`${this.element.textContent}`.trim(), '');
 
     // Template block usage:
     await render(hbs`
@@ -21,6 +21,6 @@ module('Integration | Component | x-bar', hooks => {
       {{/x-bar}}
     `);
 
-    assert.equal(('' + this.element.textContent).trim(), 'template block text');
+    assert.equal(`${this.element.textContent}`.trim(), 'template block text');
   });
 });

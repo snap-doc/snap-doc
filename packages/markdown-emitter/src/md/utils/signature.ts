@@ -5,7 +5,7 @@ import { createDocumentationForCommentData } from './comment-data';
 
 export function mdSignatures(
   sym: LinkedFormattedSymbol,
-  sigs?: LinkedFormattedSignature[]
+  sigs?: LinkedFormattedSignature[],
 ): Node[] {
   if (!sigs || sigs.length === 0) {
     return [];

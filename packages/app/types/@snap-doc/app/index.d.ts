@@ -1,4 +1,3 @@
-
 import Ember from 'ember';
 
 declare global {
@@ -7,4 +6,3 @@ declare global {
 }
 
 export {};
-

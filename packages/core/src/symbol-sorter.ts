@@ -10,7 +10,7 @@ export interface SortedExportSymbols {
 }
 
 export function sortSymbols(
-  exports: Exclude<LinkedFormattedSymbol['exports'], undefined>
+  exports: Exclude<LinkedFormattedSymbol['exports'], undefined>,
 ): SortedExportSymbols {
   const classes: Dict<LinkedFormattedSymbol> = {};
   const properties: Dict<LinkedFormattedSymbol> = {};
@@ -20,17 +20,19 @@ export function sortSymbols(
   function listForSym(sym: LinkedFormattedSymbol): Dict<LinkedFormattedSymbol> {
     if (isClass(sym)) {
       return classes;
-    } else if (isType(sym)) {
-      return types;
-    } else if (isProperty(sym)) {
-      return properties;
-    } else if (isFunction(sym)) {
-      return functions;
-    } else {
-      throw new Error(
-        `Couldn't properly categorize symbol for sorting: ${JSON.stringify(sym, null, '  ')}`
-      );
     }
+    if (isType(sym)) {
+      return types;
+    }
+    if (isProperty(sym)) {
+      return properties;
+    }
+    if (isFunction(sym)) {
+      return functions;
+    }
+    throw new Error(
+      `Couldn't properly categorize symbol for sorting: ${JSON.stringify(sym, null, '  ')}`,
+    );
   }
 
   Object.keys(exports).forEach(name => {
@@ -45,6 +47,6 @@ export function sortSymbols(
     classes,
     properties,
     functions,
-    types
+    types,
   };
 }

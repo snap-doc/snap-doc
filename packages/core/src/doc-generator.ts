@@ -17,7 +17,7 @@ export interface DocGeneratorOptions {
 
 function generateWalkerOptions(host: SysHost, pkgInfo: ProjectInfo): Partial<WalkerOptions> {
   return {
-    pathNormalizer: createReverseResolver(host, pkgInfo)
+    pathNormalizer: createReverseResolver(host, pkgInfo),
   };
 }
 function generateFormatterOptions(): Partial<FormatterOptions> {
@@ -27,7 +27,7 @@ function generateFormatterOptions(): Partial<FormatterOptions> {
 function analyzeProgram(
   program: ts.Program,
   host: SysHost,
-  pkgInfo: ProjectInfo
+  pkgInfo: ProjectInfo,
 ): LinkedFormattedOutputData {
   const walkerOptions = generateWalkerOptions(host, pkgInfo);
   log('walker options: ', walkerOptions);
@@ -47,11 +47,12 @@ export default class DocGenerator {
   constructor(
     protected prog: ts.Program,
     protected host: SysHost,
-    protected options: DocGeneratorOptions
+    protected options: DocGeneratorOptions,
   ) {}
 
   public async emit(workspace: EmitterWorkspace): Promise<void> {
     const data = analyzeProgram(this.prog, this.host, this.options.pkgInfo);
+    // eslint-disable-next-line no-param-reassign
     workspace.data = data;
 
     await this.options.emitter.emit(workspace);

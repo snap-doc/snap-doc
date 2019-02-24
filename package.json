@@ -67,7 +67,6 @@
     "lerna": "3.13.0",
     "loader.js": "4.7.0",
     "mocha": "6.0.1",
-    "mocha-typescript": "1.1.17",
     "nyc": "13.3.0",
     "prember": "1.0.2",
     "qunit-dom": "0.8.4",
@@ -81,11 +80,7 @@
     "scripty": "1.9.1",
     "sparkles-component": "1.3.0",
     "ts-node": "8.0.2",
-    "tslint": "5.12.1",
-    "tslint-config-prettier": "1.18.0",
-    "tslint-sonarts": "1.9.0",
-    "typescript": "3.3.3333",
-    "typescript-eslint-parser": "22.0.0"
+    "typescript": "3.3.3333"
   },
   "commitlint": {
     "extends": [
@@ -103,6 +98,8 @@
     "publish": "scripty",
     "clean": "scripty",
     "lint": "lerna run lint --parallel",
+    "lint:js": "lerna run lint:js --parallel --concurrency 8",
+    "lint:md": "lerna run lint:md --parallel --concurrency 8",
     "test": "lerna run test --concurrency 1",
     "test:core": "lerna run test --parallel --ignore=@snap-doc/ui-kit --ignore=@snap-doc/app --ignore=snap-doc",
     "rebuild": "scripty",

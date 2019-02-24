@@ -1,7 +1,7 @@
+import { LinkedFormattedSourceFile, LinkedFormattedSymbol } from '@code-to-json/formatter-linker';
 import { UnreachableError } from '@code-to-json/utils';
 import { SysHost } from '@code-to-json/utils-ts';
 import Workspace, { Pathable, ProjectInfo } from '../base-emitter/workspace';
-import { LinkedFormattedSourceFile, LinkedFormattedSymbol } from '@code-to-json/formatter-linker';
 
 export default class FileEmitterWorkspace extends Workspace {
   constructor(public readonly host: SysHost, projectInfo: ProjectInfo) {
@@ -26,10 +26,10 @@ export default class FileEmitterWorkspace extends Workspace {
   protected pathPartsFor(entity: Pathable): string[] {
     if (entity.kind === 'sourceFile') {
       return this.pathPartsForSourceFile(entity);
-    } else if (entity.kind === 'symbol') {
-      return this.pathPartsForSymbol(entity);
-    } else {
-      throw new UnreachableError(entity);
     }
+    if (entity.kind === 'symbol') {
+      return this.pathPartsForSymbol(entity);
+    }
+    throw new UnreachableError(entity);
   }
 }

@@ -1,34 +1,29 @@
 import { expect } from 'chai';
-import { suite, test } from 'mocha-typescript';
 import * as snapshot from 'snap-shot-it';
+import { describe, it } from 'mocha';
 import { createTagsTable, organizeTags, parseParagraphContent } from '../src/md/utils/comment-data';
 
-@suite
-export class MarkdownUtilsTests {
-  @test
-  public 'parseParagraphContent simple text list'(): void {
+describe('Markdown utils tests', () => {
+  it('parseParagraphContent simple text list', () => {
     snapshot(parseParagraphContent(['hello simple', '\n', 'content']));
-  }
-  @test
-  public 'createTagsTable - no rows'(): void {
+  });
+  it('createTagsTable - no rows', () => {
     snapshot(createTagsTable('Favorite Flavors', []));
-  }
-  @test
-  public 'createTagsTable - with rows'(): void {
+  });
+  it('createTagsTable - with rows', () => {
     snapshot(
       createTagsTable('Important Information', [
         ['author', [{ type: 'text', value: 'Mike' }]],
-        ['note', [{ type: 'text', value: 'Read this carefully!' }]]
-      ])
+        ['note', [{ type: 'text', value: 'Read this carefully!' }]],
+      ]),
     );
-  }
-  @test
-  public 'organizeTags tests'(): void {
+  });
+  it('organizeTags tests', () => {
     snapshot(
       organizeTags([
         ['author', [{ type: 'text', value: 'Mike' }]],
-        ['note', [{ type: 'text', value: 'Read this carefully!' }]]
-      ])
+        ['note', [{ type: 'text', value: 'Read this carefully!' }]],
+      ]),
     );
-  }
-}
+  });
+});
