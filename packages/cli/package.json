@@ -54,12 +54,6 @@
     "json-typescript": "1.1.0",
     "mocha": "6.0.1",
     "nyc": "13.3.0",
-    "remark-cli": "6.0.1",
-    "remark-lint": "6.0.4",
-    "remark-lint-no-dead-urls": "0.4.1",
-    "remark-preset-lint-markdown-style-guide": "2.1.2",
-    "remark-preset-lint-recommended": "3.0.2",
-    "remark-validate-links": "8.0.0",
     "scripty": "1.9.1",
     "ts-node": "8.0.2"
   },
