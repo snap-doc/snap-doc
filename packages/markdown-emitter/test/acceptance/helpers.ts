@@ -8,9 +8,9 @@ import { MarkdownFileEmitter, MarkdownFileEmitterWorkspace } from '../../src';
 
 const log = debug('snap-doc:markdown-emitter:acceptance-tests');
 
-class AcceptanceTestCase {
+export class AcceptanceTestCase {
   constructor(
-    private rootPath: string,
+    public readonly root: string,
     private caseCleanup: () => void,
     private folderStr: string,
   ) {}
@@ -20,7 +20,7 @@ class AcceptanceTestCase {
   }
 
   public contentFor(fileName: string): string {
-    return readFileSync(join(this.rootPath, fileName)).toString();
+    return readFileSync(join(this.root, fileName)).toString();
   }
 
   public toString() {
@@ -28,7 +28,10 @@ class AcceptanceTestCase {
   }
 }
 
-export async function setupAcceptanceTest(src: FixtureFolder): Promise<AcceptanceTestCase> {
+export async function setupAcceptanceTest(
+  src: FixtureFolder,
+  singleFile = true,
+): Promise<AcceptanceTestCase> {
   log('hello');
   const testCase = await setupTestCase(
     {
@@ -59,7 +62,7 @@ export async function setupAcceptanceTest(src: FixtureFolder): Promise<Acceptanc
     emitter: new MarkdownFileEmitter(NODE_HOST, {
       outDir: NODE_HOST.combinePaths(testCase.rootPath, 'out'),
       omitToc: true,
-      detailedModules: true,
+      detailedModules: singleFile,
     }),
     pkgInfo,
   });
