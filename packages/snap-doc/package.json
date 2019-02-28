@@ -18,7 +18,7 @@
   },
   "scripts": {
     "build": "cp ../../README.md README.md",
-    "test": "mocha",
+    "test": "mocha test/**/*.test.ts",
     "lint:js": "eslint . --ext js,ts",
     "lint:md": "remark .",
     "lint": "yarn lint:js && yarn lint:md"

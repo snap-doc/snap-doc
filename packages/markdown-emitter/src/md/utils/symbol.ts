@@ -11,19 +11,20 @@ import {
   heading,
   inlineCode,
   link,
-  paragraph,
-  text,
   list,
   listItem,
+  paragraph,
+  separator,
   strong,
+  text,
 } from 'mdast-builder';
 import { Node } from 'unist';
+import { Pathable } from '@snap-doc/emitter';
+import MarkdownFileEmitterWorkspace from '../../emitter/workspace';
 import { createDocumentationForCommentData } from './comment-data';
 import { mdSignatures } from './signature';
-import MarkdownFileEmitterWorkspace from '../../emitter/workspace';
 
 export interface MDSymbolOptions {
-  path: string;
   includeDetails?: boolean;
   includeTitle?: boolean;
   baseDepth?: number;
@@ -59,7 +60,7 @@ function mdForSymbolSignatures(
       parts.push(...head);
     }
 
-    parts.push(...mdSignatures(s, sigs));
+    parts.push(strong(text('Signatures')), ...mdSignatures(s, sigs));
   }
   return parts;
 }
@@ -71,7 +72,7 @@ function mdForProperties(props: Dict<LinkedFormattedSymbol>, opts: MDSymbolOptio
     .reduce(
       (lst, p) => {
         lst.push(
-          heading((opts.baseDepth || 1) + 1, text(p.name)),
+          heading((opts.baseDepth || 1) + 1, text(p.text || p.name)),
           blockquote(() => {
             const parts: Node[] = [];
             const { valueType, documentation } = p;
@@ -169,9 +170,9 @@ export function mdForSymbolDetails(s: LinkedFormattedSymbol, opts: MDSymbolOptio
 }
 
 function mdForBaseTypes(
-  _w: MarkdownFileEmitterWorkspace,
-  _path: string,
+  w: MarkdownFileEmitterWorkspace,
   _s: LinkedFormattedSymbol,
+  pageItem: Pathable,
   type: LinkedFormattedType | undefined,
 ): Node {
   if (!type || !type.baseTypes) {
@@ -182,23 +183,23 @@ function mdForBaseTypes(
     text(' '),
     inlineCode('extends'),
     text(' '),
-    ...type.baseTypes.reverse().map(
-      bt => (bt.symbol ? inlineCode(bt.symbol.name) : inlineCode('(unknown symbol)')),
-      // bt.symbol
-      // ? link(
-      //     w.host.pathRelativeTo(w.host.combinePaths(w.pathFor(s)), path),
-      //     bt.symbol.name,
-      //     inlineCode(bt.symbol.name)
-      //   )
-      // : inlineCode('(unknown symbol)')
+    ...type.baseTypes.reverse().map(bt =>
+      // bt.symbol ? inlineCode(bt.symbol.text || bt.symbol.name) : inlineCode('(unknown symbol)'),
+      bt.symbol
+        ? link(
+            w.relativePath(pageItem, bt.symbol),
+            bt.symbol.text || bt.symbol.name,
+            inlineCode(bt.symbol.text || bt.symbol.name),
+          )
+        : inlineCode('(unknown symbol)'),
     ),
   ]);
 }
 
 function mdForSymbolHeader(
   w: MarkdownFileEmitterWorkspace,
-  path: string,
   s: LinkedFormattedSymbol,
+  pageItem: Pathable,
 ): Node {
   const { flags, type, accessModifier } = s;
   const kids: Node[] = [];
@@ -219,7 +220,7 @@ function mdForSymbolHeader(
       ),
     );
   }
-  kids.push(mdForBaseTypes(w, path, s, type));
+  kids.push(mdForBaseTypes(w, s, pageItem, type));
 
   if (kids.length === 0) {
     return text('');
@@ -230,13 +231,14 @@ function mdForSymbolHeader(
 export function mdForSymbol(
   w: MarkdownFileEmitterWorkspace,
   s: LinkedFormattedSymbol,
+  pageItem: Pathable,
   opts: MDSymbolOptions,
 ): Node[] {
   const { documentation } = s;
 
-  const parts: Node[] = [text('---')];
+  const parts: Node[] = [separator];
   parts.push(...mdForSymbolTitle(w, s, opts));
-  parts.push(mdForSymbolHeader(w, opts.path, s));
+  parts.push(mdForSymbolHeader(w, s, pageItem));
   if (documentation) {
     parts.push(paragraph(createDocumentationForCommentData(documentation)));
   }

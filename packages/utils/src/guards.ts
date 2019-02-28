@@ -15,3 +15,11 @@ export function isFunction(sym: LinkedFormattedSymbol): boolean {
 export function isProperty(sym: LinkedFormattedSymbol): boolean {
   return !!(sym.flags && sym.flags.includes('variable'));
 }
+
+export function isAlias(sym: LinkedFormattedSymbol): boolean {
+  return !!(sym.flags && sym.flags.includes('alias'));
+}
+
+export function isEnum(sym: LinkedFormattedSymbol): boolean {
+  return !!(sym.flags && (sym.flags.includes('regularEnum') || sym.flags.includes('constEnum')));
+}

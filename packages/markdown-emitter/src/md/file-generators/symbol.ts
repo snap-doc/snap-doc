@@ -11,10 +11,9 @@ export function markdownForSymbolFile(
 ): Node {
   const rootNode = rootWithTitle(1, inlineCode(sym.text || sym.name));
   rootNode.children.push(
-    ...mdForSymbol(workspace, sym, {
+    ...mdForSymbol(workspace, sym, sym, {
       includeDetails: true,
       includeTitle: false,
-      path: workspace.pathFor(sym),
     }),
   );
   addToc(rootNode);

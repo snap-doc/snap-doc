@@ -11,7 +11,7 @@ async function runAcceptanceTest(code: string, expectedComments: string): Promis
   tc.cleanup();
 }
 
-describe('Basic acceptance tests', () => {
+describe('single-file acceptance tests', () => {
   it('binary function with no return type', async () => {
     await runAcceptanceTest(
       `export function add(a: number, b: number) { return '' + a + b; }`,
@@ -26,6 +26,8 @@ describe('Basic acceptance tests', () => {
 #### \`add\`
 
 \`function\`
+
+**Signatures**
 
 \`(a: number, b: number): string\``,
     );
@@ -53,6 +55,8 @@ export function add(a: any, b: any): any {
 \`function\`
 
 ##### Call Signatures
+
+**Signatures**
 
 \`(a: number, b: number): number\`
 
@@ -224,6 +228,8 @@ export function add(a: any, b: any): any {
 
 \`class\`
 
+**Signatures**
+
 \`(bar: string): SimpleClass\``,
     );
   });
@@ -246,6 +252,8 @@ export function add(a: any, b: any): any {
 #### \`SimpleClass\`
 
 \`class\`
+
+**Signatures**
 
 \`(bar: string): SimpleClass\`
 
@@ -282,6 +290,8 @@ export class SimpleClass extends SimpleBase {
 
 \`class\`
 
+**Signatures**
+
 \`(): SimpleBase\`
 
 ##### foo
@@ -294,7 +304,9 @@ export class SimpleClass extends SimpleBase {
 
 #### \`SimpleClass\`
 
-\`class\` \`extends\` \`SimpleBase\`
+\`class\` \`extends\` [\`SimpleBase\`](../class/SimpleBase.md "SimpleBase")
+
+**Signatures**
 
 \`(bar: string): SimpleClass\`
 
@@ -323,7 +335,9 @@ export class SimpleClass extends SimpleBase {
 
 #### \`SimpleClass\`
 
-\`class\` \`extends\` \`SimpleBase\`
+\`class\` \`extends\` [\`SimpleBase\`](../class/SimpleBase.md "SimpleBase")
+
+**Signatures**
 
 \`(bar: string): SimpleClass\`
 
@@ -352,6 +366,8 @@ export class SimpleClass extends SimpleBase {
 #### \`SimpleClass\`
 
 \`class\`
+
+**Signatures**
 
 \`(bar: string): SimpleClass\`
 

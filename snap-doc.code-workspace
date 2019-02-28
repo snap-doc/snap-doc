@@ -24,10 +24,6 @@
   "folders": [
     {
       "path": "."
-    },
-    {
-      "name": "examples",
-      "path": "../code-to-json/samples"
     }
   ],
   "launch": {
