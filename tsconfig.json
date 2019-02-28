@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "skipLibCheck": true,
-    "types": []
+    "strict": true,
+    "strictNullChecks": true,
+    "outDir": "out"
   },
   "exclude": ["node_modules/**/*"]
 }
