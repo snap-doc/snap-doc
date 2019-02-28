@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/utils@0.4.8...@snap-doc/utils@0.5.0) (2019-02-28)
+
+
+### Features
+
+* move guards to utils ([f7855f4](https://github.com/snap-doc/snap-doc/commit/f7855f4))
+
+
+
+
+
 ## [0.4.8](https://github.com/snap-doc/snap-doc/compare/@snap-doc/utils@0.4.7...@snap-doc/utils@0.4.8) (2019-02-24)
 
 **Note:** Version bump only for package @snap-doc/utils

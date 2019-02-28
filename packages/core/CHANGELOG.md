@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.7.2...@snap-doc/core@0.8.0) (2019-02-28)
+
+
+### Features
+
+* proper support for symbol aliases ([26090b4](https://github.com/snap-doc/snap-doc/commit/26090b4))
+
+
+
+
+
 ## [0.7.2](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.7.1...@snap-doc/core@0.7.2) (2019-02-24)
 
 **Note:** Version bump only for package @snap-doc/core

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.5.2...@snap-doc/emitter@0.6.0) (2019-02-28)
+
+
+### Features
+
+* workspace helper to create relative paths ([d1c6e24](https://github.com/snap-doc/snap-doc/commit/d1c6e24))
+
+
+
+
+
 ## [0.5.2](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.5.1...@snap-doc/emitter@0.5.2) (2019-02-24)
 
 **Note:** Version bump only for package @snap-doc/emitter
