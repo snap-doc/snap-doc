@@ -33,4 +33,11 @@ export default class FileEmitterWorkspace extends Workspace {
     }
     throw new UnreachableError(entity);
   }
+
+  public relativePath(from: Pathable, to: Pathable, extension: string): string {
+    return this.host.pathRelativeTo(
+      this.host.combinePaths(this.pathFor(from, extension), '..'),
+      this.pathFor(to, extension),
+    );
+  }
 }
