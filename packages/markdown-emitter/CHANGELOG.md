@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.1](https://github.com/snap-doc/snap-doc/compare/@snap-doc/markdown-emitter@0.8.0...@snap-doc/markdown-emitter@0.8.1) (2019-03-01)
+
+**Note:** Version bump only for package @snap-doc/markdown-emitter
+
+
+
+
+
 # [0.8.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/markdown-emitter@0.7.7...@snap-doc/markdown-emitter@0.8.0) (2019-02-28)
 
 
