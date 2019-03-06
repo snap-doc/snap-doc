@@ -17,7 +17,7 @@
     "@types/chai": "4.1.7",
     "@types/debug": "4.1.2",
     "@types/ember": "3.0.28",
-    "@types/ember-data": "3.1.4",
+    "@types/ember-data": "3.1.5",
     "@types/ember-qunit": "3.4.6",
     "@types/ember-test-helpers": "1.0.4",
     "@types/ember-testing-helpers": "0.0.3",
