@@ -4,7 +4,15 @@ import * as Exports from '../src/index';
 
 describe('Public API surface test', () => {
   it('expected exported items', async () => {
-    expect(Object.keys(Exports).sort()).to.deep.eq(['abc']);
+    expect(Object.keys(Exports).sort()).to.deep.eq([
+      'isAlias',
+      'isClass',
+      'isEnum',
+      'isFunction',
+      'isProperty',
+      'isType',
+      'resolveAlias',
+    ]);
 
     expect(Exports.isAlias).to.be.a('function');
     expect(Exports.isClass).to.be.a('function');
