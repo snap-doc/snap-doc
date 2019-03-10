@@ -1,20 +1,24 @@
 import * as debug from 'debug';
+import { EmitterData } from '../types';
 import EmitterOptions from './options';
+import State from './state';
 import Workspace from './workspace';
 
 const log = debug('snap-doc:base-emitter');
 
-abstract class Emitter<O extends EmitterOptions = EmitterOptions, W extends Workspace = Workspace> {
+abstract class Emitter<O extends EmitterOptions, W extends Workspace> {
   constructor(protected options: O) {}
 
-  public async emit(workspace: W): Promise<void> {
+  public async emit(workspace: W, data: EmitterData): Promise<void> {
     const [ready, err] = await this.validateConditions();
+    let state: State;
     if (ready) {
-      await this.prepare(workspace);
+      state = await this.initializeState(data);
+      await this.prepare(state, workspace);
     } else {
       throw new Error(`[${this.constructor.name}] - Pre-flight check failed: ${err}`);
     }
-    await this.generate(workspace);
+    await this.generate(state, workspace);
     await this.validateResult();
   }
 
@@ -22,12 +26,16 @@ abstract class Emitter<O extends EmitterOptions = EmitterOptions, W extends Work
     return [true];
   }
 
-  protected async prepare(workspace: W): Promise<void> {
+  protected async prepare(state: State, workspace: W): Promise<void> {
     log('preparing emitter');
-    await workspace.prepare();
+    await Promise.all([state.prepare(), workspace.prepare()]);
   }
 
-  protected abstract async generate(workspace: W): Promise<void>;
+  protected async initializeState(data: EmitterData): Promise<State> {
+    return new State(data);
+  }
+
+  protected abstract async generate(state: State, workspace: W): Promise<void>;
 
   protected async validateResult(): Promise<void> {
     return Promise.resolve();

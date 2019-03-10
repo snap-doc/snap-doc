@@ -6,6 +6,7 @@ describe('Public API surface tests', () => {
   it('expected exported items', async () => {
     expect(Object.keys(Exports).sort()).to.deep.eq([
       'Emitter',
+      'EmitterState',
       'EmitterWorkspace',
       'FileEmitter',
       'FileEmitterWorkspace',
