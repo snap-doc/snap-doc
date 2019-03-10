@@ -1,29 +1,28 @@
 import { LinkedFormattedSourceFile, LinkedFormattedSymbol } from '@code-to-json/formatter-linker';
 import { isDefined } from '@code-to-json/utils';
 import { SysHost } from '@code-to-json/utils-ts';
-import { FileEmitter } from '@snap-doc/emitter';
+import { FileEmitter, FileEmitterWorkspace, EmitterState } from '@snap-doc/emitter';
 import * as debug from 'debug';
 import { heading, link, list, listItem, paragraph, rootWithTitle, text } from 'mdast-builder';
 import md from '../md';
-import { markdownForSymbolFile } from '../md/file-generators/symbol';
 import { markdownForSourceFile } from '../md/file-generators/module';
+import { markdownForSymbolFile } from '../md/file-generators/symbol';
 import MarkdownFileEmitterOptions from './options';
-import MarkdownFileEmitterWorkspace from './workspace';
 
 const log = debug('snap-doc:markdown-file-emitter');
 
 export default class MarkdownFileEmitter extends FileEmitter<
   MarkdownFileEmitterOptions,
-  MarkdownFileEmitterWorkspace
+  FileEmitterWorkspace
 > {
   constructor(host: SysHost, options: MarkdownFileEmitterOptions) {
     super(host, options);
   }
 
-  public async generate(workspace: MarkdownFileEmitterWorkspace): Promise<void> {
+  public async generate(state: EmitterState, workspace: FileEmitterWorkspace): Promise<void> {
     const {
       data: { sourceFiles: files },
-    } = workspace;
+    } = state;
     const { outDir } = this.options;
 
     if (this.host.fileOrFolderExists(outDir)) {
@@ -56,8 +55,8 @@ if you want to replace existing content in the output directory`,
       .map(f => {
         // for each non-declaration file
         log(`Processing module: ${f.moduleName} (${f.path})`);
-        const outPath = this.pathInOutDir(workspace.pathFor(f));
-        const content = this.contentForModule(workspace, f, {
+        const outPath = this.pathInOutDir(workspace.pathFor(state, f));
+        const content = this.contentForModule(state, workspace, f, {
           classes: classSymbols,
           types: typeSymbols,
         });
@@ -67,17 +66,17 @@ if you want to replace existing content in the output directory`,
     // for each class collected along the way
     const classPaths = classSymbols.map(classSymbol => {
       // determine the output path
-      const outPath = this.pathInOutDir(workspace.pathFor(classSymbol));
+      const outPath = this.pathInOutDir(workspace.pathFor(state, classSymbol));
 
-      const content = this.contentForSymbol(workspace, classSymbol);
+      const content = this.contentForSymbol(state, workspace, classSymbol);
       // ...and write it
       this.writeFileInOutDir(outPath, content);
       return [classSymbol.text || classSymbol.name, outPath];
     });
     // for each type collected along the way
     const typePaths = typeSymbols.map(typeSymbol => {
-      const outPath = this.pathInOutDir(workspace.pathFor(typeSymbol));
-      const content = this.contentForSymbol(workspace, typeSymbol);
+      const outPath = this.pathInOutDir(workspace.pathFor(state, typeSymbol));
+      const content = this.contentForSymbol(state, workspace, typeSymbol);
       this.writeFileInOutDir(outPath, content);
       return [typeSymbol.text || typeSymbol.name, outPath];
     });
@@ -105,15 +104,17 @@ if you want to replace existing content in the output directory`,
   }
 
   protected contentForSymbol(
-    workspace: MarkdownFileEmitterWorkspace,
+    state: EmitterState,
+    workspace: FileEmitterWorkspace,
     sym: LinkedFormattedSymbol,
   ): string {
-    const root = markdownForSymbolFile(workspace, sym);
+    const root = markdownForSymbolFile(state, workspace, sym);
     return md.stringify(root).trim();
   }
 
   protected contentForModule(
-    workspace: MarkdownFileEmitterWorkspace,
+    state: EmitterState,
+    workspace: FileEmitterWorkspace,
     file: LinkedFormattedSourceFile,
     symbolsToSerialize: { classes: LinkedFormattedSymbol[]; types: LinkedFormattedSymbol[] },
   ): string {
@@ -122,6 +123,7 @@ if you want to replace existing content in the output directory`,
     const typeSymbols: LinkedFormattedSymbol[] = [];
 
     const sourceFileMarkdown = markdownForSourceFile(
+      state,
       workspace,
       file,
       {

@@ -18,9 +18,9 @@ import {
   strong,
 } from 'mdast-builder';
 import { Node } from 'unist';
+import { FileEmitterWorkspace, EmitterState } from '@snap-doc/emitter';
 import { createDocumentationForCommentData } from './comment-data';
 import { mdSignatures } from './signature';
-import MarkdownFileEmitterWorkspace from '../../emitter/workspace';
 
 export interface MDSymbolOptions {
   path: string;
@@ -30,16 +30,17 @@ export interface MDSymbolOptions {
 }
 
 function mdForSymbolTitle(
-  w: MarkdownFileEmitterWorkspace,
-  s: LinkedFormattedSymbol,
+  state: EmitterState,
+  w: FileEmitterWorkspace,
+  sym: LinkedFormattedSymbol,
   opts: MDSymbolOptions,
 ): Node[] {
   const { includeTitle } = opts;
   if (!includeTitle) {
     return [];
   }
-  const sName = s.text || s.name;
-  const url = opts.includeDetails ? undefined : w.pathFor(s);
+  const sName = sym.text || sym.name;
+  const url = opts.includeDetails ? undefined : w.pathFor(state, sym);
   const title = inlineCode(sName);
   if (url) {
     return [heading(opts.baseDepth || 1, link(url, sName, title))];
@@ -169,7 +170,7 @@ export function mdForSymbolDetails(s: LinkedFormattedSymbol, opts: MDSymbolOptio
 }
 
 function mdForBaseTypes(
-  _w: MarkdownFileEmitterWorkspace,
+  _w: FileEmitterWorkspace,
   _path: string,
   _s: LinkedFormattedSymbol,
   type: LinkedFormattedType | undefined,
@@ -195,11 +196,7 @@ function mdForBaseTypes(
   ]);
 }
 
-function mdForSymbolHeader(
-  w: MarkdownFileEmitterWorkspace,
-  path: string,
-  s: LinkedFormattedSymbol,
-): Node {
+function mdForSymbolHeader(w: FileEmitterWorkspace, path: string, s: LinkedFormattedSymbol): Node {
   const { flags, type, accessModifier } = s;
   const kids: Node[] = [];
   if (accessModifier) {
@@ -228,14 +225,15 @@ function mdForSymbolHeader(
 }
 
 export function mdForSymbol(
-  w: MarkdownFileEmitterWorkspace,
+  state: EmitterState,
+  w: FileEmitterWorkspace,
   s: LinkedFormattedSymbol,
   opts: MDSymbolOptions,
 ): Node[] {
   const { documentation } = s;
 
   const parts: Node[] = [text('---')];
-  parts.push(...mdForSymbolTitle(w, s, opts));
+  parts.push(...mdForSymbolTitle(state, w, s, opts));
   parts.push(mdForSymbolHeader(w, opts.path, s));
   if (documentation) {
     parts.push(paragraph(createDocumentationForCommentData(documentation)));

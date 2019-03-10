@@ -4,7 +4,7 @@ import { Dict } from '@mike-north/types';
 import { SortedExportSymbols, sortSymbols } from '@snap-doc/core';
 import { heading, inlineCode, rootWithTitle, text } from 'mdast-builder';
 import { Node } from 'unist';
-import MarkdownFileEmitterWorkspace from '../../emitter/workspace';
+import { FileEmitterWorkspace, EmitterState } from '@snap-doc/emitter';
 import { createDocumentationForCommentData } from '../utils/comment-data';
 import { mdForSymbol } from '../utils/symbol';
 import { addToc } from '../utils/toc';
@@ -22,7 +22,8 @@ interface ExportSectionOptions {
 }
 
 function createExportSection(
-  w: MarkdownFileEmitterWorkspace,
+  state: EmitterState,
+  w: FileEmitterWorkspace,
   sectionName: string,
   filePath: string,
   symCollection: Dict<LinkedFormattedSymbol>,
@@ -40,7 +41,7 @@ function createExportSection(
         return all;
       }
       all.push(
-        ...mdForSymbol(w, sym, {
+        ...mdForSymbol(state, w, sym, {
           includeTitle: true,
           includeDetails: !summarizeOnly,
           baseDepth: 4,
@@ -57,23 +58,24 @@ function createExportSection(
 }
 
 export function createExportSections(
-  w: MarkdownFileEmitterWorkspace,
+  state: EmitterState,
+  w: FileEmitterWorkspace,
   { classes, properties, types, functions }: SortedExportSymbols,
   filePath: string,
   options: MarkdownGenOptions,
 ): Node[] {
   const parts: Node[] = [
-    ...createExportSection(w, 'Properties', filePath, properties, { summarizeOnly: false }),
-    ...createExportSection(w, 'Functions', filePath, functions, { summarizeOnly: false }),
-    ...createExportSection(w, 'Types', filePath, types, {
+    ...createExportSection(state, w, 'Properties', filePath, properties, { summarizeOnly: false }),
+    ...createExportSection(state, w, 'Functions', filePath, functions, { summarizeOnly: false }),
+    ...createExportSection(state, w, 'Types', filePath, types, {
       summarizeOnly: !options.detailedModules,
       headerUrlFactory: (sym: LinkedFormattedSymbol) =>
-        w.host.pathRelativeTo(w.host.combinePaths(filePath, '..'), w.pathFor(sym)),
+        w.host.pathRelativeTo(w.host.combinePaths(filePath, '..'), w.pathFor(state, sym)),
     }),
-    ...createExportSection(w, 'Classes', filePath, classes, {
+    ...createExportSection(state, w, 'Classes', filePath, classes, {
       summarizeOnly: !options.detailedModules,
       headerUrlFactory: (sym: LinkedFormattedSymbol) =>
-        w.host.pathRelativeTo(w.host.combinePaths(filePath, '..'), w.pathFor(sym)),
+        w.host.pathRelativeTo(w.host.combinePaths(filePath, '..'), w.pathFor(state, sym)),
     }),
   ];
   const secRoot = [heading(2, text('Exports')), ...parts];
@@ -86,7 +88,8 @@ export function createExportSections(
  * @private
  */
 export function markdownForSourceFile(
-  workspace: MarkdownFileEmitterWorkspace,
+  state: EmitterState,
+  workspace: FileEmitterWorkspace,
   file: LinkedFormattedSourceFile,
   options: MarkdownGenOptions = { omitToc: false, detailedModules: false },
   symbolsToSerialize: { classes: LinkedFormattedSymbol[]; types: LinkedFormattedSymbol[] },
@@ -101,8 +104,10 @@ export function markdownForSourceFile(
   rootNode.children.push(...createDocumentationForCommentData(documentation));
   if (exportSymbols && Object.keys(exportSymbols).length > 0) {
     const sortedExports: SortedExportSymbols = sortSymbols(exportSymbols);
-    const filePath = workspace.pathFor(file);
-    rootNode.children.push(...createExportSections(workspace, sortedExports, filePath, options));
+    const filePath = workspace.pathFor(state, file);
+    rootNode.children.push(
+      ...createExportSections(state, workspace, sortedExports, filePath, options),
+    );
     symbolsToSerialize.classes.push(
       ...Object.keys(sortedExports.classes)
         .map(k => sortedExports.classes[k])
