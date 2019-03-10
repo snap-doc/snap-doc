@@ -11,7 +11,7 @@ import * as ts from 'typescript';
 const log = debug('snap-doc:doc-generator');
 
 export interface DocGeneratorOptions {
-  emitter: Emitter<any>;
+  emitters: Emitter<any, any>[];
   pkgInfo: ProjectInfo;
 }
 
@@ -52,9 +52,6 @@ export default class DocGenerator {
 
   public async emit(workspace: EmitterWorkspace): Promise<void> {
     const data = analyzeProgram(this.prog, this.host, this.options.pkgInfo);
-    // eslint-disable-next-line no-param-reassign
-    workspace.data = data;
-
-    await this.options.emitter.emit(workspace);
+    await Promise.all(this.options.emitters.map(e => e.emit(workspace, data)));
   }
 }
