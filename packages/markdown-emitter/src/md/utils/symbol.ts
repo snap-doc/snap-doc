@@ -19,8 +19,7 @@ import {
   text,
 } from 'mdast-builder';
 import { Node } from 'unist';
-import { FileEmitterWorkspace, EmitterState } from '@snap-doc/emitter';
-import { Pathable } from '@snap-doc/emitter';
+import { FileEmitterWorkspace, EmitterState, Pathable } from '@snap-doc/emitter';
 import { createDocumentationForCommentData } from './comment-data';
 import { mdSignatures } from './signature';
 

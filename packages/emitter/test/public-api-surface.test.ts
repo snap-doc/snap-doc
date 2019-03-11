@@ -10,6 +10,7 @@ describe('Public API surface tests', () => {
       'EmitterWorkspace',
       'FileEmitter',
       'FileEmitterWorkspace',
+      'MultiEmitter',
     ]);
 
     expect(Exports.Emitter).to.be.a('function', 'class Emitter');
