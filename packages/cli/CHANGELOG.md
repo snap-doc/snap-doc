@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.7.17...@snap-doc/cli@0.8.0) (2019-03-11)
+
+
+### Features
+
+* multi emitter ([f0495bd](https://github.com/snap-doc/snap-doc/commit/f0495bd))
+* refactor state out of workspace classes ([6b01543](https://github.com/snap-doc/snap-doc/commit/6b01543))
+
+
+
+
+
 ## [0.7.17](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.7.16...@snap-doc/cli@0.7.17) (2019-03-09)
 
 **Note:** Version bump only for package @snap-doc/cli

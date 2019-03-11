@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.8.5...@snap-doc/core@0.9.0) (2019-03-11)
+
+
+### Features
+
+* multi emitter ([581c8c8](https://github.com/snap-doc/snap-doc/commit/581c8c8))
+* refactor state out of workspace classes ([ac864ef](https://github.com/snap-doc/snap-doc/commit/ac864ef))
+
+
+
+
+
 ## [0.8.5](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.8.4...@snap-doc/core@0.8.5) (2019-03-09)
 
 **Note:** Version bump only for package @snap-doc/core

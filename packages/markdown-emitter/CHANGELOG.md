@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/markdown-emitter@0.8.9...@snap-doc/markdown-emitter@0.9.0) (2019-03-11)
+
+
+### Features
+
+* refactor state out of workspace classes ([91f243c](https://github.com/snap-doc/snap-doc/commit/91f243c))
+
+
+
+
+
 ## [0.8.9](https://github.com/snap-doc/snap-doc/compare/@snap-doc/markdown-emitter@0.8.8...@snap-doc/markdown-emitter@0.8.9) (2019-03-09)
 
 **Note:** Version bump only for package @snap-doc/markdown-emitter
