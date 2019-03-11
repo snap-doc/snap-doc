@@ -19,8 +19,7 @@ import {
   text,
 } from 'mdast-builder';
 import { Node } from 'unist';
-import { Pathable } from '@snap-doc/emitter';
-import MarkdownFileEmitterWorkspace from '../../emitter/workspace';
+import { FileEmitterWorkspace, EmitterState, Pathable } from '@snap-doc/emitter';
 import { createDocumentationForCommentData } from './comment-data';
 import { mdSignatures } from './signature';
 
@@ -31,16 +30,17 @@ export interface MDSymbolOptions {
 }
 
 function mdForSymbolTitle(
-  w: MarkdownFileEmitterWorkspace,
-  s: LinkedFormattedSymbol,
+  state: EmitterState,
+  w: FileEmitterWorkspace,
+  sym: LinkedFormattedSymbol,
   opts: MDSymbolOptions,
 ): Node[] {
   const { includeTitle } = opts;
   if (!includeTitle) {
     return [];
   }
-  const sName = s.text || s.name;
-  const url = opts.includeDetails ? undefined : w.pathFor(s);
+  const sName = sym.text || sym.name;
+  const url = opts.includeDetails ? undefined : w.pathFor(state, sym);
   const title = inlineCode(sName);
   if (url) {
     return [heading(opts.baseDepth || 1, link(url, sName, title))];
@@ -170,7 +170,8 @@ export function mdForSymbolDetails(s: LinkedFormattedSymbol, opts: MDSymbolOptio
 }
 
 function mdForBaseTypes(
-  w: MarkdownFileEmitterWorkspace,
+  state: EmitterState,
+  w: FileEmitterWorkspace,
   _s: LinkedFormattedSymbol,
   pageItem: Pathable,
   type: LinkedFormattedType | undefined,
@@ -187,7 +188,7 @@ function mdForBaseTypes(
       // bt.symbol ? inlineCode(bt.symbol.text || bt.symbol.name) : inlineCode('(unknown symbol)'),
       bt.symbol
         ? link(
-            w.relativePath(pageItem, bt.symbol),
+            w.relativePath(state, pageItem, bt.symbol, 'md'),
             bt.symbol.text || bt.symbol.name,
             inlineCode(bt.symbol.text || bt.symbol.name),
           )
@@ -197,7 +198,8 @@ function mdForBaseTypes(
 }
 
 function mdForSymbolHeader(
-  w: MarkdownFileEmitterWorkspace,
+  state: EmitterState,
+  w: FileEmitterWorkspace,
   s: LinkedFormattedSymbol,
   pageItem: Pathable,
 ): Node {
@@ -220,7 +222,7 @@ function mdForSymbolHeader(
       ),
     );
   }
-  kids.push(mdForBaseTypes(w, s, pageItem, type));
+  kids.push(mdForBaseTypes(state, w, s, pageItem, type));
 
   if (kids.length === 0) {
     return text('');
@@ -229,7 +231,8 @@ function mdForSymbolHeader(
 }
 
 export function mdForSymbol(
-  w: MarkdownFileEmitterWorkspace,
+  state: EmitterState,
+  w: FileEmitterWorkspace,
   s: LinkedFormattedSymbol,
   pageItem: Pathable,
   opts: MDSymbolOptions,
@@ -237,8 +240,8 @@ export function mdForSymbol(
   const { documentation } = s;
 
   const parts: Node[] = [separator];
-  parts.push(...mdForSymbolTitle(w, s, opts));
-  parts.push(mdForSymbolHeader(w, s, pageItem));
+  parts.push(...mdForSymbolTitle(state, w, s, opts));
+  parts.push(mdForSymbolHeader(state, w, s, pageItem));
   if (documentation) {
     parts.push(paragraph(createDocumentationForCommentData(documentation)));
   }

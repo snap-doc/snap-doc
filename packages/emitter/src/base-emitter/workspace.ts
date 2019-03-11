@@ -1,11 +1,7 @@
-import {
-  LinkedFormattedOutputData,
-  LinkedFormattedSourceFile,
-  LinkedFormattedSymbol,
-} from '@code-to-json/formatter-linker';
-import * as debug from 'debug';
+import { LinkedFormattedSourceFile, LinkedFormattedSymbol } from '@code-to-json/formatter-linker';
 import { UnreachableError } from '@code-to-json/utils';
-import Slugger from '../slugger';
+import * as debug from 'debug';
+import State from './state';
 
 const log = debug('snap-doc:base-emitter/workspace');
 
@@ -18,49 +14,17 @@ export interface ProjectInfo {
 export type Pathable = LinkedFormattedSourceFile | LinkedFormattedSymbol;
 
 abstract class Workspace {
-  private internalSlugger?: Slugger;
-
-  private internaData?: LinkedFormattedOutputData;
-
-  private isPrepared = false;
-
-  constructor(protected projectInfo: Readonly<ProjectInfo>) {}
-
-  public async prepare(): Promise<void> {
-    if (!this.isPrepared) {
-      await this.slugger.prepare();
-      this.isPrepared = true;
-    } else {
-      log('warning: duplicate attempt to prepare workspace was ignored');
-    }
+  constructor(protected projectInfo: Readonly<ProjectInfo>) {
+    log('initializing workspace');
   }
 
-  protected get slugger(): Slugger {
-    if (!this.internalSlugger) {
-      this.internalSlugger = new Slugger(this.data);
-    }
-    return this.internalSlugger;
-  }
-
-  public get data(): Readonly<LinkedFormattedOutputData> {
-    if (!this.internaData) {
-      throw new Error('data has not been set yet');
-    }
-    return this.internaData;
-  }
-
-  public set data(d: Readonly<LinkedFormattedOutputData>) {
-    if (this.internaData) {
-      throw new Error('data has already been set');
-    }
-    this.internaData = d;
-  }
+  public async prepare(): Promise<void> {}
 
   public get projectName(): string {
     return this.projectInfo.name;
   }
 
-  public abstract pathFor(entity: Pathable, options?: any): string;
+  public abstract pathFor(state: State, entity: Pathable, options?: any): string;
 
   protected prefixForSymbol(sym: LinkedFormattedSymbol): string {
     const { flags } = sym;

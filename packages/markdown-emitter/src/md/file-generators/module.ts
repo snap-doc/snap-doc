@@ -4,8 +4,8 @@ import { Dict } from '@mike-north/types';
 import { SortedExportSymbols, sortSymbols } from '@snap-doc/core';
 import { heading, inlineCode, rootWithTitle, text, paragraph, link } from 'mdast-builder';
 import { Node } from 'unist';
+import { FileEmitterWorkspace, EmitterState } from '@snap-doc/emitter';
 import { resolveAlias } from '@snap-doc/utils';
-import MarkdownFileEmitterWorkspace from '../../emitter/workspace';
 import { createDocumentationForCommentData } from '../utils/comment-data';
 import { mdForSymbol } from '../utils/symbol';
 import { addToc } from '../utils/toc';
@@ -23,7 +23,8 @@ interface ExportSectionOptions {
 }
 
 function createExportSection(
-  w: MarkdownFileEmitterWorkspace,
+  state: EmitterState,
+  w: FileEmitterWorkspace,
   sectionName: string,
   symCollection: Dict<LinkedFormattedSymbol>,
   file: LinkedFormattedSourceFile,
@@ -45,7 +46,7 @@ function createExportSection(
       const { sourceFile } = resolvedSym;
       if (!sourceFile || sourceFile.id === file.id) {
         all.push(
-          ...mdForSymbol(w, sym, file, {
+          ...mdForSymbol(state, w, sym, file, {
             includeTitle: true,
             includeDetails: !summarizeOnly,
             baseDepth: 4,
@@ -56,17 +57,21 @@ function createExportSection(
           heading(
             4,
             link(
-              w.relativePath(file, resolvedSym),
+              w.relativePath(state, file, resolvedSym, 'md'),
               resolvedSym.text || resolvedSym.name,
               inlineCode(resolvedSym.text || resolvedSym.name),
             ),
           ),
           paragraph([
             text('re-export of symbol '),
-            link(w.relativePath(file, resolvedSym), resolvedSym.name, inlineCode(resolvedSym.name)),
+            link(
+              w.relativePath(state, file, resolvedSym, 'md'),
+              resolvedSym.name,
+              inlineCode(resolvedSym.name),
+            ),
             text(' from '),
             link(
-              w.relativePath(file, sourceFile),
+              w.relativePath(state, file, sourceFile, 'md'),
               sourceFile.moduleName,
               inlineCode(sourceFile.moduleName),
             ),
@@ -83,18 +88,19 @@ function createExportSection(
 }
 
 export function createExportSections(
-  w: MarkdownFileEmitterWorkspace,
+  state: EmitterState,
+  w: FileEmitterWorkspace,
   { classes, properties, types, functions }: SortedExportSymbols,
   file: LinkedFormattedSourceFile,
   options: MarkdownGenOptions,
 ): Node[] {
   const parts: Node[] = [
-    ...createExportSection(w, 'Properties', properties, file, { summarizeOnly: false }),
-    ...createExportSection(w, 'Functions', functions, file, { summarizeOnly: false }),
-    ...createExportSection(w, 'Types', types, file, {
+    ...createExportSection(state, w, 'Properties', properties, file, { summarizeOnly: false }),
+    ...createExportSection(state, w, 'Functions', functions, file, { summarizeOnly: false }),
+    ...createExportSection(state, w, 'Types', types, file, {
       summarizeOnly: !options.detailedModules,
     }),
-    ...createExportSection(w, 'Classes', classes, file, {
+    ...createExportSection(state, w, 'Classes', classes, file, {
       summarizeOnly: !options.detailedModules,
     }),
   ];
@@ -108,7 +114,8 @@ export function createExportSections(
  * @private
  */
 export function markdownForSourceFile(
-  workspace: MarkdownFileEmitterWorkspace,
+  state: EmitterState,
+  workspace: FileEmitterWorkspace,
   file: LinkedFormattedSourceFile,
   options: MarkdownGenOptions = { omitToc: false, detailedModules: false },
   symbolsToSerialize: { classes: LinkedFormattedSymbol[]; types: LinkedFormattedSymbol[] },
@@ -123,7 +130,7 @@ export function markdownForSourceFile(
   rootNode.children.push(...createDocumentationForCommentData(documentation));
   if (exportSymbols && Object.keys(exportSymbols).length > 0) {
     const sortedExports: SortedExportSymbols = sortSymbols(exportSymbols);
-    rootNode.children.push(...createExportSections(workspace, sortedExports, file, options));
+    rootNode.children.push(...createExportSections(state, workspace, sortedExports, file, options));
     symbolsToSerialize.classes.push(
       ...Object.keys(sortedExports.classes)
         .map(k => sortedExports.classes[k])

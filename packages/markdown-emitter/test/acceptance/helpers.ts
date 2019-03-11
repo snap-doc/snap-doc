@@ -4,7 +4,8 @@ import { DocGenerator } from '@snap-doc/core';
 import * as debug from 'debug';
 import { readFileSync } from 'fs';
 import { join } from 'path';
-import { MarkdownFileEmitter, MarkdownFileEmitterWorkspace } from '../../src';
+import { FileEmitterWorkspace } from '@snap-doc/emitter';
+import { MarkdownFileEmitter } from '../../src';
 
 const log = debug('snap-doc:markdown-emitter:acceptance-tests');
 
@@ -59,14 +60,16 @@ export async function setupAcceptanceTest(
     main: pkg.contents['doc:main'] || pkg.contents.main || pkg.path,
   };
   const dg = new DocGenerator(testCase.program, NODE_HOST, {
-    emitter: new MarkdownFileEmitter(NODE_HOST, {
-      outDir: NODE_HOST.combinePaths(testCase.rootPath, 'out'),
-      omitToc: true,
-      detailedModules: singleFile,
-    }),
+    emitters: [
+      new MarkdownFileEmitter(NODE_HOST, {
+        outDir: NODE_HOST.combinePaths(testCase.rootPath, 'out'),
+        omitToc: true,
+        detailedModules: singleFile,
+      }),
+    ],
     pkgInfo,
   });
-  const workspace = new MarkdownFileEmitterWorkspace(NODE_HOST, pkgInfo);
+  const workspace = new FileEmitterWorkspace(NODE_HOST, pkgInfo, { defaultExtension: 'md' });
   await dg.emit(workspace);
   return new AcceptanceTestCase(
     NODE_HOST.combinePaths(testCase.rootPath, 'out'),

@@ -1,12 +1,13 @@
 import { findPkgJson, NODE_HOST } from '@code-to-json/utils-node';
 import { createProgramFromTsConfig } from '@code-to-json/utils-ts';
 import { DocGenerator } from '@snap-doc/core';
-import { MarkdownFileEmitter, MarkdownFileEmitterWorkspace } from '@snap-doc/markdown-emitter';
+import { MarkdownFileEmitter } from '@snap-doc/markdown-emitter';
 import chalk from 'chalk';
 import { Command } from 'commander';
 import * as debug from 'debug';
 import * as path from 'path';
 import * as windowSize from 'window-size';
+import { FileEmitterWorkspace } from '@snap-doc/emitter';
 
 const log = debug('snap-doc:cli');
 
@@ -28,14 +29,18 @@ export default async function generateDocs(pth: string, commander: Command): Pro
   };
   const { force = false } = commander.opts();
   const dg = new DocGenerator(prog, NODE_HOST, {
-    emitter: new MarkdownFileEmitter(NODE_HOST, {
+    emitters: new MarkdownFileEmitter(NODE_HOST, {
       outDir: path.join(process.cwd(), 'out'),
       overwriteOutDir: force,
     }),
     pkgInfo,
   });
   try {
-    await dg.emit(new MarkdownFileEmitterWorkspace(NODE_HOST, pkgInfo));
+    await dg.emit(
+      new FileEmitterWorkspace(NODE_HOST, pkgInfo, {
+        defaultExtension: 'md',
+      }),
+    );
   } catch (e) {
     if (e instanceof Error) {
       const errMessageParts = e.message.split('\n');

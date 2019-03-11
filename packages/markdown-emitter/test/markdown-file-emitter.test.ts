@@ -1,11 +1,11 @@
 import { CommentFencedCode } from '@code-to-json/comments';
 import { LinkedFormattedOutputData } from '@code-to-json/formatter-linker';
 import { NODE_HOST } from '@code-to-json/utils-node';
+import { FileEmitterWorkspace } from '@snap-doc/emitter';
 import { expect } from 'chai';
-import { join } from 'path';
 import { describe, it } from 'mocha';
+import { join } from 'path';
 import MarkdownFileEmitter from '../src/emitter';
-import MarkdownFileEmitterWorkspace from '../src/emitter/workspace';
 
 describe('Markdown file emitter tests', () => {
   it('markdown emitter', async () => {
@@ -87,13 +87,16 @@ describe('Markdown file emitter tests', () => {
       },
     };
 
-    const workspace = new MarkdownFileEmitterWorkspace(NODE_HOST, {
-      path: 'out',
-      main: 'src/index.ts',
-      name: 'my-example-project',
-    });
-    workspace.data = fwo;
-    await mfe.emit(workspace);
+    const workspace = new FileEmitterWorkspace(
+      NODE_HOST,
+      {
+        path: 'out',
+        main: 'src/index.ts',
+        name: 'my-example-project',
+      },
+      { defaultExtension: 'md' },
+    );
+    await mfe.emit(workspace, fwo);
     expect(writeParams).to.be.instanceOf(Array);
     expect(writeParams.map(x => x[0])).to.deep.eq(['out/modules/foo/bar.md', 'out/index.md']);
     expect(writeParams[0][1])
