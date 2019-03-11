@@ -29,12 +29,10 @@ export default async function generateDocs(pth: string, commander: Command): Pro
   };
   const { force = false } = commander.opts();
   const dg = new DocGenerator(prog, NODE_HOST, {
-    emitters: [
-      new MarkdownFileEmitter(NODE_HOST, {
-        outDir: path.join(process.cwd(), 'out'),
-        overwriteOutDir: force,
-      }),
-    ],
+    emitters: new MarkdownFileEmitter(NODE_HOST, {
+      outDir: path.join(process.cwd(), 'out'),
+      overwriteOutDir: force,
+    }),
     pkgInfo,
   });
   try {
