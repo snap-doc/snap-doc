@@ -57,12 +57,14 @@ export function organizeTags(
  * @internal
  */
 export function createTagsTable(title: string, tags: BlockTag[]): Node {
-  return table(['left', 'center'], () => [
-    tableRow([tableCell(text(title))]),
-    ...tags.map(t => {
-      return tableRow([tableCell(strong(text(t[0]))), tableCell(t[1])]);
-    }),
-  ]);
+  return paragraph(
+    table(['left', 'center'], () => [
+      tableRow([tableCell(text(title))]),
+      ...tags.map(t => {
+        return tableRow([tableCell(strong(text(t[0]))), tableCell(t[1])]);
+      }),
+    ]),
+  );
 }
 
 /**
@@ -76,7 +78,9 @@ export function parseParagraphContent(summary: CommentParagraphContent): Node[] 
     if (typeof item === 'string') {
       const parsedPart = (md.parse(item) as Parent).children;
       const sanitizedParsedPart = removePositionInformation(parsedPart);
-      parts.push(...sanitizedParsedPart);
+      if (sanitizedParsedPart.length > 0) {
+        parts.push(paragraph(sanitizedParsedPart));
+      }
     } else if (item.kind === 'fencedCode') {
       const c: CommentFencedCode = item;
       parts.push(brk, code(c.language, c.code.trim()), brk);

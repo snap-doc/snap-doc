@@ -3,6 +3,89 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.9](https://github.com/snap-doc/snap-doc/compare/@snap-doc/markdown-emitter@0.8.8...@snap-doc/markdown-emitter@0.8.9) (2019-03-09)
+
+**Note:** Version bump only for package @snap-doc/markdown-emitter
+
+
+
+
+
+## [0.8.8](https://github.com/snap-doc/snap-doc/compare/@snap-doc/markdown-emitter@0.8.7...@snap-doc/markdown-emitter@0.8.8) (2019-03-08)
+
+**Note:** Version bump only for package @snap-doc/markdown-emitter
+
+
+
+
+
+## [0.8.7](https://github.com/snap-doc/snap-doc/compare/@snap-doc/markdown-emitter@0.8.6...@snap-doc/markdown-emitter@0.8.7) (2019-03-07)
+
+**Note:** Version bump only for package @snap-doc/markdown-emitter
+
+
+
+
+
+## [0.8.6](https://github.com/snap-doc/snap-doc/compare/@snap-doc/markdown-emitter@0.8.5...@snap-doc/markdown-emitter@0.8.6) (2019-03-07)
+
+**Note:** Version bump only for package @snap-doc/markdown-emitter
+
+
+
+
+
+## [0.8.5](https://github.com/snap-doc/snap-doc/compare/@snap-doc/markdown-emitter@0.8.4...@snap-doc/markdown-emitter@0.8.5) (2019-03-06)
+
+**Note:** Version bump only for package @snap-doc/markdown-emitter
+
+
+
+
+
+## [0.8.4](https://github.com/snap-doc/snap-doc/compare/@snap-doc/markdown-emitter@0.8.3...@snap-doc/markdown-emitter@0.8.4) (2019-03-05)
+
+**Note:** Version bump only for package @snap-doc/markdown-emitter
+
+
+
+
+
+## [0.8.3](https://github.com/snap-doc/snap-doc/compare/@snap-doc/markdown-emitter@0.8.2...@snap-doc/markdown-emitter@0.8.3) (2019-03-02)
+
+**Note:** Version bump only for package @snap-doc/markdown-emitter
+
+
+
+
+
+## [0.8.2](https://github.com/snap-doc/snap-doc/compare/@snap-doc/markdown-emitter@0.8.1...@snap-doc/markdown-emitter@0.8.2) (2019-03-02)
+
+**Note:** Version bump only for package @snap-doc/markdown-emitter
+
+
+
+
+
+## [0.8.1](https://github.com/snap-doc/snap-doc/compare/@snap-doc/markdown-emitter@0.8.0...@snap-doc/markdown-emitter@0.8.1) (2019-03-01)
+
+**Note:** Version bump only for package @snap-doc/markdown-emitter
+
+
+
+
+
+# [0.8.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/markdown-emitter@0.7.7...@snap-doc/markdown-emitter@0.8.0) (2019-02-28)
+
+
+### Features
+
+* support for multi-file output ([0037e50](https://github.com/snap-doc/snap-doc/commit/0037e50))
+
+
+
+
+
 ## [0.7.7](https://github.com/snap-doc/snap-doc/compare/@snap-doc/markdown-emitter@0.7.6...@snap-doc/markdown-emitter@0.7.7) (2019-02-26)
 
 **Note:** Version bump only for package @snap-doc/markdown-emitter

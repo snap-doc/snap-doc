@@ -4,13 +4,14 @@ import { DocGenerator } from '@snap-doc/core';
 import * as debug from 'debug';
 import { readFileSync } from 'fs';
 import { join } from 'path';
-import { MarkdownFileEmitter, MarkdownFileEmitterWorkspace } from '../../src';
+import { FileEmitterWorkspace } from '@snap-doc/emitter';
+import { MarkdownFileEmitter } from '../../src';
 
 const log = debug('snap-doc:markdown-emitter:acceptance-tests');
 
-class AcceptanceTestCase {
+export class AcceptanceTestCase {
   constructor(
-    private rootPath: string,
+    public readonly root: string,
     private caseCleanup: () => void,
     private folderStr: string,
   ) {}
@@ -20,7 +21,7 @@ class AcceptanceTestCase {
   }
 
   public contentFor(fileName: string): string {
-    return readFileSync(join(this.rootPath, fileName)).toString();
+    return readFileSync(join(this.root, fileName)).toString();
   }
 
   public toString() {
@@ -28,7 +29,10 @@ class AcceptanceTestCase {
   }
 }
 
-export async function setupAcceptanceTest(src: FixtureFolder): Promise<AcceptanceTestCase> {
+export async function setupAcceptanceTest(
+  src: FixtureFolder,
+  singleFile = true,
+): Promise<AcceptanceTestCase> {
   log('hello');
   const testCase = await setupTestCase(
     {
@@ -56,14 +60,16 @@ export async function setupAcceptanceTest(src: FixtureFolder): Promise<Acceptanc
     main: pkg.contents['doc:main'] || pkg.contents.main || pkg.path,
   };
   const dg = new DocGenerator(testCase.program, NODE_HOST, {
-    emitter: new MarkdownFileEmitter(NODE_HOST, {
-      outDir: NODE_HOST.combinePaths(testCase.rootPath, 'out'),
-      omitToc: true,
-      detailedModules: true,
-    }),
+    emitters: [
+      new MarkdownFileEmitter(NODE_HOST, {
+        outDir: NODE_HOST.combinePaths(testCase.rootPath, 'out'),
+        omitToc: true,
+        detailedModules: singleFile,
+      }),
+    ],
     pkgInfo,
   });
-  const workspace = new MarkdownFileEmitterWorkspace(NODE_HOST, pkgInfo);
+  const workspace = new FileEmitterWorkspace(NODE_HOST, pkgInfo, { defaultExtension: 'md' });
   await dg.emit(workspace);
   return new AcceptanceTestCase(
     NODE_HOST.combinePaths(testCase.rootPath, 'out'),

@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.5](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.8.4...@snap-doc/core@0.8.5) (2019-03-09)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
+## [0.8.4](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.8.3...@snap-doc/core@0.8.4) (2019-03-07)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
+## [0.8.3](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.8.2...@snap-doc/core@0.8.3) (2019-03-06)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
+## [0.8.2](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.8.1...@snap-doc/core@0.8.2) (2019-03-02)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
+## [0.8.1](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.8.0...@snap-doc/core@0.8.1) (2019-03-01)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
+# [0.8.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.7.2...@snap-doc/core@0.8.0) (2019-02-28)
+
+
+### Features
+
+* proper support for symbol aliases ([26090b4](https://github.com/snap-doc/snap-doc/commit/26090b4))
+
+
+
+
+
 ## [0.7.2](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.7.1...@snap-doc/core@0.7.2) (2019-02-24)
 
 **Note:** Version bump only for package @snap-doc/core

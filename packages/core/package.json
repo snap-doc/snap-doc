@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/core",
-  "version": "0.7.2",
+  "version": "0.8.5",
   "description": "Core functionality for snap-doc",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
@@ -25,7 +25,7 @@
     "lint": "yarn lint:js && yarn lint:md",
     "lint:js": "eslint . --ext js,ts",
     "lint:md": "remark .",
-    "test": "mocha",
+    "test": "mocha test/**/*.test.ts",
     "test:debug": "yarn test -- --inspect-brk",
     "test:coverage": "rm -rf coverage && nyc yarn test",
     "codacy:transmit-coverage": "cat coverage/lcov.info | codacy-coverage",
@@ -49,7 +49,7 @@
     "mocha": "6.0.1",
     "nyc": "13.3.0",
     "scripty": "1.9.1",
-    "ts-node": "8.0.2"
+    "ts-node": "8.0.3"
   },
   "nyc": {
     "watermarks": {
@@ -97,9 +97,9 @@
     "@code-to-json/formatter": "^1.0.0-rc.0",
     "@code-to-json/formatter-linker": "^1.0.0-rc.0",
     "@mike-north/types": "^1.1.0",
-    "@snap-doc/emitter": "^0.5.2",
-    "@snap-doc/types": "^0.5.8",
-    "@snap-doc/utils": "^0.4.8",
+    "@snap-doc/emitter": "^0.6.5",
+    "@snap-doc/types": "^0.5.14",
+    "@snap-doc/utils": "^0.5.5",
     "chalk": "^2.4.1",
     "debug": "^4.1.1",
     "typescript": "^3.2.2"

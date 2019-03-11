@@ -3,6 +3,86 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.25](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.5.24...@snap-doc/app@0.5.25) (2019-03-08)
+
+**Note:** Version bump only for package @snap-doc/app
+
+
+
+
+
+## [0.5.24](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.5.23...@snap-doc/app@0.5.24) (2019-03-08)
+
+**Note:** Version bump only for package @snap-doc/app
+
+
+
+
+
+## [0.5.23](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.5.22...@snap-doc/app@0.5.23) (2019-03-06)
+
+**Note:** Version bump only for package @snap-doc/app
+
+
+
+
+
+## [0.5.22](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.5.21...@snap-doc/app@0.5.22) (2019-03-06)
+
+**Note:** Version bump only for package @snap-doc/app
+
+
+
+
+
+## [0.5.21](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.5.20...@snap-doc/app@0.5.21) (2019-03-06)
+
+**Note:** Version bump only for package @snap-doc/app
+
+
+
+
+
+## [0.5.20](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.5.19...@snap-doc/app@0.5.20) (2019-03-06)
+
+**Note:** Version bump only for package @snap-doc/app
+
+
+
+
+
+## [0.5.19](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.5.18...@snap-doc/app@0.5.19) (2019-03-06)
+
+**Note:** Version bump only for package @snap-doc/app
+
+
+
+
+
+## [0.5.18](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.5.17...@snap-doc/app@0.5.18) (2019-03-03)
+
+**Note:** Version bump only for package @snap-doc/app
+
+
+
+
+
+## [0.5.17](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.5.16...@snap-doc/app@0.5.17) (2019-03-01)
+
+**Note:** Version bump only for package @snap-doc/app
+
+
+
+
+
+## [0.5.16](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.5.15...@snap-doc/app@0.5.16) (2019-02-28)
+
+**Note:** Version bump only for package @snap-doc/app
+
+
+
+
+
 ## [0.5.15](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.5.14...@snap-doc/app@0.5.15) (2019-02-27)
 
 **Note:** Version bump only for package @snap-doc/app

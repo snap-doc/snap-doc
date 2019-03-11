@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.5](https://github.com/snap-doc/snap-doc/compare/@snap-doc/utils@0.5.4...@snap-doc/utils@0.5.5) (2019-03-09)
+
+**Note:** Version bump only for package @snap-doc/utils
+
+
+
+
+
+## [0.5.4](https://github.com/snap-doc/snap-doc/compare/@snap-doc/utils@0.5.3...@snap-doc/utils@0.5.4) (2019-03-07)
+
+**Note:** Version bump only for package @snap-doc/utils
+
+
+
+
+
+## [0.5.3](https://github.com/snap-doc/snap-doc/compare/@snap-doc/utils@0.5.2...@snap-doc/utils@0.5.3) (2019-03-06)
+
+**Note:** Version bump only for package @snap-doc/utils
+
+
+
+
+
+## [0.5.2](https://github.com/snap-doc/snap-doc/compare/@snap-doc/utils@0.5.1...@snap-doc/utils@0.5.2) (2019-03-02)
+
+**Note:** Version bump only for package @snap-doc/utils
+
+
+
+
+
+## [0.5.1](https://github.com/snap-doc/snap-doc/compare/@snap-doc/utils@0.5.0...@snap-doc/utils@0.5.1) (2019-03-01)
+
+**Note:** Version bump only for package @snap-doc/utils
+
+
+
+
+
+# [0.5.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/utils@0.4.8...@snap-doc/utils@0.5.0) (2019-02-28)
+
+
+### Features
+
+* move guards to utils ([f7855f4](https://github.com/snap-doc/snap-doc/commit/f7855f4))
+
+
+
+
+
 ## [0.4.8](https://github.com/snap-doc/snap-doc/compare/@snap-doc/utils@0.4.7...@snap-doc/utils@0.4.8) (2019-02-24)
 
 **Note:** Version bump only for package @snap-doc/utils

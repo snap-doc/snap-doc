@@ -3,6 +3,86 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.17](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.7.16...@snap-doc/cli@0.7.17) (2019-03-09)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.7.16](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.7.15...@snap-doc/cli@0.7.16) (2019-03-08)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.7.15](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.7.14...@snap-doc/cli@0.7.15) (2019-03-07)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.7.14](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.7.13...@snap-doc/cli@0.7.14) (2019-03-07)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.7.13](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.7.12...@snap-doc/cli@0.7.13) (2019-03-06)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.7.12](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.7.11...@snap-doc/cli@0.7.12) (2019-03-05)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.7.11](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.7.10...@snap-doc/cli@0.7.11) (2019-03-02)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.7.10](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.7.9...@snap-doc/cli@0.7.10) (2019-03-02)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.7.9](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.7.8...@snap-doc/cli@0.7.9) (2019-03-01)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.7.8](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.7.7...@snap-doc/cli@0.7.8) (2019-02-28)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
 ## [0.7.7](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.7.6...@snap-doc/cli@0.7.7) (2019-02-26)
 
 **Note:** Version bump only for package @snap-doc/cli

@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/markdown-emitter",
-  "version": "0.7.7",
+  "version": "0.8.9",
   "description": "Markdown emitter for snap-doc",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
@@ -25,7 +25,7 @@
     "lint": "yarn lint:js && yarn lint:md",
     "lint:js": "eslint . --ext js,ts",
     "lint:md": "remark .",
-    "test": "mocha",
+    "test": "mocha test/**/*.test.ts",
     "test:debug": "yarn test -- --inspect-brk",
     "test:coverage": "rm -rf coverage && nyc yarn test",
     "codacy:transmit-coverage": "cat coverage/lcov.info | codacy-coverage",
@@ -40,8 +40,8 @@
     "url": "https://github.com/snap-doc/snap-doc/issues"
   },
   "devDependencies": {
-    "@code-to-json/test-helpers": "1.0.0-rc.35",
-    "@code-to-json/utils-node": "1.0.0-rc.38",
+    "@code-to-json/test-helpers": "1.0.0-rc.39",
+    "@code-to-json/utils-node": "1.0.0-rc.42",
     "@types/rimraf": "2.0.2",
     "@types/unist": "2.0.3",
     "chai": "4.2.0",
@@ -51,7 +51,7 @@
     "nyc": "13.3.0",
     "scripty": "1.9.1",
     "snap-shot-it": "6.2.10",
-    "ts-node": "8.0.2"
+    "ts-node": "8.0.3"
   },
   "nyc": {
     "watermarks": {
@@ -96,8 +96,8 @@
   },
   "dependencies": {
     "@mike-north/types": "^1.1.0",
-    "@snap-doc/core": "^0.7.2",
-    "@snap-doc/emitter": "^0.5.2",
+    "@snap-doc/core": "^0.8.5",
+    "@snap-doc/emitter": "^0.6.5",
     "debug": "^4.1.1",
     "mdast-builder": "^1.0.1",
     "mdast-util-toc": "^3.0.1",
