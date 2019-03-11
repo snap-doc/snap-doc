@@ -35,7 +35,7 @@ abstract class Emitter<O extends EmitterOptions, W extends Workspace> {
     return new State(data);
   }
 
-  protected abstract async generate(state: State, workspace: W): Promise<void>;
+  public abstract async generate(state: State, workspace: W): Promise<void>;
 
   protected async validateResult(): Promise<void> {
     return Promise.resolve();

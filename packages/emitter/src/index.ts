@@ -12,3 +12,5 @@ export {
 export { Pathable } from './base-emitter/workspace';
 
 export { EmitterData } from './types';
+export { default as MultiEmitter } from './multi-emitter/index';
+export { default as MultiEmitterOptions } from './multi-emitter/options';
