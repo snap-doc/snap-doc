@@ -16,6 +16,8 @@ git:
   depth: 1
 
 stages:
+  - name: conventional commits
+    if: type = push
   - name: basic
   - name: compatibility
   - name: deploy
@@ -38,14 +40,20 @@ jobs:
     - env: EMBER_TRY_SCENARIO=ember-canary
     - name: 'Publish to npm'
   include:
+    - stage: conventional commits
+      name: 'Conventional Commits'
+      install:
+        - yarn install --non-interactive
+      before_script: echo "no before_script work to be done"
+      script:
+        - commitlint-travis && echo "✅ Commitlint passed"
     - stage: basic
-      name: 'Conventional Commits, Lint and Fixed Dependencies'
+      name: 'Lint and Fixed Dependencies'
       install:
         - yarn install --non-interactive
         - yarn add -WD codecov
         - yarn add -WD coveralls
       script:
-        - commitlint-travis && echo "✅ Commitlint passed"
         - lerna run lint:ts --parallel
         - lerna run lint:js --parallel
         - lerna run lint:hbs --parallel
