@@ -10,7 +10,6 @@ import {
 import { isDefined } from '@code-to-json/utils';
 import { findPkgJson, NODE_HOST } from '@code-to-json/utils-node';
 import { createProgramFromTsConfig, createReverseResolver } from '@code-to-json/utils-ts';
-import { Command } from 'commander';
 import * as debug from 'debug';
 import { runTest } from 'doc-tester';
 
@@ -99,7 +98,7 @@ function gatherProgramDocTests(linked: LinkedFormattedOutputData): DocTestFile[]
     .filter(isDefined);
 }
 
-export default async function runDoctests(pth: string, _commander: Command): Promise<void> {
+export default async function runDoctests(pth: string): Promise<void> {
   const prog = await createProgramFromTsConfig(pth, NODE_HOST);
   const pkg = await findPkgJson(pth);
   if (!pkg) {
