@@ -40,8 +40,8 @@
     "url": "https://github.com/snap-doc/snap-doc/issues"
   },
   "devDependencies": {
-    "@code-to-json/test-helpers": "1.0.0-rc.40",
-    "@code-to-json/utils-node": "1.0.0-rc.43",
+    "@code-to-json/test-helpers": "1.0.0-rc.41",
+    "@code-to-json/utils-node": "1.0.0-rc.44",
     "@types/rimraf": "2.0.2",
     "@types/unist": "2.0.3",
     "chai": "4.2.0",
