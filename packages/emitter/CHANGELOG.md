@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.4](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.7.3...@snap-doc/emitter@0.7.4) (2019-03-20)
+
+**Note:** Version bump only for package @snap-doc/emitter
+
+
+
+
+
 ## [0.7.3](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.7.2...@snap-doc/emitter@0.7.3) (2019-03-13)
 
 **Note:** Version bump only for package @snap-doc/emitter
