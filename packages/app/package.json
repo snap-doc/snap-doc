@@ -56,7 +56,7 @@
     "ember-cli-sass": "10.0.0",
     "ember-cli-sri": "2.1.1",
     "ember-cli-template-lint": "1.0.0-beta.2",
-    "ember-cli-typescript-blueprints": "2.0.0-beta.1",
+    "ember-cli-typescript-blueprints": "2.0.0",
     "ember-cli-uglify": "2.1.0",
     "ember-decorators": "5.1.4",
     "ember-export-application-global": "2.0.0",
@@ -78,7 +78,7 @@
     "remark-preset-lint-recommended": "3.0.2",
     "remark-validate-links": "8.0.1",
     "sass": "1.17.3",
-    "typescript": "3.3.3333"
+    "typescript": "3.3.4000"
   },
   "engines": {
     "node": "8.* || >= 10.*"
@@ -89,7 +89,7 @@
     "@glimmer/component": "^0.14.0-alpha.3",
     "@mike-north/types": "^1.0.7",
     "ember-cli-babel": "^7.0.0",
-    "ember-cli-typescript": "2.0.0-rc.2"
+    "ember-cli-typescript": "2.0.0"
   },
   "nyc": {
     "watermarks": {
