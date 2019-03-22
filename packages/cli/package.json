@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/cli",
-  "version": "0.8.8",
+  "version": "0.8.9",
   "description": "CLI for snap-doc",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
@@ -103,7 +103,7 @@
     "@code-to-json/utils-ts": "^1.0.0-rc.0",
     "@mike-north/types": "^1.1.0",
     "@snap-doc/core": "^0.9.5",
-    "@snap-doc/markdown-emitter": "^0.9.8",
+    "@snap-doc/markdown-emitter": "^0.9.9",
     "chalk": "^2.4.1",
     "commander": "^2.19.0",
     "debug": "^4.1.1",
