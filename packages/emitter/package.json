@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/emitter",
-  "version": "0.7.4",
+  "version": "0.7.5",
   "description": "Emitter utilities for snap-doc",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
@@ -95,7 +95,7 @@
     "@code-to-json/formatter-linker": "^1.0.0-rc.0",
     "@code-to-json/utils-ts": "^1.0.0-rc.0",
     "@mike-north/types": "^1.1.0",
-    "@snap-doc/types": "^0.5.18",
+    "@snap-doc/types": "^0.5.19",
     "debug": "^4.1.1"
   }
 }
