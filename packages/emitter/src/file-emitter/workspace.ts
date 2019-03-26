@@ -4,18 +4,18 @@ import { SysHost } from '@code-to-json/utils-ts';
 import State from '../base-emitter/state';
 import Workspace, { Pathable, ProjectInfo } from '../base-emitter/workspace';
 
-export interface FileEmitterWorkspaceOptions {}
+// export interface FileEmitterWorkspaceOptions {}
 
 export default class FileEmitterWorkspace extends Workspace {
-  protected options: FileEmitterWorkspaceOptions;
+  // protected options: FileEmitterWorkspaceOptions;
 
   constructor(
     public readonly host: SysHost,
     projectInfo: ProjectInfo,
-    options: FileEmitterWorkspaceOptions = {},
+    // options: FileEmitterWorkspaceOptions = {},
   ) {
     super(projectInfo);
-    this.options = options;
+    // this.options = options;
   }
 
   public pathFor(state: State, entity: Pathable, extension: string): string {
