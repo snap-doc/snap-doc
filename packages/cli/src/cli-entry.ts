@@ -19,14 +19,14 @@ export function run(): void {
     .command('generate <path>')
     .description('Generate documentation from a TS or JS project')
     .alias('g')
-    .option('--force', 'Overwrite any existing content found in the output directory [true]')
+    .option('--force', 'Overwrite any existing content found in the output directory [false]')
     .option(
       '-e|--emitters [emitters]',
       'Documentation emitters to use [md]',
       (emitterNames: string) => emitterNames.trim().split(/\s*,\s*/),
     )
     .action(pth => {
-      const { force, emitters } = generateCommand.opts();
+      const { force = false, emitters = ['md'] } = generateCommand.opts();
       if (typeof force !== 'boolean') throw new Error(`Invalid value for --force: ${force}`);
       if (!Array.isArray(emitters)) throw new Error(`Invalid value for --emitters: ${emitters}`);
       if (emitters.length === 0) throw new Error(`Must specify at least one emitter`);

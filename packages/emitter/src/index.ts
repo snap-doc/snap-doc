@@ -1,4 +1,4 @@
-export { default as Emitter } from './base-emitter';
+export { default as Emitter, EmitterLike } from './base-emitter';
 export { default as EmitterOptions } from './base-emitter/options';
 export { default as EmitterWorkspace } from './base-emitter/workspace';
 export { default as EmitterState } from './base-emitter/state';
@@ -12,5 +12,3 @@ export {
 export { Pathable } from './base-emitter/workspace';
 
 export { EmitterData } from './types';
-export { default as MultiEmitter } from './multi-emitter/index';
-export { default as MultiEmitterOptions } from './multi-emitter/options';

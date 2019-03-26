@@ -4,9 +4,7 @@ import { SysHost } from '@code-to-json/utils-ts';
 import State from '../base-emitter/state';
 import Workspace, { Pathable, ProjectInfo } from '../base-emitter/workspace';
 
-export interface FileEmitterWorkspaceOptions {
-  defaultExtension: string;
-}
+export interface FileEmitterWorkspaceOptions {}
 
 export default class FileEmitterWorkspace extends Workspace {
   protected options: FileEmitterWorkspaceOptions;
@@ -14,18 +12,15 @@ export default class FileEmitterWorkspace extends Workspace {
   constructor(
     public readonly host: SysHost,
     projectInfo: ProjectInfo,
-    options: FileEmitterWorkspaceOptions,
+    options: FileEmitterWorkspaceOptions = {},
   ) {
     super(projectInfo);
     this.options = options;
   }
 
-  public pathFor(
-    state: State,
-    entity: Pathable,
-    extension: string = this.options.defaultExtension,
-  ): string {
-    return `${this.host.combinePaths(...this.pathPartsFor(state, entity))}.${extension}`;
+  public pathFor(state: State, entity: Pathable, extension: string): string {
+    if (extension.length === 0) throw new Error('invalid extension');
+    return [this.host.combinePaths(...this.pathPartsFor(state, entity)), extension].join('.');
   }
 
   protected pathPartsForSourceFile(state: State, entity: LinkedFormattedSourceFile): string[] {
@@ -51,9 +46,9 @@ export default class FileEmitterWorkspace extends Workspace {
   }
 
   public relativePath(state: State, from: Pathable, to: Pathable, extension: string): string {
-    return this.host.pathRelativeTo(
-      this.host.combinePaths(this.pathFor(state, from, extension), '..'),
-      this.pathFor(state, to, extension),
-    );
+    const fromPath = this.pathFor(state, from, extension);
+    const toPath = this.pathFor(state, to, extension);
+    const res = this.host.pathRelativeTo(this.host.combinePaths(fromPath, '..'), toPath);
+    return res;
   }
 }

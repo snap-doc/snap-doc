@@ -3,7 +3,7 @@ import { WalkerOptions } from '@code-to-json/core/lib/src/walker/options';
 import { FormatterOptions, formatWalkerOutput } from '@code-to-json/formatter';
 import { LinkedFormattedOutputData, linkFormatterData } from '@code-to-json/formatter-linker';
 import { createReverseResolver, ProjectInfo, SysHost } from '@code-to-json/utils-ts';
-import { Emitter, EmitterWorkspace, MultiEmitter } from '@snap-doc/emitter';
+import { EmitterLike, EmitterWorkspace } from '@snap-doc/emitter';
 import { TempFolderCreator } from '@snap-doc/types';
 import * as debug from 'debug';
 import * as ts from 'typescript';
@@ -11,7 +11,7 @@ import * as ts from 'typescript';
 const log = debug('snap-doc:doc-generator');
 
 export interface DocGeneratorOptions {
-  emitters: Emitter<any, any> | (Emitter<any, any>)[];
+  emitters: EmitterLike | EmitterLike[];
   pkgInfo: ProjectInfo;
 }
 
@@ -52,13 +52,12 @@ export default class DocGenerator {
 
   public async emit(workspace: EmitterWorkspace): Promise<void> {
     const data = analyzeProgram(this.prog, this.host, this.options.pkgInfo);
+
     if (Array.isArray(this.options.emitters)) {
-      const multiEmit = new MultiEmitter(this.options.emitters, {
-        parallel: true,
-      });
-      await multiEmit.emit(workspace, data);
+      await Promise.all(this.options.emitters.map(e => e.emit(workspace, data)));
     } else {
       await this.options.emitters.emit(workspace, data);
     }
+    log('emit complete!');
   }
 }
