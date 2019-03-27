@@ -19,9 +19,10 @@ import {
   text,
 } from 'mdast-builder';
 import { Node } from 'unist';
-import { FileEmitterWorkspace, EmitterState, Pathable } from '@snap-doc/emitter';
+import { FileEmitterWorkspace, Pathable } from '@snap-doc/emitter';
 import { createDocumentationForCommentData } from './comment-data';
 import { mdSignatures } from './signature';
+import MarkdownEmitterState from '../../emitter/state';
 
 export interface MDSymbolOptions {
   includeDetails?: boolean;
@@ -30,7 +31,7 @@ export interface MDSymbolOptions {
 }
 
 function mdForSymbolTitle(
-  state: EmitterState,
+  state: MarkdownEmitterState,
   w: FileEmitterWorkspace,
   sym: LinkedFormattedSymbol,
   opts: MDSymbolOptions,
@@ -40,7 +41,7 @@ function mdForSymbolTitle(
     return [];
   }
   const sName = sym.text || sym.name;
-  const url = opts.includeDetails ? undefined : w.pathFor(state, sym);
+  const url = opts.includeDetails ? undefined : w.pathFor(state, sym, state.ext);
   const title = inlineCode(sName);
   if (url) {
     return [heading(opts.baseDepth || 1, link(url, sName, title))];
@@ -170,7 +171,7 @@ export function mdForSymbolDetails(s: LinkedFormattedSymbol, opts: MDSymbolOptio
 }
 
 function mdForBaseTypes(
-  state: EmitterState,
+  state: MarkdownEmitterState,
   w: FileEmitterWorkspace,
   _s: LinkedFormattedSymbol,
   pageItem: Pathable,
@@ -198,7 +199,7 @@ function mdForBaseTypes(
 }
 
 function mdForSymbolHeader(
-  state: EmitterState,
+  state: MarkdownEmitterState,
   w: FileEmitterWorkspace,
   s: LinkedFormattedSymbol,
   pageItem: Pathable,
@@ -231,7 +232,7 @@ function mdForSymbolHeader(
 }
 
 export function mdForSymbol(
-  state: EmitterState,
+  state: MarkdownEmitterState,
   w: FileEmitterWorkspace,
   s: LinkedFormattedSymbol,
   pageItem: Pathable,

@@ -32,6 +32,7 @@ export class AcceptanceTestCase {
 export async function setupAcceptanceTest(
   src: FixtureFolder,
   singleFile = true,
+  extension: 'md' | 'html' = 'md',
 ): Promise<AcceptanceTestCase> {
   log('hello');
   const testCase = await setupTestCase(
@@ -65,11 +66,12 @@ export async function setupAcceptanceTest(
         outDir: NODE_HOST.combinePaths(testCase.rootPath, 'out'),
         omitToc: true,
         detailedModules: singleFile,
+        html: extension === 'html',
       }),
     ],
     pkgInfo,
   });
-  const workspace = new FileEmitterWorkspace(NODE_HOST, pkgInfo, { defaultExtension: 'md' });
+  const workspace = new FileEmitterWorkspace(NODE_HOST, pkgInfo);
   await dg.emit(workspace);
   return new AcceptanceTestCase(
     NODE_HOST.combinePaths(testCase.rootPath, 'out'),
