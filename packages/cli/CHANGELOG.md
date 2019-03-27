@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.8.10...@snap-doc/cli@0.9.0) (2019-03-27)
+
+
+### Features
+
+* emitter selection through CLI ([e1be702](https://github.com/snap-doc/snap-doc/commit/e1be702))
+* generate HTML from markdown ([fa3e5fc](https://github.com/snap-doc/snap-doc/commit/fa3e5fc))
+
+
+
+
+
 ## [0.8.10](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.8.9...@snap-doc/cli@0.8.10) (2019-03-22)
 
 **Note:** Version bump only for package @snap-doc/cli

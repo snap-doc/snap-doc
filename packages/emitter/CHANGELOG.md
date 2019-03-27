@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.7.6...@snap-doc/emitter@0.8.0) (2019-03-27)
+
+
+### Features
+
+* generate HTML from markdown ([fa3e5fc](https://github.com/snap-doc/snap-doc/commit/fa3e5fc))
+
+
+
+
+
 ## [0.7.6](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.7.5...@snap-doc/emitter@0.7.6) (2019-03-22)
 
 **Note:** Version bump only for package @snap-doc/emitter
