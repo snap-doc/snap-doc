@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/emitter",
-  "version": "0.7.3",
+  "version": "0.7.6",
   "description": "Emitter utilities for snap-doc",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
@@ -44,7 +44,7 @@
     "chai": "4.2.0",
     "codecov": "3.2.0",
     "json-typescript": "1.1.0",
-    "mocha": "6.0.1",
+    "mocha": "6.0.2",
     "nyc": "13.3.0",
     "scripty": "1.9.1",
     "ts-node": "8.0.3"
@@ -95,7 +95,7 @@
     "@code-to-json/formatter-linker": "^1.0.0-rc.0",
     "@code-to-json/utils-ts": "^1.0.0-rc.0",
     "@mike-north/types": "^1.1.0",
-    "@snap-doc/types": "^0.5.17",
+    "@snap-doc/types": "^0.5.20",
     "debug": "^4.1.1"
   }
 }
