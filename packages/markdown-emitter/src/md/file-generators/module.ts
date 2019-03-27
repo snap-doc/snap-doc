@@ -4,11 +4,12 @@ import { Dict } from '@mike-north/types';
 import { SortedExportSymbols, sortSymbols } from '@snap-doc/core';
 import { heading, inlineCode, rootWithTitle, text, paragraph, link } from 'mdast-builder';
 import { Node } from 'unist';
-import { FileEmitterWorkspace, EmitterState } from '@snap-doc/emitter';
+import { FileEmitterWorkspace } from '@snap-doc/emitter';
 import { resolveAlias } from '@snap-doc/utils';
 import { createDocumentationForCommentData } from '../utils/comment-data';
 import { mdForSymbol } from '../utils/symbol';
 import { addToc } from '../utils/toc';
+import MarkdownEmitterState from '../../emitter/state';
 
 export interface MarkdownGenOptions {
   omitToc: boolean;
@@ -23,7 +24,7 @@ interface ExportSectionOptions {
 }
 
 function createExportSection(
-  state: EmitterState,
+  state: MarkdownEmitterState,
   w: FileEmitterWorkspace,
   sectionName: string,
   symCollection: Dict<LinkedFormattedSymbol>,
@@ -88,7 +89,7 @@ function createExportSection(
 }
 
 export function createExportSections(
-  state: EmitterState,
+  state: MarkdownEmitterState,
   w: FileEmitterWorkspace,
   { classes, properties, types, functions }: SortedExportSymbols,
   file: LinkedFormattedSourceFile,
@@ -114,7 +115,7 @@ export function createExportSections(
  * @private
  */
 export function markdownForSourceFile(
-  state: EmitterState,
+  state: MarkdownEmitterState,
   workspace: FileEmitterWorkspace,
   file: LinkedFormattedSourceFile,
   options: MarkdownGenOptions = { omitToc: false, detailedModules: false },

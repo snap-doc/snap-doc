@@ -61,11 +61,7 @@ export default async function generateDocs(
     pkgInfo,
   });
   try {
-    await dg.emit(
-      new FileEmitterWorkspace(NODE_HOST, pkgInfo, {
-        defaultExtension: 'md',
-      }),
-    );
+    await dg.emit(new FileEmitterWorkspace(NODE_HOST, pkgInfo));
   } catch (e) {
     if (e instanceof Error) {
       const errMessageParts = e.message.split('\n');

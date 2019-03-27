@@ -1,12 +1,13 @@
 import { LinkedFormattedSymbol } from '@code-to-json/formatter-linker';
 import { inlineCode, rootWithTitle } from 'mdast-builder';
 import { Node } from 'unist';
-import { FileEmitterWorkspace, EmitterState } from '@snap-doc/emitter';
+import { FileEmitterWorkspace } from '@snap-doc/emitter';
 import { mdForSymbol } from '../utils/symbol';
 import { addToc } from '../utils/toc';
+import MarkdownEmitterState from '../../emitter/state';
 
 export function markdownForSymbolFile(
-  state: EmitterState,
+  state: MarkdownEmitterState,
   workspace: FileEmitterWorkspace,
   sym: LinkedFormattedSymbol,
 ): Node {
