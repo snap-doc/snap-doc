@@ -51,7 +51,7 @@
     "@types/window-size": "0.2.4",
     "chai": "4.2.0",
     "codecov": "3.2.0",
-    "json-typescript": "1.1.0",
+    "json-typescript": "1.1.2",
     "mocha": "6.0.2",
     "nyc": "13.3.0",
     "scripty": "1.9.1",
