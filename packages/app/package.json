@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/app",
-  "version": "0.5.30",
+  "version": "0.5.31",
   "description": "> TODO: description",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://snap-doc.com",
@@ -34,7 +34,7 @@
   "devDependencies": {
     "@ember/jquery": "0.6.0",
     "@ember/optional-features": "0.7.0",
-    "@snap-doc/ui-kit": "^0.5.26",
+    "@snap-doc/ui-kit": "^0.5.27",
     "@types/ember": "3.1.0",
     "@types/ember-qunit": "3.4.6",
     "@types/ember__test-helpers": "0.7.8",
