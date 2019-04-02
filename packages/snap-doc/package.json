@@ -1,6 +1,6 @@
 {
   "name": "snap-doc",
-  "version": "0.4.49",
+  "version": "0.4.54",
   "description": "> TODO: description",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
@@ -31,7 +31,7 @@
     "@types/mocha": "5.2.6",
     "chai": "4.2.0",
     "codecov": "3.2.0",
-    "json-typescript": "1.1.0",
+    "json-typescript": "1.1.2",
     "mocha": "6.0.2",
     "nyc": "13.3.0",
     "scripty": "1.9.1",
@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@mike-north/types": "^1.0.7",
-    "@snap-doc/cli": "^0.8.10"
+    "@snap-doc/cli": "^0.9.4"
   },
   "nyc": {
     "watermarks": {

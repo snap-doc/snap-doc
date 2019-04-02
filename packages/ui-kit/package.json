@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/ui-kit",
-  "version": "0.5.25",
+  "version": "0.5.27",
   "description": "UI-kit for Snap-Doc",
   "keywords": [
     "ember-addon"
@@ -70,7 +70,7 @@
     "ember-source": "3.8.0",
     "ember-source-channel-url": "1.1.0",
     "ember-try": "1.1.0",
-    "json-typescript": "1.1.0",
+    "json-typescript": "1.1.2",
     "loader.js": "4.7.0",
     "nyc": "13.3.0",
     "qunit-dom": "0.8.4",

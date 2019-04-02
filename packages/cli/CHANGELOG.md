@@ -3,6 +3,53 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.4](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.9.3...@snap-doc/cli@0.9.4) (2019-03-28)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.9.3](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.9.2...@snap-doc/cli@0.9.3) (2019-03-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency tmp to ^0.1.0 ([42cb5a4](https://github.com/snap-doc/snap-doc/commit/42cb5a4))
+
+
+
+
+
+## [0.9.2](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.9.1...@snap-doc/cli@0.9.2) (2019-03-27)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.9.1](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.9.0...@snap-doc/cli@0.9.1) (2019-03-27)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+# [0.9.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.8.10...@snap-doc/cli@0.9.0) (2019-03-27)
+
+
+### Features
+
+* emitter selection through CLI ([e1be702](https://github.com/snap-doc/snap-doc/commit/e1be702))
+* generate HTML from markdown ([fa3e5fc](https://github.com/snap-doc/snap-doc/commit/fa3e5fc))
+
+
+
+
+
 ## [0.8.10](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.8.9...@snap-doc/cli@0.8.10) (2019-03-22)
 
 **Note:** Version bump only for package @snap-doc/cli
