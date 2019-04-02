@@ -727,10 +727,10 @@
     "@code-to-json/utils" "^1.0.0-rc.36"
     "@mike-north/types" "^1.0.7"
 
-"@code-to-json/test-helpers@1.0.0-rc.41":
-  version "1.0.0-rc.41"
-  resolved "https://registry.yarnpkg.com/@code-to-json/test-helpers/-/test-helpers-1.0.0-rc.41.tgz#e2d2a70bdf3c0ac9cf6dbde7a602b92f5b4b2879"
-  integrity sha512-WRKymiUi8GWeVr5A6c56iHIRMjcchqX29RosKrUlxhITFgzxpiM/f9Da5G5rIASB2K1W9jvpe8XKgVEWCXFYnQ==
+"@code-to-json/test-helpers@1.0.0-rc.42":
+  version "1.0.0-rc.42"
+  resolved "https://registry.yarnpkg.com/@code-to-json/test-helpers/-/test-helpers-1.0.0-rc.42.tgz#81694052c1006e6a5902bd9a0b0702f16a554a9c"
+  integrity sha512-rUmnEQ9wAJkvUqB2WjwJUxNrAYVGlkMcjZCP0k5neWtqZCJP3XR0C82rficmf0te0GOCVYanyUPsOPPidvrcCA==
   dependencies:
     "@code-to-json/utils" "^1.0.0-rc.36"
     "@mike-north/types" "^1.0.7"
@@ -741,19 +741,7 @@
     treeify "^1.1.0"
     typescript "^3.1.0"
 
-"@code-to-json/utils-node@1.0.0-rc.44":
-  version "1.0.0-rc.44"
-  resolved "https://registry.yarnpkg.com/@code-to-json/utils-node/-/utils-node-1.0.0-rc.44.tgz#79fc22c2c008744ad11788a3decb9ed8a7265c4c"
-  integrity sha512-J92oPMd8Gku7ZkXEkgA4AcZvse2WD6vdVJtciKNW7xKuwEXANVyfaRL5wlTPqxHeDCJX9cbXERlAeZ0xhlmrQA==
-  dependencies:
-    "@code-to-json/utils" "^1.0.0-rc.36"
-    "@code-to-json/utils-ts" "^1.0.0-rc.43"
-    "@mike-north/types" "^1.0.7"
-    pkg-up "^2.0.0"
-    rimraf "^2.6.3"
-    tmp "^0.0.33"
-
-"@code-to-json/utils-node@^1.0.0-rc.0":
+"@code-to-json/utils-node@1.0.0-rc.45", "@code-to-json/utils-node@^1.0.0-rc.0":
   version "1.0.0-rc.45"
   resolved "https://registry.yarnpkg.com/@code-to-json/utils-node/-/utils-node-1.0.0-rc.45.tgz#c9e2a7ff8e8d0162c3a40ac4f2729bd43602c1ba"
   integrity sha512-9FOX3p+RgyPi8IpcFh7zisTHf8TRYg/KZ/xve9kKjx6wftVqMzYj97vlg28wv1wf9HzY6ykrCxARKrG5msV9Ww==
@@ -765,7 +753,7 @@
     rimraf "^2.6.3"
     tmp "^0.0.33"
 
-"@code-to-json/utils-ts@^1.0.0-rc.0", "@code-to-json/utils-ts@^1.0.0-rc.43", "@code-to-json/utils-ts@^1.0.0-rc.44":
+"@code-to-json/utils-ts@^1.0.0-rc.0", "@code-to-json/utils-ts@^1.0.0-rc.44":
   version "1.0.0-rc.44"
   resolved "https://registry.yarnpkg.com/@code-to-json/utils-ts/-/utils-ts-1.0.0-rc.44.tgz#579064b8816d8e29775555fcde20ade28711ed2c"
   integrity sha512-A5bVK858tZAuCeBU07dnKFWVAC4mNZ//RJUCG9lJ82jC1jcDpp74fgyCaLeIpEMDHAbOrjyt7tA86C6VPbsQ+w==
