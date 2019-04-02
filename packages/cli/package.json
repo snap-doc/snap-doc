@@ -1,22 +1,14 @@
 {
   "name": "@snap-doc/cli",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "description": "CLI for snap-doc",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
   "license": "BSD-2-Clause",
   "main": "index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
-  "files": [
-    "lib"
-  ],
   "bin": {
     "snap-doc": "bin/snap-doc",
-    "snapdoc": "bin/snap-doc",
-    "snapDoc": "bin/snap-doc"
+    "snapdoc": "bin/snap-doc"
   },
   "publishConfig": {
     "access": "public"
