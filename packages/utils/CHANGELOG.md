@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.15](https://github.com/snap-doc/snap-doc/compare/@snap-doc/utils@0.5.14...@snap-doc/utils@0.5.15) (2019-04-02)
+
+
+### Bug Fixes
+
+* add missing typescript package to utils ([371a11c](https://github.com/snap-doc/snap-doc/commit/371a11c))
+
+
+
+
+
 ## [0.5.14](https://github.com/snap-doc/snap-doc/compare/@snap-doc/utils@0.5.13...@snap-doc/utils@0.5.14) (2019-03-28)
 
 **Note:** Version bump only for package @snap-doc/utils

@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/utils",
-  "version": "0.5.14",
+  "version": "0.5.15",
   "description": "Low-level utilities for snap-doc",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
