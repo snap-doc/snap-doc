@@ -39,7 +39,7 @@
     "remark-preset-lint-markdown-style-guide": "2.1.2",
     "remark-preset-lint-recommended": "3.0.2",
     "remark-validate-links": "8.0.2",
-    "sass": "1.17.3",
+    "sass": "1.17.4",
     "scripty": "1.9.1",
     "ts-node": "8.0.3",
     "typescript": "3.3.4000"
