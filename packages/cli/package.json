@@ -50,7 +50,7 @@
     "@types/tmp": "0.0.34",
     "@types/window-size": "0.2.4",
     "chai": "4.2.0",
-    "codecov": "3.2.0",
+    "codecov": "3.3.0",
     "json-typescript": "1.1.2",
     "mocha": "6.0.2",
     "nyc": "13.3.0",
