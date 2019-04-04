@@ -84,7 +84,6 @@ jobs:
       - linux_build
       - lint
       - linux_fixed
-      - linux_floating
     pool:
       vmImage: 'ubuntu-16.04'
     strategy:
