@@ -28,7 +28,7 @@ jobs:
       vmImage: 'vs2017-win2016'
     steps:
       - template: .azure/setup-project.yml
-      - script: yarn test
+      - script: NO_FIREFOX=true yarn test
 
   - job: linux_floating
     pool:
