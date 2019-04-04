@@ -23,34 +23,6 @@ jobs:
           pathtoPublish: $(Build.ArtifactStagingDirectory)
           artifactName: linux-build
 
-  - job: windows
-    pool:
-      vmImage: 'vs2017-win2016'
-    steps:
-      - template: .azure/setup-project.yml
-      - script: NO_FIREFOX=true yarn test
-
-  - job: linux_floating
-    pool:
-      vmImage: 'ubuntu-16.04'
-    steps:
-      - template: .azure/setup-project.yml
-        parameters:
-          installCommand: yarn install --non-interactive --no-lockfile
-      - script: |
-          yarn test
-        displayName: 'Run Tests'
-
-  - job: linux_fixed
-    dependsOn: linux_build
-    pool:
-      vmImage: 'ubuntu-16.04'
-    steps:
-      - template: .azure/linux-build-job.yml
-      - script: |
-          yarn test
-        displayName: 'Run Tests'
-
   - job: lint
     dependsOn: linux_build
     pool:
@@ -63,6 +35,49 @@ jobs:
           yarn lerna run lint:hbs --parallel
           yarn lerna run lint:md --parallel
         displayName: 'Lint'
+
+  - job: windows
+    dependsOn:
+      - linux_build
+      - lint
+    pool:
+      vmImage: 'vs2017-win2016'
+    variables:
+      no.firefox: true
+    steps:
+      - template: .azure/setup-project.yml
+      - script: yarn test
+
+  - job: linux_floating
+    dependsOn:
+      - linux_build
+      - lint
+    pool:
+      vmImage: 'ubuntu-16.04'
+    steps:
+      - template: .azure/setup-project.yml
+        parameters:
+          installCommand: yarn install --non-interactive --no-lockfile
+      - script: |
+          yarn test
+        displayName: 'Run Tests'
+
+  - job: linux_fixed
+    dependsOn:
+      - linux_build
+      - lint
+    pool:
+      vmImage: 'ubuntu-16.04'
+    steps:
+      - template: .azure/linux-build-job.yml
+      - script: |
+          yarn lerna run test:coverage --concurrency 1
+        displayName: 'Run Tests'
+      - task: PublishCodeCoverageResults@1
+        inputs:
+          codeCoverageTool: Cobertura
+          summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.xml'
+          reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
 
   - job: ember_try
     dependsOn:
