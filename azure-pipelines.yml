@@ -22,20 +22,21 @@ jobs:
         inputs:
           pathtoPublish: $(Build.ArtifactStagingDirectory)
           artifactName: linux-build
-  
+
   - job: windows
     pool:
       vmImage: 'vs2017-win2016'
     steps:
       - template: .azure/setup-project.yml
       - script: yarn test
-  
+
   - job: linux_floating
     pool:
       vmImage: 'ubuntu-16.04'
     steps:
       - template: .azure/setup-project.yml
-        installCommand: yarn install --non-interactive --no-lockfile
+        parameters:
+          installCommand: yarn install --non-interactive --no-lockfile
       - script: |
           yarn test
         displayName: 'Run Tests'
@@ -63,3 +64,24 @@ jobs:
           yarn lerna run lint:md --parallel
         displayName: 'Lint'
 
+  - job: ember_try
+    dependsOn:
+      - linux_build
+      - lint
+      - linux_fixed
+      - linux_floating
+    pool:
+      vmImage: 'ubuntu-16.04'
+    strategy:
+      matrix:
+        lts_3.4:
+          scenario: ember-lts-3.4
+        beta:
+          scenario: ember-beta
+        release:
+          scenario: ember-release
+        canary:
+          scenario: ember-canary
+    steps:
+      - template: .azure/linux-build-job.yml
+      - script: EMBER_TRY_SCENARIO=$(scenario) yarn lerna run try:one --concurrency 1
