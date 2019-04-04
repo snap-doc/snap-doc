@@ -1,8 +1,51 @@
 jobs:
-  - job: windows
+  # - job: windows
+  #   pool:
+  #     vmImage: 'vs2017-win2016'
+  #   steps:
+  #     - template: .azure/setup-project.yml
+  #     - script: yarn test
+  #       displayName: Run Tests
+
+  - job: linux_build
     pool:
-      vmImage: 'vs2017-win2016'
+      vmImage: 'ubuntu-16.04'
     steps:
       - template: .azure/setup-project.yml
-      - script: yarn test
-        displayName: Run Tests
+      - script: tar -cf snap-doc.tar ./*
+        displayName: 'Preparing Artifact'
+      - task: CopyFiles@2
+        inputs:
+          contents: 'snap-doc.tar'
+          targetFolder: $(Build.ArtifactStagingDirectory)
+      - task: PublishBuildArtifacts@1
+        inputs:
+          pathtoPublish: $(Build.ArtifactStagingDirectory)
+          artifactName: MyBuildOutputs
+  - job: lint
+    dependsOn: linux_build
+    pool:
+      vmImage: 'ubuntu-16.04'
+    steps:
+      - template: .azure/setup-node.yml
+      - task: DownloadBuildArtifacts@0
+        inputs:
+          allowPartiallySucceededBuilds: false
+          artifactName: MyBuildOutputs
+          downloadPath: '$(System.ArtifactsDirectory)'
+      - script: |
+          mv '$(System.ArtifactsDirectory)/MyBuildOutputs/snap-doc.tar' ./
+        displayName: 'Copy Build Artifact to Working Directory'
+      - script: |
+          ls -all
+      - script: |
+          tar -xf snap-doc.tar
+        displayName: 'Untar'
+      - script: |
+          ls -all
+      - script: |
+          yarn lerna run lint:ts --parallel
+          yarn lerna run lint:js --parallel
+          yarn lerna run lint:hbs --parallel
+          yarn lerna run lint:md --parallel
+        displayName: 'Lint'
