@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.3](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.10.2...@snap-doc/cli@0.10.3) (2019-04-04)
+
+
+### Bug Fixes
+
+* update bin path ([66d1741](https://github.com/snap-doc/snap-doc/commit/66d1741))
+* **cli:** cli tool path fix ([3ee1f1b](https://github.com/snap-doc/snap-doc/commit/3ee1f1b))
+
+
+
+
+
 ## [0.10.2](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.10.1...@snap-doc/cli@0.10.2) (2019-04-03)
 
 **Note:** Version bump only for package @snap-doc/cli
