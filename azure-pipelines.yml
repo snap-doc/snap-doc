@@ -21,31 +21,45 @@ jobs:
       - task: PublishBuildArtifacts@1
         inputs:
           pathtoPublish: $(Build.ArtifactStagingDirectory)
-          artifactName: MyBuildOutputs
+          artifactName: linux-build
+  
+  - job: windows
+    pool:
+      vmImage: 'vs2017-win2016'
+    steps:
+      - template: .azure/setup-project.yml
+      - script: yarn test
+  
+  - job: linux_floating
+    pool:
+      vmImage: 'ubuntu-16.04'
+    steps:
+      - template: .azure/setup-project.yml
+        installCommand: yarn install --non-interactive --no-lockfile
+      - script: |
+          yarn test
+        displayName: 'Run Tests'
+
+  - job: linux_fixed
+    dependsOn: linux_build
+    pool:
+      vmImage: 'ubuntu-16.04'
+    steps:
+      - template: .azure/linux-build-job.yml
+      - script: |
+          yarn test
+        displayName: 'Run Tests'
+
   - job: lint
     dependsOn: linux_build
     pool:
       vmImage: 'ubuntu-16.04'
     steps:
-      - template: .azure/setup-node.yml
-      - task: DownloadBuildArtifacts@0
-        inputs:
-          allowPartiallySucceededBuilds: false
-          artifactName: MyBuildOutputs
-          downloadPath: '$(System.ArtifactsDirectory)'
-      - script: |
-          mv '$(System.ArtifactsDirectory)/MyBuildOutputs/snap-doc.tar' ./
-        displayName: 'Copy Build Artifact to Working Directory'
-      - script: |
-          ls -all
-      - script: |
-          tar -xf snap-doc.tar
-        displayName: 'Untar'
-      - script: |
-          ls -all
+      - template: .azure/linux-build-job.yml
       - script: |
           yarn lerna run lint:ts --parallel
           yarn lerna run lint:js --parallel
           yarn lerna run lint:hbs --parallel
           yarn lerna run lint:md --parallel
         displayName: 'Lint'
+
