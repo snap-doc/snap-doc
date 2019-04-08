@@ -27,7 +27,7 @@
     "lint:md": "remark .",
     "test": "mocha",
     "test:debug": "yarn test -- --inspect-brk",
-    "test:coverage": "rm -rf coverage && nyc yarn test",
+    "test:coverage": "rm -rf coverage && nyc yarn test --report cobertura",
     "codacy:transmit-coverage": "cat coverage/lcov.info | codacy-coverage",
     "coveralls:transmit-coverage": "cat coverage/lcov.info | coveralls",
     "clean": "rm -rf ./lib",
