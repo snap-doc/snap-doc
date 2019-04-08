@@ -102,7 +102,6 @@ jobs:
 
   - job: nightly_release
     - task: Npm@1
-      displayName: 'publish @snap-doc/core'
       inputs:
         command: 'publish'
         workingDir: "/packages/core"
