@@ -47,7 +47,7 @@
     "chai": "4.2.0",
     "codecov": "3.3.0",
     "json-typescript": "1.1.2",
-    "mocha": "6.1.1",
+    "mocha": "6.1.2",
     "nyc": "13.3.0",
     "scripty": "1.9.1",
     "snap-shot-it": "6.3.2",
