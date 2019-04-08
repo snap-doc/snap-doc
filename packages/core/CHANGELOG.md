@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.6](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.11.5...@snap-doc/core@0.11.6) (2019-04-08)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
+## [0.11.5](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.11.4...@snap-doc/core@0.11.5) (2019-04-08)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
+## [0.11.4](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.11.3...@snap-doc/core@0.11.4) (2019-04-08)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
+## [0.11.3](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.11.2...@snap-doc/core@0.11.3) (2019-04-04)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
 ## [0.11.2](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.11.1...@snap-doc/core@0.11.2) (2019-04-04)
 
 **Note:** Version bump only for package @snap-doc/core

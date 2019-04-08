@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/utils",
-  "version": "0.6.2",
+  "version": "0.6.6",
   "description": "Low-level utilities for snap-doc",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
@@ -41,15 +41,15 @@
   "devDependencies": {
     "@types/debug": "4.1.2",
     "@types/mocha": "5.2.6",
-    "@types/node": "11.12.0",
+    "@types/node": "11.13.2",
     "chai": "4.2.0",
     "codecov": "3.3.0",
     "json-typescript": "1.1.2",
-    "mocha": "6.0.2",
+    "mocha": "6.1.2",
     "nyc": "13.3.0",
     "scripty": "1.9.1",
     "ts-node": "8.0.3",
-    "typescript": "^3.4.1"
+    "typescript": "3.4.2"
   },
   "nyc": {
     "watermarks": {

@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.6](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.9.5...@snap-doc/emitter@0.9.6) (2019-04-08)
+
+**Note:** Version bump only for package @snap-doc/emitter
+
+
+
+
+
+## [0.9.5](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.9.4...@snap-doc/emitter@0.9.5) (2019-04-08)
+
+**Note:** Version bump only for package @snap-doc/emitter
+
+
+
+
+
+## [0.9.4](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.9.3...@snap-doc/emitter@0.9.4) (2019-04-08)
+
+**Note:** Version bump only for package @snap-doc/emitter
+
+
+
+
+
+## [0.9.3](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.9.2...@snap-doc/emitter@0.9.3) (2019-04-04)
+
+**Note:** Version bump only for package @snap-doc/emitter
+
+
+
+
+
 ## [0.9.2](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.9.1...@snap-doc/emitter@0.9.2) (2019-04-04)
 
 **Note:** Version bump only for package @snap-doc/emitter

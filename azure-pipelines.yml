@@ -36,17 +36,17 @@ jobs:
           yarn lerna run lint:md --parallel
         displayName: 'Lint'
 
-  - job: windows
-    dependsOn:
-      - linux_build
-      - lint
-    pool:
-      vmImage: 'vs2017-win2016'
-    variables:
-      no.firefox: true
-    steps:
-      - template: .azure/setup-project.yml
-      - script: yarn test
+  # - job: windows
+  #   dependsOn:
+  #     - linux_build
+  #     - lint
+  #   pool:
+  #     vmImage: 'vs2017-win2016'
+  #   variables:
+  #     no.firefox: true
+  #   steps:
+  #     - template: .azure/setup-project.yml
+  #     - script: yarn test
 
   - job: linux_floating
     dependsOn:
