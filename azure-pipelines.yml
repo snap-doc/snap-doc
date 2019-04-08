@@ -99,3 +99,12 @@ jobs:
     steps:
       - template: .azure/linux-build-job.yml
       - script: EMBER_TRY_SCENARIO=$(scenario) yarn lerna run try:one --concurrency 1
+
+  - job: nightly_release
+    - task: Npm@1
+      displayName: 'publish @snap-doc/core'
+      inputs:
+        command: 'publish'
+        workingDir: "/packages/core"
+        publishRegistry: 'useFeed'
+        publishFeed: trunk-core
