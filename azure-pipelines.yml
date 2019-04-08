@@ -106,4 +106,3 @@ jobs:
         command: 'publish'
         workingDir: "/packages/core"
         publishRegistry: 'useFeed'
-        publishFeed: trunk-core
