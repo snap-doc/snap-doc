@@ -105,6 +105,6 @@ jobs:
       - task: Npm@1
         inputs:
           command: 'publish'
-          workingDir: '/packages/core'
+          workingDir: '$(Build.Repository.LocalPath)/packages/core'
           publishRegistry: 'useFeed'
           publishFeed: trunk-core
