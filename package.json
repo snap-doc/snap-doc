@@ -62,7 +62,7 @@
     "lint": "lerna run lint --parallel",
     "lint:js": "lerna run lint:js --parallel --concurrency 8",
     "lint:md": "lerna run lint:md --parallel --concurrency 8",
-    "test": "lerna run test --concurrency 1",
+    "test": "lerna run test --parallel",
     "test:core": "lerna run test --parallel --ignore=@snap-doc/ui-kit --ignore=@snap-doc/app --ignore=snap-doc",
     "rebuild": "scripty",
     "build": "lerna run link && lerna run build",

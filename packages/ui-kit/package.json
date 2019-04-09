@@ -21,7 +21,7 @@
     "lint": "yarn lint:js && yarn lint:hbs && yarn lint:md",
     "start": "ember serve",
     "test": "ember test --test-port=8741",
-    "test:coverage": "rm -rf coverage && cross-env COVERAGE=true ember test && yarn fix-lcov",
+    "test:coverage": "rm -rf coverage && cross-env COVERAGE=true yarn test && yarn fix-lcov",
     "codacy:transmit-coverage": "cat coverage/lcov.info | codacy-coverage",
     "coveralls:transmit-coverage": "cat coverage/lcov.info | coveralls",
     "fix-lcov": "scripts/fix-lcov \"$(pwd)\"",

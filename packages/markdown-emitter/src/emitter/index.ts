@@ -120,7 +120,10 @@ if you want to replace existing content in the output directory`,
       paragraph(list('unordered', typePaths.map(tp => listItem(link(tp[1], tp[0], text(tp[0])))))),
     ]);
 
-    this.writeFileInOutDir(`index.${this.ext}`, this.md.stringify(tree).trim());
+    this.writeFileInOutDir(
+      this.ext === 'html' ? 'index.html' : 'README.md',
+      this.md.stringify(tree).trim(),
+    );
   }
 
   protected contentForSymbol(
