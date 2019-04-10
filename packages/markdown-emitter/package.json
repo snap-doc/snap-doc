@@ -52,7 +52,7 @@
     "scripty": "1.9.1",
     "snap-shot-it": "6.3.3",
     "ts-node": "8.0.3",
-    "typescript": "3.4.2"
+    "typescript": "3.4.3"
   },
   "nyc": {
     "watermarks": {
