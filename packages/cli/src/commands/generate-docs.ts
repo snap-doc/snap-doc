@@ -22,7 +22,11 @@ export interface EmitterMap {
 
 export default async function generateDocs(
   pth: string,
-  { force, emitters: emitterNames }: { force: boolean; emitters: (keyof EmitterMap)[] },
+  {
+    force,
+    emitters: emitterNames,
+    outDir,
+  }: { force: boolean; emitters: (keyof EmitterMap)[]; outDir: string },
 ): Promise<void> {
   log(`Generating docs for code at: ${pth}`);
   const prog = await createProgramFromTsConfig(pth, NODE_HOST);
@@ -40,13 +44,13 @@ export default async function generateDocs(
     const name: keyof EmitterMap = n;
     if (name === 'md') {
       return new MarkdownFileEmitter(NODE_HOST, {
-        outDir: path.join(process.cwd(), 'out'),
+        outDir: path.join(process.cwd(), outDir),
         overwriteOutDir: force,
       });
     }
     if (name === 'html') {
       return new MarkdownFileEmitter(NODE_HOST, {
-        outDir: path.join(process.cwd(), 'out'),
+        outDir: path.join(process.cwd(), outDir),
         overwriteOutDir: force,
         html: true,
       });

@@ -104,6 +104,7 @@
     "commander": "^2.19.0",
     "debug": "^4.1.1",
     "doc-tester": "sparshithNR/doc-tester#open-to-external",
+    "import-local": "^2.0.0",
     "tmp": "^0.1.0",
     "typescript": "^3.4.1",
     "window-size": "^1.1.1"
