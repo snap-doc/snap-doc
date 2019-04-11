@@ -97,6 +97,6 @@
     "@snap-doc/utils": "^0.7.0",
     "chalk": "^2.4.1",
     "debug": "^4.1.1",
-    "typescript": "^3.4.1"
+    "typescript": "^3.4.3"
   }
 }

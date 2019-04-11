@@ -1,6 +1,9 @@
 import { LinkedFormattedSymbol } from '@code-to-json/formatter-linker';
 import { Dict } from '@mike-north/types';
 import { isAlias, isClass, isEnum, isFunction, isProperty, isType } from '@snap-doc/utils';
+import * as debug from 'debug';
+
+const log = debug('snap-doc:core:symbol-sorter');
 
 export interface SortedExportSymbols {
   classes: Dict<LinkedFormattedSymbol>;
@@ -16,6 +19,7 @@ export function sortSymbols(
   const properties: Dict<LinkedFormattedSymbol> = {};
   const functions: Dict<LinkedFormattedSymbol> = {};
   const types: Dict<LinkedFormattedSymbol> = {};
+  const unknown: Dict<LinkedFormattedSymbol> = {};
 
   function listForSym(sym: LinkedFormattedSymbol): Dict<LinkedFormattedSymbol> {
     if (isClass(sym) || isEnum(sym)) {
@@ -42,7 +46,8 @@ export function sortSymbols(
     } catch (_err) {
       symbolStringified = `${sym.name}`;
     }
-    throw new Error(`Couldn't properly categorize symbol for sorting: ${symbolStringified}`);
+    log(`WARNING: couldn't properly categorize symbol for sorting: ${symbolStringified}`);
+    return unknown;
   }
 
   Object.keys(exports).forEach(name => {
