@@ -6,7 +6,12 @@ import Workspace from './workspace';
 
 const log = debug('snap-doc:base-emitter');
 
-abstract class Emitter<O extends EmitterOptions, W extends Workspace> {
+export interface EmitterLike {
+  emit(workspace: Workspace, data: EmitterData): Promise<void>;
+  generate(state: State, workspace: Workspace): Promise<void>;
+}
+
+abstract class Emitter<O extends EmitterOptions, W extends Workspace> implements EmitterLike {
   constructor(protected options: O) {}
 
   public async emit(workspace: W, data: EmitterData): Promise<void> {

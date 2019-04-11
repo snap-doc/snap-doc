@@ -1,1 +1,1 @@
-export { run } from './cli/index';
+export { run } from './cli-entry';

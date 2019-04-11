@@ -3,6 +3,183 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.12.0...@snap-doc/core@0.13.0) (2019-04-11)
+
+
+### Features
+
+* tolerance for un-sortable symbols ([16579e8](https://github.com/snap-doc/snap-doc/commit/16579e8))
+
+
+
+
+
+# [0.12.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.11.7...@snap-doc/core@0.12.0) (2019-04-11)
+
+
+### Features
+
+* remove redundant remark-lint config ([68e966c](https://github.com/snap-doc/snap-doc/commit/68e966c))
+
+
+
+## 0.11.8 (2019-04-11)
+
+
+
+
+
+## [0.11.7](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.11.6...@snap-doc/core@0.11.7) (2019-04-11)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
+## [0.11.6](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.11.5...@snap-doc/core@0.11.6) (2019-04-08)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
+## [0.11.5](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.11.4...@snap-doc/core@0.11.5) (2019-04-08)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
+## [0.11.4](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.11.3...@snap-doc/core@0.11.4) (2019-04-08)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
+## [0.11.3](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.11.2...@snap-doc/core@0.11.3) (2019-04-04)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
+## [0.11.2](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.11.1...@snap-doc/core@0.11.2) (2019-04-04)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
+## [0.11.1](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.11.0...@snap-doc/core@0.11.1) (2019-04-03)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
+# [0.11.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.10.2...@snap-doc/core@0.11.0) (2019-04-02)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
+## [0.10.2](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.10.1...@snap-doc/core@0.10.2) (2019-03-28)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
+## [0.10.1](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.10.0...@snap-doc/core@0.10.1) (2019-03-27)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
+# [0.10.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.9.6...@snap-doc/core@0.10.0) (2019-03-27)
+
+
+### Features
+
+* generate HTML from markdown ([fa3e5fc](https://github.com/snap-doc/snap-doc/commit/fa3e5fc))
+
+
+
+
+
+## [0.9.6](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.9.5...@snap-doc/core@0.9.6) (2019-03-22)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
+## [0.9.5](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.9.4...@snap-doc/core@0.9.5) (2019-03-22)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
+## [0.9.4](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.9.3...@snap-doc/core@0.9.4) (2019-03-20)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
+## [0.9.3](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.9.2...@snap-doc/core@0.9.3) (2019-03-13)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
+## [0.9.2](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.9.1...@snap-doc/core@0.9.2) (2019-03-12)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
+## [0.9.1](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.9.0...@snap-doc/core@0.9.1) (2019-03-11)
+
+**Note:** Version bump only for package @snap-doc/core
+
+
+
+
+
+# [0.9.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.8.5...@snap-doc/core@0.9.0) (2019-03-11)
+
+
+### Features
+
+* multi emitter ([581c8c8](https://github.com/snap-doc/snap-doc/commit/581c8c8))
+* refactor state out of workspace classes ([ac864ef](https://github.com/snap-doc/snap-doc/commit/ac864ef))
+
+
+
+
+
 ## [0.8.5](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.8.4...@snap-doc/core@0.8.5) (2019-03-09)
 
 **Note:** Version bump only for package @snap-doc/core

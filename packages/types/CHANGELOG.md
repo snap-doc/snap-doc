@@ -3,6 +3,156 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/types@0.6.7...@snap-doc/types@0.7.0) (2019-04-11)
+
+
+### Features
+
+* remove redundant remark-lint config ([68e966c](https://github.com/snap-doc/snap-doc/commit/68e966c))
+
+
+
+
+
+## [0.6.7](https://github.com/snap-doc/snap-doc/compare/@snap-doc/types@0.6.6...@snap-doc/types@0.6.7) (2019-04-11)
+
+**Note:** Version bump only for package @snap-doc/types
+
+
+
+
+
+## [0.6.6](https://github.com/snap-doc/snap-doc/compare/@snap-doc/types@0.6.5...@snap-doc/types@0.6.6) (2019-04-08)
+
+**Note:** Version bump only for package @snap-doc/types
+
+
+
+
+
+## [0.6.5](https://github.com/snap-doc/snap-doc/compare/@snap-doc/types@0.6.4...@snap-doc/types@0.6.5) (2019-04-08)
+
+**Note:** Version bump only for package @snap-doc/types
+
+
+
+
+
+## [0.6.4](https://github.com/snap-doc/snap-doc/compare/@snap-doc/types@0.6.3...@snap-doc/types@0.6.4) (2019-04-08)
+
+**Note:** Version bump only for package @snap-doc/types
+
+
+
+
+
+## [0.6.3](https://github.com/snap-doc/snap-doc/compare/@snap-doc/types@0.6.2...@snap-doc/types@0.6.3) (2019-04-04)
+
+**Note:** Version bump only for package @snap-doc/types
+
+
+
+
+
+## [0.6.2](https://github.com/snap-doc/snap-doc/compare/@snap-doc/types@0.6.1...@snap-doc/types@0.6.2) (2019-04-04)
+
+
+### Bug Fixes
+
+* add missing typescript package to @snap-doc/types ([a6564c7](https://github.com/snap-doc/snap-doc/commit/a6564c7))
+
+
+
+
+
+## [0.6.1](https://github.com/snap-doc/snap-doc/compare/@snap-doc/types@0.6.0...@snap-doc/types@0.6.1) (2019-04-03)
+
+**Note:** Version bump only for package @snap-doc/types
+
+
+
+
+
+# [0.6.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/types@0.5.23...@snap-doc/types@0.6.0) (2019-04-02)
+
+**Note:** Version bump only for package @snap-doc/types
+
+
+
+
+
+## [0.5.23](https://github.com/snap-doc/snap-doc/compare/@snap-doc/types@0.5.22...@snap-doc/types@0.5.23) (2019-03-28)
+
+**Note:** Version bump only for package @snap-doc/types
+
+
+
+
+
+## [0.5.22](https://github.com/snap-doc/snap-doc/compare/@snap-doc/types@0.5.21...@snap-doc/types@0.5.22) (2019-03-27)
+
+**Note:** Version bump only for package @snap-doc/types
+
+
+
+
+
+## [0.5.21](https://github.com/snap-doc/snap-doc/compare/@snap-doc/types@0.5.20...@snap-doc/types@0.5.21) (2019-03-27)
+
+**Note:** Version bump only for package @snap-doc/types
+
+
+
+
+
+## [0.5.20](https://github.com/snap-doc/snap-doc/compare/@snap-doc/types@0.5.19...@snap-doc/types@0.5.20) (2019-03-22)
+
+**Note:** Version bump only for package @snap-doc/types
+
+
+
+
+
+## [0.5.19](https://github.com/snap-doc/snap-doc/compare/@snap-doc/types@0.5.18...@snap-doc/types@0.5.19) (2019-03-22)
+
+**Note:** Version bump only for package @snap-doc/types
+
+
+
+
+
+## [0.5.18](https://github.com/snap-doc/snap-doc/compare/@snap-doc/types@0.5.17...@snap-doc/types@0.5.18) (2019-03-20)
+
+**Note:** Version bump only for package @snap-doc/types
+
+
+
+
+
+## [0.5.17](https://github.com/snap-doc/snap-doc/compare/@snap-doc/types@0.5.16...@snap-doc/types@0.5.17) (2019-03-13)
+
+**Note:** Version bump only for package @snap-doc/types
+
+
+
+
+
+## [0.5.16](https://github.com/snap-doc/snap-doc/compare/@snap-doc/types@0.5.15...@snap-doc/types@0.5.16) (2019-03-12)
+
+**Note:** Version bump only for package @snap-doc/types
+
+
+
+
+
+## [0.5.15](https://github.com/snap-doc/snap-doc/compare/@snap-doc/types@0.5.14...@snap-doc/types@0.5.15) (2019-03-11)
+
+**Note:** Version bump only for package @snap-doc/types
+
+
+
+
+
 ## [0.5.14](https://github.com/snap-doc/snap-doc/compare/@snap-doc/types@0.5.13...@snap-doc/types@0.5.14) (2019-03-09)
 
 **Note:** Version bump only for package @snap-doc/types

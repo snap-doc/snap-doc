@@ -1,30 +1,101 @@
-# Node.js
-# Build a general Node.js project with npm.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+jobs:
+  # - job: windows
+  #   pool:
+  #     vmImage: 'vs2017-win2016'
+  #   steps:
+  #     - template: .azure/setup-project.yml
+  #     - script: yarn test
+  #       displayName: Run Tests
 
-pool:
-  vmImage: 'vs2017-win2016'
+  - job: linux_build
+    pool:
+      vmImage: 'ubuntu-16.04'
+    steps:
+      - template: .azure/setup-project.yml
+      - script: tar -cf snap-doc.tar ./*
+        displayName: 'Preparing Artifact'
+      - task: CopyFiles@2
+        inputs:
+          contents: 'snap-doc.tar'
+          targetFolder: $(Build.ArtifactStagingDirectory)
+      - task: PublishBuildArtifacts@1
+        inputs:
+          pathtoPublish: $(Build.ArtifactStagingDirectory)
+          artifactName: linux-build
 
-steps:
-  - task: NodeTool@0
-    inputs:
-      versionSpec: '8.x'
-    displayName: 'Install Node.js'
+  - job: lint
+    dependsOn: linux_build
+    pool:
+      vmImage: 'ubuntu-16.04'
+    steps:
+      - template: .azure/linux-build-job.yml
+      - script: |
+          yarn lerna run lint:ts --parallel
+          yarn lerna run lint:js --parallel
+          yarn lerna run lint:hbs --parallel
+          yarn lerna run lint:md --parallel
+        displayName: 'Lint'
 
-  - script: |
-      echo "Installing global dependencies"
-      npm install -g ts-node yarn lerna ember-cli
-    displayName: 'Setup global deps'
-  - script: |
-      echo "Installing project dependencies"
-      yarn install --non-interactive
-      echo "Setting up environment"
-    displayName: 'Setup project'
-  - script: |
-      export TEMP="$AGENT_TEMPDIRECTORY"
-      export NODE_TEMP="$(node -e "console.log(require('os').tmpdir())")"
-      node -e "console.log('TMP ' + require('os').tmpdir())"
-      node -e "console.log(JSON.stringify(process.env, null, '  '))"
-      lerna run test --scope=@snap-doc/ui-kit
-    displayName: 'Run tests'
+  # - job: windows
+  #   dependsOn:
+  #     - linux_build
+  #     - lint
+  #   pool:
+  #     vmImage: 'vs2017-win2016'
+  #   variables:
+  #     no.firefox: true
+  #   steps:
+  #     - template: .azure/setup-project.yml
+  #     - script: yarn test
+
+  - job: linux_floating
+    dependsOn:
+      - linux_build
+      - lint
+    pool:
+      vmImage: 'ubuntu-16.04'
+    steps:
+      - template: .azure/setup-project.yml
+        parameters:
+          installCommand: yarn install --non-interactive --no-lockfile
+      - script: |
+          yarn test
+        displayName: 'Run Tests'
+
+  - job: linux_fixed
+    dependsOn:
+      - linux_build
+      - lint
+    pool:
+      vmImage: 'ubuntu-16.04'
+    steps:
+      - template: .azure/linux-build-job.yml
+      - script: |
+          yarn lerna run test:coverage --concurrency 1
+        displayName: 'Run Tests'
+      - task: PublishCodeCoverageResults@1
+        inputs:
+          codeCoverageTool: Cobertura
+          summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.xml'
+          reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
+
+  - job: ember_try
+    dependsOn:
+      - linux_build
+      - lint
+      - linux_fixed
+    pool:
+      vmImage: 'ubuntu-16.04'
+    strategy:
+      matrix:
+        lts_3.4:
+          scenario: ember-lts-3.4
+        beta:
+          scenario: ember-beta
+        release:
+          scenario: ember-release
+        canary:
+          scenario: ember-canary
+    steps:
+      - template: .azure/linux-build-job.yml
+      - script: EMBER_TRY_SCENARIO=$(scenario) yarn lerna run try:one --concurrency 1

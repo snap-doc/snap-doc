@@ -6,7 +6,7 @@
   var importLocal = require('import-local');
 
   if (!importLocal(__filename)) {
-    require('../lib/src/cli/index.js').run({
+    require('../lib/src/cli-entry.js').run({
       args: process.argv
     });
   }

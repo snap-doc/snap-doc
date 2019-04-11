@@ -54,6 +54,9 @@
       "files": ["**/.remarkrc.js"],
       "env": {
         "node": true
+      },
+      "rules": {
+        "node/no-unpublished-require": 0
       }
     },
     {

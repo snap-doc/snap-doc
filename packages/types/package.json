@@ -1,6 +1,6 @@
 {
   "name": "@snap-doc/types",
-  "version": "0.5.14",
+  "version": "0.7.0",
   "description": "Types & type utilities for snap-doc",
   "author": "Mike North <michael.l.north@gmail.com>",
   "homepage": "https://github.com/snap-doc/snap-doc#readme",
@@ -27,7 +27,7 @@
     "lint:md": "remark .",
     "test": "mocha test/**/*.test.ts",
     "test:debug": "yarn test -- --inspect-brk",
-    "test:coverage": "rm -rf coverage && nyc yarn test",
+    "test:coverage": "rm -rf coverage && nyc yarn test --report cobertura",
     "codacy:transmit-coverage": "cat coverage/lcov.info | codacy-coverage",
     "coveralls:transmit-coverage": "cat coverage/lcov.info | coveralls",
     "clean": "rm -rf ./lib",
@@ -42,12 +42,13 @@
     "@types/debug": "4.1.2",
     "@types/mocha": "5.2.6",
     "chai": "4.2.0",
-    "codecov": "3.2.0",
-    "json-typescript": "1.1.0",
-    "mocha": "6.0.1",
+    "codecov": "3.3.0",
+    "json-typescript": "1.1.2",
+    "mocha": "6.1.2",
     "nyc": "13.3.0",
     "scripty": "1.9.1",
-    "ts-node": "8.0.3"
+    "ts-node": "8.0.3",
+    "typescript": "3.4.3"
   },
   "nyc": {
     "watermarks": {
@@ -84,16 +85,10 @@
       "text-summary"
     ]
   },
-  "remarkConfig": {
-    "plugins": [
-      "remark-preset-lint-recommended",
-      "remark-preset-lint-markdown-style-guide"
-    ]
-  },
   "dependencies": {
     "@code-to-json/comments": "^1.0.0-rc.0",
     "@code-to-json/formatter-linker": "^1.0.0-rc.7",
     "@mike-north/types": "^1.0.7",
-    "@snap-doc/utils": "^0.5.5"
+    "@snap-doc/utils": "^0.7.0"
   }
 }

@@ -3,6 +3,247 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.11.0...@snap-doc/cli@0.12.0) (2019-04-11)
+
+
+### Features
+
+* tolerance for un-sortable symbols ([16579e8](https://github.com/snap-doc/snap-doc/commit/16579e8))
+
+
+
+
+
+# [0.11.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.10.8...@snap-doc/cli@0.11.0) (2019-04-11)
+
+
+### Features
+
+* remove redundant remark-lint config ([68e966c](https://github.com/snap-doc/snap-doc/commit/68e966c))
+
+
+
+## 0.10.9 (2019-04-11)
+
+
+
+
+
+## [0.10.8](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.10.7...@snap-doc/cli@0.10.8) (2019-04-11)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.10.7](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.10.6...@snap-doc/cli@0.10.7) (2019-04-08)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.10.6](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.10.5...@snap-doc/cli@0.10.6) (2019-04-08)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.10.5](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.10.4...@snap-doc/cli@0.10.5) (2019-04-08)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.10.4](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.10.3...@snap-doc/cli@0.10.4) (2019-04-04)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.10.3](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.10.2...@snap-doc/cli@0.10.3) (2019-04-04)
+
+
+### Bug Fixes
+
+* update bin path ([66d1741](https://github.com/snap-doc/snap-doc/commit/66d1741))
+* **cli:** cli tool path fix ([3ee1f1b](https://github.com/snap-doc/snap-doc/commit/3ee1f1b))
+
+
+
+
+
+## [0.10.2](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.10.1...@snap-doc/cli@0.10.2) (2019-04-03)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.10.1](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.10.0...@snap-doc/cli@0.10.1) (2019-04-02)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+# [0.10.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.9.4...@snap-doc/cli@0.10.0) (2019-04-02)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.9.4](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.9.3...@snap-doc/cli@0.9.4) (2019-03-28)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.9.3](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.9.2...@snap-doc/cli@0.9.3) (2019-03-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency tmp to ^0.1.0 ([42cb5a4](https://github.com/snap-doc/snap-doc/commit/42cb5a4))
+
+
+
+
+
+## [0.9.2](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.9.1...@snap-doc/cli@0.9.2) (2019-03-27)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.9.1](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.9.0...@snap-doc/cli@0.9.1) (2019-03-27)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+# [0.9.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.8.10...@snap-doc/cli@0.9.0) (2019-03-27)
+
+
+### Features
+
+* emitter selection through CLI ([e1be702](https://github.com/snap-doc/snap-doc/commit/e1be702))
+* generate HTML from markdown ([fa3e5fc](https://github.com/snap-doc/snap-doc/commit/fa3e5fc))
+
+
+
+
+
+## [0.8.10](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.8.9...@snap-doc/cli@0.8.10) (2019-03-22)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.8.9](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.8.8...@snap-doc/cli@0.8.9) (2019-03-22)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.8.8](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.8.7...@snap-doc/cli@0.8.8) (2019-03-22)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.8.7](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.8.6...@snap-doc/cli@0.8.7) (2019-03-21)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.8.6](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.8.5...@snap-doc/cli@0.8.6) (2019-03-20)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.8.5](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.8.4...@snap-doc/cli@0.8.5) (2019-03-20)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.8.4](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.8.3...@snap-doc/cli@0.8.4) (2019-03-19)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.8.3](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.8.2...@snap-doc/cli@0.8.3) (2019-03-13)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.8.2](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.8.1...@snap-doc/cli@0.8.2) (2019-03-12)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+## [0.8.1](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.8.0...@snap-doc/cli@0.8.1) (2019-03-11)
+
+**Note:** Version bump only for package @snap-doc/cli
+
+
+
+
+
+# [0.8.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.7.17...@snap-doc/cli@0.8.0) (2019-03-11)
+
+
+### Features
+
+* multi emitter ([f0495bd](https://github.com/snap-doc/snap-doc/commit/f0495bd))
+* refactor state out of workspace classes ([6b01543](https://github.com/snap-doc/snap-doc/commit/6b01543))
+
+
+
+
+
 ## [0.7.17](https://github.com/snap-doc/snap-doc/compare/@snap-doc/cli@0.7.16...@snap-doc/cli@0.7.17) (2019-03-09)
 
 **Note:** Version bump only for package @snap-doc/cli

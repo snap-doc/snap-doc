@@ -3,6 +3,132 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.6.7...@snap-doc/app@0.7.0) (2019-04-11)
+
+
+### Features
+
+* remove redundant remark-lint config ([68e966c](https://github.com/snap-doc/snap-doc/commit/68e966c))
+
+
+
+
+
+## [0.6.7](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.6.6...@snap-doc/app@0.6.7) (2019-04-11)
+
+**Note:** Version bump only for package @snap-doc/app
+
+
+
+
+
+## [0.6.6](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.6.5...@snap-doc/app@0.6.6) (2019-04-06)
+
+**Note:** Version bump only for package @snap-doc/app
+
+
+
+
+
+## [0.6.5](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.6.4...@snap-doc/app@0.6.5) (2019-04-05)
+
+**Note:** Version bump only for package @snap-doc/app
+
+
+
+
+
+## [0.6.4](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.6.3...@snap-doc/app@0.6.4) (2019-04-04)
+
+**Note:** Version bump only for package @snap-doc/app
+
+
+
+
+
+## [0.6.3](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.6.2...@snap-doc/app@0.6.3) (2019-04-04)
+
+**Note:** Version bump only for package @snap-doc/app
+
+
+
+
+
+## [0.6.2](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.6.1...@snap-doc/app@0.6.2) (2019-04-03)
+
+**Note:** Version bump only for package @snap-doc/app
+
+
+
+
+
+## [0.6.1](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.6.0...@snap-doc/app@0.6.1) (2019-04-03)
+
+**Note:** Version bump only for package @snap-doc/app
+
+
+
+
+
+# [0.6.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.5.31...@snap-doc/app@0.6.0) (2019-04-02)
+
+**Note:** Version bump only for package @snap-doc/app
+
+
+
+
+
+## [0.5.31](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.5.30...@snap-doc/app@0.5.31) (2019-03-28)
+
+**Note:** Version bump only for package @snap-doc/app
+
+
+
+
+
+## [0.5.30](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.5.29...@snap-doc/app@0.5.30) (2019-03-27)
+
+**Note:** Version bump only for package @snap-doc/app
+
+
+
+
+
+## [0.5.29](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.5.28...@snap-doc/app@0.5.29) (2019-03-18)
+
+**Note:** Version bump only for package @snap-doc/app
+
+
+
+
+
+## [0.5.28](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.5.27...@snap-doc/app@0.5.28) (2019-03-15)
+
+**Note:** Version bump only for package @snap-doc/app
+
+
+
+
+
+## [0.5.27](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.5.26...@snap-doc/app@0.5.27) (2019-03-13)
+
+**Note:** Version bump only for package @snap-doc/app
+
+
+
+
+
+## [0.5.26](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.5.25...@snap-doc/app@0.5.26) (2019-03-12)
+
+
+### Bug Fixes
+
+* trim down packages ([48a54bb](https://github.com/snap-doc/snap-doc/commit/48a54bb))
+
+
+
+
+
 ## [0.5.25](https://github.com/snap-doc/snap-doc/compare/@snap-doc/app@0.5.24...@snap-doc/app@0.5.25) (2019-03-08)
 
 **Note:** Version bump only for package @snap-doc/app

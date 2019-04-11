@@ -3,6 +3,168 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.9.7...@snap-doc/emitter@0.10.0) (2019-04-11)
+
+
+### Features
+
+* remove redundant remark-lint config ([68e966c](https://github.com/snap-doc/snap-doc/commit/68e966c))
+
+
+
+
+
+## [0.9.7](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.9.6...@snap-doc/emitter@0.9.7) (2019-04-11)
+
+**Note:** Version bump only for package @snap-doc/emitter
+
+
+
+
+
+## [0.9.6](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.9.5...@snap-doc/emitter@0.9.6) (2019-04-08)
+
+**Note:** Version bump only for package @snap-doc/emitter
+
+
+
+
+
+## [0.9.5](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.9.4...@snap-doc/emitter@0.9.5) (2019-04-08)
+
+**Note:** Version bump only for package @snap-doc/emitter
+
+
+
+
+
+## [0.9.4](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.9.3...@snap-doc/emitter@0.9.4) (2019-04-08)
+
+**Note:** Version bump only for package @snap-doc/emitter
+
+
+
+
+
+## [0.9.3](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.9.2...@snap-doc/emitter@0.9.3) (2019-04-04)
+
+**Note:** Version bump only for package @snap-doc/emitter
+
+
+
+
+
+## [0.9.2](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.9.1...@snap-doc/emitter@0.9.2) (2019-04-04)
+
+**Note:** Version bump only for package @snap-doc/emitter
+
+
+
+
+
+## [0.9.1](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.9.0...@snap-doc/emitter@0.9.1) (2019-04-03)
+
+**Note:** Version bump only for package @snap-doc/emitter
+
+
+
+
+
+# [0.9.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.8.2...@snap-doc/emitter@0.9.0) (2019-04-02)
+
+**Note:** Version bump only for package @snap-doc/emitter
+
+
+
+
+
+## [0.8.2](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.8.1...@snap-doc/emitter@0.8.2) (2019-03-28)
+
+**Note:** Version bump only for package @snap-doc/emitter
+
+
+
+
+
+## [0.8.1](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.8.0...@snap-doc/emitter@0.8.1) (2019-03-27)
+
+**Note:** Version bump only for package @snap-doc/emitter
+
+
+
+
+
+# [0.8.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.7.6...@snap-doc/emitter@0.8.0) (2019-03-27)
+
+
+### Features
+
+* generate HTML from markdown ([fa3e5fc](https://github.com/snap-doc/snap-doc/commit/fa3e5fc))
+
+
+
+
+
+## [0.7.6](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.7.5...@snap-doc/emitter@0.7.6) (2019-03-22)
+
+**Note:** Version bump only for package @snap-doc/emitter
+
+
+
+
+
+## [0.7.5](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.7.4...@snap-doc/emitter@0.7.5) (2019-03-22)
+
+**Note:** Version bump only for package @snap-doc/emitter
+
+
+
+
+
+## [0.7.4](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.7.3...@snap-doc/emitter@0.7.4) (2019-03-20)
+
+**Note:** Version bump only for package @snap-doc/emitter
+
+
+
+
+
+## [0.7.3](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.7.2...@snap-doc/emitter@0.7.3) (2019-03-13)
+
+**Note:** Version bump only for package @snap-doc/emitter
+
+
+
+
+
+## [0.7.2](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.7.1...@snap-doc/emitter@0.7.2) (2019-03-12)
+
+**Note:** Version bump only for package @snap-doc/emitter
+
+
+
+
+
+## [0.7.1](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.7.0...@snap-doc/emitter@0.7.1) (2019-03-11)
+
+**Note:** Version bump only for package @snap-doc/emitter
+
+
+
+
+
+# [0.7.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.6.5...@snap-doc/emitter@0.7.0) (2019-03-11)
+
+
+### Features
+
+* multi emitter ([0b6de09](https://github.com/snap-doc/snap-doc/commit/0b6de09))
+* refactor state out of workspace classes ([907cf0d](https://github.com/snap-doc/snap-doc/commit/907cf0d))
+
+
+
+
+
 ## [0.6.5](https://github.com/snap-doc/snap-doc/compare/@snap-doc/emitter@0.6.4...@snap-doc/emitter@0.6.5) (2019-03-09)
 
 **Note:** Version bump only for package @snap-doc/emitter

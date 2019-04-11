@@ -1,13 +1,13 @@
+import { UnreachableError } from '@code-to-json/utils';
 import { findPkgJson, NODE_HOST } from '@code-to-json/utils-node';
 import { createProgramFromTsConfig } from '@code-to-json/utils-ts';
 import { DocGenerator } from '@snap-doc/core';
+import { FileEmitterWorkspace } from '@snap-doc/emitter';
 import { MarkdownFileEmitter } from '@snap-doc/markdown-emitter';
 import chalk from 'chalk';
-import { Command } from 'commander';
 import * as debug from 'debug';
 import * as path from 'path';
 import * as windowSize from 'window-size';
-import { FileEmitterWorkspace } from '@snap-doc/emitter';
 
 const log = debug('snap-doc:cli');
 
@@ -15,7 +15,19 @@ function divider(character: string = '-', length: number = windowSize.width): st
   return new Array<string>(length).fill(character).join('');
 }
 
-export default async function generateDocs(pth: string, commander: Command): Promise<void> {
+export interface EmitterMap {
+  md: MarkdownFileEmitter;
+  html: MarkdownFileEmitter;
+}
+
+export default async function generateDocs(
+  pth: string,
+  {
+    force,
+    emitters: emitterNames,
+    outDir,
+  }: { force: boolean; emitters: (keyof EmitterMap)[]; outDir: string },
+): Promise<void> {
   log(`Generating docs for code at: ${pth}`);
   const prog = await createProgramFromTsConfig(pth, NODE_HOST);
   const pkg = await findPkgJson(pth);
@@ -27,20 +39,33 @@ export default async function generateDocs(pth: string, commander: Command): Pro
     name: pkg.contents.name,
     main: pkg.contents['doc:main'] || pkg.contents.main || pkg.path,
   };
-  const { force = false } = commander.opts();
+
+  function emitterForName<K extends keyof EmitterMap>(n: K): EmitterMap[K] {
+    const name: keyof EmitterMap = n;
+    if (name === 'md') {
+      return new MarkdownFileEmitter(NODE_HOST, {
+        outDir: path.join(process.cwd(), outDir),
+        overwriteOutDir: force,
+      });
+    }
+    if (name === 'html') {
+      return new MarkdownFileEmitter(NODE_HOST, {
+        outDir: path.join(process.cwd(), outDir),
+        overwriteOutDir: force,
+        html: true,
+      });
+    }
+    throw new UnreachableError(name, `Unknown emitter name: ${name}`);
+  }
+
+  const emitters = emitterNames.map(e => emitterForName(e));
+
   const dg = new DocGenerator(prog, NODE_HOST, {
-    emitters: new MarkdownFileEmitter(NODE_HOST, {
-      outDir: path.join(process.cwd(), 'out'),
-      overwriteOutDir: force,
-    }),
+    emitters,
     pkgInfo,
   });
   try {
-    await dg.emit(
-      new FileEmitterWorkspace(NODE_HOST, pkgInfo, {
-        defaultExtension: 'md',
-      }),
-    );
+    await dg.emit(new FileEmitterWorkspace(NODE_HOST, pkgInfo));
   } catch (e) {
     if (e instanceof Error) {
       const errMessageParts = e.message.split('\n');

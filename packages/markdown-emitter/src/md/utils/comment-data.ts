@@ -4,6 +4,7 @@ import {
   CommentParagraphContent,
   CommentParam,
 } from '@code-to-json/comments';
+import * as debug from 'debug';
 import {
   brk,
   code,
@@ -22,6 +23,8 @@ import { Node, Parent } from 'unist';
 import md from '../index';
 import { bannerNode } from './banner';
 import { removePositionInformation } from './node-utils';
+
+const log = debug('snap-doc:markdown-emitter:comment-data');
 
 type BlockTag = [string, Node[]];
 const SOURCEFILE_HEADER_TOP_TAGS: string[] = ['author', 'file'];
@@ -85,7 +88,7 @@ export function parseParagraphContent(summary: CommentParagraphContent): Node[] 
       const c: CommentFencedCode = item;
       parts.push(brk, code(c.language, c.code.trim()), brk);
     } else {
-      throw new Error(`Unexpected item in paragraph content
+      log(`Unexpected item in paragraph content
 ${JSON.stringify(item)}`);
     }
   });

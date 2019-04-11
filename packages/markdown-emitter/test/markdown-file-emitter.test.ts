@@ -87,15 +87,11 @@ describe('Markdown file emitter tests', () => {
       },
     };
 
-    const workspace = new FileEmitterWorkspace(
-      NODE_HOST,
-      {
-        path: 'out',
-        main: 'src/index.ts',
-        name: 'my-example-project',
-      },
-      { defaultExtension: 'md' },
-    );
+    const workspace = new FileEmitterWorkspace(NODE_HOST, {
+      path: 'out',
+      main: 'src/index.ts',
+      name: 'my-example-project',
+    });
     await mfe.emit(workspace, fwo);
     expect(writeParams).to.be.instanceOf(Array);
     expect(writeParams.map(x => x[0])).to.deep.eq(['out/modules/foo/bar.md', 'out/index.md']);
