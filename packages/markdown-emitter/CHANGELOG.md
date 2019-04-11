@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/markdown-emitter@0.12.0...@snap-doc/markdown-emitter@0.13.0) (2019-04-11)
+
+
+### Features
+
+* tolerance for un-sortable symbols ([16579e8](https://github.com/snap-doc/snap-doc/commit/16579e8))
+
+
+
+
+
 # [0.12.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/markdown-emitter@0.11.8...@snap-doc/markdown-emitter@0.12.0) (2019-04-11)
 
 
