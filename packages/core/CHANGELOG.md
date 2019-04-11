@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.11.7...@snap-doc/core@0.12.0) (2019-04-11)
+
+
+### Features
+
+* remove redundant remark-lint config ([68e966c](https://github.com/snap-doc/snap-doc/commit/68e966c))
+
+
+
+## 0.11.8 (2019-04-11)
+
+
+
+
+
 ## [0.11.7](https://github.com/snap-doc/snap-doc/compare/@snap-doc/core@0.11.6...@snap-doc/core@0.11.7) (2019-04-11)
 
 **Note:** Version bump only for package @snap-doc/core
