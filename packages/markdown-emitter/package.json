@@ -89,12 +89,6 @@
       "text-summary"
     ]
   },
-  "remarkConfig": {
-    "plugins": [
-      "remark-preset-lint-recommended",
-      "remark-preset-lint-markdown-style-guide"
-    ]
-  },
   "dependencies": {
     "@mike-north/types": "^1.1.0",
     "@snap-doc/core": "^0.11.7",

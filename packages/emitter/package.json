@@ -85,12 +85,6 @@
       "text-summary"
     ]
   },
-  "remarkConfig": {
-    "plugins": [
-      "remark-preset-lint-recommended",
-      "remark-preset-lint-markdown-style-guide"
-    ]
-  },
   "dependencies": {
     "@code-to-json/formatter": "^1.0.0-rc.0",
     "@code-to-json/formatter-linker": "^1.0.0-rc.0",
