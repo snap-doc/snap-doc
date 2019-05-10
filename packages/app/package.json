@@ -68,7 +68,7 @@
     "ember-try": "1.1.0",
     "json-typescript": "1.1.2",
     "loader.js": "4.7.0",
-    "nyc": "13.3.0",
+    "nyc": "14.1.1",
     "prember": "1.0.2",
     "qunit-dom": "0.8.4",
     "remark-cli": "6.0.1",
