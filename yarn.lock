@@ -12556,10 +12556,10 @@ snap-shot-compare@2.7.1:
     strip-ansi "4.0.0"
     variable-diff "1.1.0"
 
-snap-shot-core@8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/snap-shot-core/-/snap-shot-core-8.0.0.tgz#d6254fccea3b9cd43b1945c72520fbb28d0b2b57"
-  integrity sha512-QhnM9tTqOPo/KQLbHjgmLyJXZPWQZsybjAvgzCobX9t1nubD93aokLfDhG6txEmlTQz9kY4Vd6iLjiLJao7rOg==
+snap-shot-core@8.0.3:
+  version "8.0.3"
+  resolved "https://registry.yarnpkg.com/snap-shot-core/-/snap-shot-core-8.0.3.tgz#c13016a6b08c123c3d8b1dde28d888c703420362"
+  integrity sha512-K5/yH5ejr90VzCOigxHA664GA7NxZwXDMgiKFjcskxblhTfkDy0KwWynpcJVP5LJtWam4BBfU3Iy7P8cjZcMAg==
   dependencies:
     arg "4.1.0"
     check-more-types "2.24.0"
@@ -12575,10 +12575,10 @@ snap-shot-core@8.0.0:
     quote "0.4.0"
     ramda "0.26.1"
 
-snap-shot-it@6.3.3:
-  version "6.3.3"
-  resolved "https://registry.yarnpkg.com/snap-shot-it/-/snap-shot-it-6.3.3.tgz#16acc0eb529e1f6e5af902520131223a2136ec4b"
-  integrity sha512-TCzkPrxF407HQiqVuhclQp6bti2EqifOzUuxl3wHZ0zCGtVLu89TAWhMW+tX87Ge1QvC4ji9NBdTC/2YVtNSZA==
+snap-shot-it@6.3.5:
+  version "6.3.5"
+  resolved "https://registry.yarnpkg.com/snap-shot-it/-/snap-shot-it-6.3.5.tgz#4c05aa73d07ff45037533533d851cf2a7380831b"
+  integrity sha512-/+i0JKtxBVxBnjEIjG1wsDT23Kj0Z0bLHuUWBE0Xh8JLgsHG6Cr0owbNNgQWRFPy1Krhr6fCIv1lGHdocn877g==
   dependencies:
     "@bahmutov/data-driven" "1.0.0"
     check-more-types "2.24.0"
@@ -12587,7 +12587,7 @@ snap-shot-it@6.3.3:
     pluralize "7.0.0"
     ramda "0.26.1"
     snap-shot-compare "2.7.1"
-    snap-shot-core "8.0.0"
+    snap-shot-core "8.0.3"
 
 snapdragon-node@^2.0.1:
   version "2.1.1"
