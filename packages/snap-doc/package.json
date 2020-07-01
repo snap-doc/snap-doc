@@ -35,7 +35,7 @@
     "mocha": "6.1.2",
     "nyc": "13.3.0",
     "scripty": "1.9.1",
-    "ts-node": "8.0.3"
+    "ts-node": "8.10.2"
   },
   "dependencies": {
     "@mike-north/types": "^1.0.7",
