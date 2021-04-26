@@ -1973,10 +1973,10 @@
   resolved "https://registry.yarnpkg.com/@types/debug/-/debug-4.1.2.tgz#84824e9259fc583dd9385635738359c9582f7f82"
   integrity sha512-jkf6UiWUjcOqdQbatbvOm54/YbCdjt3JjiAzT/9KS2XtMmOkYHdKsI5u8fulhbuTUuiqNBfa6J5GSDiwjK+zLA==
 
-"@types/ember-data@3.1.6":
-  version "3.1.6"
-  resolved "https://registry.yarnpkg.com/@types/ember-data/-/ember-data-3.1.6.tgz#7b2d57301e5b7bee08fc0efc1c4ca22a3f3d1204"
-  integrity sha512-tzK0qL/FEbcwXDNBffjdSrpUgzp+aLMrIJVGPhtkLZoYTiz1blNsmiln7/FynSd/8JgyLo6sTVhZcakCsJ231A==
+"@types/ember-data@3.16.13":
+  version "3.16.13"
+  resolved "https://registry.yarnpkg.com/@types/ember-data/-/ember-data-3.16.13.tgz#df8727f6246b948ae1fb6dfaf21b29e6d1505367"
+  integrity sha512-kABRQygJ5ZRicIPgO0lA7ENnz8MRoHOpgKHrGRmAgiTJgk6cTPnTKWKPZ6KerJm08NYYu0ffNK5xWh3adozTvg==
   dependencies:
     "@types/ember" "*"
     "@types/ember__object" "*"
