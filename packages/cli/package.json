@@ -43,7 +43,7 @@
     "@types/debug": "4.1.2",
     "@types/execa": "0.9.0",
     "@types/mocha": "5.2.6",
-    "@types/tmp": "0.0.34",
+    "@types/tmp": "0.2.3",
     "@types/window-size": "0.2.4",
     "chai": "4.2.0",
     "codecov": "3.3.0",
@@ -99,7 +99,7 @@
     "debug": "^4.1.1",
     "doc-tester": "sparshithNR/doc-tester#open-to-external",
     "import-local": "^2.0.0",
-    "tmp": "^0.1.0",
+    "tmp": "^0.2.0",
     "typescript": "^3.4.3",
     "window-size": "^1.1.1"
   }
